@@ -24,7 +24,7 @@ export const FormActiveStepProvider = ({ children }: { children: ReactNode }) =>
     // Identifiers
     const attr = 'data-toggle';
     const activeIndex = stepsRef.current.findIndex((step) => step.getAttribute(attr) === 'true');
-    const targetIndex = Math.min(Math.max(delta === 0 ? 0 : activeIndex + delta, 0), stepsRef.current.length - 1);
+    const targetIndex = delta === 0 ? 0 : Math.min(Math.max(activeIndex + delta, 0), stepsRef.current.length - 1);
 
     // Update DOM attributes
     for (let i = 0; i <= stepsRef.current.length - 1; i++) {
