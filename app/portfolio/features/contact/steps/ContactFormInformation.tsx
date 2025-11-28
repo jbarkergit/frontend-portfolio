@@ -1,5 +1,7 @@
-import type { JSX } from 'react';
+import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import { MaterialSymbolsCircle } from '~/portfolio/features/contact/assets/ContactFormSVG';
+import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
+import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
 
 const contactInformationInputs = {
   name: { htmlFor: 'name', inputType: 'text' },
@@ -9,21 +11,15 @@ const contactInformationInputs = {
   role: { htmlFor: 'role', inputType: 'text' },
 } as const;
 
-const ContactFormInformation = ({
-  errors,
-  ProjectHubBtn,
-  NextStepBtn,
-}: {
-  errors: Record<string, string>;
-  ProjectHubBtn: () => JSX.Element;
-  NextStepBtn: () => JSX.Element;
-}) => {
+const ContactFormInformation = () => {
+  const { errors, setErrors } = useFormErrors();
+
   return (
     <section
       className='contact__form__step'
       data-toggle='true'>
       <header className='contact__form__step__header'>
-        {ProjectHubBtn()}
+        <ProjectHubBtn />
         <div className='contact__form__step__header__wrapper'>
           <span>
             <MaterialSymbolsCircle />
@@ -68,7 +64,9 @@ const ContactFormInformation = ({
       </ul>
       <nav className='contact__form__step__stepper'>
         <div className='contact__form__step__stepper__section' />
-        <div className='contact__form__step__stepper__section'>{NextStepBtn()}</div>
+        <div className='contact__form__step__stepper__section'>
+          <NextStepBtn />
+        </div>
       </nav>
     </section>
   );

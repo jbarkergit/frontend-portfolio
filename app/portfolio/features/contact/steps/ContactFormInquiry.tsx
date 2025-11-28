@@ -1,22 +1,18 @@
-import { useRef, type JSX } from 'react';
+import { useRef } from 'react';
+import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import { MaterialSymbolsCircle, MaterialSymbolsList } from '~/portfolio/features/contact/assets/ContactFormSVG';
+import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
+import PreviousStepBtn from '~/portfolio/features/contact/components/PreviousStepBtn';
+import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
 
 const inquiryInputs = {
   inquiry: { htmlFor: 'inquiry', inputType: 'select' },
   message: { htmlFor: 'message', inputType: 'text' },
 } as const;
 
-const ContactFormInquiry = ({
-  errors,
-  ProjectHubBtn,
-  PreviousStepBtn,
-  NextStepBtn,
-}: {
-  errors: Record<string, string>;
-  ProjectHubBtn: () => JSX.Element;
-  PreviousStepBtn: () => JSX.Element;
-  NextStepBtn: () => JSX.Element;
-}) => {
+const ContactFormInquiry = () => {
+  const { errors, setErrors } = useFormErrors();
+
   const inquiryTitleRef = useRef<HTMLSpanElement>(null);
   const accordionRef = useRef<HTMLUListElement>(null);
 
@@ -42,7 +38,7 @@ const ContactFormInquiry = ({
       className='contact__form__step'
       data-toggle='false'>
       <header className='contact__form__step__header'>
-        {ProjectHubBtn()}
+        <ProjectHubBtn />
         <div className='contact__form__step__header__wrapper'>
           <span>
             <MaterialSymbolsCircle />
@@ -123,8 +119,12 @@ const ContactFormInquiry = ({
         })}
       </ul>
       <nav className='contact__form__step__stepper'>
-        <div className='contact__form__step__stepper__section'>{PreviousStepBtn()}</div>
-        <div className='contact__form__step__stepper__section'>{NextStepBtn()}</div>
+        <div className='contact__form__step__stepper__section'>
+          <PreviousStepBtn />
+        </div>
+        <div className='contact__form__step__stepper__section'>
+          <NextStepBtn />
+        </div>
       </nav>
     </section>
   );

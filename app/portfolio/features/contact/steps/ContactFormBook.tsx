@@ -1,22 +1,18 @@
-import { useMemo, useState, type JSX } from 'react';
+import { useMemo, useState } from 'react';
+import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import {
   MaterialSymbolsCircle,
   MaterialSymbolsArrowShapeUpStack2,
   MaterialSymbolsArrowLeftAlt,
   MaterialSymbolsArrowRightAlt,
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
+import PreviousStepBtn from '~/portfolio/features/contact/components/PreviousStepBtn';
+import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
 
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
 
-const ContactFormBook = ({
-  errors,
-  ProjectHubBtn,
-  PreviousStepBtn,
-}: {
-  errors: Record<string, string>;
-  ProjectHubBtn: () => JSX.Element;
-  PreviousStepBtn: () => JSX.Element;
-}) => {
+const ContactFormBook = () => {
+  const { errors, setErrors } = useFormErrors();
   const [currentDate, setCurrentDate] = useState(new Date());
 
   // Dates
@@ -59,7 +55,7 @@ const ContactFormBook = ({
       className='contact__form__step'
       data-toggle='false'>
       <header className='contact__form__step__header'>
-        {ProjectHubBtn()}
+        <ProjectHubBtn />
         <div className='contact__form__step__header__wrapper'>
           <span>
             <MaterialSymbolsCircle />
@@ -118,7 +114,7 @@ const ContactFormBook = ({
 
       <nav className='contact__form__step__stepper'>
         <div className='contact__form__step__stepper__section'>
-          {PreviousStepBtn()}{' '}
+          <PreviousStepBtn />
           <button
             className='contact__form__step__stepper__section__button'
             aria-label='Submit form'

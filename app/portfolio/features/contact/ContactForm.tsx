@@ -1,30 +1,29 @@
-import { useCallback, useRef, useState, type SVGProps } from 'react';
+import { useRef } from 'react';
 import { contactSchema } from '~/base/validation/zodSchema';
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
-import {
-  MaterialSymbolsArrowLeftAlt,
-  MaterialSymbolsArrowRightAlt,
-} from '~/portfolio/features/contact/assets/ContactFormSVG';
+import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
+import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import ContactFormBook from '~/portfolio/features/contact/steps/ContactFormBook';
 import ContactFormInformation from '~/portfolio/features/contact/steps/ContactFormInformation';
 import ContactFormInquiry from '~/portfolio/features/contact/steps/ContactFormInquiry';
-import { submitWeb3Form } from '~/portfolio/features/contact/util/submitWeb3Form';
 
 const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>> }) => {
-  const { setFeatureState } = useFeatureState();
+  const { errors, setErrors } = useFormErrors();
+  const { formRef } = useFormActiveStep();
 
-  const isMountedRef = useRef<boolean>(false);
-
-  const formRef = useRef<HTMLFormElement>(null);
+  // Nodes
   const contactContainerRef = useRef<HTMLDivElement>(null);
-  const stepsRef = useRef<HTMLLIElement[]>([]);
-  const activeStepIndex = useRef<number>(0);
 
+  // Flags
   const submittingRef = useRef<boolean>(false);
 
-  const [errors, setErrors] = useState<Record<string, string>>({});
+  const submitFormToWeb3 = async (formData: FormData): Promise<void> => {
+    formData.append('access_key', import.meta.env.VITE_WEB_FORMS_KEY!);
+    const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+    const result = (await response.json()) as { success: boolean };
+    if (!result.success) throw new Error(JSON.stringify(result));
+  };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
 
     if (submittingRef.current) return;
@@ -50,7 +49,7 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
     }
 
     try {
-      await submitWeb3Form(formData);
+      await submitFormToWeb3(formData);
       setErrors({});
       form.reset();
       contactContainerRef.current?.removeAttribute('data-submission-invalid');
@@ -63,78 +62,6 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
     }
   };
 
-  const updateSteps = () => {
-    if (!formRef.current) return;
-    const steps = Array.from(formRef.current.children) as HTMLLIElement[];
-
-    if (steps) {
-      isMountedRef.current = true;
-      stepsRef.current = steps;
-    }
-  };
-
-  const handleSection = (index?: number) => {
-    if (!isMountedRef.current) updateSteps();
-    if (!stepsRef.current.length) return;
-
-    const clamped = Math.min(Math.max(index ?? activeStepIndex.current, 0), stepsRef.current.length - 1);
-
-    for (let i = 0; i < stepsRef.current.length; i++) {
-      const step = stepsRef.current[i];
-      if (step) step.setAttribute('data-toggle', i === clamped ? 'true' : 'false');
-    }
-
-    activeStepIndex.current = clamped;
-  };
-
-  const ProjectHubBtn = useCallback(
-    () => (
-      <nav className='contact__form__step__header__nav'>
-        <button
-          aria-label='Return to Contact Information'
-          type='button'
-          onClick={() => {
-            handleSection(0);
-            setFeatureState((prev: any) => ({ ...prev, contactFormActive: false }));
-          }}>
-          <MaterialSymbolsArrowLeftAlt />
-        </button>
-      </nav>
-    ),
-    []
-  );
-
-  const PreviousStepBtn = useCallback(
-    () => (
-      <button
-        className='contact__form__step__stepper__section__button'
-        aria-label='Return to previous step'
-        type='button'
-        onClick={() => handleSection(activeStepIndex.current - 1)}>
-        <span>
-          <MaterialSymbolsArrowLeftAlt />
-        </span>
-      </button>
-    ),
-    []
-  );
-
-  const NextStepBtn = useCallback(
-    () => (
-      <button
-        className='contact__form__step__stepper__section__button'
-        aria-label='Continue to next step'
-        type='button'
-        onClick={() => handleSection(activeStepIndex.current + 1)}>
-        <span>Next</span>
-        <span>
-          <MaterialSymbolsArrowRightAlt />
-        </span>
-      </button>
-    ),
-    []
-  );
-
   return (
     <section
       className='contact'
@@ -145,23 +72,10 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
       <form
         className='contact__form'
         ref={formRef}
-        onSubmit={handleSubmit}>
-        <ContactFormInformation
-          errors={errors}
-          ProjectHubBtn={ProjectHubBtn}
-          NextStepBtn={NextStepBtn}
-        />
-        <ContactFormInquiry
-          errors={errors}
-          ProjectHubBtn={ProjectHubBtn}
-          PreviousStepBtn={PreviousStepBtn}
-          NextStepBtn={NextStepBtn}
-        />
-        <ContactFormBook
-          errors={errors}
-          PreviousStepBtn={PreviousStepBtn}
-          ProjectHubBtn={ProjectHubBtn}
-        />
+        onSubmit={onSubmit}>
+        <ContactFormInformation />
+        <ContactFormInquiry />
+        <ContactFormBook />
       </form>
     </section>
   );
