@@ -21,6 +21,10 @@ const ContactFormInquiry = () => {
 
     if (accordionRef.current?.contains(e.target as Node)) {
       inquiryTitleRef.current.textContent = (e.target as HTMLSpanElement).textContent;
+
+      if (!inquiryTitleRef.current.hasAttribute('data-toggle')) {
+        inquiryTitleRef.current.setAttribute('data-toggle', 'true');
+      }
     }
 
     accordionRef.current?.setAttribute('data-toggle', 'false');
@@ -99,6 +103,7 @@ const ContactFormInquiry = () => {
                   <textarea
                     id='message'
                     name='message'
+                    placeholder=' '
                     aria-invalid={!!errors.message}
                     aria-describedby='message-error'
                   />
