@@ -26,9 +26,6 @@ export const FormActiveStepProvider = ({ children }: { children: ReactNode }) =>
     const activeIndex = stepsRef.current.findIndex((step) => step.getAttribute(attr) === 'true');
     const targetIndex = Math.min(Math.max(delta === 0 ? 0 : activeIndex + delta, 0), stepsRef.current.length - 1);
 
-    console.log(activeIndex);
-    console.log(targetIndex);
-
     // Update DOM attributes
     for (let i = 0; i <= stepsRef.current.length - 1; i++) {
       const step = stepsRef.current[i];
