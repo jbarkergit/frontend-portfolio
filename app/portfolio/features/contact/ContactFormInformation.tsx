@@ -5,6 +5,7 @@ import {
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
 import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
 import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
+import { Fragment } from 'react/jsx-runtime';
 
 const contactInformationInputs = {
   name: { htmlFor: 'name', inputType: 'text' },
@@ -15,7 +16,7 @@ const contactInformationInputs = {
 } as const;
 
 const ContactFormInformation = () => {
-  const { errors, setErrors } = useFormErrors();
+  const { errors } = useFormErrors();
 
   return (
     <section
@@ -33,9 +34,9 @@ const ContactFormInformation = () => {
       </header>
       <ul className='contact__form__step__ul'>
         {Object.entries(contactInformationInputs).map(([key, { htmlFor, inputType }]) => (
-          <>
+          <Fragment key={`contact-form-${key}`}>
             {errors[key] && (
-              <li key={`error-${errors[key]}`}>
+              <li>
                 <div
                   className='contact__form__step__ul__error'
                   role='alert'>
@@ -56,7 +57,9 @@ const ContactFormInformation = () => {
                   ? 'Agency (optional)'
                   : htmlFor === 'role'
                     ? 'Role (optional)'
-                    : htmlFor.replaceAll('-', ' ')}
+                    : htmlFor === 'phone'
+                      ? 'Phone (optional)'
+                      : htmlFor.replaceAll('-', ' ')}
               </label>
               <input
                 className='contact__form__step__ul__li__input'
@@ -68,7 +71,7 @@ const ContactFormInformation = () => {
                 aria-describedby={`${htmlFor}-error`}
               />
             </li>
-          </>
+          </Fragment>
         ))}
       </ul>
       <nav className='contact__form__step__stepper'>

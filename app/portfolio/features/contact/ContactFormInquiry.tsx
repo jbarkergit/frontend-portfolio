@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import {
   MaterialSymbolsCircle,
@@ -15,7 +15,7 @@ const inquiryInputs = {
 } as const;
 
 const ContactFormInquiry = () => {
-  const { errors, setErrors } = useFormErrors();
+  const { errors } = useFormErrors();
 
   const inquiryTitleRef = useRef<HTMLSpanElement>(null);
   const accordionRef = useRef<HTMLUListElement>(null);
@@ -62,9 +62,9 @@ const ContactFormInquiry = () => {
       <ul className='contact__form__step__ul'>
         {Object.entries(inquiryInputs).map(([key, { htmlFor }]) => {
           return (
-            <>
+            <Fragment key={`contact-form-${key}`}>
               {errors[key] && (
-                <li key={`error-${errors[key]}`}>
+                <li>
                   <div
                     className='contact__form__step__ul__error'
                     role='alert'>
@@ -141,7 +141,7 @@ const ContactFormInquiry = () => {
                   </>
                 )}
               </li>
-            </>
+            </Fragment>
           );
         })}
       </ul>
