@@ -124,73 +124,65 @@
         width: 100%;
         &__li {
           position: relative;
+          // Padding top & bottom + font-size
+          min-height: calc(12px * 2 + var(--font-size-s));
           border-radius: 3px;
           overflow: clip;
           transition: background-color ease-in-out 240ms;
           font-size: var(--font-size-s);
           text-transform: capitalize;
-          & > *:not(label):not(textarea) {
-            padding: 12px 16px;
-            border: 1.5px solid hsl(240, 4%, 22%);
-            font-size: inherit;
-            text-transform: inherit;
-          }
-          // On <li> focus, change background-color
-          &:focus-within {
-            background-color: #eaeffd;
-          }
-          // On <input> and <textarea> focus, animate label
-          &:has(input:focus) label,
-          &:has(input:not(:focus):not(:placeholder-shown)) label,
-          &:has(textarea:focus) label,
-          &:has(textarea:not(:focus):not(:placeholder-shown)) label {
-            transform: translateY(calc((12px * 2) * 1.5) * -1); // Matches <input> padding-top & bottom
-            opacity: 0;
-            transition:
-              transform ease-in-out 60ms,
-              opacity ease-in-out 60ms;
-          }
-          // On <input> and <textarea> focus, change font color to black
-          &:has(input:focus) input,
-          & textarea:focus {
-            color: black;
-          }
-          // When <input> and <textarea> has user text, change background and font colors to black
-          & input:not(:placeholder-shown),
-          & textarea:not(:placeholder-shown) {
-            background-color: #eaeffd;
-            color: black;
-          }
           // All li elements except <label> and <textarea>
-          & > *:not(label):not(textarea) {
-            width: 100%;
-            height: calc((6px * 2 + 16px) * 2.25); // (Padding height * 2 + font size) * 2
-            white-space: nowrap;
-          }
-          & label {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            left: 16px; // Matches padding of <li> elements
-            pointer-events: none;
-          }
-          // <textarea>
-          &:has(textarea) {
-            display: flex;
-            align-items: flex-start;
-            label {
-              top: 0;
-              left: 0;
-              transform: translateX(16px) translateY(12px);
-            }
-          }
+          // & > *:not(label):not(textarea) {
+          //   width: 100%;
+          //   height: calc((6px * 2 + 16px) * 2.25); // (Padding height * 2 + font size) * 2
+          //   white-space: nowrap;
+          // }
+          & input,
           & textarea {
             width: 100%;
             height: 100%;
-            min-height: 15rem;
             padding: 12px 16px;
+            border: 1.5px solid hsl(240, 4%, 22%);
             background-color: inherit;
+            font-size: inherit;
+            text-transform: inherit;
             white-space: normal;
+          }
+          & textarea {
+            min-height: 15rem;
+          }
+          &:has(textarea) {
+            border: unset;
+          }
+          & label {
+            position: absolute;
+            pointer-events: none;
+            left: 16px; // Matches padding of <li> elements
+          }
+          &:has(input) label {
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          &:has(textarea) label {
+            top: 12px; // Matches padding of <li> elements
+          }
+          // On <li> focus or when any inner node contains user text, change background-color and font color for any inner node and their placeholders
+          &:focus-within,
+          &:has(*:not(label):not(:placeholder-shown)) {
+            background-color: #eaeffd;
+            color: black;
+          }
+          // While any inner node is focused or contains user text, animate label
+          &:has(*:not(label):focus) label,
+          &:has(*:not(label):not(:placeholder-shown)) label {
+            transform: translateY(calc((12px * 2) * 1.5) * -1); // Matches <input> padding-top & bottom
+            opacity: 0;
+            transition:
+              transform ease-in-out 120ms,
+              opacity ease-in-out 120ms;
+          }
+          &__error {
+            border: unset !important;
           }
         }
         // Accordion (custom <select>/<option>)
