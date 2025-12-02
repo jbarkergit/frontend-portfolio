@@ -2,9 +2,9 @@ import { useRef } from 'react';
 import { contactSchema } from '~/base/validation/zodSchema';
 import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
-import ContactFormBook from '~/portfolio/features/contact/steps/ContactFormBook';
-import ContactFormInformation from '~/portfolio/features/contact/steps/ContactFormInformation';
-import ContactFormInquiry from '~/portfolio/features/contact/steps/ContactFormInquiry';
+import ContactFormBook from '~/portfolio/features/contact/ContactFormBook';
+import ContactFormInformation from '~/portfolio/features/contact/ContactFormInformation';
+import ContactFormInquiry from '~/portfolio/features/contact/ContactFormInquiry';
 
 const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const { errors, setErrors } = useFormErrors();
@@ -34,6 +34,8 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
     const formObject = Object.fromEntries(formData.entries());
     const result = contactSchema.safeParse(formObject);
 
+    console.log(formObject);
+
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
 
@@ -52,11 +54,9 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
       await submitFormToWeb3(formData);
       setErrors({});
       form.reset();
-      contactContainerRef.current?.removeAttribute('data-submission-invalid');
       setIsSubmitted(true);
     } catch (error) {
       console.error('Submission error:', error);
-      contactContainerRef.current?.setAttribute('data-submission-invalid', 'true');
     } finally {
       submittingRef.current = false;
     }
