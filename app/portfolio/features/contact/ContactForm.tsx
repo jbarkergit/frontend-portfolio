@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { contactSchema } from '~/base/validation/zodSchema';
 import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
@@ -36,8 +36,6 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
     const formObject = Object.fromEntries(formData.entries());
     const result = contactSchema.safeParse(formObject);
 
-    console.log(formObject);
-
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
 
@@ -63,10 +61,6 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
       submittingRef.current = false;
     }
   };
-
-  useEffect(() => {
-    console.log(isBookingActive);
-  }, [isBookingActive]);
 
   return (
     <section
