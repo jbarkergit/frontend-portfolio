@@ -124,19 +124,12 @@
         width: 100%;
         &__li {
           position: relative;
-          // Padding top & bottom + font-size
-          min-height: calc(12px * 2 + var(--font-size-s));
+          min-height: calc((6px * 2 + 16px) * 2.25); // (Padding height * 2 + font size) * 2
           border-radius: 3px;
           overflow: clip;
           transition: background-color ease-in-out 240ms;
           font-size: var(--font-size-s);
           text-transform: capitalize;
-          // All li elements except <label> and <textarea>
-          // & > *:not(label):not(textarea) {
-          //   width: 100%;
-          //   height: calc((6px * 2 + 16px) * 2.25); // (Padding height * 2 + font size) * 2
-          //   white-space: nowrap;
-          // }
           & input,
           & textarea {
             width: 100%;
@@ -146,7 +139,7 @@
             background-color: inherit;
             font-size: inherit;
             text-transform: inherit;
-            white-space: normal;
+            white-space: nowrap;
           }
           & textarea {
             min-height: 15rem;
@@ -166,6 +159,9 @@
           &:has(textarea) label {
             top: 12px; // Matches padding of <li> elements
           }
+          &__error {
+            border: unset !important;
+          }
           // On <li> focus or when any inner node contains user text, change background-color and font color for any inner node and their placeholders
           &:focus-within,
           &:has(*:not(label):not(:placeholder-shown)) {
@@ -180,9 +176,6 @@
             transition:
               transform ease-in-out 120ms,
               opacity ease-in-out 120ms;
-          }
-          &__error {
-            border: unset !important;
           }
         }
         // Accordion (custom <select>/<option>)
@@ -201,19 +194,13 @@
             border-bottom-left-radius: 0;
             border-top-left-radius: 3px;
           }
-          &:has(ul[data-toggle='true']) div,
-          &:has(ul[data-toggle='true']) ul {
-            background-color: #eaeffd;
-            color: black !important;
-          }
           & div {
             display: flex;
             align-items: center;
+            width: 100%;
+            height: 100%;
+            padding: 0 16px;
             border: unset;
-            &:has(span:nth-of-type(1)[data-toggle='true']) {
-              background-color: #eaeffd;
-              color: black !important;
-            }
             & span:nth-of-type(1) {
               flex: 1 1 70%;
               display: block;
@@ -237,8 +224,8 @@
             top: 100%;
             left: 50%;
             z-index: 10;
-            width: calc(100% + 20px);
-            height: auto !important;
+            width: calc(100% + 1.5px * 2); // Add left and right borders
+            height: 100%;
             padding: unset;
             border-right: 1.5px solid hsl(240, 4%, 22%);
             border-bottom: 1.5px solid hsl(240, 4%, 22%);
@@ -254,14 +241,23 @@
               display: flex;
               flex-direction: column;
             }
+            &[data-selected='true'] {
+              background-color: #eaeffd;
+              color: black;
+            }
+            &:not(:hover) li:nth-of-type(1) {
+              background-color: hsl(224, 83%, 98%);
+            }
             & li {
               display: block;
               background-color: inherit;
-              padding: 6px 12px;
               cursor: pointer;
               text-transform: none;
               &:hover {
                 background-color: hsl(224, 83%, 98%);
+              }
+              & input {
+                border: unset;
               }
             }
           }
