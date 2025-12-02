@@ -1,6 +1,14 @@
 import { z } from 'zod';
 
 export const zodSchema = z.object({
+  fullName: z
+    .string()
+    .trim()
+    .regex(/^[\p{L} '-]+(?:\s+[\p{L} '-]+)+$/u, {
+      message: 'Please enter your full name.',
+    })
+    .min(1, { message: 'Full name is required.' }),
+
   firstName: z
     .string()
     .trim()
@@ -73,6 +81,30 @@ export const zodSchema = z.object({
   tos: z.boolean().refine((val) => val === true, {
     message: 'You must accept the terms.',
   }),
+
+  inquiryTitle: z.enum([
+    'I’m looking to hire a React developer for a full-time role.',
+    'I need a React front-end developer to build a new web application.',
+    'I need a React front-end developer to add new features or improve an existing project.',
+    "I'm looking for a React developer for debugging, optimization, or ongoing maintenance.",
+    'I have designs I need implemented in React.',
+    'I’d like to discuss a partnership or joint project using React.',
+  ]),
+
+  bookingDate: z
+    .string()
+    .regex(/^\d{4}-\d{2}-\d{2}$/, {
+      message: 'Date must be in YYYY-MM-DD format.',
+    })
+    .refine(
+      (value) => {
+        const date = new Date(value);
+        return !isNaN(date.getTime());
+      },
+      {
+        message: 'Invalid date.',
+      }
+    ),
 });
 
 export type Schema = z.infer<typeof zodSchema>;
