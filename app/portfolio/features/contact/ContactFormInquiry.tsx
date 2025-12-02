@@ -8,6 +8,8 @@ import {
 import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
 import PreviousStepBtn from '~/portfolio/features/contact/components/PreviousStepBtn';
 import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
+import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
+import SubmitBtn from '~/portfolio/features/contact/components/SubmitBtn';
 
 const inquiryInputs = {
   inquiry: { htmlFor: 'inquiry', inputType: 'select' },
@@ -16,6 +18,7 @@ const inquiryInputs = {
 
 const ContactFormInquiry = () => {
   const { errors } = useFormErrors();
+  const { isBookingActive } = useBookingActive();
 
   const inquiryTitleRef = useRef<HTMLSpanElement>(null);
   const accordionRef = useRef<HTMLUListElement>(null);
@@ -149,9 +152,7 @@ const ContactFormInquiry = () => {
         <div className='contact__form__step__stepper__section'>
           <PreviousStepBtn />
         </div>
-        <div className='contact__form__step__stepper__section'>
-          <NextStepBtn />
-        </div>
+        <div className='contact__form__step__stepper__section'>{isBookingActive ? <NextStepBtn /> : <SubmitBtn />}</div>
       </nav>
     </section>
   );

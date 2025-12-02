@@ -31,6 +31,14 @@
         background: #f3f3f1;
       }
     }
+    &:has(:not(.contactFormBooking)) {
+      .contact__form__step[data-toggle='false'] {
+        flex: 0 1 20svw;
+      }
+      .contact__form__step[data-toggle='true'] {
+        flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 2));
+      }
+    }
     &__step {
       display: flex;
       flex-direction: column;
@@ -71,8 +79,7 @@
         }
       }
       &[data-toggle='true'] {
-        // Subtract padding from 'false' nodes
-        flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 4));
+        flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 4)); // Subtract padding from 'false' nodes
         padding: 25svh calc(s.$box-model-viewport-x / 1.5) 15svh calc(s.$box-model-viewport-x / 1.5);
         & > *,
         & > * > * {

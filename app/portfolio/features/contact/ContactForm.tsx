@@ -1,14 +1,16 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { contactSchema } from '~/base/validation/zodSchema';
 import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import ContactFormBook from '~/portfolio/features/contact/ContactFormBook';
 import ContactFormInformation from '~/portfolio/features/contact/ContactFormInformation';
 import ContactFormInquiry from '~/portfolio/features/contact/ContactFormInquiry';
+import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
 
 const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const { errors, setErrors } = useFormErrors();
   const { formRef } = useFormActiveStep();
+  const { isBookingActive } = useBookingActive();
 
   // Nodes
   const contactContainerRef = useRef<HTMLDivElement>(null);
@@ -62,6 +64,10 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
     }
   };
 
+  useEffect(() => {
+    console.log(isBookingActive);
+  }, [isBookingActive]);
+
   return (
     <section
       className='contact'
@@ -75,7 +81,7 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
         onSubmit={onSubmit}>
         <ContactFormInformation />
         <ContactFormInquiry />
-        <ContactFormBook />
+        {isBookingActive && <ContactFormBook />}
       </form>
     </section>
   );

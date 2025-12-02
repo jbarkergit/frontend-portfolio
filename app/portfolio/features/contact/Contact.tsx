@@ -3,6 +3,7 @@ import { FormActiveStepProvider } from '~/portfolio/features/contact/context/For
 import { FormErrorsProvider } from '~/portfolio/features/contact/context/FormErrorsContext';
 import ContactForm from '~/portfolio/features/contact/ContactForm';
 import ContactSubmitted from '~/portfolio/features/contact/ContactSubmitted';
+import { BookingActiveProvider } from '~/portfolio/features/contact/context/FormBookingActiveContext';
 
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
@@ -11,7 +12,9 @@ const Contact = () => {
   ) : (
     <FormActiveStepProvider>
       <FormErrorsProvider>
-        <ContactForm setIsSubmitted={setIsSubmitted} />
+        <BookingActiveProvider>
+          <ContactForm setIsSubmitted={setIsSubmitted} />
+        </BookingActiveProvider>
       </FormErrorsProvider>
     </FormActiveStepProvider>
   );

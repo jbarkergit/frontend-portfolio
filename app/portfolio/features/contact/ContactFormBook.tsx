@@ -7,6 +7,7 @@ import {
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
 import PreviousStepBtn from '~/portfolio/features/contact/components/PreviousStepBtn';
 import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
+import SubmitBtn from '~/portfolio/features/contact/components/SubmitBtn';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
@@ -47,7 +48,7 @@ const ContactFormBook = () => {
 
   return (
     <section
-      className='contact__form__step'
+      className='contact__form__step contactFormBooking'
       data-toggle='false'>
       <header className='contact__form__step__header'>
         <ProjectHubBtn />
@@ -133,14 +134,7 @@ const ContactFormBook = () => {
       <nav className='contact__form__step__stepper'>
         <div className='contact__form__step__stepper__section'>
           <PreviousStepBtn />
-          <button
-            className='contact__form__step__stepper__section__button'
-            aria-label='Submit form'
-            type='submit'>
-            <span>
-              <MaterialSymbolsOutgoingMail />
-            </span>
-          </button>
+          <SubmitBtn />
         </div>
       </nav>
     </section>

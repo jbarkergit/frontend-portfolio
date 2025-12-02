@@ -3,12 +3,13 @@ import { MaterialSymbolsArrowRightAlt } from '~/portfolio/features/contact/asset
 import { z } from 'zod';
 import { zodSchema } from '~/base/validation/zodSchema';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
+import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
 
 const contactInformationSchema = z.object({
   fullName: zodSchema.shape.fullName,
   emailAddress: zodSchema.shape.emailAddress,
   phoneNumber: zodSchema.shape.phoneNumber,
-  agency: zodSchema.shape.business,
+  agency: zodSchema.shape.agency,
   role: zodSchema.shape.role,
 });
 
@@ -20,6 +21,7 @@ const inquirySchema = z.object({
 const NextStepBtn = () => {
   const { formRef, activeStepIndex, updateActiveStep } = useFormActiveStep();
   const { setErrors } = useFormErrors();
+  const { isBookingActive, setIsBookingActive } = useBookingActive();
 
   const validate = () => {
     const form = formRef.current;
@@ -30,18 +32,22 @@ const NextStepBtn = () => {
       const formObject = Object.fromEntries(formData.entries());
       const result = validator.safeParse(formObject);
 
-      if (!result.success) {
-        const fieldErrors: Record<string, string> = {};
-
-        for (const issue of result.error.issues) {
-          if (typeof issue.path[0] === 'string') {
-            fieldErrors[issue.path[0]] = issue.message;
-          }
-        }
-
-        setErrors(fieldErrors);
-        return;
+      if (validator === contactInformationSchema) {
+        setIsBookingActive(formObject['phoneNumber'] !== '');
       }
+
+      // if (!result.success) {
+      const fieldErrors: Record<string, string> = {};
+
+      for (const issue of result.error.issues) {
+        if (typeof issue.path[0] === 'string') {
+          fieldErrors[issue.path[0]] = issue.message;
+        }
+      }
+
+      setErrors(fieldErrors);
+      //   return;
+      // }
 
       updateActiveStep(1);
     } else {
