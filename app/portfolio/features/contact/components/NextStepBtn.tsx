@@ -36,18 +36,18 @@ const NextStepBtn = () => {
         setIsBookingActive(formObject['phoneNumber'] !== '');
       }
 
-      // if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
+      if (!result.success) {
+        const fieldErrors: Record<string, string> = {};
 
-      for (const issue of result.error.issues) {
-        if (typeof issue.path[0] === 'string') {
-          fieldErrors[issue.path[0]] = issue.message;
+        for (const issue of result.error.issues) {
+          if (typeof issue.path[0] === 'string') {
+            fieldErrors[issue.path[0]] = issue.message;
+          }
         }
-      }
 
-      setErrors(fieldErrors);
-      //   return;
-      // }
+        setErrors(fieldErrors);
+        return;
+      }
 
       updateActiveStep(1);
     } else {
