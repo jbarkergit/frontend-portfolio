@@ -45,7 +45,7 @@ export function MaterialSymbolsArrowRightAlt(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-export function MaterialSymbolsArrowShapeUpStack2(props: SVGProps<SVGSVGElement>) {
+export function MaterialSymbolsOutgoingMail(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -54,7 +54,7 @@ export function MaterialSymbolsArrowShapeUpStack2(props: SVGProps<SVGSVGElement>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'
-        d='M9 23v-3H4l8-9l8 9h-5v3zm-5-8l8-9l8 9h-2.675L12 9l-5.325 6zm0-5l8-9l8 9h-2.675L12 4l-5.325 6z'
+        d='m18 20l-1.4-1.4l1.575-1.6H14v-2h4.175L16.6 13.4L18 12l4 4zm-7.6-9L17 7.15V5h-.25L10.4 8.675L4.225 5H4v2.2zm-6.525 6q-.775 0-1.325-.55T2 15.125V4.875q0-.775.55-1.325T3.875 3h13.25q.775 0 1.325.55T19 4.875V10.1q-.25-.05-.5-.075T18 10q-2.45 0-4.225 1.763T12 16q0 .25.025.5t.075.5z'
       />
     </svg>
   );
