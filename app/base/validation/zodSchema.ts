@@ -48,7 +48,7 @@ export const zodSchema = z.object({
       message: 'Password must contain a special character.',
     }),
 
-  business: z.string().trim().optional(),
+  agency: z.string().trim().optional(),
   role: z.string().trim().optional(),
 
   website: z
@@ -74,7 +74,8 @@ export const zodSchema = z.object({
     .transform((val) => val.replace(/\D/g, ''))
     .refine((digits) => digits.length >= 10, {
       message: 'Phone number must have at least 10 digits.',
-    }),
+    })
+    .optional(),
 
   message: z.string().trim().min(5, { message: 'Please type your inquiry.' }),
 
@@ -114,7 +115,7 @@ export const contactSchema = z.object({
   lastName: zodSchema.shape.lastName,
   phoneNumber: zodSchema.shape.phoneNumber,
   emailAddress: zodSchema.shape.emailAddress,
-  business: zodSchema.shape.business,
+  business: zodSchema.shape.agency,
   role: zodSchema.shape.role,
   message: zodSchema.shape.message,
 });
