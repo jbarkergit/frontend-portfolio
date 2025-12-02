@@ -218,6 +218,10 @@
               }
             }
           }
+          &:has(ul[data-toggle='false']):not(:has(ul[data-selected='true'])) {
+            background-color: #141414;
+            color: white;
+          }
           & ul {
             display: none;
             position: absolute;
@@ -233,13 +237,14 @@
             border-top: unset;
             border-bottom-right-radius: 3px;
             border-bottom-left-radius: 3px;
-            background-color: s.$background-color-primary;
             cursor: pointer;
             pointer-events: all;
             transform: translateX(-50%);
             &[data-toggle='true'] {
               display: flex;
               flex-direction: column;
+              background-color: #eaeffd;
+              color: black;
             }
             &[data-selected='true'] {
               background-color: #eaeffd;
