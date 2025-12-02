@@ -159,9 +159,6 @@
           &:has(textarea) label {
             top: 12px; // Matches padding of <li> elements
           }
-          &__error {
-            border: unset !important;
-          }
           // On <li> focus or when any inner node contains user text, change background-color and font color for any inner node and their placeholders
           &:focus-within,
           &:has(*:not(label):not(:placeholder-shown)) {
@@ -265,6 +262,15 @@
                 border: unset;
               }
             }
+          }
+        }
+        &__error {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          margin: calc(16px / 2) 0 calc((16px / 2) * -1) 0;
+          & svg {
+            width: 1.6rem;
           }
         }
       }

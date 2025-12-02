@@ -1,5 +1,8 @@
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
-import { MaterialSymbolsCircle } from '~/portfolio/features/contact/assets/ContactFormSVG';
+import {
+  MaterialSymbolsCircle,
+  MaterialSymbolsErrorCircleRoundedSharp,
+} from '~/portfolio/features/contact/assets/ContactFormSVG';
 import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
 import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
 
@@ -30,36 +33,42 @@ const ContactFormInformation = () => {
       </header>
       <ul className='contact__form__step__ul'>
         {Object.entries(contactInformationInputs).map(([key, { htmlFor, inputType }]) => (
-          <li
-            className='contact__form__step__ul__li'
-            key={`contact-form-information-${key}`}>
-            <label
-              htmlFor={htmlFor}
-              className='contact__form__step__ul__li__label'>
-              {htmlFor === 'business'
-                ? 'Agency (optional)'
-                : htmlFor === 'role'
-                  ? 'Role (optional)'
-                  : htmlFor.replaceAll('-', ' ')}
-            </label>
-            <input
-              className='contact__form__step__ul__li__input'
-              id={htmlFor}
-              type={inputType}
-              name={key}
-              placeholder=' '
-              aria-invalid={!!errors[key]}
-              aria-describedby={`${htmlFor}-error`}
-            />
+          <>
             {errors[key] && (
-              <div
-                className='contact__form__step__ul__li__error'
-                id={`${htmlFor}-error`}
-                role='alert'>
-                {errors[key]}
-              </div>
+              <li key={`error-${errors[key]}`}>
+                <div
+                  className='contact__form__step__ul__error'
+                  role='alert'>
+                  <span>
+                    <MaterialSymbolsErrorCircleRoundedSharp />
+                  </span>
+                  <span>{errors[key]}</span>
+                </div>
+              </li>
             )}
-          </li>
+            <li
+              className='contact__form__step__ul__li'
+              key={`contact-form-information-${key}`}>
+              <label
+                htmlFor={htmlFor}
+                className='contact__form__step__ul__li__label'>
+                {htmlFor === 'business'
+                  ? 'Agency (optional)'
+                  : htmlFor === 'role'
+                    ? 'Role (optional)'
+                    : htmlFor.replaceAll('-', ' ')}
+              </label>
+              <input
+                className='contact__form__step__ul__li__input'
+                id={htmlFor}
+                type={inputType}
+                name={key}
+                placeholder=' '
+                aria-invalid={!!errors[key]}
+                aria-describedby={`${htmlFor}-error`}
+              />
+            </li>
+          </>
         ))}
       </ul>
       <nav className='contact__form__step__stepper'>
