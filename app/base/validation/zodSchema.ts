@@ -110,32 +110,3 @@ export const zodSchema = z.object({
 });
 
 export type Schema = z.infer<typeof zodSchema>;
-
-export const contactSchema = z.object({
-  firstName: zodSchema.shape.firstName,
-  lastName: zodSchema.shape.lastName,
-  phoneNumber: zodSchema.shape.phoneNumber,
-  emailAddress: zodSchema.shape.emailAddress,
-  business: zodSchema.shape.agency,
-  role: zodSchema.shape.role,
-  message: zodSchema.shape.message,
-});
-
-export const registrationSchema = z
-  .object({
-    firstName: zodSchema.shape.firstName,
-    lastName: zodSchema.shape.lastName,
-    emailAddress: zodSchema.shape.emailAddress,
-    password: zodSchema.shape.password,
-    passwordConfirmation: z.string().min(1, 'Please retype your password.'),
-    tos: zodSchema.shape.tos,
-  })
-  .refine((data) => data.password === data.passwordConfirmation, {
-    path: ['passwordConfirmation'],
-    message: 'Passwords must match',
-  });
-
-export const loginSchema = z.object({
-  emailAddress: zodSchema.shape.emailAddress,
-  password: zodSchema.shape.password,
-});

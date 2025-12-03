@@ -1,11 +1,22 @@
 import { useRef } from 'react';
-import { contactSchema } from '~/base/validation/zodSchema';
 import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import ContactFormBook from '~/portfolio/features/contact/ContactFormBook';
 import ContactFormInformation from '~/portfolio/features/contact/ContactFormInformation';
 import ContactFormInquiry from '~/portfolio/features/contact/ContactFormInquiry';
 import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
+import { z } from 'zod';
+import { zodSchema } from '~/base/validation/zodSchema';
+
+const contactSchema = z.object({
+  firstName: zodSchema.shape.firstName,
+  lastName: zodSchema.shape.lastName,
+  phoneNumber: zodSchema.shape.phoneNumber,
+  emailAddress: zodSchema.shape.emailAddress,
+  business: zodSchema.shape.agency,
+  role: zodSchema.shape.role,
+  message: zodSchema.shape.message,
+});
 
 const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const { errors, setErrors } = useFormErrors();

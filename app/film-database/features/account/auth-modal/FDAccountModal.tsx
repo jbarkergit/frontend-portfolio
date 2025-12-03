@@ -1,8 +1,7 @@
-import { forwardRef, useEffect, useRef, useState, type HTMLAttributes } from 'react';
-import { loginSchema, registrationSchema } from '~/base/validation/zodSchema';
+import { forwardRef, useRef, useState, type HTMLAttributes } from 'react';
 import { TablerBrandGithubFilled, DeviconGoogle, GameIconsSpy } from '~/film-database/assets/svg/icons';
 import FDAccountModalPoster from '~/film-database/features/account/auth-modal/FDAccountModalPoster';
-import { type ZodIssue } from 'zod';
+import { z, type ZodIssue } from 'zod';
 import { firebaseAuth } from '~/base/firebase/config/firebaseConfig';
 import {
   createUserWithEmailAndPassword,
@@ -14,6 +13,26 @@ import {
 } from 'firebase/auth';
 import { normalizeFirebaseAuthError } from '~/base/firebase/firestore/helpers/normalizeFirebaseAuthError';
 import { GithubAuthProvider } from 'firebase/auth/web-extension';
+import { zodSchema } from '~/base/validation/zodSchema';
+
+const registrationSchema = z
+  .object({
+    firstName: zodSchema.shape.firstName,
+    lastName: zodSchema.shape.lastName,
+    emailAddress: zodSchema.shape.emailAddress,
+    password: zodSchema.shape.password,
+    passwordConfirmation: z.string().min(1, 'Please retype your password.'),
+    tos: zodSchema.shape.tos,
+  })
+  .refine((data) => data.password === data.passwordConfirmation, {
+    path: ['passwordConfirmation'],
+    message: 'Passwords must match',
+  });
+
+const loginSchema = z.object({
+  emailAddress: zodSchema.shape.emailAddress,
+  password: zodSchema.shape.password,
+});
 
 const registration = [
   {

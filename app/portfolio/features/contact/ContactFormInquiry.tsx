@@ -34,22 +34,15 @@ const ContactFormInquiry = () => {
   const accordionRef = useRef<HTMLUListElement>(null);
 
   const untoggleAccordion = (e: PointerEvent) => {
-    if (!inquiryTitleRef.current) return;
+    if (!inquiryTitleRef.current || !inquiryTitleInputRef.current) return;
 
     if (accordionRef.current?.contains(e.target as Node)) {
       const target = e.target as HTMLElement;
+      if (!(target instanceof HTMLButtonElement)) return;
 
-      if (target instanceof HTMLButtonElement) {
-        inquiryTitleRef.current.textContent = target.textContent;
-
-        if (inquiryTitleInputRef.current) {
-          inquiryTitleInputRef.current.value = target.textContent;
-        }
-      }
-
-      if (inquiryTitleRef.current.textContent !== 'Select A Title') {
-        accordionRef.current.setAttribute('data-selected', 'true');
-      }
+      inquiryTitleRef.current.textContent = target.textContent;
+      inquiryTitleInputRef.current.value = target.textContent;
+      accordionRef.current.setAttribute('data-selected', 'true');
     }
 
     accordionRef.current?.setAttribute('data-toggle', 'false');
