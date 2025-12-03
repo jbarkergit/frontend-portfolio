@@ -1,4 +1,4 @@
-import { Fragment, useRef } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import {
   MaterialSymbolsCircle,
@@ -29,19 +29,15 @@ const ContactFormInquiry = () => {
   const { errors } = useFormErrors();
   const { isBookingActive } = useBookingActive();
 
-  const inquiryTitleRef = useRef<HTMLSpanElement>(null);
-  const inquiryTitleInputRef = useRef<HTMLInputElement>(null);
   const accordionRef = useRef<HTMLUListElement>(null);
 
-  const untoggleAccordion = (e: PointerEvent) => {
-    if (!inquiryTitleRef.current || !inquiryTitleInputRef.current) return;
+  const [titleValue, setTitleValue] = useState<string>('');
 
+  const untoggleAccordion = (e: PointerEvent) => {
     if (accordionRef.current?.contains(e.target as Node)) {
       const target = e.target as HTMLElement;
       if (!(target instanceof HTMLButtonElement)) return;
-
-      inquiryTitleRef.current.textContent = target.textContent;
-      inquiryTitleInputRef.current.value = target.textContent;
+      setTitleValue(target.textContent);
       accordionRef.current.setAttribute('data-selected', 'true');
     }
 
@@ -93,7 +89,7 @@ const ContactFormInquiry = () => {
                       aria-label='Open inquiry menu'
                       tabIndex={0}
                       onClick={toggleAccordion}>
-                      <span ref={inquiryTitleRef}>Select a title</span>
+                      <span>{titleValue !== '' ? titleValue : 'Select a title'}</span>
                       <span>
                         <MaterialSymbolsList />
                       </span>
@@ -101,10 +97,9 @@ const ContactFormInquiry = () => {
                     <input
                       className='contact__form__step__ul__li__select__input'
                       id={`${htmlFor}`}
-                      ref={inquiryTitleInputRef}
                       name={key}
                       type='hidden'
-                      value={''}
+                      value={titleValue}
                     />
                     <ul
                       ref={accordionRef}
