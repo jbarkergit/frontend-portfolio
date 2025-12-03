@@ -12,15 +12,25 @@ import { useBookingActive } from '~/portfolio/features/contact/context/FormBooki
 import SubmitBtn from '~/portfolio/features/contact/components/SubmitBtn';
 
 const inquiryInputs = {
-  inquiry: { htmlFor: 'inquiry', inputType: 'select' },
+  inquiryTitle: { htmlFor: 'inquiry', inputType: 'select' },
   message: { htmlFor: 'message', inputType: 'text' },
 } as const;
+
+const inquiryOptions = [
+  `I’m looking to hire a React developer for a full-time role.`,
+  `I need a React front-end developer to build a new web application.`,
+  `I need a React front-end developer to add new features or improve an existing project.`,
+  `I'm looking for a React developer for debugging, optimization, or ongoing maintenance.`,
+  `I have designs I need implemented in React.`,
+  `I’d like to discuss a partnership or joint project using React.`,
+] as const;
 
 const ContactFormInquiry = () => {
   const { errors } = useFormErrors();
   const { isBookingActive } = useBookingActive();
 
   const inquiryTitleRef = useRef<HTMLSpanElement>(null);
+  const inquiryTitleInputRef = useRef<HTMLInputElement>(null);
   const accordionRef = useRef<HTMLUListElement>(null);
 
   const untoggleAccordion = (e: PointerEvent) => {
@@ -29,8 +39,12 @@ const ContactFormInquiry = () => {
     if (accordionRef.current?.contains(e.target as Node)) {
       const target = e.target as HTMLElement;
 
-      if (target instanceof HTMLInputElement) {
-        inquiryTitleRef.current.textContent = target.placeholder;
+      if (target instanceof HTMLButtonElement) {
+        inquiryTitleRef.current.textContent = target.textContent;
+
+        if (inquiryTitleInputRef.current) {
+          inquiryTitleInputRef.current.value = target.textContent;
+        }
       }
 
       if (inquiryTitleRef.current.textContent !== 'Select A Title') {
@@ -78,9 +92,7 @@ const ContactFormInquiry = () => {
                   </div>
                 </li>
               )}
-              <li
-                className='contact__form__step__ul__li contact__form__step__ul__dropdown'
-                key={`contact-form-inquiry-${key}`}>
+              <li className='contact__form__step__ul__li contact__form__step__ul__dropdown'>
                 {htmlFor === 'inquiry' ? (
                   <>
                     <div
@@ -93,6 +105,14 @@ const ContactFormInquiry = () => {
                         <MaterialSymbolsList />
                       </span>
                     </div>
+                    <input
+                      className='contact__form__step__ul__li__select__input'
+                      id={`${htmlFor}`}
+                      ref={inquiryTitleInputRef}
+                      name={key}
+                      type='hidden'
+                      value={''}
+                    />
                     <ul
                       ref={accordionRef}
                       className='contact__form__step__ul__li__accordion'
@@ -101,28 +121,12 @@ const ContactFormInquiry = () => {
                       aria-describedby={`${htmlFor}-error`}
                       tabIndex={0}
                       data-toggle='false'>
-                      {[
-                        `I’m looking to hire a React developer for a full-time role.`,
-                        `I need a React front-end developer to build a new web application.`,
-                        `I need a React front-end developer to add new features or improve an existing project.`,
-                        `I'm looking for a React developer for debugging, optimization, or ongoing maintenance.`,
-                        `I have designs I need implemented in React.`,
-                        `I’d like to discuss a partnership or joint project using React.`,
-                      ].map((option, index) => (
+                      {inquiryOptions.map((option, index) => (
                         <li
                           className='contact__form__step__ul__li__select__option'
                           key={`inquiry-option-${index}`}
                           tabIndex={0}>
-                          <input
-                            className='contact__form__step__ul__li__select__option__input'
-                            id={`${htmlFor}`}
-                            readOnly
-                            value={`${option}`}
-                            name={key}
-                            placeholder={`${option}`}
-                            aria-invalid={!!errors[key]}
-                            aria-describedby={`${htmlFor}-error`}
-                          />
+                          <button className='contact__form__step__ul__li__select__option__input'>{option}</button>
                         </li>
                       ))}
                     </ul>
@@ -135,8 +139,8 @@ const ContactFormInquiry = () => {
                       Message (Optional)
                     </label>
                     <textarea
-                      id='message'
-                      name='message'
+                      id={`${htmlFor}`}
+                      name={key}
                       placeholder=' '
                       aria-invalid={!!errors.message}
                       aria-describedby='message-error'

@@ -4,7 +4,6 @@ import { z } from 'zod';
 import { zodSchema } from '~/base/validation/zodSchema';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
-import { useEffect } from 'react';
 
 const contactInformationSchema = z.object({
   fullName: zodSchema.shape.fullName,
@@ -15,7 +14,7 @@ const contactInformationSchema = z.object({
 });
 
 const inquirySchema = z.object({
-  title: zodSchema.shape.inquiryTitle,
+  inquiryTitle: zodSchema.shape.inquiryTitle,
   message: zodSchema.shape.message,
 });
 
