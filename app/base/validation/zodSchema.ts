@@ -69,13 +69,19 @@ export const zodSchema = z.object({
 
   emailAddress: z.string().trim().email({ message: 'Invalid email address.' }),
 
-  phoneNumber: z
-    .string()
-    .transform((val) => val.replace(/\D/g, ''))
-    .refine((digits) => digits.length >= 10, {
-      message: 'Phone number must have at least 10 digits.',
-    })
-    .optional(),
+  phoneNumber: z.preprocess(
+    (val) => {
+      if (typeof val === 'string' && val.trim() === '') return undefined;
+      return val;
+    },
+    z
+      .string()
+      .transform((val) => val.replace(/\D/g, ''))
+      .refine((digits) => digits.length >= 10, {
+        message: 'Phone number must have at least 10 digits.',
+      })
+      .optional()
+  ),
 
   message: z.string().trim().min(5, { message: 'Please type your inquiry.' }),
 
