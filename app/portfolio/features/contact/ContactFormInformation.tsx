@@ -8,10 +8,10 @@ import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn
 import { Fragment } from 'react/jsx-runtime';
 
 const contactInformationInputs = {
-  name: { htmlFor: 'name', inputType: 'text' },
+  fullName: { htmlFor: 'fullName', inputType: 'text' },
   emailAddress: { htmlFor: 'email', inputType: 'email' },
   phoneNumber: { htmlFor: 'phone', inputType: 'tel' },
-  business: { htmlFor: 'business', inputType: 'text' },
+  agency: { htmlFor: 'agency', inputType: 'text' },
   role: { htmlFor: 'role', inputType: 'text' },
 } as const;
 
@@ -53,7 +53,7 @@ const ContactFormInformation = () => {
               <label
                 htmlFor={htmlFor}
                 className='contact__form__step__ul__li__label'>
-                {htmlFor === 'business'
+                {htmlFor === 'agency'
                   ? 'Agency (optional)'
                   : htmlFor === 'role'
                     ? 'Role (optional)'
