@@ -17,7 +17,7 @@ export const FormActiveStepProvider = ({ children }: { children: ReactNode }) =>
 
   const updateActiveStep = (delta: -1 | 1 | 0) => {
     // Initialize steps
-    if (!stepsRef.current.length && formRef.current) {
+    if (formRef.current) {
       stepsRef.current = Array.from(formRef.current.children) as HTMLLIElement[];
     }
 
