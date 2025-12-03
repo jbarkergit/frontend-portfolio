@@ -59,7 +59,9 @@ const ContactFormInformation = () => {
                     ? 'Role (optional)'
                     : htmlFor === 'phone'
                       ? 'Phone (optional)'
-                      : htmlFor.replaceAll('-', ' ')}
+                      : htmlFor === 'fullName'
+                        ? 'Full Name'
+                        : htmlFor.replaceAll('-', ' ')}
               </label>
               <input
                 className='contact__form__step__ul__li__input'
