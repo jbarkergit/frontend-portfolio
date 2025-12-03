@@ -150,6 +150,7 @@
           }
           & textarea {
             min-height: 15rem;
+            text-transform: none;
           }
           &:has(textarea) {
             border: unset;
