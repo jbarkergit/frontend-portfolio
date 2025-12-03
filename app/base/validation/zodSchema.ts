@@ -89,7 +89,7 @@ export const zodSchema = z.object({
     message: 'You must accept the terms.',
   }),
 
-  inquiryTitle: z.string().refine((val) => val !== 'Select A Title', {
+  inquiryTitle: z.string().refine((val) => val.trim() !== '', {
     message: 'Please select an inquiry title.',
   }),
 
