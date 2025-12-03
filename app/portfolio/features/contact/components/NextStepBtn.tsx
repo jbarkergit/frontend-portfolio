@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { zodSchema } from '~/base/validation/zodSchema';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
+import { useEffect } from 'react';
 
 const contactInformationSchema = z.object({
   fullName: zodSchema.shape.fullName,
@@ -20,8 +21,8 @@ const inquirySchema = z.object({
 
 const NextStepBtn = () => {
   const { formRef, activeStepIndex, updateActiveStep } = useFormActiveStep();
-  const { setErrors } = useFormErrors();
-  const { isBookingActive, setIsBookingActive } = useBookingActive();
+  const { errors, setErrors } = useFormErrors();
+  const { setIsBookingActive } = useBookingActive();
 
   const validate = () => {
     const form = formRef.current;
@@ -50,10 +51,12 @@ const NextStepBtn = () => {
       }
 
       updateActiveStep(1);
-    } else {
-      console.error('Failed to identify form reference.');
     }
   };
+
+  useEffect(() => {
+    console.log(errors);
+  }, [errors]);
 
   return (
     <button
