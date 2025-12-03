@@ -89,14 +89,9 @@ export const zodSchema = z.object({
     message: 'You must accept the terms.',
   }),
 
-  inquiryTitle: z.enum([
-    'I’m looking to hire a React developer for a full-time role.',
-    'I need a React front-end developer to build a new web application.',
-    'I need a React front-end developer to add new features or improve an existing project.',
-    "I'm looking for a React developer for debugging, optimization, or ongoing maintenance.",
-    'I have designs I need implemented in React.',
-    'I’d like to discuss a partnership or joint project using React.',
-  ]),
+  inquiryTitle: z.string().refine((val) => val !== 'Select A Title', {
+    message: 'Please select an inquiry title.',
+  }),
 
   bookingDate: z
     .string()
