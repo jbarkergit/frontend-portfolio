@@ -32,6 +32,7 @@ const ContactFormInquiry = () => {
   const accordionRef = useRef<HTMLUListElement>(null);
 
   const [titleValue, setTitleValue] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
   const untoggleAccordion = (e: PointerEvent) => {
     if (accordionRef.current?.contains(e.target as Node)) {
@@ -130,6 +131,8 @@ const ContactFormInquiry = () => {
                       id={`${htmlFor}`}
                       name={key}
                       placeholder=' '
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       aria-invalid={!!errors.message}
                       aria-describedby='message-error'
                     />
