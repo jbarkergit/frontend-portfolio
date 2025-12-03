@@ -54,10 +54,6 @@ const NextStepBtn = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(errors);
-  }, [errors]);
-
   return (
     <button
       className='contact__form__step__stepper__section__button'
