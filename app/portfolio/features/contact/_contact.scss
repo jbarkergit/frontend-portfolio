@@ -39,6 +39,12 @@
         flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 2));
       }
     }
+    &:has(.contact__form__step:nth-of-type(3))
+      .contact__form__step:last-of-type
+      .contact__form__step__stepper__section {
+      justify-content: space-between;
+      max-width: calc(((var(--font-size-s) * 7) + 42px * 2 + (12px * 2)) * 2);
+    }
     &__step {
       display: flex;
       flex-direction: column;
@@ -55,10 +61,6 @@
       }
       &:nth-child(3) {
         z-index: 3;
-      }
-      &:last-of-type .contact__form__step__stepper__section {
-        justify-content: space-between;
-        max-width: calc(((var(--font-size-s) * 7) + 42px * 2 + (12px * 2)) * 2);
       }
       &:not(:last-of-type) {
         border-right: 1.5px solid hsl(240, 4%, 22%);
