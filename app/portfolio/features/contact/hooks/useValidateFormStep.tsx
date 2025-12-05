@@ -25,27 +25,34 @@ export const useValidateFormStep = () => {
   const { setIsBookingActive } = useBookingActive();
 
   const form = formRef.current;
-  const validator = activeStepIndex.current === 0 ? contactInformationSchema : inquirySchema;
+  const stepIndex = activeStepIndex.current;
+  const validator = stepIndex === 0 ? contactInformationSchema : stepIndex === 1 ? inquirySchema : bookingSchema;
 
   if (form) {
     const formData = new FormData(form);
     const formObject = Object.fromEntries(formData.entries());
     const result = validator.safeParse(formObject);
 
+    // Enable booking section of form
     if (validator === contactInformationSchema) {
       setIsBookingActive(formObject['phoneNumber'] !== '');
     }
 
+    // Validate, set errors
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
 
       for (const issue of result.error.issues) {
-        if (typeof issue.path[0] === 'string') {
-          fieldErrors[issue.path[0]] = issue.message;
+        const path = issue.path[0];
+
+        if (typeof path === 'string') {
+          fieldErrors[path] = issue.message;
         }
       }
 
       setErrors(fieldErrors);
+
+      // Prevent active step from updating
       return;
     }
 
