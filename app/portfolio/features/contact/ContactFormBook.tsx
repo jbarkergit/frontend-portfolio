@@ -3,11 +3,10 @@ import {
   MaterialSymbolsCircle,
   MaterialSymbolsArrowLeftAlt,
   MaterialSymbolsArrowRightAlt,
-  MaterialSymbolsOutgoingMail,
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
+import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
 import PreviousStepBtn from '~/portfolio/features/contact/components/PreviousStepBtn';
 import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
-import SubmitBtn from '~/portfolio/features/contact/components/SubmitBtn';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
@@ -134,7 +133,7 @@ const ContactFormBook = () => {
       <nav className='contact__form__step__stepper'>
         <div className='contact__form__step__stepper__section'>
           <PreviousStepBtn />
-          <SubmitBtn />
+          <NextStepBtn />
         </div>
       </nav>
     </section>
