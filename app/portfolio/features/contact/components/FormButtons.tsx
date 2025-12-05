@@ -5,15 +5,22 @@ import {
   MaterialSymbolsOutgoingMail,
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
 import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
-import { useValidateFormStep } from '~/portfolio/features/contact/hooks/useValidateFormStep';
+import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
+import { useValidateForm } from '~/portfolio/features/contact/hooks/useValidateForm';
 
 const Next = () => {
+  const { updateActiveStep } = useFormActiveStep();
+  const { errors } = useFormErrors();
+
   return (
     <button
       className='contact__form__step__stepper__section__button'
       aria-label='Continue to next step'
       type='button'
-      onClick={useValidateFormStep}>
+      onClick={() => {
+        useValidateForm();
+        if (!Object.entries(errors).length) updateActiveStep(1);
+      }}>
       <span>Next</span>
       <span>
         <MaterialSymbolsArrowRightAlt />

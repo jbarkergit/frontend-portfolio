@@ -19,43 +19,40 @@ const inquirySchema = z.object({
 
 const bookingSchema = z.object({ bookingData: zodSchema.shape.bookingDate });
 
-export const useValidateFormStep = () => {
-  const { formRef, activeStepIndex, updateActiveStep } = useFormActiveStep();
+export const useValidateForm = () => {
+  const { formRef, activeStepIndex } = useFormActiveStep();
   const { setErrors } = useFormErrors();
   const { setIsBookingActive } = useBookingActive();
 
   const form = formRef.current;
+  if (!form) return;
+
   const stepIndex = activeStepIndex.current;
   const validator = stepIndex === 0 ? contactInformationSchema : stepIndex === 1 ? inquirySchema : bookingSchema;
 
-  if (form) {
-    const formData = new FormData(form);
-    const formObject = Object.fromEntries(formData.entries());
-    const result = validator.safeParse(formObject);
+  const formData = new FormData(form);
+  const formObject = Object.fromEntries(formData.entries());
+  const result = validator.safeParse(formObject);
 
-    // Enable booking section of form
-    if (validator === contactInformationSchema) {
-      setIsBookingActive(formObject['phoneNumber'] !== '');
-    }
-
-    // Validate, set errors
-    if (!result.success) {
-      const fieldErrors: Record<string, string> = {};
-
-      for (const issue of result.error.issues) {
-        const path = issue.path[0];
-
-        if (typeof path === 'string') {
-          fieldErrors[path] = issue.message;
-        }
-      }
-
-      setErrors(fieldErrors);
-
-      // Prevent active step from updating
-      return;
-    }
-
-    updateActiveStep(1);
+  // Enable booking section of form
+  if (validator === contactInformationSchema) {
+    setIsBookingActive(formObject['phoneNumber'] !== '');
   }
+
+  // Validate, set errors
+  if (!result.success) {
+    const fieldErrors: Record<string, string> = {};
+
+    for (const issue of result.error.issues) {
+      const path = issue.path[0];
+
+      if (typeof path === 'string') {
+        fieldErrors[path] = issue.message;
+      }
+    }
+
+    setErrors(fieldErrors);
+  }
+
+  return formData;
 };
