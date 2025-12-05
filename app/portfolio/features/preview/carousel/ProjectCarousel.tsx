@@ -1,4 +1,4 @@
-import { useEffect, useReducer, useRef, type RefObject } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState, type RefObject } from 'react';
 import { Link } from 'react-router';
 import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
 import { useProjectSlideIndex } from '~/portfolio/context/ProjectSlideContext';
@@ -11,40 +11,33 @@ type ActionType =
     }
   | {
       type: 'POINTER_MOVE';
-      payload: { anchorEnabled: boolean; pageX: number; pageY: number; carouselLeftPadding: number };
+      payload: { anchorEnabled: boolean; pageX: number; pageY: number };
     }
   | {
       type: 'POINTER_LEAVE';
       payload: {
         anchorEnabled: boolean;
         previousTrackPos: number;
-        articlePositions: number[];
-        activeArticlePosition: number | undefined;
-        carouselLeftPadding: number;
       };
     }
   | {
       type: 'POINTER_UP';
       payload: {
         previousTrackPos: number;
-        articlePositions: number[];
-        activeArticlePosition: number | undefined;
-        carouselLeftPadding: number;
       };
     }
-  | { type: 'WHEEL_SCROLL'; payload: { deltaY: number; articlePositions: number[]; carouselLeftPadding: number } }
+  | { type: 'WHEEL_SCROLL'; payload: { deltaY: number } }
   | {
       type: 'EXTERNAL_NAVIGATION';
-      payload: {
-        activeArticlePosition: number | undefined;
-        carouselLeftPadding: number;
-      };
+      payload: {};
     }
   | { type: 'RESET_WHEEL_ACTIVE'; payload: { wheelEventActive: boolean } };
 
 type StyleDistances = {
   scale: number;
-  filter: string;
+  grayscale: number;
+  sepia: number;
+  brightness: number;
 };
 
 const initState = {
@@ -58,7 +51,6 @@ const initState = {
   pageY: 0,
   previousTrackPos: 0,
   trackPos: 0,
-  trackStyle: { transform: `translateX(0px)` },
 };
 
 const ProjectCarousel = () => {
@@ -75,6 +67,33 @@ const ProjectCarousel = () => {
       articleArray.current.push(reference);
     }
   };
+
+  /** Helpers */
+  const [carouselPaddingLeft, setCarouselPaddingLeft] = useState(0);
+  const [articlePositions, setArticlePositions] = useState<number[]>([]);
+
+  useLayoutEffect(() => {
+    if (!carouselRef.current) return;
+    setCarouselPaddingLeft(parseInt(getComputedStyle(carouselRef.current).paddingLeft));
+  }, []);
+
+  useLayoutEffect(() => {
+    if (!articleArray.current.length) return;
+
+    const updatePositions = () => {
+      setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
+    };
+
+    updatePositions();
+    window.addEventListener('resize', updatePositions);
+    return () => window.removeEventListener('resize', updatePositions);
+  }, []);
+
+  /** Active article position */
+  const activeArticlePosition = useMemo(
+    () => articlePositions[projectSlideIndex],
+    [articlePositions, projectSlideIndex]
+  );
 
   /** Reducer */
   const reducer = (state: typeof initState, action: ActionType): typeof initState => {
@@ -93,86 +112,78 @@ const ProjectCarousel = () => {
       case 'POINTER_MOVE':
         if (!state.pointerDown) return state;
 
-        const pointerTravelDistance: number = action.payload.pageX - state.initPageX;
-        const newTrackPosition: number = state.previousTrackPos + pointerTravelDistance;
+        const pointerTravelDistance: number = action.payload.pageX - state.initPageX; // horizontal delta
+        const newTrackPosition: number = state.previousTrackPos + pointerTravelDistance; // proposed translateX position
 
-        const carouselScrollWidth: number = (carouselRef.current?.scrollWidth as number) * -1;
+        const carouselScrollWidth: number = (carouselRef.current?.scrollWidth as number) * -1; // full scroll width inverted
         const articleSample = articleArray.current[0];
         if (!articleSample) return state;
-        const articleOffsetWidth: number = articleSample.offsetWidth + action.payload.carouselLeftPadding * 2;
+        const articleOffsetWidth: number = articleSample.offsetWidth + carouselPaddingLeft * 2; // article width + padding
 
-        const maxTravelDelta: number = carouselScrollWidth + articleOffsetWidth;
-        const clampedTrackPosition: number = Math.max(Math.min(newTrackPosition, 0), maxTravelDelta);
+        const maxTravelDelta: number = carouselScrollWidth + articleOffsetWidth; // maximum allowed negative travel
+        const clampedTrackPosition: number = Math.max(Math.min(newTrackPosition, 0), maxTravelDelta); // clamp to bounds
 
         return {
           ...state,
           anchorEnabled: action.payload.anchorEnabled,
-          trackPos: clampedTrackPosition,
-          trackStyle: { transform: `translateX(${clampedTrackPosition}px)` },
+          trackPos: Math.round(clampedTrackPosition),
         };
 
       case 'POINTER_UP':
       case 'POINTER_LEAVE':
         if (!state.pointerDown) return state;
 
-        const distances = action.payload.articlePositions.map((pos) => Math.abs(pos - state.trackPos));
-        const closestIndex = distances.indexOf(Math.min(...distances));
-        const closestArticle = action.payload.articlePositions[closestIndex];
+        const distances = articlePositions.map((pos) => Math.abs(pos - state.trackPos)); // distance to each article snap point
+        const closestIndex = distances.indexOf(Math.min(...distances)); // nearest article index
+        const closestArticle = articlePositions[closestIndex]; // nearest article position
         if (!closestArticle) return state;
-        const closestPos = closestArticle + action.payload.carouselLeftPadding;
+        const closestPos = closestArticle + carouselPaddingLeft; // snapped translateX including padding
 
         return {
           ...state,
           pointerDown: false,
           activeArticleIndex: closestIndex,
           previousTrackPos: closestPos,
-          trackPos: closestPos,
-          trackStyle: { transform: `translateX(${closestPos}px)` },
+          trackPos: Math.round(closestPos),
         };
 
       case 'WHEEL_SCROLL':
         if (!state.wheelEventActive && window.innerWidth > 1480) {
-          const scrollWheelDirection: number = Math.sign(action.payload.deltaY);
+          const scrollWheelDirection: number = Math.sign(action.payload.deltaY); // -1 up, 1 down
           const scrollYDirection = { verticalUp: -1, veritcalDown: 1 };
 
           let nextClosestIndex: number = state.activeArticleIndex;
 
           if (scrollWheelDirection === scrollYDirection.verticalUp) {
-            nextClosestIndex = Math.min(state.activeArticleIndex + 1, action.payload.articlePositions.length - 1);
+            nextClosestIndex = Math.min(state.activeArticleIndex + 1, articlePositions.length - 1); // move right
           }
 
           if (scrollWheelDirection === scrollYDirection.veritcalDown) {
-            nextClosestIndex = Math.max(state.activeArticleIndex - 1, 0);
+            nextClosestIndex = Math.max(state.activeArticleIndex - 1, 0); // move left
           }
 
-          const closestChild = action.payload.articlePositions[nextClosestIndex];
+          const closestChild = articlePositions[nextClosestIndex]; // target snap point
           if (!closestChild) return state;
-          const closestChildPos: number = closestChild + action.payload.carouselLeftPadding;
+          const closestChildPos: number = closestChild + carouselPaddingLeft; // snapped translateX including padding
 
           return {
             ...state,
             activeArticleIndex: nextClosestIndex,
             wheelEventActive: true,
             previousTrackPos: closestChildPos,
-            trackPos: closestChildPos,
-            trackStyle: {
-              transform: `translateX(${closestChildPos}px)`,
-            },
+            trackPos: Math.round(closestChildPos),
           };
         } else {
           return state;
         }
 
       case 'EXTERNAL_NAVIGATION':
-        if (!action.payload.activeArticlePosition) return state;
+        if (!activeArticlePosition) return state;
         return {
           ...state,
           activeArticleIndex: projectSlideIndex,
-          previousTrackPos: action.payload.activeArticlePosition + action.payload.carouselLeftPadding,
-          trackPos: action.payload.activeArticlePosition + action.payload.carouselLeftPadding,
-          trackStyle: {
-            transform: `translateX(${action.payload.activeArticlePosition + action.payload.carouselLeftPadding}px)`,
-          },
+          previousTrackPos: activeArticlePosition + carouselPaddingLeft, // external snap target + padding
+          trackPos: Math.round(activeArticlePosition + carouselPaddingLeft), // apply transform
         };
 
       case 'RESET_WHEEL_ACTIVE':
@@ -186,11 +197,6 @@ const ProjectCarousel = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   /** Dispatch Actions */
-  const getCarouselLeftPadding = (): number =>
-    parseInt(window.getComputedStyle(carouselRef.current as HTMLDivElement).paddingLeft);
-  const getArticlePositions = (): number[] => articleArray.current.map((child: HTMLElement) => child.offsetLeft * -1);
-  const getActiveArticlePosition = (): number | undefined => getArticlePositions()[projectSlideIndex];
-
   let pointerDownTimer: NodeJS.Timeout | null = null;
 
   const userPointerDownHandler = (e: PointerEvent): void => {
@@ -217,7 +223,6 @@ const ProjectCarousel = () => {
         anchorEnabled: false,
         pageX: e.pageX as number,
         pageY: e.pageY,
-        carouselLeftPadding: getCarouselLeftPadding(),
       },
     });
   };
@@ -236,9 +241,6 @@ const ProjectCarousel = () => {
       payload: {
         anchorEnabled: true,
         previousTrackPos: state.trackPos,
-        articlePositions: getArticlePositions(),
-        activeArticlePosition: getActiveArticlePosition(),
-        carouselLeftPadding: getCarouselLeftPadding(),
       },
     });
   };
@@ -249,9 +251,6 @@ const ProjectCarousel = () => {
       type: 'POINTER_UP',
       payload: {
         previousTrackPos: state.trackPos,
-        articlePositions: getArticlePositions(),
-        activeArticlePosition: getActiveArticlePosition(),
-        carouselLeftPadding: getCarouselLeftPadding(),
       },
     });
   };
@@ -265,8 +264,6 @@ const ProjectCarousel = () => {
       type: 'WHEEL_SCROLL',
       payload: {
         deltaY: e.deltaY,
-        articlePositions: getArticlePositions(),
-        carouselLeftPadding: getCarouselLeftPadding(),
       },
     });
 
@@ -304,7 +301,7 @@ const ProjectCarousel = () => {
     if (state.activeArticleIndex !== projectSlideIndex) {
       dispatch({
         type: 'EXTERNAL_NAVIGATION',
-        payload: { activeArticlePosition: getActiveArticlePosition(), carouselLeftPadding: getCarouselLeftPadding() },
+        payload: {},
       });
     }
   }, [projectSlideIndex]);
@@ -319,7 +316,6 @@ const ProjectCarousel = () => {
   const getCarouselSlideFX = (): StyleDistances[] => {
     let styleDists: StyleDistances[] = [];
 
-    // Logic
     if (mainRef.current && articleArray.current) {
       const carouselSliderWidth: number = mainRef.current.clientWidth as number;
 
@@ -329,12 +325,11 @@ const ProjectCarousel = () => {
         const slideCenterX: number = slideBound.right - slideBound.width / 2;
         const slideDistanceFromViewport = Math.abs(slideCenterX - carouselSliderWidth / 2);
         const containerDimensions = carouselSliderWidth;
-        const carouselPadding = getCarouselLeftPadding();
 
         const scale: Record<'filterMinimum' | 'filterMaximum' | 'maximumDistance' | 'scaleExponent', number> = {
           filterMinimum: 0.8,
           filterMaximum: 1,
-          maximumDistance: containerDimensions / 2 + carouselPadding,
+          maximumDistance: containerDimensions / 2 + carouselPaddingLeft,
           scaleExponent: 2,
         } as const;
 
@@ -357,9 +352,9 @@ const ProjectCarousel = () => {
         /** Calculate scale && filter data, store */
         const styleDistances: StyleDistances = {
           scale: scaleFilterClamp,
-          filter: `grayscale(${Math.abs(saturationFilter.grayscale)}%) sepia(${Math.abs(saturationFilter.sepia)}%) brightness(${Math.abs(
-            saturationFilter.brightness
-          )}%)`,
+          grayscale: Math.round(saturationFilter.grayscale),
+          sepia: Math.round(saturationFilter.sepia),
+          brightness: Math.round(saturationFilter.brightness),
         };
 
         styleDists.push(styleDistances);
@@ -379,12 +374,14 @@ const ProjectCarousel = () => {
       const targetStyle = styleDistancesArray[i];
 
       if (article && targetStyle) {
-        const currentScale = parseFloat(article.style.transform.replace(/scale\((.+)\)/, '$1')) || targetStyle.scale; // Parse inline style or default to target
-        const lerpedScale = currentScale + (targetStyle.scale - currentScale) * 0.1; // Smooth interpolation
+        // Smooth interpolation, 3 decimals
+        const lerpedScale = Math.round(targetStyle.scale * 1000) / 1000;
 
-        // Apply interpolated transform and filter
+        // Apply interpolated transform
         article.style.transform = `scale(${lerpedScale})`;
-        article.style.filter = targetStyle.filter;
+
+        // Apply filter
+        article.style.filter = `grayscale(${targetStyle.grayscale}%) sepia(${targetStyle.sepia}%) brightness(${targetStyle.brightness}%)`;
       }
     }
 
@@ -429,7 +426,7 @@ const ProjectCarousel = () => {
       <div
         className='mainContent__track'
         ref={carouselRef}
-        style={state.trackStyle}
+        style={{ transform: `translate3d(${state.trackPos}px, 0, 0)` }}
         data-visible={'false'}
         data-status={!state.pointerDown ? 'smooth' : ''}>
         {projectData.map((project) => (

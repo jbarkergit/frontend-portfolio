@@ -2,9 +2,6 @@
 @use '/app/portfolio/scss/portfolioStyles' as s;
 
 @keyframes mainAnimatorOut {
-  0% {
-    trasform: scale(0);
-  }
   33% {
     transform: scale(0.8);
     transform: translateY(0) scale(0.8);
@@ -31,15 +28,9 @@
     transform: translateY(0) scale(0.8);
     opacity: 1;
   }
-  100% {
-    trasform: scale(0);
-  }
 }
 
 @keyframes mainAnimatorRight {
-  0% {
-    trasform: scale(0);
-  }
   33% {
     transform: scale(0.8);
     transform: translateX(0) scale(0.8);
@@ -94,6 +85,7 @@
     height: 100%;
     padding: 0 s.$box-model-viewport-x 0 s.$box-model-viewport-x;
     touch-action: none;
+    will-change: transform;
     &:hover {
       cursor: grab;
     }
@@ -113,7 +105,7 @@
       flex: 0 1 74.5svw;
       display: flex;
       justify-content: flex-start;
-      will-change: width, transform, filter;
+      will-change: transform, filter;
       transform-origin: bottom;
       @media (width <= 950px) {
         flex: 0 0 100svw;
