@@ -4,9 +4,7 @@ import {
   MaterialSymbolsArrowLeftAlt,
   MaterialSymbolsArrowRightAlt,
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
-import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
-import PreviousStepBtn from '~/portfolio/features/contact/components/PreviousStepBtn';
-import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
+import { FormButtons } from '~/portfolio/features/contact/components/FormButtons';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
@@ -50,7 +48,7 @@ const ContactFormBook = () => {
       className='contact__form__step contactFormBooking'
       data-toggle='false'>
       <header className='contact__form__step__header'>
-        <ProjectHubBtn />
+        {FormButtons.return}
         <div className='contact__form__step__header__wrapper'>
           <span>
             <MaterialSymbolsCircle />
@@ -132,8 +130,8 @@ const ContactFormBook = () => {
       )}
       <nav className='contact__form__step__stepper'>
         <div className='contact__form__step__stepper__section'>
-          <PreviousStepBtn />
-          <NextStepBtn />
+          {FormButtons.previous}
+          {FormButtons.next}
         </div>
       </nav>
     </section>

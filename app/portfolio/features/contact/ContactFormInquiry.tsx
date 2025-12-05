@@ -5,10 +5,8 @@ import {
   MaterialSymbolsErrorCircleRoundedSharp,
   MaterialSymbolsList,
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
-import NextStepBtn from '~/portfolio/features/contact/components/NextStepBtn';
-import PreviousStepBtn from '~/portfolio/features/contact/components/PreviousStepBtn';
-import ProjectHubBtn from '~/portfolio/features/contact/components/ProjectHubBtn';
 import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
+import { FormButtons } from '~/portfolio/features/contact/components/FormButtons';
 
 const inquiryInputs = {
   inquiryTitle: { htmlFor: 'inquiry', inputType: 'select' },
@@ -56,7 +54,7 @@ const ContactFormInquiry = () => {
       className='contact__form__step'
       data-toggle='false'>
       <header className='contact__form__step__header'>
-        <ProjectHubBtn />
+        {FormButtons.return}
         <div className='contact__form__step__header__wrapper'>
           <span>
             <MaterialSymbolsCircle />
@@ -143,11 +141,9 @@ const ContactFormInquiry = () => {
         })}
       </ul>
       <nav className='contact__form__step__stepper'>
+        <div className='contact__form__step__stepper__section'>{FormButtons.return}</div>
         <div className='contact__form__step__stepper__section'>
-          <PreviousStepBtn />
-        </div>
-        <div className='contact__form__step__stepper__section'>
-          <NextStepBtn />
+          {isBookingActive ? FormButtons.next : FormButtons.submit}
         </div>
       </nav>
     </section>
