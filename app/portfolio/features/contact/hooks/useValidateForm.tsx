@@ -1,8 +1,5 @@
 import { z } from 'zod';
 import { zodSchema } from '~/base/validation/zodSchema';
-import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
-import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
-import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 
 const contactInformationSchema = z.object({
   fullName: zodSchema.shape.fullName,
@@ -19,11 +16,12 @@ const inquirySchema = z.object({
 
 const bookingSchema = z.object({ bookingData: zodSchema.shape.bookingDate });
 
-export const useValidateForm = () => {
-  const { formRef, activeStepIndex } = useFormActiveStep();
-  const { setErrors } = useFormErrors();
-  const { setIsBookingActive } = useBookingActive();
-
+export const useValidateForm = (
+  formRef: React.RefObject<HTMLFormElement | null>,
+  activeStepIndex: React.RefObject<number>,
+  setErrors: React.Dispatch<React.SetStateAction<Record<string, string>>>,
+  setIsBookingActive: React.Dispatch<React.SetStateAction<boolean>>
+) => {
   const form = formRef.current;
   if (!form) return;
 

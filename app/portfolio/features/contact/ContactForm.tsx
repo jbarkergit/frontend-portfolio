@@ -15,9 +15,10 @@ const submitFormToWeb3 = async (formData: FormData): Promise<void> => {
 };
 
 const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>> }) => {
-  const { formRef } = useFormActiveStep();
+  const { formRef, activeStepIndex } = useFormActiveStep();
   const { isBookingActive } = useBookingActive();
   const { errors, setErrors } = useFormErrors();
+  const { setIsBookingActive } = useBookingActive();
 
   const isSubmittingRef = useRef<boolean>(false);
 
@@ -25,7 +26,7 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
     if (isSubmittingRef.current) return;
     isSubmittingRef.current = true;
 
-    const formData = useValidateForm();
+    const formData = useValidateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
     if (!formData) return;
 
     if (Object.entries(errors).length) {

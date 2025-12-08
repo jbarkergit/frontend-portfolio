@@ -5,12 +5,14 @@ import {
   MaterialSymbolsOutgoingMail,
 } from '~/portfolio/features/contact/assets/ContactFormSVG';
 import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
+import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
 import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import { useValidateForm } from '~/portfolio/features/contact/hooks/useValidateForm';
 
 const Next = () => {
-  const { updateActiveStep } = useFormActiveStep();
-  const { errors } = useFormErrors();
+  const { formRef, activeStepIndex, updateActiveStep } = useFormActiveStep();
+  const { errors, setErrors } = useFormErrors();
+  const { setIsBookingActive } = useBookingActive();
 
   return (
     <button
@@ -18,7 +20,7 @@ const Next = () => {
       aria-label='Continue to next step'
       type='button'
       onClick={() => {
-        useValidateForm();
+        useValidateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
         if (!Object.entries(errors).length) updateActiveStep(1);
       }}>
       <span>Next</span>
