@@ -33,13 +33,6 @@ type ActionType =
     }
   | { type: 'RESET_WHEEL_ACTIVE'; payload: { wheelEventActive: boolean } };
 
-type StyleDistances = {
-  scale: number;
-  grayscale: number;
-  sepia: number;
-  brightness: number;
-};
-
 const initState = {
   activeArticleIndex: 0,
   pointerDown: false,
@@ -68,20 +61,52 @@ const ProjectCarousel = () => {
     }
   };
 
-  /** Helpers */
+  /** Trackers */
+  const initialRender = useRef<boolean>(true);
+  const animationRef = useRef<number | null>(null);
+  const wheelTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  /** Helpers & Precomputations */
+  const [viewportDimensions, setViewportDimensions] = useState<Record<'width' | 'height', number>>({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    const observer = new ResizeObserver(([entry]) => {
+      if (entry) {
+        const { width, height } = entry.contentRect;
+        setViewportDimensions({ width, height });
+      }
+    });
+
+    if (mainRef.current) observer.observe(mainRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   const [carouselPaddingLeft, setCarouselPaddingLeft] = useState(0);
+
+  useEffect(() => {
+    const target = carouselRef.current;
+    if (!target) return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      if (!entry) return;
+      const paddingLeft = parseFloat(getComputedStyle(entry.target).paddingLeft);
+      setCarouselPaddingLeft(paddingLeft);
+    });
+
+    observer.observe(target);
+    return () => observer.disconnect();
+  }, []);
+
   const [articlePositions, setArticlePositions] = useState<number[]>([]);
 
   useLayoutEffect(() => {
-    if (!carouselRef.current) return;
-    setCarouselPaddingLeft(parseInt(getComputedStyle(carouselRef.current).paddingLeft));
-  }, []);
-
-  useLayoutEffect(() => {
-    if (!articleArray.current.length) return;
-
     const updatePositions = () => {
-      setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
+      if (articleArray.current.length) {
+        setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
+      }
     };
 
     updatePositions();
@@ -89,26 +114,10 @@ const ProjectCarousel = () => {
     return () => window.removeEventListener('resize', updatePositions);
   }, []);
 
-  /** Active article position */
   const activeArticlePosition = useMemo(
     () => articlePositions[projectSlideIndex],
     [articlePositions, projectSlideIndex]
   );
-
-  /** Dynamic Mapping */
-  const [size, setSize] = useState<Record<'width' | 'height', number>>({ width: 0, height: 0 });
-
-  useEffect(() => {
-    const observer = new ResizeObserver(([entry]) => {
-      if (entry) {
-        const { width, height } = entry.contentRect;
-        setSize({ width, height });
-      }
-    });
-
-    if (mainRef.current) observer.observe(mainRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   /** Reducer */
   const reducer = (state: typeof initState, action: ActionType): typeof initState => {
@@ -270,8 +279,6 @@ const ProjectCarousel = () => {
     });
   };
 
-  const wheelTimeout = useRef<NodeJS.Timeout | null>(null);
-
   const userWheelEventHandler = (e: WheelEvent) => {
     if (wheelTimeout.current) clearTimeout(wheelTimeout.current);
 
@@ -328,75 +335,58 @@ const ProjectCarousel = () => {
   }, [state.activeArticleIndex]);
 
   /** Looped carousel article animator */
-  const getCarouselSlideFX = (): StyleDistances[] => {
-    let styleDists: StyleDistances[] = [];
-
+  const getCarouselSlideFX = () => {
     if (mainRef.current && articleArray.current) {
       const carouselSliderWidth: number = mainRef.current.clientWidth as number;
 
-      for (const slide of articleArray.current) {
-        // Resize Slides
-        const slideBound: DOMRect = slide.getBoundingClientRect();
-        const slideCenterX: number = slideBound.right - slideBound.width / 2;
-        const slideDistanceFromViewport = Math.abs(slideCenterX - carouselSliderWidth / 2);
-        const containerDimensions = carouselSliderWidth;
+      // Fixed variables
+      const filterMin = 0.8;
+      const filterMax = 1;
+      const scaleExponent = 2;
 
-        const scale: Record<'filterMinimum' | 'filterMaximum' | 'maximumDistance' | 'scaleExponent', number> = {
-          filterMinimum: 0.8,
-          filterMaximum: 1,
-          maximumDistance: containerDimensions / 2 + carouselPaddingLeft,
-          scaleExponent: 2,
-        } as const;
+      // Precomputated variables
+      const distanceMax = carouselSliderWidth / 2 + carouselPaddingLeft;
+      const scaleRange = filterMax - filterMin; // Total scale range
 
-        const scaleDistanceRatio = slideDistanceFromViewport / scale.maximumDistance; // How far the slide is from the maximum distance
-        const scaledDistance = Math.pow(scaleDistanceRatio, scale.scaleExponent); // Scale distance value
-        const scaleRangeDifference = scale.filterMaximum - scale.filterMinimum; // Scale range difference
-        const newScaleValue = scale.filterMinimum + scaleRangeDifference * (1 - scaledDistance); // New scale value
-        const scaleFilterClamp = Math.min(scale.filterMaximum, Math.max(scale.filterMinimum, newScaleValue)); // Clamped scale value
+      return articleArray.current.map((article) => {
+        const articleBounds = article.getBoundingClientRect();
+        const articleHorizontalCenter = articleBounds.right - articleBounds.width / 2;
+        const articleOffsetFromCarouselCenter = Math.round(articleHorizontalCenter - carouselSliderWidth / 2);
 
-        /** Calculate filter intensity: distance between slide and viewport center */
-        const filterIntensity: number =
-          (scaleFilterClamp - scale.filterMinimum) / (scale.filterMaximum - scale.filterMinimum);
+        // Normalized distance from center
+        const slideDistanceRatio = articleOffsetFromCarouselCenter / distanceMax;
+        // Exponentially scaled distance
+        const scaledDistance = Math.pow(slideDistanceRatio, scaleExponent);
+        // Computed scale value before clamping
+        const targetScale = filterMin + scaleRange * (1 - scaledDistance);
+        // Scale value clamped to min/max
+        const clampedScale = Math.min(filterMax, Math.max(filterMin, targetScale));
 
-        const saturationFilter: Record<'grayscale' | 'sepia' | 'brightness', number> = {
-          grayscale: 85 - filterIntensity * 85,
-          sepia: 80 - filterIntensity * 80,
-          brightness: 50 - filterIntensity * 50 * -1,
+        // Calculate filter intensity (distance between slide and viewport center)
+        const filterIntensity: number = (clampedScale - filterMin) / scaleRange;
+
+        return {
+          scale: clampedScale,
+          grayscale: Math.round(85 - filterIntensity * 85),
+          sepia: Math.round(80 - filterIntensity * 80),
+          brightness: Math.round(50 + filterIntensity * 50),
         };
-
-        /** Calculate scale && filter data, store */
-        const styleDistances: StyleDistances = {
-          scale: scaleFilterClamp,
-          grayscale: Math.round(saturationFilter.grayscale),
-          sepia: Math.round(saturationFilter.sepia),
-          brightness: Math.round(saturationFilter.brightness),
-        };
-
-        styleDists.push(styleDistances);
-      }
+      });
     }
-
-    return styleDists;
   };
 
-  const animationRef = useRef<number | null>(null);
-
   const animateLoop = (): void => {
-    const styleDistancesArray: StyleDistances[] = getCarouselSlideFX();
+    const styleDistancesArray = getCarouselSlideFX();
+    if (!styleDistancesArray) return;
 
     for (let i = 0; i < articleArray.current.length; i++) {
       const article = articleArray.current[i];
       const targetStyle = styleDistancesArray[i];
 
       if (article && targetStyle) {
-        // Smooth interpolation, 3 decimals
-        const lerpedScale = Math.round(targetStyle.scale * 1000) / 1000;
-
-        // Apply interpolated transform
-        article.style.transform = `scale(${lerpedScale})`;
-
-        // Apply filter
-        article.style.filter = `grayscale(${targetStyle.grayscale}%) sepia(${targetStyle.sepia}%) brightness(${targetStyle.brightness}%)`;
+        const lerpedScale = Math.round(targetStyle.scale * 1000) / 1000; // Smooth interpolation, 3 decimals
+        article.style.transform = `scale(${lerpedScale})`; // Apply interpolated transform
+        article.style.filter = `grayscale(${targetStyle.grayscale}%) sepia(${targetStyle.sepia}%) brightness(${targetStyle.brightness}%)`; // Apply filter
       }
     }
 
@@ -404,21 +394,15 @@ const ProjectCarousel = () => {
   };
 
   useEffect(() => {
-    animationRef.current = requestAnimationFrame(animateLoop); // Start loop
-
-    return () => {
-      if (animationRef.current) cancelAnimationFrame(animationRef.current);
-    };
-  }, []);
-
-  /** Mount animation */
-  const initialRender = useRef<boolean>(true);
-
-  useEffect(() => {
+    // Mount animation
     if (initialRender.current) {
       initialRender.current = false;
       carouselRef.current?.setAttribute('data-visible', 'true');
     }
+
+    // Render loop
+    animationRef.current = requestAnimationFrame(animateLoop);
+    return () => cancelAnimationFrame(animationRef.current!);
   }, []);
 
   useEffect(() => {
@@ -458,7 +442,7 @@ const ProjectCarousel = () => {
             onDragStart={(e) => e.preventDefault()}>
             <picture>
               <img
-                src={size.width > 950 ? project.imgSrc : project.imgSrcMobile}
+                src={viewportDimensions.width > 950 ? project.imgSrc : project.imgSrcMobile}
                 alt={project.imgAlt}
                 rel='preload'
                 loading='eager'
