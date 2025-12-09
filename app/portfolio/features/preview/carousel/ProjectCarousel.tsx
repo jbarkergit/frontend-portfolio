@@ -61,18 +61,13 @@ const ProjectCarousel = () => {
   const wheelTimeout = useRef<NodeJS.Timeout | null>(null);
 
   /** Helpers & Precomputations */
-  const [viewportDimensions, setViewportDimensions] = useState<Record<'width' | 'height', number>>({
-    width: 0,
-    height: 0,
-  });
-
+  const [viewportWidth, setViewportWidth] = useState<number>(0);
   const [carouselPaddingLeft, setCarouselPaddingLeft] = useState(0);
 
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
       if (entry) {
-        const { width, height } = entry.contentRect;
-        setViewportDimensions({ width, height });
+        setViewportWidth(entry.contentRect.width);
         if (carouselRef.current) setCarouselPaddingLeft(parseFloat(getComputedStyle(carouselRef.current).paddingLeft));
       }
     });
@@ -82,6 +77,17 @@ const ProjectCarousel = () => {
   }, []);
 
   const [articlePositions, setArticlePositions] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (articleArray.current.length) {
+      setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
+
+      dispatch({
+        type: 'EXTERNAL_NAVIGATION',
+        payload: {},
+      });
+    }
+  }, [viewportWidth]);
 
   const activeArticlePosition = useMemo(
     () => articlePositions[projectSlideIndex],
@@ -128,8 +134,7 @@ const ProjectCarousel = () => {
         const distances = articlePositions.map((pos) => Math.abs(pos - state.trackPos)); // distance to each article snap point
         const closestIndex = distances.indexOf(Math.min(...distances)); // nearest article index
         const closestArticle = articlePositions[closestIndex]; // nearest article position
-        if (!closestArticle) return state;
-        const closestPos = closestArticle + carouselPaddingLeft; // snapped translateX including padding
+        const closestPos = (closestArticle ?? 0) + carouselPaddingLeft; // snapped translateX including padding
 
         return {
           ...state,
@@ -189,12 +194,12 @@ const ProjectCarousel = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   /** Dispatch Actions */
-  let pointerDownTimer: NodeJS.Timeout | null = null;
+  const pointerDownTimer = useRef<NodeJS.Timeout>(null);
 
   const userPointerDownHandler = (e: PointerEvent): void => {
-    if (pointerDownTimer) clearTimeout(pointerDownTimer);
+    if (pointerDownTimer.current) clearTimeout(pointerDownTimer.current);
 
-    pointerDownTimer = setTimeout(() => {
+    pointerDownTimer.current = setTimeout(() => {
       dispatch({
         type: 'POINTER_DOWN',
         payload: {
@@ -220,9 +225,9 @@ const ProjectCarousel = () => {
   };
 
   const cancelPointerDown = () => {
-    if (pointerDownTimer) {
-      clearTimeout(pointerDownTimer);
-      pointerDownTimer = null;
+    if (pointerDownTimer.current) {
+      clearTimeout(pointerDownTimer.current);
+      pointerDownTimer.current = null;
     }
   };
 
@@ -400,12 +405,7 @@ const ProjectCarousel = () => {
             onDragStart={(e) => e.preventDefault()}>
             <picture>
               <img
-                onLoad={() => {
-                  if (articleArray.current.length) {
-                    setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
-                  }
-                }}
-                src={viewportDimensions.width > 950 ? project.imgSrc : project.imgSrcMobile}
+                src={viewportWidth > 950 ? project.imgSrc : project.imgSrcMobile}
                 alt={project.imgAlt}
                 rel='preload'
                 loading='eager'
