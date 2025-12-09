@@ -9,6 +9,9 @@
   width: 100svw;
   height: 100svh;
   overflow: clip;
+  @media (max-width: 1480px) {
+    height: auto;
+  }
   &__heading {
     display: none;
   }
@@ -17,9 +20,9 @@
     align-items: center;
     width: inherit;
     height: inherit;
-    overflow-x: clip;
-    overflow-y: scroll;
-    @media (width >= 1250px) {
+    @media (min-width: 1480px) {
+      overflow-x: clip;
+      overflow-y: scroll;
       &::-webkit-scrollbar {
         width: 14px;
         height: 14px;
@@ -31,12 +34,21 @@
         background: #f3f3f1;
       }
     }
-    &:has(:not(.contactFormBooking)) {
-      .contact__form__step[data-toggle='false'] {
-        flex: 0 1 20svw;
-      }
-      .contact__form__step[data-toggle='true'] {
-        flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 2));
+    @media (max-width: 1480px) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0 0 calc(s.$box-model-viewport-x * 2) 0;
+    }
+    @media (min-width: 1480px) {
+      &:has(:not(.contactFormBooking)) {
+        .contact__form__step[data-toggle='false'] {
+          flex: 0 1 20svw;
+        }
+        .contact__form__step[data-toggle='true'] {
+          flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 2));
+        }
       }
     }
     &:has(.contact__form__step:nth-of-type(3))
@@ -65,35 +77,55 @@
       &:not(:last-of-type) {
         border-right: 1.5px solid hsl(240, 4%, 22%);
       }
-      &[data-toggle='false'] {
-        flex: 0 1 10svw;
-        padding: 25svh calc(s.$box-model-viewport-x / 5);
-        & > *:not(header) {
-          position: absolute;
-          opacity: 0;
-          pointer-events: none;
+      @media (max-width: 1480px) {
+        & header {
+          display: none;
         }
-        & header h2,
-        header nav button {
-          position: absolute;
-          opacity: 0;
-          pointer-events: none;
+        &:not(:last-of-type) .contact__form__step__stepper {
+          display: none;
+        }
+        &:last-of-type .contact__form__step__stepper__section:nth-of-type(1) {
+          display: none;
         }
       }
-      &[data-toggle='true'] {
-        flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 4)); // Subtract padding from 'false' nodes
-        padding: 25svh calc(s.$box-model-viewport-x / 1.5) 15svh calc(s.$box-model-viewport-x / 1.5);
-        & > *,
-        & > * > * {
-          opacity: 1;
-          transition: opacity 300ms ease-in;
+      @media (min-width: 1480px) {
+        &[data-toggle='false'] {
+          flex: 0 1 10svw;
+          padding: 25svh calc(s.$box-model-viewport-x / 5);
+          & > *:not(header) {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+          }
+          & header h2,
+          header nav button {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+          }
         }
+        &[data-toggle='true'] {
+          flex: 1 0 calc(80svw - (calc(s.$box-model-viewport-x / 5) * 4)); // Subtract padding from 'false' nodes
+          padding: 25svh calc(s.$box-model-viewport-x / 1.5) 15svh calc(s.$box-model-viewport-x / 1.5);
+          & > *,
+          & > * > * {
+            opacity: 1;
+            transition: opacity 300ms ease-in;
+          }
+        }
+      }
+      @media (max-width: 1480px) {
+        width: 100%;
+        padding: 0 s.$box-model-viewport-x;
       }
       &__header {
         position: relative;
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        @media (max-width: 1480px) {
+          display: none;
+        }
         & h2 {
           font-size: var(--font-size-4xl);
           line-height: 115%;
@@ -139,6 +171,14 @@
           transition: background-color ease-in-out 240ms;
           font-size: var(--font-size-s);
           text-transform: capitalize;
+          @media (max-width: 1480px) {
+            &:not(:has(textarea)) {
+              height: calc((6px * 2 + 16px) * 2.25);
+            }
+            & textarea {
+              overflow: clip;
+            }
+          }
           & input,
           & textarea {
             width: 100%;
