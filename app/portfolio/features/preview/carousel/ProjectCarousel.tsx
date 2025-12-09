@@ -14,15 +14,9 @@ type ActionType =
       payload: { anchorEnabled: boolean; pageX: number; pageY: number };
     }
   | {
-      type: 'POINTER_LEAVE';
+      type: 'POINTER_DETACH';
       payload: {
         anchorEnabled: boolean;
-        previousTrackPos: number;
-      };
-    }
-  | {
-      type: 'POINTER_UP';
-      payload: {
         previousTrackPos: number;
       };
     }
@@ -112,7 +106,7 @@ const ProjectCarousel = () => {
     updatePositions();
     window.addEventListener('resize', updatePositions);
     return () => window.removeEventListener('resize', updatePositions);
-  }, []);
+  }, [viewportDimensions.width]);
 
   const activeArticlePosition = useMemo(
     () => articlePositions[projectSlideIndex],
@@ -153,8 +147,7 @@ const ProjectCarousel = () => {
           trackPos: Math.round(clampedTrackPosition),
         };
 
-      case 'POINTER_UP':
-      case 'POINTER_LEAVE':
+      case 'POINTER_DETACH':
         if (!state.pointerDown) return state;
 
         const distances = articlePositions.map((pos) => Math.abs(pos - state.trackPos)); // distance to each article snap point
@@ -258,22 +251,12 @@ const ProjectCarousel = () => {
     }
   };
 
-  const userPointerLeaveHandler = (): void => {
+  const userPointerDetachHandler = () => {
     cancelPointerDown();
     dispatch({
-      type: 'POINTER_LEAVE',
+      type: 'POINTER_DETACH',
       payload: {
         anchorEnabled: true,
-        previousTrackPos: state.trackPos,
-      },
-    });
-  };
-
-  const userPointerUpHandler = (): void => {
-    cancelPointerDown();
-    dispatch({
-      type: 'POINTER_UP',
-      payload: {
         previousTrackPos: state.trackPos,
       },
     });
@@ -301,8 +284,8 @@ const ProjectCarousel = () => {
     if (carousel && !Object.values(featureState).some((value: boolean) => value === true)) {
       carousel.addEventListener('pointerdown', userPointerDownHandler);
       carousel.addEventListener('pointermove', userPointerMoveHandler);
-      carousel.addEventListener('pointerleave', userPointerLeaveHandler);
-      carousel.addEventListener('pointerup', userPointerUpHandler);
+      carousel.addEventListener('pointerleave', userPointerDetachHandler);
+      carousel.addEventListener('pointerup', userPointerDetachHandler);
       carousel.addEventListener('wheel', userWheelEventHandler);
     }
 
@@ -310,8 +293,8 @@ const ProjectCarousel = () => {
       if (carousel) {
         carousel.removeEventListener('pointerdown', userPointerDownHandler);
         carousel.removeEventListener('pointermove', userPointerMoveHandler);
-        carousel.removeEventListener('pointerleave', userPointerLeaveHandler);
-        carousel.removeEventListener('pointerup', userPointerUpHandler);
+        carousel.removeEventListener('pointerleave', userPointerDetachHandler);
+        carousel.removeEventListener('pointerup', userPointerDetachHandler);
         carousel.removeEventListener('wheel', userWheelEventHandler);
       }
       cancelPointerDown();
