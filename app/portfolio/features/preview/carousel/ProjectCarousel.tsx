@@ -95,6 +95,21 @@ const ProjectCarousel = () => {
     [articlePositions, projectSlideIndex]
   );
 
+  /** Dynamic Mapping */
+  const [size, setSize] = useState<Record<'width' | 'height', number>>({ width: 0, height: 0 });
+
+  useEffect(() => {
+    const observer = new ResizeObserver(([entry]) => {
+      if (entry) {
+        const { width, height } = entry.contentRect;
+        setSize({ width, height });
+      }
+    });
+
+    if (mainRef.current) observer.observe(mainRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   /** Reducer */
   const reducer = (state: typeof initState, action: ActionType): typeof initState => {
     switch (action.type) {
@@ -443,7 +458,7 @@ const ProjectCarousel = () => {
             onDragStart={(e) => e.preventDefault()}>
             <picture>
               <img
-                src={project.imgSrc}
+                src={size.width > 950 ? project.imgSrc : project.imgSrcMobile}
                 alt={project.imgAlt}
                 rel='preload'
                 loading='eager'
