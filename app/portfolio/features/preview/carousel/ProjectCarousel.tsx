@@ -66,11 +66,14 @@ const ProjectCarousel = () => {
     height: 0,
   });
 
+  const [carouselPaddingLeft, setCarouselPaddingLeft] = useState(0);
+
   useEffect(() => {
     const observer = new ResizeObserver(([entry]) => {
       if (entry) {
         const { width, height } = entry.contentRect;
         setViewportDimensions({ width, height });
+        if (carouselRef.current) setCarouselPaddingLeft(parseFloat(getComputedStyle(carouselRef.current).paddingLeft));
       }
     });
 
@@ -78,35 +81,7 @@ const ProjectCarousel = () => {
     return () => observer.disconnect();
   }, []);
 
-  const [carouselPaddingLeft, setCarouselPaddingLeft] = useState(0);
-
-  useEffect(() => {
-    const target = carouselRef.current;
-    if (!target) return;
-
-    const observer = new ResizeObserver(([entry]) => {
-      if (!entry) return;
-      const paddingLeft = parseFloat(getComputedStyle(entry.target).paddingLeft);
-      setCarouselPaddingLeft(paddingLeft);
-    });
-
-    observer.observe(target);
-    return () => observer.disconnect();
-  }, []);
-
   const [articlePositions, setArticlePositions] = useState<number[]>([]);
-
-  useLayoutEffect(() => {
-    const updatePositions = () => {
-      if (articleArray.current.length) {
-        setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
-      }
-    };
-
-    updatePositions();
-    window.addEventListener('resize', updatePositions);
-    return () => window.removeEventListener('resize', updatePositions);
-  }, [viewportDimensions.width]);
 
   const activeArticlePosition = useMemo(
     () => articlePositions[projectSlideIndex],
@@ -425,6 +400,11 @@ const ProjectCarousel = () => {
             onDragStart={(e) => e.preventDefault()}>
             <picture>
               <img
+                onLoad={() => {
+                  if (articleArray.current.length) {
+                    setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
+                  }
+                }}
                 src={viewportDimensions.width > 950 ? project.imgSrc : project.imgSrcMobile}
                 alt={project.imgAlt}
                 rel='preload'
