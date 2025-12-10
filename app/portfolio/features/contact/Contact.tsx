@@ -8,7 +8,9 @@ import { BookingActiveProvider } from '~/portfolio/features/contact/context/Form
 const Contact = () => {
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   return isSubmitted ? (
-    <ContactSubmitted />
+    <FormActiveStepProvider>
+      <ContactSubmitted />
+    </FormActiveStepProvider>
   ) : (
     <FormActiveStepProvider>
       <FormErrorsProvider>
