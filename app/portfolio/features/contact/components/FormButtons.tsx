@@ -20,8 +20,10 @@ const Next = () => {
       aria-label='Continue to next step'
       type='button'
       onClick={() => {
-        useValidateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
-        if (!Object.entries(errors).length) updateActiveStep(1);
+        if (!errors) {
+          useValidateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
+          if (!Object.entries(errors).length) updateActiveStep(1);
+        }
       }}>
       <span>Next</span>
       <span>
