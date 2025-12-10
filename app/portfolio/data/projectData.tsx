@@ -1,3 +1,12 @@
+import filmDesktop from '~/portfolio/assets/filmDatabase-screenshot.webp?url';
+import filmMobile from '~/portfolio/assets/filmDatabase-screenshot-4.5.webp?url';
+
+import ecommerceDesktop from '~/portfolio/assets/ecommerce-screenshot.webp?url';
+import ecommerceMobile from '~/portfolio/assets/ecommerce-screenshot-4.5.webp?url';
+
+import portfolioDesktop from '~/portfolio/assets/portfolio-screenshot.webp?url';
+import portfolioMobile from '~/portfolio/assets/portfolio-screenshot-4.5.webp?url';
+
 export const projectData = [
   {
     key: 'film database',
@@ -78,8 +87,8 @@ export const projectData = [
         </p>
       </>
     ),
-    imgSrc: '/app/portfolio/assets/filmDatabase-screenshot.webp',
-    imgSrcMobile: '/app/portfolio/assets/filmDatabase-screenshot-4.5.webp',
+    imgSrc: filmDesktop,
+    imgSrcMobile: filmMobile,
     imgAlt: 'Film Database Development Project',
   },
   {
@@ -132,8 +141,8 @@ export const projectData = [
         </p>
       </>
     ),
-    imgSrc: '/app/portfolio/assets/ecommerce-screenshot.webp',
-    imgSrcMobile: '/app/portfolio/assets/ecommerce-screenshot-4.5.webp',
+    imgSrc: ecommerceDesktop,
+    imgSrcMobile: ecommerceMobile,
     imgAlt: 'Ecommerce Web Development Project',
   },
   {
@@ -180,8 +189,8 @@ export const projectData = [
         </p>
       </>
     ),
-    imgSrc: '/app/portfolio/assets/portfolio-screenshot.webp',
-    imgSrcMobile: '/app/portfolio/assets/portfolio-screenshot-4.5.webp',
+    imgSrc: portfolioDesktop,
+    imgSrcMobile: portfolioMobile,
     imgAlt: 'Portfolio Project Hub',
   },
 ];
