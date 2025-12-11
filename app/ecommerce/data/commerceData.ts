@@ -1,5 +1,5 @@
+import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
 import type { ProductType } from '../context/CartContext';
-import { commerceDatabase } from './commerceDatabase';
 
 /** Helper */
 const sort = (data: Set<string>) => [...data].sort((a, b) => (a > b ? 1 : -1));

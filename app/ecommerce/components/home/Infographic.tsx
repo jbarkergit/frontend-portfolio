@@ -1,18 +1,26 @@
 import type { JSX } from 'react';
 import { Link } from 'react-router';
 
+import infographic1 from '~/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-1.jpg?url';
+import infographic2 from '~/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-2.jpg?url';
+import infographic3 from '~/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-3.jpg?url';
+
 const InfographicSectionOne = () => {
   return (
     <article className='infographic__primary'>
       <section className='infographic__primary__article'>
-        <strong className='infographic__primary__article__strong' tabIndex={0}>
+        <strong
+          className='infographic__primary__article__strong'
+          tabIndex={0}>
           <span className='infographic__primary__article__strong--line'>THE NEW </span>
           <span className='infographic__primary__article__strong--line'>HiFi AUDIO </span>
           <span className='infographic__primary__article__strong--line highlight'>EXPERIENCE</span>
         </strong>
-        <h1 className='infographic__primary__article__heading' tabIndex={0}>
-          Unparalleled HiFi audio and <span className='highlight'>superior</span> manufacturing for discerning audiophiles. Crystal-clear sound,{' '}
-          <span className='highlight'>premium </span>
+        <h1
+          className='infographic__primary__article__heading'
+          tabIndex={0}>
+          Unparalleled HiFi audio and <span className='highlight'>superior</span> manufacturing for discerning
+          audiophiles. Crystal-clear sound, <span className='highlight'>premium </span>
           materials, meticulous <span className='highlight'>craftsmanship</span>, and lasting durability.
         </h1>
       </section>
@@ -21,7 +29,7 @@ const InfographicSectionOne = () => {
         <picture>
           <img
             tabIndex={0}
-            src='/app/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-1.jpg'
+            src={infographic1}
             alt='Model wearing Marshal headphones'
             decoding='async'
             fetchPriority='high'
@@ -38,7 +46,7 @@ const InfographicSectionTwo = () => {
     <figure className='infographic__supporting'>
       <picture>
         <img
-          src='/app/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-2.jpg'
+          src={infographic2}
           alt='Man listening to notes he is playing'
           decoding='async'
           fetchPriority='high'
@@ -54,11 +62,16 @@ const InfographicSectionThree = () => {
   return (
     <article className='infographic__cta'>
       <section className='infographic__cta__article'>
-        <h2 className='infographic__cta__article--heading' tabIndex={0}>
+        <h2
+          className='infographic__cta__article--heading'
+          tabIndex={0}>
           <span>NEW TECH FROM </span>
           <span className='highlight'>Beyerdynamic</span>
         </h2>
-        <p tabIndex={0}>Thanks to our friends over at Beyerdynamic, we're proud to introduce a new line of headphones sporting all new Tesla technology.</p>
+        <p tabIndex={0}>
+          Thanks to our friends over at Beyerdynamic, we're proud to introduce a new line of headphones sporting all new
+          Tesla technology.
+        </p>
         <Link
           to='http://localhost:5173/ecommerce/products/Beyerdynamic'
           className='infographic__section__news__textBlock--cta'
@@ -70,7 +83,7 @@ const InfographicSectionThree = () => {
       <figure className='infographic__cta__graphic'>
         <picture>
           <img
-            src='/app/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-3.jpg'
+            src={infographic3}
             alt='Model singing into Shure SM58'
             decoding='async'
             fetchPriority='high'

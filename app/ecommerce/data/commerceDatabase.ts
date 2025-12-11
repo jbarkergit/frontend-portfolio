@@ -1,3 +1,509 @@
+import img1 from '~/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-1.jpg?url';
+import img2 from '~/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-2.jpg?url';
+import img3 from '~/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-3.jpg?url';
+import img4 from '~/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-4.jpg?url';
+import img5 from '~/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-5.jpg?url';
+import img6 from '~/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-1.jpg?url';
+import img7 from '~/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-2.jpg?url';
+import img8 from '~/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-3.jpg?url';
+import img9 from '~/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-4.jpg?url';
+import img10 from '~/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-5.jpg?url';
+import img11 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-1.jpg?url';
+import img12 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-2.jpg?url';
+import img13 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-3.jpg?url';
+import img14 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-4.jpg?url';
+import img15 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-5.jpg?url';
+import img16 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-1.jpg?url';
+import img17 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-2.jpg?url';
+import img18 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-3.jpg?url';
+import img19 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-4.jpg?url';
+import img20 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-5.jpg?url';
+import img21 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-6.jpg?url';
+import img22 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-1.jpg?url';
+import img23 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-2.jpg?url';
+import img24 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-3.jpg?url';
+import img25 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-4.jpg?url';
+import img26 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-5.jpg?url';
+import img27 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-6.jpg?url';
+import img28 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-1.jpg?url';
+import img29 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-2.jpg?url';
+import img30 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-3.jpg?url';
+import img31 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-4.jpg?url';
+import img32 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-5.jpg?url';
+import img33 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-6.jpg?url';
+import img34 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-1.jpg?url';
+import img35 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-2.jpg?url';
+import img36 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-3.jpg?url';
+import img37 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-4.jpg?url';
+import img38 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-5.jpg?url';
+import img39 from '~/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-6.jpg?url';
+import img40 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-1.jpg?url';
+import img41 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-2.jpg?url';
+import img42 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-3.jpg?url';
+import img43 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-4.jpg?url';
+import img44 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-5.jpg?url';
+import img45 from '~/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-6.jpg?url';
+import img46 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-1.jpg?url';
+import img47 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-2.jpg?url';
+import img48 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-3.jpg?url';
+import img49 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-4.jpg?url';
+import img50 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-5.jpg?url';
+import img51 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-6.jpg?url';
+import img52 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-solo/uaudio-apollo-solo-1.jpg?url';
+import img53 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-solo/uaudio-apollo-solo-2.jpg?url';
+import img54 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-solo/uaudio-apollo-solo-3.jpg?url';
+import img55 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-solo/uaudio-apollo-solo-1.jpg?url';
+import img56 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-solo/uaudio-apollo-solo-2.jpg?url';
+import img57 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-solo/uaudio-apollo-solo-3.jpg?url';
+import img58 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-solo/uaudio-apollo-solo-1.jpg?url';
+import img59 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-solo/uaudio-apollo-solo-2.jpg?url';
+import img60 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-solo/uaudio-apollo-solo-3.jpg?url';
+import img61 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-1.jpg?url';
+import img62 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-2.jpg?url';
+import img63 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-3.jpg?url';
+import img64 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-1.jpg?url';
+import img65 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-2.jpg?url';
+import img66 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-3.jpg?url';
+import img67 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-1.jpg?url';
+import img68 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-2.jpg?url';
+import img69 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-3.jpg?url';
+import img70 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-1.jpg?url';
+import img71 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-2.jpg?url';
+import img72 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-3.jpg?url';
+import img73 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-1.jpg?url';
+import img74 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-2.jpg?url';
+import img75 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-3.jpg?url';
+import img76 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-1.jpg?url';
+import img77 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-2.jpg?url';
+import img78 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-3.jpg?url';
+import img79 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-x4/uaudio-apollo-x4-1.jpg?url';
+import img80 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-x4/uaudio-apollo-x4-2.jpg?url';
+import img81 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-x4/uaudio-apollo-x4-3.jpg?url';
+import img82 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-x4/uaudio-apollo-x4-1.jpg?url';
+import img83 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-x4/uaudio-apollo-x4-2.jpg?url';
+import img84 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-x4/uaudio-apollo-x4-3.jpg?url';
+import img85 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-x4/uaudio-apollo-x4-1.jpg?url';
+import img86 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-x4/uaudio-apollo-x4-2.jpg?url';
+import img87 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-x4/uaudio-apollo-x4-3.jpg?url';
+import img88 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-1/uaudio-volt-1-1.jpg?url';
+import img89 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-1/uaudio-volt-1-2.jpg?url';
+import img90 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-1/uaudio-volt-1-1.jpg?url';
+import img91 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-1/uaudio-volt-1-2.jpg?url';
+import img92 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-1/uaudio-volt-1-1.jpg?url';
+import img93 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-1/uaudio-volt-1-2.jpg?url';
+import img94 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-2/uaudio-volt-2-1.jpg?url';
+import img95 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-2/uaudio-volt-2-2.jpg?url';
+import img96 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-2/uaudio-volt-2-1.jpg?url';
+import img97 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-2/uaudio-volt-2-2.jpg?url';
+import img98 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-2/uaudio-volt-2-1.jpg?url';
+import img99 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-2/uaudio-volt-2-2.jpg?url';
+import img100 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-4/uaudio-volt-4-1.jpg?url';
+import img101 from '~/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-4/uaudio-volt-4-2.jpg?url';
+import img102 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-4/uaudio-volt-4-1.jpg?url';
+import img103 from '~/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-4/uaudio-volt-4-2.jpg?url';
+import img104 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-4/uaudio-volt-4-1.jpg?url';
+import img105 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-4/uaudio-volt-4-2.jpg?url';
+import img106 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T5/beyerdynamic-t5-1.jpg?url';
+import img107 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T5/beyerdynamic-t5-2.jpg?url';
+import img108 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T5/beyerdynamic-t5-3.jpg?url';
+import img109 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T5/beyerdynamic-t5-1.jpg?url';
+import img110 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T5/beyerdynamic-t5-2.jpg?url';
+import img111 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T5/beyerdynamic-t5-3.jpg?url';
+import img112 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T5/beyerdynamic-t5-1.jpg?url';
+import img113 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T5/beyerdynamic-t5-2.jpg?url';
+import img114 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T5/beyerdynamic-t5-3.jpg?url';
+import img115 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T1/beyerdynamic-t1-1.jpg?url';
+import img116 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T1/beyerdynamic-t1-2.jpg?url';
+import img117 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T1/beyerdynamic-t1-3.jpg?url';
+import img118 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T1/beyerdynamic-t1-1.jpg?url';
+import img119 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T1/beyerdynamic-t1-2.jpg?url';
+import img120 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T1/beyerdynamic-t1-3.jpg?url';
+import img121 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T1/beyerdynamic-t1-1.jpg?url';
+import img122 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T1/beyerdynamic-t1-2.jpg?url';
+import img123 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T1/beyerdynamic-t1-3.jpg?url';
+import img124 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-1.jpg?url';
+import img125 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-2.jpg?url';
+import img126 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-3.jpg?url';
+import img127 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-1.jpg?url';
+import img128 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-2.jpg?url';
+import img129 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-3.jpg?url';
+import img130 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-1.jpg?url';
+import img131 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-2.jpg?url';
+import img132 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-3.jpg?url';
+import img133 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-1.jpg?url';
+import img134 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-2.jpg?url';
+import img135 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-3.jpg?url';
+import img136 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-1.jpg?url';
+import img137 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-2.jpg?url';
+import img138 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-3.jpg?url';
+import img139 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-1.jpg?url';
+import img140 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-2.jpg?url';
+import img141 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-3.jpg?url';
+import img142 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-1.jpg?url';
+import img143 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-2.jpg?url';
+import img144 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-3.jpg?url';
+import img145 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-1.jpg?url';
+import img146 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-2.jpg?url';
+import img147 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-3.jpg?url';
+import img148 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-1.jpg?url';
+import img149 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-2.jpg?url';
+import img150 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-3.jpg?url';
+import img151 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-1.jpg?url';
+import img152 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-2.jpg?url';
+import img153 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-3.jpg?url';
+import img154 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-1.jpg?url';
+import img155 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-2.jpg?url';
+import img156 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-3.jpg?url';
+import img157 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-1.jpg?url';
+import img158 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-2.jpg?url';
+import img159 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-3.jpg?url';
+import img160 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-1.jpg?url';
+import img161 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-2.jpg?url';
+import img162 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-3.jpg?url';
+import img163 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-1.jpg?url';
+import img164 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-2.jpg?url';
+import img165 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-3.jpg?url';
+import img166 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-1.jpg?url';
+import img167 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-2.jpg?url';
+import img168 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-3.jpg?url';
+import img169 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-1.jpg?url';
+import img170 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-2.jpg?url';
+import img171 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-3.jpg?url';
+import img172 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-1.jpg?url';
+import img173 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-2.jpg?url';
+import img174 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-3.jpg?url';
+import img175 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-1.jpg?url';
+import img176 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-2.jpg?url';
+import img177 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-3.jpg?url';
+import img178 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-1.jpg?url';
+import img179 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-2.jpg?url';
+import img180 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-3.jpg?url';
+import img181 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-1.jpg?url';
+import img182 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-2.jpg?url';
+import img183 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-3.jpg?url';
+import img184 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-1.jpg?url';
+import img185 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-2.jpg?url';
+import img186 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-3.jpg?url';
+import img187 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 770 PRO/beyerdynamic-dt-770-pro-1.jpg?url';
+import img188 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-1.jpg?url';
+import img189 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-2.jpg?url';
+import img190 from '~/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-3.jpg?url';
+import img191 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-1.jpg?url';
+import img192 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-2.jpg?url';
+import img193 from '~/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-3.jpg?url';
+import img194 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-1.jpg?url';
+import img195 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-2.jpg?url';
+import img196 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-3.jpg?url';
+import img197 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-1.jpg?url';
+import img198 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-2.jpg?url';
+import img199 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-3.jpg?url';
+import img200 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-4.jpg?url';
+import img201 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-5.webp?url';
+import img202 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-6.jpg?url';
+import img203 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-1.jpg?url';
+import img204 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-2.jpg?url';
+import img205 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-3.jpg?url';
+import img206 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-4.jpg?url';
+import img207 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-5.webp?url';
+import img208 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-6.jpg?url';
+import img209 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-1.jpg?url';
+import img210 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-2.jpg?url';
+import img211 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-3.jpg?url';
+import img212 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-4.jpg?url';
+import img213 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-5.webp?url';
+import img214 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-6.jpg?url';
+import img215 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-1.jpg?url';
+import img216 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-2.jpg?url';
+import img217 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-3.jpg?url';
+import img218 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-4.jpg?url';
+import img219 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-5.jpg?url';
+import img220 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-1.jpg?url';
+import img221 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-2.jpg?url';
+import img222 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-3.jpg?url';
+import img223 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-4.jpg?url';
+import img224 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-5.jpg?url';
+import img225 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-1.jpg?url';
+import img226 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-2.jpg?url';
+import img227 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-3.jpg?url';
+import img228 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-4.jpg?url';
+import img229 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-5.jpg?url';
+import img230 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-1.png?url';
+import img231 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-2.png?url';
+import img232 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-3.jpg?url';
+import img233 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-4.webp?url';
+import img234 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-5.png?url';
+import img235 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-1.png?url';
+import img236 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-2.png?url';
+import img237 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-3.jpg?url';
+import img238 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-4.webp?url';
+import img239 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-5.png?url';
+import img240 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-1.png?url';
+import img241 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-2.png?url';
+import img242 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-3.jpg?url';
+import img243 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-4.webp?url';
+import img244 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-5.png?url';
+import img245 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-1.webp?url';
+import img246 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-2.png?url';
+import img247 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-3.png?url';
+import img248 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-4.png?url';
+import img249 from '~/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-5.jpg?url';
+import img250 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-1.webp?url';
+import img251 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-2.png?url';
+import img252 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-3.png?url';
+import img253 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-4.png?url';
+import img254 from '~/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-5.jpg?url';
+import img255 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-1.webp?url';
+import img256 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-2.png?url';
+import img257 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-3.png?url';
+import img258 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-4.png?url';
+import img259 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-5.jpg?url';
+import img260 from '~/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD4/audient-id4-1.jpg?url';
+import img261 from '~/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD4/audient-id4-1.jpg?url';
+import img262 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD4/audient-id4-1.jpg?url';
+import img263 from '~/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD14/audient-id14-1.jpg?url';
+import img264 from '~/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD14/audient-id14-1.jpg?url';
+import img265 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD14/audient-id14-1.jpg?url';
+import img266 from '~/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD22/audient-id22-1.jpg?url';
+import img267 from '~/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD22/audient-id22-1.jpg?url';
+import img268 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD22/audient-id22-1.jpg?url';
+import img269 from '~/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD24/audient-id24-1.jpg?url';
+import img270 from '~/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD24/audient-id24-1.jpg?url';
+import img271 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD24/audient-id24-1.jpg?url';
+import img272 from '~/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD44/audient-id44-1.jpg?url';
+import img273 from '~/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD44/audient-id44-1.jpg?url';
+import img274 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD44/audient-id44-1.jpg?url';
+import img275 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-1.jpg?url';
+import img276 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-2.jpg?url';
+import img277 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-3.jpg?url';
+import img278 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-4.jpg?url';
+import img279 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-1.jpg?url';
+import img280 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-2.jpg?url';
+import img281 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-3.jpg?url';
+import img282 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-4.jpg?url';
+import img283 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-1.jpg?url';
+import img284 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-2.jpg?url';
+import img285 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-3.jpg?url';
+import img286 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-4.jpg?url';
+import img287 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-1.jpg?url';
+import img288 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-2.jpg?url';
+import img289 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-3.jpg?url';
+import img290 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-1.jpg?url';
+import img291 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-2.jpg?url';
+import img292 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-3.jpg?url';
+import img293 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-1.jpg?url';
+import img294 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-2.jpg?url';
+import img295 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-3.jpg?url';
+import img296 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-1.jpg?url';
+import img297 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-2.jpg?url';
+import img298 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-3.jpg?url';
+import img299 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-4.jpg?url';
+import img300 from '~/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-5.jpg?url';
+import img301 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-1.jpg?url';
+import img302 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-2.jpg?url';
+import img303 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-3.jpg?url';
+import img304 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-4.jpg?url';
+import img305 from '~/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-5.jpg?url';
+import img306 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-1.jpg?url';
+import img307 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-2.jpg?url';
+import img308 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-3.jpg?url';
+import img309 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-4.jpg?url';
+import img310 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-5.jpg?url';
+import img311 from '~/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-1.jpg?url';
+import img312 from '~/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-2.jpg?url';
+import img313 from '~/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-3.jpg?url';
+import img314 from '~/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-1.jpg?url';
+import img315 from '~/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-2.jpg?url';
+import img316 from '~/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-3.jpg?url';
+import img317 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-1.jpg?url';
+import img318 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-2.jpg?url';
+import img319 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-3.jpg?url';
+import img320 from '~/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20/electro-voice-re20-1.jpg?url';
+import img321 from '~/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20/electro-voice-re20-2.jpg?url';
+import img322 from '~/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20/electro-voice-re20-3.jpg?url';
+import img323 from '~/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20/electro-voice-re20-1.jpg?url';
+import img324 from '~/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20/electro-voice-re20-2.jpg?url';
+import img325 from '~/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20/electro-voice-re20-3.jpg?url';
+import img326 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20/electro-voice-re20-1.jpg?url';
+import img327 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20/electro-voice-re20-2.jpg?url';
+import img328 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20/electro-voice-re20-3.jpg?url';
+import img329 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-1.jpg?url';
+import img330 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-2.jpg?url';
+import img331 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-3.jpg?url';
+import img332 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-4.jpg?url';
+import img333 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-5.jpg?url';
+import img334 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-6.jpg?url';
+import img335 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-7.jpg?url';
+import img336 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-1.jpg?url';
+import img337 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-2.jpg?url';
+import img338 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-3.jpg?url';
+import img339 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-4.jpg?url';
+import img340 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-5.jpg?url';
+import img341 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-6.jpg?url';
+import img342 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-7.jpg?url';
+import img343 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-1.jpg?url';
+import img344 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-2.jpg?url';
+import img345 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-3.jpg?url';
+import img346 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-4.jpg?url';
+import img347 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-5.jpg?url';
+import img348 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-6.jpg?url';
+import img349 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-7.jpg?url';
+import img350 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-1.jpg?url';
+import img351 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-2.jpg?url';
+import img352 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-3.jpg?url';
+import img353 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-4.jpg?url';
+import img354 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-5.jpg?url';
+import img355 from '~/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-6.webp?url';
+import img356 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-1.jpg?url';
+import img357 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-2.jpg?url';
+import img358 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-3.jpg?url';
+import img359 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-4.jpg?url';
+import img360 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-5.jpg?url';
+import img361 from '~/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-6.webp?url';
+import img362 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-1.jpg?url';
+import img363 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-2.jpg?url';
+import img364 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-3.jpg?url';
+import img365 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-4.jpg?url';
+import img366 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-5.jpg?url';
+import img367 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-6.webp?url';
+import img368 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-1.jpg?url';
+import img369 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-2.jpg?url';
+import img370 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-3.jpg?url';
+import img371 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-4.jpg?url';
+import img372 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-1.jpg?url';
+import img373 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-2.jpg?url';
+import img374 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-3.jpg?url';
+import img375 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-4.jpg?url';
+import img376 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-1.jpg?url';
+import img377 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-2.jpg?url';
+import img378 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-3.jpg?url';
+import img379 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-4.jpg?url';
+import img380 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1-A/rode-nt1-a-1.jpg?url';
+import img381 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1-A/rode-nt1-a-2.jpg?url';
+import img382 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1-A/rode-nt1-a-1.jpg?url';
+import img383 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1-A/rode-nt1-a-2.jpg?url';
+import img384 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1-A/rode-nt1-a-1.jpg?url';
+import img385 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1-A/rode-nt1-a-2.jpg?url';
+import img386 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-1.jpg?url';
+import img387 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-2.jpg?url';
+import img388 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-3.jpg?url';
+import img389 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-4.jpg?url';
+import img390 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-5.jpg?url';
+import img391 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-6.jpg?url';
+import img392 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-1.jpg?url';
+import img393 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-2.jpg?url';
+import img394 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-3.jpg?url';
+import img395 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-4.jpg?url';
+import img396 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-5.jpg?url';
+import img397 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-6.jpg?url';
+import img398 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-1.jpg?url';
+import img399 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-2.jpg?url';
+import img400 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-3.jpg?url';
+import img401 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-4.jpg?url';
+import img402 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-5.jpg?url';
+import img403 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-6.jpg?url';
+import img404 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-1.jpg?url';
+import img405 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-2.jpg?url';
+import img406 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-3.jpg?url';
+import img407 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-4.jpg?url';
+import img408 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-5.jpg?url';
+import img409 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-6.jpg?url';
+import img410 from '~/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-7.jpg?url';
+import img411 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-1.jpg?url';
+import img412 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-2.jpg?url';
+import img413 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-3.jpg?url';
+import img414 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-4.jpg?url';
+import img415 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-5.jpg?url';
+import img416 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-6.jpg?url';
+import img417 from '~/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-7.jpg?url';
+import img418 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-1.jpg?url';
+import img419 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-2.jpg?url';
+import img420 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-3.jpg?url';
+import img421 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-4.jpg?url';
+import img422 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-5.jpg?url';
+import img423 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-6.jpg?url';
+import img424 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-7.jpg?url';
+import img425 from '~/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107 BK Studio Set/neumann-tlm-107-bk-studio-set-1.jpg?url';
+import img426 from '~/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107 BK Studio Set/neumann-tlm-107-bk-studio-set-1.jpg?url';
+import img427 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107 BK Studio Set/neumann-tlm-107-bk-studio-set-1.jpg?url';
+import img428 from '~/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107 Studio Set/neumann-tlm-107-studio-set-1.jpg?url';
+import img429 from '~/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107 Studio Set/neumann-tlm-107-studio-set-1.jpg?url';
+import img430 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107 Studio Set/neumann-tlm-107-studio-set-1.jpg?url';
+import img431 from '~/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107 BK/neumann-tlm-107-bk-1.jpg?url';
+import img432 from '~/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107 BK/neumann-tlm-107-bk-1.jpg?url';
+import img433 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107 BK/neumann-tlm-107-bk-1.jpg?url';
+import img434 from '~/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107/neumann-tlm-107-1.jpg?url';
+import img435 from '~/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107/neumann-tlm-107-1.jpg?url';
+import img436 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107/neumann-tlm-107-1.jpg?url';
+import img437 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Fulla/schiit-fulla-1.jpg?url';
+import img438 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Fulla/schiit-fulla-2.jpg?url';
+import img439 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Fulla/schiit-fulla-3.jpg?url';
+import img440 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Fulla/schiit-fulla-1.jpg?url';
+import img441 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Fulla/schiit-fulla-2.jpg?url';
+import img442 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Fulla/schiit-fulla-3.jpg?url';
+import img443 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Fulla/schiit-fulla-1.jpg?url';
+import img444 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Fulla/schiit-fulla-2.jpg?url';
+import img445 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Fulla/schiit-fulla-3.jpg?url';
+import img446 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-1.jpg?url';
+import img447 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-2.jpg?url';
+import img448 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-3.jpg?url';
+import img449 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-4.jpg?url';
+import img450 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-5.jpg?url';
+import img451 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-6.jpg?url';
+import img452 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-1.jpg?url';
+import img453 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-2.jpg?url';
+import img454 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-3.jpg?url';
+import img455 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-4.jpg?url';
+import img456 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-5.jpg?url';
+import img457 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-6.jpg?url';
+import img458 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-1.jpg?url';
+import img459 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-2.jpg?url';
+import img460 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-3.jpg?url';
+import img461 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-4.jpg?url';
+import img462 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-5.jpg?url';
+import img463 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-6.jpg?url';
+import img464 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-black/schiit-magni+-black-1.jpg?url';
+import img465 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-black/schiit-magni+-black-2.jpg?url';
+import img466 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-black/schiit-magni+-black-1.jpg?url';
+import img467 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-black/schiit-magni+-black-2.jpg?url';
+import img468 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-black/schiit-magni+-black-1.jpg?url';
+import img469 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-black/schiit-magni+-black-2.jpg?url';
+import img470 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-silver/schiit-magni+-silver-1.jpg?url';
+import img471 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-silver/schiit-magni+-silver-2.jpg?url';
+import img472 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-silver/schiit-magni+-silver-1.jpg?url';
+import img473 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-silver/schiit-magni+-silver-2.jpg?url';
+import img474 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-silver/schiit-magni+-silver-1.jpg?url';
+import img475 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-silver/schiit-magni+-silver-2.jpg?url';
+import img476 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magnius/schiit-magnius-1.jpg?url';
+import img477 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magnius/schiit-magnius-2.jpg?url';
+import img478 from '~/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magnius/schiit-magnius-3.jpg?url';
+import img479 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magnius/schiit-magnius-1.jpg?url';
+import img480 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magnius/schiit-magnius-2.jpg?url';
+import img481 from '~/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magnius/schiit-magnius-3.jpg?url';
+import img482 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magnius/schiit-magnius-1.jpg?url';
+import img483 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magnius/schiit-magnius-2.jpg?url';
+import img484 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magnius/schiit-magnius-3.jpg?url';
+import img485 from '~/ecommerce/assets/production-images/compressed-products-300x300/Apos/amp/topping-a90-discrete/apos-topping-a90-discrete-1.jpg?url';
+import img486 from '~/ecommerce/assets/production-images/compressed-products-660x660/Apos/amp/topping-a90-discrete/apos-topping-a90-discrete-1.jpg?url';
+import img487 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Apos/amp/topping-a90-discrete/apos-topping-a90-discrete-1.jpg?url';
+import img488 from '~/ecommerce/assets/production-images/compressed-products-300x300/Apos/amp/topping-dx3-pro+/apos-topping-dx3-pro+-1.jpg?url';
+import img489 from '~/ecommerce/assets/production-images/compressed-products-660x660/Apos/amp/topping-dx3-pro+/apos-topping-dx3-pro+-1.jpg?url';
+import img490 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/Apos/amp/topping-dx3-pro+/apos-topping-dx3-pro+-1.jpg?url';
+import img491 from '~/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-black/smsl-sh-6-black-1.jpg?url';
+import img492 from '~/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-black/smsl-sh-6-black-2.jpg?url';
+import img493 from '~/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-black/smsl-sh-6-black-3.jpg?url';
+import img494 from '~/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-black/smsl-sh-6-black-1.jpg?url';
+import img495 from '~/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-black/smsl-sh-6-black-2.jpg?url';
+import img496 from '~/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-black/smsl-sh-6-black-3.jpg?url';
+import img497 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-black/smsl-sh-6-black-1.jpg?url';
+import img498 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-black/smsl-sh-6-black-2.jpg?url';
+import img499 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-black/smsl-sh-6-black-3.jpg?url';
+import img500 from '~/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-silver/smsl-sh-6-silver-1.jpg?url';
+import img501 from '~/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-silver/smsl-sh-6-silver-2.jpg?url';
+import img502 from '~/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-silver/smsl-sh-6-silver-1.jpg?url';
+import img503 from '~/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-silver/smsl-sh-6-silver-2.jpg?url';
+import img504 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-silver/smsl-sh-6-silver-1.jpg?url';
+import img505 from '~/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-silver/smsl-sh-6-silver-2.jpg?url';
+
 export const commerceDatabase = [
   {
     sku: 'Avid-MBOX-Studio',
@@ -10,27 +516,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-5.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-5.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Avid/interface/mbox-studio/avid-mbox-studio-usb-audio-interface-5.jpg',
-      ],
+      small: [img1, img2, img3, img4, img5],
+      medium: [img6, img7, img8, img9, img10],
+      large: [img11, img12, img13, img14, img15],
     },
   },
   {
@@ -44,30 +532,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-6.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-6.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-solo-3rd-gen/focusrite-scarlett-solo-3rd-gen-6.jpg',
-      ],
+      small: [img16, img17, img18, img19, img20, img21],
+      medium: [img22, img23, img24, img25, img26, img27],
+      large: [img28, img29, img30, img31, img32, img33],
     },
   },
   {
@@ -81,30 +548,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: true,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-6.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-6.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Focusrite/interface/scarlett-2i2-3rd-gen/focusrite-scarlett-2i2-3rd-gen-6.jpg',
-      ],
+      small: [img34, img35, img36, img37, img38, img39],
+      medium: [img40, img41, img42, img43, img44, img45],
+      large: [img46, img47, img48, img49, img50, img51],
     },
   },
   {
@@ -118,21 +564,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-solo/uaudio-apollo-solo-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-solo/uaudio-apollo-solo-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-solo/uaudio-apollo-solo-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-solo/uaudio-apollo-solo-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-solo/uaudio-apollo-solo-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-solo/uaudio-apollo-solo-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-solo/uaudio-apollo-solo-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-solo/uaudio-apollo-solo-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-solo/uaudio-apollo-solo-3.jpg',
-      ],
+      small: [img52, img53, img54],
+      medium: [img55, img56, img57],
+      large: [img58, img59, img60],
     },
   },
   {
@@ -146,21 +580,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-mkii/uaudio-apollo-twin-mkii-3.jpg',
-      ],
+      small: [img61, img62, img63],
+      medium: [img64, img65, img66],
+      large: [img67, img68, img69],
     },
   },
   {
@@ -174,21 +596,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-twin-x/uaudio-apollo-twin-x-3.jpg',
-      ],
+      small: [img70, img71, img72],
+      medium: [img73, img74, img75],
+      large: [img76, img77, img78],
     },
   },
   {
@@ -202,21 +612,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-x4/uaudio-apollo-x4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-x4/uaudio-apollo-x4-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/apollo-x4/uaudio-apollo-x4-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-x4/uaudio-apollo-x4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-x4/uaudio-apollo-x4-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/apollo-x4/uaudio-apollo-x4-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-x4/uaudio-apollo-x4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-x4/uaudio-apollo-x4-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/apollo-x4/uaudio-apollo-x4-3.jpg',
-      ],
+      small: [img79, img80, img81],
+      medium: [img82, img83, img84],
+      large: [img85, img86, img87],
     },
   },
   {
@@ -230,18 +628,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-1/uaudio-volt-1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-1/uaudio-volt-1-2.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-1/uaudio-volt-1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-1/uaudio-volt-1-2.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-1/uaudio-volt-1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-1/uaudio-volt-1-2.jpg',
-      ],
+      small: [img88, img89],
+      medium: [img90, img91],
+      large: [img92, img93],
     },
   },
   {
@@ -255,18 +644,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-2/uaudio-volt-2-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-2/uaudio-volt-2-2.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-2/uaudio-volt-2-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-2/uaudio-volt-2-2.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-2/uaudio-volt-2-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-2/uaudio-volt-2-2.jpg',
-      ],
+      small: [img94, img95],
+      medium: [img96, img97],
+      large: [img98, img99],
     },
   },
   {
@@ -280,18 +660,9 @@ export const commerceDatabase = [
     category: 'interfaces',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-4/uaudio-volt-4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/UAudio/interface/volt-4/uaudio-volt-4-2.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-4/uaudio-volt-4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/UAudio/interface/volt-4/uaudio-volt-4-2.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-4/uaudio-volt-4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/UAudio/interface/volt-4/uaudio-volt-4-2.jpg',
-      ],
+      small: [img100, img101],
+      medium: [img102, img103],
+      large: [img104, img105],
     },
   },
   {
@@ -305,21 +676,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'closed-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T5/beyerdynamic-t5-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T5/beyerdynamic-t5-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T5/beyerdynamic-t5-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T5/beyerdynamic-t5-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T5/beyerdynamic-t5-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T5/beyerdynamic-t5-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T5/beyerdynamic-t5-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T5/beyerdynamic-t5-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T5/beyerdynamic-t5-3.jpg',
-      ],
+      small: [img106, img107, img108],
+      medium: [img109, img110, img111],
+      large: [img112, img113, img114],
     },
   },
   {
@@ -333,21 +692,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'open-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T1/beyerdynamic-t1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T1/beyerdynamic-t1-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/T1/beyerdynamic-t1-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T1/beyerdynamic-t1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T1/beyerdynamic-t1-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/T1/beyerdynamic-t1-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T1/beyerdynamic-t1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T1/beyerdynamic-t1-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/T1/beyerdynamic-t1-3.jpg',
-      ],
+      small: [img115, img116, img117],
+      medium: [img118, img119, img120],
+      large: [img121, img122, img123],
     },
   },
   {
@@ -361,21 +708,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'open-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 900 PRO X/beyerdynamic-dt-900-pro-x-3.jpg',
-      ],
+      small: [img124, img125, img126],
+      medium: [img127, img128, img129],
+      large: [img130, img131, img132],
     },
   },
   {
@@ -389,21 +724,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'closed-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 700 PRO X/beyerdynamic-dt-700-pro-x-3.jpg',
-      ],
+      small: [img133, img134, img135],
+      medium: [img136, img137, img138],
+      large: [img139, img140, img141],
     },
   },
   {
@@ -417,21 +740,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'open-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1990 PRO/beyerdynamic-dt-1990-pro-3.jpg',
-      ],
+      small: [img142, img143, img144],
+      medium: [img145, img146, img147],
+      large: [img148, img149, img150],
     },
   },
   {
@@ -445,21 +756,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'closed-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 1770 PRO/beyerdynamic-dt-1770-pro-3.jpg',
-      ],
+      small: [img151, img152, img153],
+      medium: [img154, img155, img156],
+      large: [img157, img158, img159],
     },
   },
   {
@@ -473,21 +772,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'open-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Black Special Edition/beyerdynamic-dt-990-black-special-edition-3.jpg',
-      ],
+      small: [img160, img161, img162],
+      medium: [img163, img164, img165],
+      large: [img166, img167, img168],
     },
   },
   {
@@ -501,21 +788,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'open-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 PRO/beyerdynamic-dt-990-pro-3.jpg',
-      ],
+      small: [img169, img170, img171],
+      medium: [img172, img173, img174],
+      large: [img175, img176, img177],
     },
   },
   {
@@ -529,21 +804,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'semi-open',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 880 PRO/beyerdynamic-dt-880-pro-3.jpg',
-      ],
+      small: [img178, img179, img180],
+      medium: [img181, img182, img183],
+      large: [img184, img185, img186],
     },
   },
   {
@@ -557,15 +820,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'closed-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 770 PRO/beyerdynamic-dt-770-pro-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 770 PRO/beyerdynamic-dt-770-pro-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 770 PRO/beyerdynamic-dt-770-pro-1.jpg',
-      ],
+      small: [img187],
+      medium: [img187],
+      large: [img187],
     },
   },
   {
@@ -579,21 +836,9 @@ export const commerceDatabase = [
     category: 'headphones',
     wearStyle: 'open-back',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Beyerdynamic/headphone/DT 990 Edition/beyerdynamic-dt-990-edition-3.jpg',
-      ],
+      small: [img188, img189, img190],
+      medium: [img191, img192, img193],
+      large: [img194, img195, img196],
     },
   },
   {
@@ -606,30 +851,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-5.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/4/evo-4-6.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-5.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/4/evo-4-6.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-5.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/4/evo-4-6.jpg',
-      ],
+      small: [img197, img198, img199, img200, img201, img202],
+      medium: [img203, img204, img205, img206, img207, img208],
+      large: [img209, img210, img211, img212, img213, img214],
     },
   },
   {
@@ -642,27 +866,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/8/evo-8-5.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/8/evo-8-5.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/8/evo-8-5.jpg',
-      ],
+      small: [img215, img216, img217, img218, img219],
+      medium: [img220, img221, img222, img223, img224],
+      large: [img225, img226, img227, img228, img229],
     },
   },
   {
@@ -675,27 +881,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-1.png',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-2.png',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-4.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/16/evo-16-5.png',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-1.png',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-2.png',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-4.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/16/evo-16-5.png',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-1.png',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-2.png',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-4.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/16/evo-16-5.png',
-      ],
+      small: [img230, img231, img232, img233, img234],
+      medium: [img235, img236, img237, img238, img239],
+      large: [img240, img241, img242, img243, img244],
     },
   },
   {
@@ -708,27 +896,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-1.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-2.png',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-3.png',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-4.png',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Evo/interface/SP8/evo-sp8-5.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-1.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-2.png',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-3.png',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-4.png',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Evo/interface/SP8/evo-sp8-5.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-1.webp',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-2.png',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-3.png',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-4.png',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Evo/interface/SP8/evo-sp8-5.jpg',
-      ],
+      small: [img245, img246, img247, img248, img249],
+      medium: [img250, img251, img252, img253, img254],
+      large: [img255, img256, img257, img258, img259],
     },
   },
   {
@@ -741,15 +911,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD4/audient-id4-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD4/audient-id4-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD4/audient-id4-1.jpg',
-      ],
+      small: [img260],
+      medium: [img261],
+      large: [img262],
     },
   },
   {
@@ -762,15 +926,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD14/audient-id14-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD14/audient-id14-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD14/audient-id14-1.jpg',
-      ],
+      small: [img263],
+      medium: [img264],
+      large: [img265],
     },
   },
   {
@@ -783,15 +941,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD22/audient-id22-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD22/audient-id22-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD22/audient-id22-1.jpg',
-      ],
+      small: [img266],
+      medium: [img267],
+      large: [img268],
     },
   },
   {
@@ -804,15 +956,9 @@ export const commerceDatabase = [
     productshowcase: true,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD24/audient-id24-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD24/audient-id24-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD24/audient-id24-1.jpg',
-      ],
+      small: [img269],
+      medium: [img270],
+      large: [img271],
     },
   },
   {
@@ -825,15 +971,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Audient/interface/iD44/audient-id44-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Audient/interface/iD44/audient-id44-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Audient/interface/iD44/audient-id44-1.jpg',
-      ],
+      small: [img272],
+      medium: [img273],
+      large: [img274],
     },
   },
   {
@@ -846,24 +986,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-4.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-4.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL2/solid-state-logic-ssl2-4.jpg',
-      ],
+      small: [img275, img276, img277, img278],
+      medium: [img279, img280, img281, img282],
+      large: [img283, img284, img285, img286],
     },
   },
   {
@@ -876,21 +1001,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 2+/solid-state-logic-ssl2+-3.jpg',
-      ],
+      small: [img287, img288, img289],
+      medium: [img290, img291, img292],
+      large: [img293, img294, img295],
     },
   },
   {
@@ -903,27 +1016,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'interfaces',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-5.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-5.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Solid State Logic/interface/SSL 12/solid-state-logic-ssl12-5.jpg',
-      ],
+      small: [img296, img297, img298, img299, img300],
+      medium: [img301, img302, img303, img304, img305],
+      large: [img306, img307, img308, img309, img310],
     },
   },
   {
@@ -937,21 +1032,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20-BLACK/electro-voice-re20-black-3.jpg',
-      ],
+      small: [img311, img312, img313],
+      medium: [img314, img315, img316],
+      large: [img317, img318, img319],
     },
   },
   {
@@ -965,21 +1048,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20/electro-voice-re20-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20/electro-voice-re20-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Electro-Voice/microphone/RE20/electro-voice-re20-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20/electro-voice-re20-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20/electro-voice-re20-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Electro-Voice/microphone/RE20/electro-voice-re20-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20/electro-voice-re20-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20/electro-voice-re20-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Electro-Voice/microphone/RE20/electro-voice-re20-3.jpg',
-      ],
+      small: [img320, img321, img322],
+      medium: [img323, img324, img325],
+      large: [img326, img327, img328],
     },
   },
   {
@@ -993,33 +1064,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-6.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM7B/shure-sm7b-7.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-6.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM7B/shure-sm7b-7.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-6.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM7B/shure-sm7b-7.jpg',
-      ],
+      small: [img329, img330, img331, img332, img333, img334, img335],
+      medium: [img336, img337, img338, img339, img340, img341, img342],
+      large: [img343, img344, img345, img346, img347, img348, img349],
     },
   },
   {
@@ -1033,30 +1080,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Shure/microphone/SM58/shure-sm58-6.webp',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Shure/microphone/SM58/shure-sm58-6.webp',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Shure/microphone/SM58/shure-sm58-6.webp',
-      ],
+      small: [img350, img351, img352, img353, img354, img355],
+      medium: [img356, img357, img358, img359, img360, img361],
+      large: [img362, img363, img364, img365, img366, img367],
     },
   },
   {
@@ -1070,24 +1096,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1/rode-nt1-4.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1/rode-nt1-4.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1/rode-nt1-4.jpg',
-      ],
+      small: [img368, img369, img370, img371],
+      medium: [img372, img373, img374, img375],
+      large: [img376, img377, img378, img379],
     },
   },
   {
@@ -1101,18 +1112,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1-A/rode-nt1-a-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/NT1-A/rode-nt1-a-2.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1-A/rode-nt1-a-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/NT1-A/rode-nt1-a-2.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1-A/rode-nt1-a-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/NT1-A/rode-nt1-a-2.jpg',
-      ],
+      small: [img380, img381],
+      medium: [img382, img383],
+      large: [img384, img385],
     },
   },
   {
@@ -1126,30 +1128,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMic/rode-podmic-6.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMic/rode-podmic-6.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMic/rode-podmic-6.jpg',
-      ],
+      small: [img386, img387, img388, img389, img390, img391],
+      medium: [img392, img393, img394, img395, img396, img397],
+      large: [img398, img399, img400, img401, img402, img403],
     },
   },
   {
@@ -1163,33 +1144,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: 'cardioid',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-6.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Rode/microphone/PodMicUSB/rode-podmic-usb-7.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-6.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Rode/microphone/PodMicUSB/rode-podmic-usb-7.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-6.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Rode/microphone/PodMicUSB/rode-podmic-usb-7.jpg',
-      ],
+      small: [img404, img405, img406, img407, img408, img409, img410],
+      medium: [img411, img412, img413, img414, img415, img416, img417],
+      large: [img418, img419, img420, img421, img422, img423, img424],
     },
   },
   {
@@ -1203,15 +1160,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: ['omni', 'wide-cardioid', 'cardioid', 'hyper-cardioid', 'figure-8'],
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107 BK Studio Set/neumann-tlm-107-bk-studio-set-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107 BK Studio Set/neumann-tlm-107-bk-studio-set-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107 BK Studio Set/neumann-tlm-107-bk-studio-set-1.jpg',
-      ],
+      small: [img425],
+      medium: [img426],
+      large: [img427],
     },
   },
   {
@@ -1225,15 +1176,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: ['omni', 'wide-cardioid', 'cardioid', 'hyper-cardioid', 'figure-8'],
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107 Studio Set/neumann-tlm-107-studio-set-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107 Studio Set/neumann-tlm-107-studio-set-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107 Studio Set/neumann-tlm-107-studio-set-1.jpg',
-      ],
+      small: [img428],
+      medium: [img429],
+      large: [img430],
     },
   },
   {
@@ -1247,15 +1192,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: ['omni', 'wide-cardioid', 'cardioid', 'hyper-cardioid', 'figure-8'],
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107 BK/neumann-tlm-107-bk-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107 BK/neumann-tlm-107-bk-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107 BK/neumann-tlm-107-bk-1.jpg',
-      ],
+      small: [img431],
+      medium: [img432],
+      large: [img433],
     },
   },
   {
@@ -1269,15 +1208,9 @@ export const commerceDatabase = [
     category: 'microphones',
     polarPattern: ['omni', 'wide-cardioid', 'cardioid', 'hyper-cardioid', 'figure-8'],
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Neumann/TLM 107/neumann-tlm-107-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Neumann/TLM 107/neumann-tlm-107-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Neumann/TLM 107/neumann-tlm-107-1.jpg',
-      ],
+      small: [img434],
+      medium: [img435],
+      large: [img436],
     },
   },
   {
@@ -1291,21 +1224,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'amps-dacs',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Fulla/schiit-fulla-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Fulla/schiit-fulla-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Fulla/schiit-fulla-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Fulla/schiit-fulla-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Fulla/schiit-fulla-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Fulla/schiit-fulla-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Fulla/schiit-fulla-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Fulla/schiit-fulla-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Fulla/schiit-fulla-3.jpg',
-      ],
+      small: [img437, img438, img439],
+      medium: [img440, img441, img442],
+      large: [img443, img444, img445],
     },
   },
   {
@@ -1319,30 +1240,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'amps-dacs',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/Hel/schiit-hel-6.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/Hel/schiit-hel-6.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-3.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-4.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-5.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/Hel/schiit-hel-6.jpg',
-      ],
+      small: [img446, img447, img448, img449, img450, img451],
+      medium: [img452, img453, img454, img455, img456, img457],
+      large: [img458, img459, img460, img461, img462, img463],
     },
   },
   {
@@ -1356,18 +1256,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'amps-dacs',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-black/schiit-magni+-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-black/schiit-magni+-black-2.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-black/schiit-magni+-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-black/schiit-magni+-black-2.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-black/schiit-magni+-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-black/schiit-magni+-black-2.jpg',
-      ],
+      small: [img464, img465],
+      medium: [img466, img467],
+      large: [img468, img469],
     },
   },
   {
@@ -1381,18 +1272,9 @@ export const commerceDatabase = [
     category: 'amps-dacs',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-silver/schiit-magni+-silver-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magni+-silver/schiit-magni+-silver-2.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-silver/schiit-magni+-silver-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magni+-silver/schiit-magni+-silver-2.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-silver/schiit-magni+-silver-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magni+-silver/schiit-magni+-silver-2.jpg',
-      ],
+      small: [img470, img471],
+      medium: [img472, img473],
+      large: [img474, img475],
     },
   },
   {
@@ -1406,21 +1288,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'amps-dacs',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magnius/schiit-magnius-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magnius/schiit-magnius-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Schiit/amp/magnius/schiit-magnius-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magnius/schiit-magnius-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magnius/schiit-magnius-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Schiit/amp/magnius/schiit-magnius-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magnius/schiit-magnius-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magnius/schiit-magnius-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Schiit/amp/magnius/schiit-magnius-3.jpg',
-      ],
+      small: [img476, img477, img478],
+      medium: [img479, img480, img481],
+      large: [img482, img483, img484],
     },
   },
   {
@@ -1434,15 +1304,9 @@ export const commerceDatabase = [
     category: 'amps-dacs',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Apos/amp/topping-a90-discrete/apos-topping-a90-discrete-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Apos/amp/topping-a90-discrete/apos-topping-a90-discrete-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Apos/amp/topping-a90-discrete/apos-topping-a90-discrete-1.jpg',
-      ],
+      small: [img485],
+      medium: [img486],
+      large: [img487],
     },
   },
   {
@@ -1456,15 +1320,9 @@ export const commerceDatabase = [
     category: 'amps-dacs',
     productshowcase: false,
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/Apos/amp/topping-dx3-pro+/apos-topping-dx3-pro+-1.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/Apos/amp/topping-dx3-pro+/apos-topping-dx3-pro+-1.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/Apos/amp/topping-dx3-pro+/apos-topping-dx3-pro+-1.jpg',
-      ],
+      small: [img488],
+      medium: [img489],
+      large: [img490],
     },
   },
   {
@@ -1477,21 +1335,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'amps-dacs',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-black/smsl-sh-6-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-black/smsl-sh-6-black-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-black/smsl-sh-6-black-3.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-black/smsl-sh-6-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-black/smsl-sh-6-black-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-black/smsl-sh-6-black-3.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-black/smsl-sh-6-black-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-black/smsl-sh-6-black-2.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-black/smsl-sh-6-black-3.jpg',
-      ],
+      small: [img491, img492, img493],
+      medium: [img494, img495, img496],
+      large: [img497, img498, img499],
     },
   },
   {
@@ -1504,18 +1350,9 @@ export const commerceDatabase = [
     productshowcase: false,
     category: 'amps-dacs',
     images: {
-      small: [
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-silver/smsl-sh-6-silver-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-300x300/S.M.S.L/sh-6-silver/smsl-sh-6-silver-2.jpg',
-      ],
-      medium: [
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-silver/smsl-sh-6-silver-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-660x660/S.M.S.L/sh-6-silver/smsl-sh-6-silver-2.jpg',
-      ],
-      large: [
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-silver/smsl-sh-6-silver-1.jpg',
-        '/app/ecommerce/assets/production-images/compressed-products-1000x1000/S.M.S.L/sh-6-silver/smsl-sh-6-silver-2.jpg',
-      ],
+      small: [img500, img501],
+      medium: [img502, img503],
+      large: [img504, img505],
     },
   },
 ];

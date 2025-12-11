@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { useLocation } from 'react-router';
 import type { ProductType } from '~/ecommerce/context/CartContext';
-import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
 import ProductProp from './ProductProp';
+import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
 
 /** Product Display */
 const ProductProvider = () => {

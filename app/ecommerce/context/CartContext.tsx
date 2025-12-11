@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { ReactElement, ReactNode } from 'react';
-import { commerceDatabase } from '../data/commerceDatabase';
+import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
 
 export type ProductType = {
   sku: string;

@@ -1,11 +1,13 @@
 import { Link } from 'react-router';
 import type { ProductType } from '../../context/CartContext';
 import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
+import video1 from '~/ecommerce/assets/production-videos/stock-footage-splice-374x467.webm';
 
 const ProductHighlight = () => {
   //Play video on user pointer hover
   const playPauseVideo = (e: React.PointerEvent<HTMLElement>, play: boolean): void => {
-    const videoTarget = (e.currentTarget as HTMLPictureElement).parentNode?.children[1].children[0] as HTMLVideoElement;
+    const videoTarget = (e.currentTarget as HTMLPictureElement).parentNode?.children[1]
+      ?.children[0] as HTMLVideoElement;
 
     if (play) {
       videoTarget.play();
@@ -51,7 +53,7 @@ const ProductHighlight = () => {
                       aria-label='Video of joyful people wearing headphones listening to music'
                       tabIndex={-1}>
                       <source
-                        src='/app/ecommerce/assets/production-videos/stock-footage-splice-374x467.webm'
+                        src={video1}
                         type='video/webm'
                       />
                     </video>

@@ -1,6 +1,12 @@
 import { useEffect, useReducer, useRef } from 'react';
 import { Link } from 'react-router';
 
+import carousel1 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/brian-tromp-rWMAni9akN8-unsplash.jpg?url';
+import carousel2 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/katrina-beachy-c_egiHy2x4Y-unsplash.jpg?url';
+import carousel3 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/lena-kudryavtseva-hdODD2TVIlM-unsplash.jpg?url';
+import carousel4 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/rekkr-insitu-black.jpg?url';
+import carousel5 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/soundtrap-uCNrr-3i2oI-unsplash.jpg?url';
+
 type initSliderStateType = {
   pointerDown: boolean;
   initPageX: number;
@@ -42,10 +48,15 @@ const Carousel = () => {
           const pointerTravelDistance: number = action.pageX - state.initPageX,
             latestTrackPosition = state.previousTrackPos + pointerTravelDistance,
             targetElementLeftPadding: number = parseInt(window.getComputedStyle(targetElement).paddingLeft),
-            maximumDelta = targetElementWidth * -1 + targetElement.children[0].children[0].clientWidth + targetElementLeftPadding,
+            maximumDelta =
+              targetElementWidth * -1 + targetElement.children[0].children[0].clientWidth + targetElementLeftPadding,
             clampedTrackPosition: number = Math.max(Math.min(latestTrackPosition, 0), maximumDelta);
 
-          return { ...state, trackPos: clampedTrackPosition, style: { transform: `translateX(${clampedTrackPosition}px)` } };
+          return {
+            ...state,
+            trackPos: clampedTrackPosition,
+            style: { transform: `translateX(${clampedTrackPosition}px)` },
+          };
         }
 
       case 'POINTER_LEAVE':
@@ -82,7 +93,8 @@ const Carousel = () => {
         pointerDown: state.pointerDown,
       });
     };
-    const userPointerLeave = () => dispatch({ type: 'POINTER_LEAVE', pointerDown: false, previousTrackPos: state.trackPos });
+    const userPointerLeave = () =>
+      dispatch({ type: 'POINTER_LEAVE', pointerDown: false, previousTrackPos: state.trackPos });
     const userPointerUp = () => dispatch({ type: 'POINTER_UP', pointerDown: false, previousTrackPos: state.trackPos });
 
     targetElement?.addEventListener('pointerdown', userPointerDown);
@@ -101,33 +113,33 @@ const Carousel = () => {
   // Carousel items
   const carouselUlArr = [
     {
-      carouselImg: '/app/ecommerce/assets/production-images/compressed-home-page/carousel/brian-tromp-rWMAni9akN8-unsplash.jpg',
+      carouselImg: carousel1,
       carouselAlt: 'Slide A',
       navCat: 'All Products',
       linkTo: 'products',
     },
     {
-      carouselImg: '/app/ecommerce/assets/production-images/compressed-home-page/carousel/techivation-vVRmYWSWy7A-unsplash.jpg',
+      carouselImg: carousel2,
       carouselAlt: 'Slide B',
       navCat: 'Headphones',
       linkTo: 'products/headphones',
     },
     {
-      carouselImg: '/app/ecommerce/assets/production-images/compressed-home-page/carousel/katrina-beachy-c_egiHy2x4Y-unsplash.jpg',
+      carouselImg: carousel3,
       carouselAlt: 'Slide C',
       navCat: 'Amps & Dacs',
       linkTo: 'amps-dacs',
       tabIndex: -1,
     },
     {
-      carouselImg: '/app/ecommerce/assets/production-images/compressed-home-page/carousel/soundtrap-uCNrr-3i2oI-unsplash.jpg',
+      carouselImg: carousel4,
       carouselAlt: 'Slide D',
       navCat: 'Microphones',
       linkTo: 'products/microphones',
       tabIndex: -1,
     },
     {
-      carouselImg: '/app/ecommerce/assets/production-images/compressed-home-page/carousel/rekkr-insitu-black.jpg',
+      carouselImg: carousel5,
       carouselAlt: 'Slide E',
       navCat: 'Interfaces',
       linkTo: 'products/interfaces',
@@ -143,12 +155,24 @@ const Carousel = () => {
           Audio solutions for <span className='highlight'>dynamic</span> environments
         </h2>
       </div>
-      <ul className='carousel__track' ref={targetElementRef} style={state.style}>
+      <ul
+        className='carousel__track'
+        ref={targetElementRef}
+        style={state.style}>
         {carouselUlArr.map((li) => (
           <li key={`carousel-category-${li.navCat}`}>
             <picture>
-              <img src={li.carouselImg} alt={li.carouselAlt} draggable='false' loading='lazy' decoding='async' fetchPriority='low' />
-              <Link to={li.linkTo} tabIndex={li.tabIndex}>
+              <img
+                src={li.carouselImg}
+                alt={li.carouselAlt}
+                draggable='false'
+                loading='lazy'
+                decoding='async'
+                fetchPriority='low'
+              />
+              <Link
+                to={li.linkTo}
+                tabIndex={li.tabIndex}>
                 {li.navCat}
               </Link>
             </picture>
