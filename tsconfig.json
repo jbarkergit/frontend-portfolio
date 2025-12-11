@@ -45,14 +45,6 @@
     "types": ["vite/client", "@testing-library/react", "@testing-library/dom", "@testing-library/jest-dom"],
 
     // # Emit
-    "declaration": false,
-    "declarationMap": false,
-    "downlevelIteration": false,
-    "emitBOM": false,
-    "emitDeclarationOnly": false,
-    "importHelpers": false,
-    "inlineSourceMap": false,
-    "inlineSources": false,
     "noEmit": true,
 
     // JavaScript Support
@@ -76,8 +68,7 @@
     "emitDecoratorMetadata": false,
     "experimentalDecorators": false,
     "jsx": "react-jsx",
-
-    // # Lib
+    "lib": ["es2022", "dom", "dom.iterable"],
     "libReplacement": true,
     "moduleDetection": "force",
     "noLib": false,
