@@ -1,59 +1,99 @@
 {
-  "include": [
-    // "**/*",
-    // "**/.server/**/*",
-    // "**/.client/**/*",
-    ".react-router/types/**/*",
-    "react-router.config.ts",
-    "vite.config.ts",
-    ".eslintrc.cjs",
-    "reset.d.ts",
-    "app"
-  ],
+  // https://www.typescriptlang.org/tsconfig/
   "compilerOptions": {
-    // Target & Environment
-    "target": "ES2022", // Modern output (class fields, top-level await, etc.)
-    "lib": ["DOM", "DOM.Iterable", "ES2022"], // Include standard DOM & ES libs
+    // # Type Checking
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictBuiltinIteratorReturn": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
 
-    // Module System
-    "module": "ES2022", // Output as ESModules
-    "moduleResolution": "bundler", // Vite-native module resolution
-    "moduleDetection": "force", // Only treat explicit `import`/`export` files as modules
-
-    // JSX & React
-    "jsx": "react-jsx", // Modern JSX transform (React 17+)
-
-    // Interop & Import Flexibility
-    "esModuleInterop": true, // Enables default import compatibility
-    "allowSyntheticDefaultImports": true, // Allow default imports even if not explicitly exported
-    "verbatimModuleSyntax": true, // Preserve `import`/`export` as written
-
-    // File Handling
-    "allowJs": false, // Disallow `.js` files (set to true if needed)
-    "resolveJsonModule": true, // Allow `import x from './file.json'`
-    "noEmit": true, // Don’t emit JS (Vite handles builds)
-
-    // Type Safety
-    "strict": true, // Enables all strict type checks (the umbrella flag)
-    "noImplicitAny": true, // Disallow `any` unless explicitly typed
-    "noUncheckedIndexedAccess": true, // Forces checks for all index signatures
-    "noImplicitOverride": true, // Require `override` keyword for method overrides
-    "useDefineForClassFields": true, // Aligns TS behavior with modern JS class fields
-
-    // Project Hygiene
-    "forceConsistentCasingInFileNames": true, // Ensure case-sensitive imports
-    "skipLibCheck": true, // Skip type-checking for `.d.ts` in node_modules
-    "isolatedModules": true, // Required for tools like Babel/Vite
-
-    // Path Aliases & Resolution
-    "baseUrl": ".", // Base path for relative imports
-    "rootDirs": [".", "./", "./.react-router/types"], // Useful for multi-root setups
+    // # Modules
+    "allowArbitraryExtensions": true,
+    "allowImportingTsExtensions": true,
+    "allowUmdGlobalAccess": true,
+    "baseUrl": "./",
+    "customConditions": [],
+    "module": "es2022",
+    "moduleResolution": "bundler",
+    "noResolve": false,
+    "noUncheckedSideEffectImports": true,
     "paths": {
-      "~/*": ["./app/*"] // Alias `~/foo` to `./app/foo`
+      "app/*": ["./app/*"]
     },
+    "resolveJsonModule": false,
+    "resolvePackageJsonExports": true,
+    "resolvePackageJsonImports": true,
+    "rewriteRelativeImportExtensions": true,
+    "rootDir": "./",
+    "rootDirs": ["./", "./.react-router/types"],
+    "types": ["vite/client", "@testing-library/react", "@testing-library/dom", "@testing-library/jest-dom"],
 
-    // Additional
-    "types": ["node", "vite/client", "@testing-library/react", "@testing-library/dom", "@testing-library/jest-dom"],
-    "outDir": "dist" // Output directory for compiled files (not used with noEmit: true)
-  }
+    // # Emit
+    "declaration": false,
+    "declarationMap": false,
+    "downlevelIteration": false,
+    "emitBOM": false,
+    "emitDeclarationOnly": false,
+    "importHelpers": false,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "noEmit": true,
+
+    // JavaScript Support
+    "allowJs": false,
+    "checkJs": false,
+
+    // # Editor Support
+    "disableSizeLimit": false,
+    "plugins": [],
+
+    // # Interop Constraints
+    "allowSyntheticDefaultImports": true,
+    "erasableSyntaxOnly": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "preserveSymlinks": false,
+    "verbatimModuleSyntax": true,
+
+    // # Language and Environment
+    "emitDecoratorMetadata": false,
+    "experimentalDecorators": false,
+    "jsx": "react-jsx",
+
+    // # Lib
+    "libReplacement": true,
+    "moduleDetection": "force",
+    "noLib": false,
+    "target": "es2022",
+    "useDefineForClassFields": true,
+
+    // # Completeness
+    "skipLibCheck": true
+  },
+  "include": [
+    ".eslintrc.cjs",
+    ".prettierrc.cjs",
+    "react-router.config.ts",
+    "reset.d.ts",
+    "vite.config.ts",
+    "app",
+    ".react-router/types/**/*"
+  ]
 }
