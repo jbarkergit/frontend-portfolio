@@ -36,7 +36,7 @@
     "paths": {
       "app/*": ["./app/*"]
     },
-    "resolveJsonModule": false,
+    "resolveJsonModule": true,
     "resolvePackageJsonExports": true,
     "resolvePackageJsonImports": true,
     "rewriteRelativeImportExtensions": true,
