@@ -5,13 +5,23 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 /** https://vite.dev/config/ */
 export default defineConfig({
-  plugins: [!process.env.VITEST && reactRouter(), tsconfigPaths()],
-  server: { host: '127.0.0.1', watch: { usePolling: true } },
+  plugins: [tsconfigPaths(), ...(process.env['VITEST'] ? [] : [reactRouter()])],
+
+  server: {
+    host: '127.0.0.1',
+    watch: { usePolling: true },
+  },
+
   test: {
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./setupTests.ts'],
     include: ['**/*.test.{ts,tsx}'],
   },
-  build: { copyPublicDir: false, cssMinify: true, ssr: false },
-}) as ViteUserConfig;
+
+  build: {
+    copyPublicDir: false,
+    cssMinify: true,
+    ssr: false,
+  },
+}) satisfies ViteUserConfig;
