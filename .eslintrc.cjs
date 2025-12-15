@@ -21,7 +21,7 @@ module.exports = {
     'plugin:prettier/recommended',
   ],
   rules: {
-    'react/react-in-jsx-scope': 'on',
+    'react/react-in-jsx-scope': 0,
     'prettier/prettier': ['error'],
     'object-property-newline': ['error', { allowMultiplePropertiesPerLine: false }],
     'array-element-newline': ['error', 'always'],
