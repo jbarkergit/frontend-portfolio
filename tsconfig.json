@@ -78,13 +78,5 @@
     // # Completeness
     "skipLibCheck": true
   },
-  "include": [
-    ".eslintrc.cjs",
-    ".prettierrc.cjs",
-    "react-router.config.ts",
-    "reset.d.ts",
-    "vite.config.ts",
-    "app",
-    ".react-router/types/**/*"
-  ]
+  "include": ["biome.json", "react-router.config.ts", "reset.d.ts", "vite.config.ts", "app", ".react-router/types/**/*"]
 }

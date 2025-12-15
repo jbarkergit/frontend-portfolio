@@ -8,8 +8,7 @@
     "build": "react-router build",
     "preview": "react-router-serve ./build/server/index.js",
     "test": "vitest",
-    "lint": "eslint app --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "eslint app --ext .ts,.tsx,.js,.jsx --fix"
+    "lint:format": "npx @biomejs/biome check --write"
   },
   "dependencies": {
     "@react-router/node": "7.10.1",
@@ -24,6 +23,7 @@
     "zod": "3.24.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.3.9",
     "@react-router/dev": "7.10.1",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
@@ -37,17 +37,7 @@
     "@typescript-eslint/parser": "7.18.0",
     "@vercel/react-router": "^1.2.4",
     "dotenv": "^17.2.3",
-    "eslint": "8.56.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-airbnb-typescript": "18.0.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-prettier": "5.2.1",
-    "eslint-plugin-react": "7.37.3",
-    "eslint-plugin-react-hooks": "4.3.0",
     "jsdom": "^27.0.0",
-    "prettier": "3.6.2",
     "react-router-devtools": "6.0.0",
     "sass": "1.90.0",
     "typescript": "5.9.3",
