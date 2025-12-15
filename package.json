@@ -7,7 +7,9 @@
     "dev": "react-router dev",
     "build": "react-router build",
     "preview": "react-router-serve ./build/server/index.js",
-    "test": "vitest"
+    "test": "vitest",
+    "lint": "eslint app --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint app --ext .ts,.tsx,.js,.jsx --fix"
   },
   "dependencies": {
     "@react-router/node": "7.10.1",
