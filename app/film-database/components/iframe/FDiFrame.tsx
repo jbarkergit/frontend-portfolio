@@ -1,12 +1,12 @@
+import IFrameController from 'app/film-database/components/iframe/iframe-controller/IFrameController';
+import { tmdbCall } from 'app/film-database/composables/tmdbCall';
+import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
+import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
+import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import type { TmdbResponseFlat } from '~/film-database/composables/types/TmdbResponse';
-import { tmdbCall } from '~/film-database/composables/tmdbCall';
-import { useHeroDataContext } from '~/film-database/context/HeroDataContext';
-import { useModalTrailerContext } from '~/film-database/context/ModalTrailerContext';
-import { useUserCollectionContext } from '~/film-database/context/UserCollectionContext';
 import type { YouTubeEvent, YouTubePlayer, YouTubeProps } from 'react-youtube';
 import YouTube from 'react-youtube';
-import IFrameController from '~/film-database/components/iframe/iframe-controller/IFrameController';
 
 /** This component utilizes YouTube Player API
  * https://developers.google.com/youtube/iframe_api_reference

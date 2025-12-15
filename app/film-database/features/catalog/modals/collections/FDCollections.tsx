@@ -1,9 +1,9 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
-import FDCollectionsMenu from './FDCollectionsMenu';
-import FDiFrame from '~/film-database/components/iframe/FDiFrame';
-import FDCollectionsErrorHandler from './FDCollectionsErrorHandler';
-import FDCollectionsCollection from './FDCollectionsCollection';
-import { useUserCollectionContext } from '~/film-database/context/UserCollectionContext';
+import FDiFrame from 'app/film-database/components/iframe/FDiFrame';
+import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
+import FDCollectionsCollection from 'app/film-database/features/catalog/modals/collections/FDCollectionsCollection';
+import FDCollectionsErrorHandler from 'app/film-database/features/catalog/modals/collections/FDCollectionsErrorHandler';
+import FDCollectionsMenu from 'app/film-database/features/catalog/modals/collections/FDCollectionsMenu';
+import { useState, useRef, useCallback, useEffect } from 'react';
 
 const FDCollections = () => {
   const { userCollections } = useUserCollectionContext(); // Context

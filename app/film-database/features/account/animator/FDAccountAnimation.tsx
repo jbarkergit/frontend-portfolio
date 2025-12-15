@@ -1,6 +1,6 @@
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import { memo, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import { useFLoader } from '~/film-database/routes/FilmDatabase';
 
 // Find the visual center of an array's length
 const getCenteredIndex = (length: number) => Math.round((length - 1) / 2);

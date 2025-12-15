@@ -29,15 +29,15 @@ const UserLoginModal = ({ setUiModal, setUnmount }: PropType) => {
   });
 
   //Form input value clear hook
-  const clearFormInputValues = (): void => {
-    setFormValidation({
-      emailAddress: 'test@test.com',
-      emailAddressValid: true,
-      password: 'HelloWorld1!',
-      passwordVisible: false,
-      passwordValid: true,
-    });
-  };
+  // const clearFormInputValues = (): void => {
+  //   setFormValidation({
+  //     emailAddress: 'test@test.com',
+  //     emailAddressValid: true,
+  //     password: 'HelloWorld1!',
+  //     passwordVisible: false,
+  //     passwordValid: true,
+  //   });
+  // };
 
   //RegExp test for email input value -> sets state validation boolean
   useEffect(() => {

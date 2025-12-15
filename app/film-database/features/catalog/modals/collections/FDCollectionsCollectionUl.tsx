@@ -1,8 +1,8 @@
-import { forwardRef, type JSX, memo, type RefObject, useMemo } from 'react';
-import { IcBaselinePlus } from '~/film-database/assets/svg/icons';
-import type { Sensor } from '~/film-database/features/catalog/modals/collections/FDCollectionsCollection';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import { useVisibleCountContext } from '~/film-database/context/VisibleCountContext';
+import { IcBaselinePlus } from 'app/film-database/assets/svg/icons';
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
+import type { Sensor } from 'app/film-database/features/catalog/modals/collections/FDCollectionsCollection';
+import { type RefObject, type JSX, memo, forwardRef, useMemo } from 'react';
 
 type Props = {
   mapIndex: number;

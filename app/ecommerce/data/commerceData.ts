@@ -1,4 +1,4 @@
-import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
+import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 import type { ProductType } from '../context/CartContext';
 
 /** Helper */

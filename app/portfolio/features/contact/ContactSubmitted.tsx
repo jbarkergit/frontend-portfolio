@@ -1,6 +1,6 @@
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
-import { MaterialSymbolsArrowLeftAlt } from '~/portfolio/features/contact/assets/ContactFormSVG';
-import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
+import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
+import { MaterialSymbolsArrowLeftAlt } from 'app/portfolio/features/contact/assets/ContactFormSVG';
+import { useFormActiveStep } from 'app/portfolio/features/contact/context/FormActiveStepContext';
 
 const ContactSubmitted = () => {
   const { updateActiveStep } = useFormActiveStep();

@@ -1,4 +1,4 @@
-import { firebaseAuth } from '../../config/firebaseConfig';
+import { firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
 
 export default function isUserAuthorized(): Promise<boolean> {
   return new Promise((resolve) => {

@@ -4,13 +4,13 @@ import { tmdbCall } from '../composables/tmdbCall';
 import FDAccountAnimation from '../features/account/animator/FDAccountAnimation';
 import FDHeader from '../features/catalog/navigation/FDHeader';
 import FDCatalog from '../features/catalog/FDCatalog';
-import FDAccountModal from '~/film-database/features/account/auth-modal/FDAccountModal';
-import { useAuth } from '~/base/firebase/authentication/context/authProvider';
-import { ModalProvider } from '~/film-database/context/ModalContext';
-import { RootRefProvider } from '~/film-database/context/RootRefContext';
-import { HeroDataProvider } from '~/film-database/context/HeroDataContext';
-import { ModalTrailerProvider } from '~/film-database/context/ModalTrailerContext';
-import { UserCollectionProvider } from '~/film-database/context/UserCollectionContext';
+import { useAuth } from 'app/base/firebase/authentication/context/authProvider';
+import { HeroDataProvider } from 'app/film-database/context/HeroDataContext';
+import { ModalProvider } from 'app/film-database/context/ModalContext';
+import { ModalTrailerProvider } from 'app/film-database/context/ModalTrailerContext';
+import { RootRefProvider } from 'app/film-database/context/RootRefContext';
+import { UserCollectionProvider } from 'app/film-database/context/UserCollectionContext';
+import FDAccountModal from 'app/film-database/features/account/auth-modal/FDAccountModal';
 
 export async function clientLoader() {
   const primaryData = await tmdbCall(new AbortController(), [

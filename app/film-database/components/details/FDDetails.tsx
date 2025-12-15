@@ -1,15 +1,15 @@
-import { useEffect, useMemo, useState, type JSX } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { MaterialSymbolsLogoutSharp, TheMovieDatabaseLogo } from '../../assets/svg/icons';
-import { tmdbCall } from '~/film-database/composables/tmdbCall';
-import type { TmdbResponseFlat } from '~/film-database/composables/types/TmdbResponse';
-import { tmdbDiscoveryIds } from '~/film-database/composables/const/tmdbDiscoveryIds';
-import { useHeroDataContext } from '~/film-database/context/HeroDataContext';
-import { useModalTrailerContext } from '~/film-database/context/ModalTrailerContext';
-import { useModalContext } from '~/film-database/context/ModalContext';
-import VoteAverageVisual from '~/film-database/components/details/FDDetailsVoteAverageVisual';
-import FDDetailsCollectionDropdown from '~/film-database/components/details/FDDetailsCollectionDropdown';
-import FDDetailsAvailability from '~/film-database/components/details/FDDetailsAvailability';
+import FDDetailsAvailability from 'app/film-database/components/details/FDDetailsAvailability';
+import FDDetailsCollectionDropdown from 'app/film-database/components/details/FDDetailsCollectionDropdown';
+import VoteAverageVisual from 'app/film-database/components/details/FDDetailsVoteAverageVisual';
+import { tmdbDiscoveryIds } from 'app/film-database/composables/const/tmdbDiscoveryIds';
+import { tmdbCall } from 'app/film-database/composables/tmdbCall';
+import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
+import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
+import { useModalContext } from 'app/film-database/context/ModalContext';
+import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
 
 const discoveryIdMap = Object.fromEntries(Object.entries(tmdbDiscoveryIds).map(([k, v]) => [v, k]));
 
@@ -26,7 +26,10 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
     undefined
   );
 
-  const genreIds = useMemo(() => data.genre_ids.map((id) => discoveryIdMap[id]?.replaceAll('_', ' ')), [data]);
+  const genreIds = useMemo(
+    () => data.genre_ids.map((id: string | number) => discoveryIdMap[id]?.replaceAll('_', ' ')),
+    [data]
+  );
 
   /** Fetch watch providers when data changes */
   useEffect(() => {

@@ -1,5 +1,5 @@
-import { tmdbDiscoveryIds } from '~/film-database/composables/const/tmdbDiscoveryIds';
-import type { TmdbResponseFlat } from '~/film-database/composables/types/TmdbResponse';
+import { tmdbDiscoveryIds } from 'app/film-database/composables/const/tmdbDiscoveryIds';
+import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
 import englishBadWordsRaw from 'naughty-words/en.json';
 
 // Endpoints
@@ -105,7 +105,7 @@ async function callApi(
       method: 'GET',
       headers: {
         accept: 'application/json',
-        Authorization: `Bearer ${import.meta.env.VITE_TMDB_READ_ACCESS_TOKEN}`,
+        Authorization: `Bearer ${import.meta.env['VITE_TMDB_READ_ACCESS_TOKEN']}`,
       },
       signal: controller.signal,
     });

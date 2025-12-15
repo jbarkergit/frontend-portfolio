@@ -1,6 +1,6 @@
+import { IcBaselineArrowLeft, IcBaselineArrowRight } from 'app/film-database/assets/svg/icons';
+import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
 import { useRef, useCallback, useEffect, useState, useLayoutEffect, type RefObject, memo } from 'react';
-import { IcBaselineArrowLeft, IcBaselineArrowRight } from '~/film-database/assets/svg/icons';
-import { useVisibleCountContext } from '~/film-database/context/VisibleCountContext';
 
 type Props = {
   dataLength: number;

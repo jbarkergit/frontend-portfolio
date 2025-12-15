@@ -1,19 +1,19 @@
-import { forwardRef, useRef, useState, type HTMLAttributes } from 'react';
-import { TablerBrandGithubFilled, DeviconGoogle, GameIconsSpy } from '~/film-database/assets/svg/icons';
-import FDAccountModalPoster from '~/film-database/features/account/auth-modal/FDAccountModalPoster';
-import { z, type ZodIssue } from 'zod';
-import { firebaseAuth } from '~/base/firebase/config/firebaseConfig';
+import { firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
+import { normalizeFirebaseAuthError } from 'app/base/firebase/firestore/helpers/normalizeFirebaseAuthError';
+import { zodSchema } from 'app/base/validation/zodSchema';
+import { TablerBrandGithubFilled, DeviconGoogle, GameIconsSpy } from 'app/film-database/assets/svg/icons';
+import FDAccountModalPoster from 'app/film-database/features/account/auth-modal/FDAccountModalPoster';
 import {
-  createUserWithEmailAndPassword,
+  GithubAuthProvider,
   GoogleAuthProvider,
-  sendPasswordResetEmail,
-  signInAnonymously,
+  createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithPopup,
+  sendPasswordResetEmail,
+  signInAnonymously,
 } from 'firebase/auth';
-import { normalizeFirebaseAuthError } from '~/base/firebase/firestore/helpers/normalizeFirebaseAuthError';
-import { GithubAuthProvider } from 'firebase/auth/web-extension';
-import { zodSchema } from '~/base/validation/zodSchema';
+import { forwardRef, useState, useRef, type HTMLAttributes } from 'react';
+import { z, type ZodIssue } from 'zod';
 
 const registrationSchema = z
   .object({
@@ -148,7 +148,7 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
     const form = e.currentTarget;
     const formData = new FormData(form);
     const formObject = Object.fromEntries(formData.entries()) as Record<string, any>;
-    formObject.tos = formData.has('tos');
+    formObject['tos'] = formData.has('tos');
     const result = schemas[activeForm].safeParse(formObject);
     return result;
   };

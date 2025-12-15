@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router';
 import ProductFilterConstructor from './ProductFilterConstructor';
-import { commerceData } from '~/ecommerce/data/commerceData';
+import { commerceData } from 'app/ecommerce/data/commerceData';
 
 const ConditionallyRenderedProductFilters = () => {
   // Memoized data dependencies
@@ -20,16 +20,25 @@ const ConditionallyRenderedProductFilters = () => {
   const location: string = useLocation().pathname.replace(regexPattern, '');
 
   // Conditional rendering
-  if (location === 'products')
+  if (location === 'products') {
     return (
       <>
         <WearStyleFilter />
         <PolarPatternFilter />
       </>
     );
-  if (['headphones', ...uniqueHeadphoneCompanies, ...uniqueWearStyles].includes(location)) return <WearStyleFilter />;
-  if (['microphones', ...uniqueMicrophoneCompanies, ...uniquePolarPatterns].includes(location))
+  } else if (['headphones', ...uniqueHeadphoneCompanies, ...uniqueWearStyles].includes(location)) {
+    return <WearStyleFilter />;
+  } else if (['microphones', ...uniqueMicrophoneCompanies, ...uniquePolarPatterns].includes(location)) {
     return <PolarPatternFilter />;
+  } else {
+    return (
+      <>
+        <WearStyleFilter />
+        <PolarPatternFilter />
+      </>
+    );
+  }
 };
 
 export default ConditionallyRenderedProductFilters;

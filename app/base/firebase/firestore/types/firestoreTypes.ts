@@ -1,5 +1,5 @@
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
 import type { User } from 'firebase/auth';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
 
 export type FirestoreUserDocument = {
   credentials: {

@@ -1,10 +1,10 @@
-import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import {
   MaterialSymbolsCircle,
   MaterialSymbolsErrorCircleRoundedSharp,
-} from '~/portfolio/features/contact/assets/ContactFormSVG';
+} from 'app/portfolio/features/contact/assets/ContactFormSVG';
+import { FormButtons } from 'app/portfolio/features/contact/components/FormButtons';
+import { useFormErrors } from 'app/portfolio/features/contact/context/FormErrorsContext';
 import { Fragment } from 'react/jsx-runtime';
-import { FormButtons } from '~/portfolio/features/contact/components/FormButtons';
 
 const contactInformationInputs = {
   fullName: { htmlFor: 'fullName', inputType: 'text' },

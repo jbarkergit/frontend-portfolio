@@ -1,9 +1,9 @@
-import { useRootRefContext } from '~/film-database/context/RootRefContext';
-import FDHero from './hero/FDHero';
-import FDMedia from './media/FDMedia';
-import FDModal from '~/film-database/features/catalog/modals/FDModal';
-import { PersonProvider } from '~/film-database/context/PersonContext';
-import { VisibleCountProvider } from '~/film-database/context/VisibleCountContext';
+import { PersonProvider } from 'app/film-database/context/PersonContext';
+import { useRootRefContext } from 'app/film-database/context/RootRefContext';
+import { VisibleCountProvider } from 'app/film-database/context/VisibleCountContext';
+import FDHero from 'app/film-database/features/catalog/hero/FDHero';
+import FDMedia from 'app/film-database/features/catalog/media/FDMedia';
+import FDModal from 'app/film-database/features/catalog/modals/FDModal';
 
 const FDCatalog = () => {
   const { root } = useRootRefContext();

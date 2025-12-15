@@ -1,11 +1,11 @@
-import { useMemo, useRef, useState } from 'react';
 import {
   MaterialSymbolsCircle,
   MaterialSymbolsArrowLeftAlt,
   MaterialSymbolsArrowRightAlt,
-} from '~/portfolio/features/contact/assets/ContactFormSVG';
-import { FormButtons } from '~/portfolio/features/contact/components/FormButtons';
-import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
+} from 'app/portfolio/features/contact/assets/ContactFormSVG';
+import { FormButtons } from 'app/portfolio/features/contact/components/FormButtons';
+import { useFormErrors } from 'app/portfolio/features/contact/context/FormErrorsContext';
+import { useMemo, useRef, useState } from 'react';
 
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
 
@@ -117,15 +117,15 @@ const ContactFormBook = () => {
         type='hidden'
         name='bookingDate'
         value={selectedDate ? selectedDate.toISOString() : ''}
-        aria-invalid={!!errors.bookingDate}
+        aria-invalid={!!errors['bookingDate']}
         aria-describedby='bookingDate-error'
       />
-      {errors.bookingDate && (
+      {errors['bookingDate'] && (
         <div
           id='bookingDate-error'
           className='contact__form__step__ul__li__error'
           role='alert'>
-          {errors.bookingDate}
+          {errors['bookingDate']}
         </div>
       )}
       <nav className='contact__form__step__stepper'>

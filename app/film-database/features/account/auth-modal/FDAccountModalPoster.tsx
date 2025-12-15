@@ -1,6 +1,6 @@
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import { memo, useEffect, useRef, useState, type CSSProperties } from 'react';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import { useFLoader } from '~/film-database/routes/FilmDatabase';
 
 const FDAccountModalPoster = memo(() => {
   const { primaryData } = useFLoader();

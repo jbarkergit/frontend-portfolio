@@ -1,9 +1,9 @@
-import { memo, useEffect, useRef } from 'react';
-import GenericCarouselNavigation from '~/film-database/components/carousel/GenericCarouselNavigation';
-import type { TmdbMovieProvider, TmdbResponseFlat } from '~/film-database/composables/types/TmdbResponse';
-import GenericCarouselPoster from '~/film-database/components/carousel/GenericCarouselPoster';
-import { SvgSpinnersRingResize } from '~/film-database/assets/svg/icons';
-import { useVisibleCountContext } from '~/film-database/context/VisibleCountContext';
+import { SvgSpinnersRingResize } from 'app/film-database/assets/svg/icons';
+import GenericCarouselNavigation from 'app/film-database/components/carousel/GenericCarouselNavigation';
+import GenericCarouselPoster from 'app/film-database/components/carousel/GenericCarouselPoster';
+import type { TmdbMovieProvider, TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
+import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
+import { useRef, useEffect, memo } from 'react';
 
 export type GenericCarouselMap = {
   media: TmdbMovieProvider[];

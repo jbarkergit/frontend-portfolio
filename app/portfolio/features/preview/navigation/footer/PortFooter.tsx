@@ -1,8 +1,8 @@
+import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
+import { useProjectSlideIndex } from 'app/portfolio/context/ProjectSlideContext';
+import { projectData } from 'app/portfolio/data/projectData';
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
-import { useProjectSlideIndex } from '~/portfolio/context/ProjectSlideContext';
-import { projectData } from '~/portfolio/data/projectData';
 
 const PortFooter = () => {
   const { featureState, setFeatureState } = useFeatureState();
@@ -12,7 +12,7 @@ const PortFooter = () => {
   const footerNavigationRight = useRef<HTMLDivElement>(null);
 
   const [navigationIndicator, setNavigationIndicator] = useState({
-    key: projectData[projectSlideIndex].key,
+    key: projectData[projectSlideIndex]?.key,
     insights: 'Project Insights',
     demoLink: 'Live Demo',
   });
@@ -27,13 +27,13 @@ const PortFooter = () => {
       : setFooterDataAttr('false');
 
     setTimeout(() => {
-      if (projectData[projectSlideIndex].key !== '' && projectData[projectSlideIndex].url !== '') {
+      if (projectData[projectSlideIndex]?.key !== '' && projectData[projectSlideIndex]?.url !== '') {
         setNavigationIndicator({
-          key: projectData[projectSlideIndex].key,
+          key: projectData[projectSlideIndex]?.key,
           insights: 'Project Insights',
           demoLink: 'Live Demo',
         });
-      } else if (projectData[projectSlideIndex].key !== '' && projectData[projectSlideIndex].url === '') {
+      } else if (projectData[projectSlideIndex]?.key !== '' && projectData[projectSlideIndex]?.url === '') {
         setNavigationIndicator({ key: projectData[projectSlideIndex].key, insights: 'Project Insights', demoLink: '' });
       } else {
         setNavigationIndicator({ key: 'This project is unavailable', insights: '', demoLink: '' });
@@ -105,7 +105,7 @@ const PortFooter = () => {
           className='carouselNav__section__left'
           aria-labelledby='project-links'
           ref={footerNavigationLeft}>
-          <Link to={projectData[projectSlideIndex].url}>
+          <Link to={projectData[projectSlideIndex]?.url}>
             <h2 data-activity='visible'>{navigationIndicator.key}</h2>
           </Link>
           <button
@@ -119,7 +119,7 @@ const PortFooter = () => {
             {navigationIndicator.insights}
           </button>
           <Link
-            to={projectData[projectSlideIndex].url}
+            to={projectData[projectSlideIndex]?.url}
             id='project-links'
             aria-label='Project Live Demo'>
             {navigationIndicator.demoLink}

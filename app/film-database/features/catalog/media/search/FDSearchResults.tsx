@@ -1,7 +1,7 @@
-import { IcOutlinePlayCircle } from '~/film-database/assets/svg/icons';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import { useHeroDataContext } from '~/film-database/context/HeroDataContext';
-import { useVisibleCountContext } from '~/film-database/context/VisibleCountContext';
+import { IcOutlinePlayCircle } from 'app/film-database/assets/svg/icons';
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
+import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
 
 const FDSearchResults = ({ searchResults }: { searchResults: TmdbMovieProvider[] | undefined }) => {
   const { setHeroData } = useHeroDataContext();

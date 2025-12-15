@@ -1,7 +1,7 @@
+import type { ProductType } from 'app/ecommerce/context/CartContext';
+import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 import { Link } from 'react-router';
-import type { ProductType } from '../../context/CartContext';
-import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
-import video1 from '~/ecommerce/assets/production-videos/stock-footage-splice-374x467.webm';
+import video1 from '/app/ecommerce/assets/production-videos/stock-footage-splice-374x467.webm';
 
 const ProductHighlight = () => {
   //Play video on user pointer hover

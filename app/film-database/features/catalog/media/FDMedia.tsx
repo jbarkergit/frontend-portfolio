@@ -1,8 +1,8 @@
+import GenericCarousel from 'app/film-database/components/carousel/GenericCarousel';
+import { useModalContext } from 'app/film-database/context/ModalContext';
+import FDSearch from 'app/film-database/features/catalog/media/search/FDSearch';
+import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import { useEffect, useRef } from 'react';
-import { useFLoader } from '~/film-database/routes/FilmDatabase';
-import FDSearch from '~/film-database/features/catalog/media/search/FDSearch';
-import GenericCarousel from '~/film-database/components/carousel/GenericCarousel';
-import { useModalContext } from '~/film-database/context/ModalContext';
 
 const FDMedia = () => {
   const { modal } = useModalContext();

@@ -1,3 +1,4 @@
+import { useRootRefContext } from 'app/film-database/context/RootRefContext';
 import {
   createContext,
   useContext,
@@ -8,7 +9,6 @@ import {
   type ReactNode,
   type SetStateAction,
 } from 'react';
-import { useRootRefContext } from '~/film-database/context/RootRefContext';
 
 type CarouselVisibleQuantity = { viewport: number; modal: number };
 

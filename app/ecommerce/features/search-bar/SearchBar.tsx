@@ -1,7 +1,7 @@
+import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 import { useRef, useState, useEffect } from 'react';
 import type { ChangeEvent } from 'react';
 import { Link } from 'react-router';
-import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
 
 function productSearch(searchTerm: string) {
   return commerceDatabase.filter((product) => product.sku.toLowerCase().includes(searchTerm.toLowerCase())).slice(0, 9);

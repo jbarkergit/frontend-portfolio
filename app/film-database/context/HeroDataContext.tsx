@@ -1,3 +1,5 @@
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import {
   createContext,
   type Dispatch,
@@ -7,8 +9,6 @@ import {
   useMemo,
   useState,
 } from 'react';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import { useFLoader } from '~/film-database/routes/FilmDatabase';
 
 const Context = createContext<
   | {

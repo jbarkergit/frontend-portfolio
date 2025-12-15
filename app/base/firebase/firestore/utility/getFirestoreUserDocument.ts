@@ -1,3 +1,6 @@
+import isUserAuthorized from 'app/base/firebase/authentication/utility/isUserAuthorized';
+import { database, firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
+import type { FirestoreUserDocument } from 'app/base/firebase/firestore/types/firestoreTypes';
 import {
   doc,
   getDoc,
@@ -6,9 +9,6 @@ import {
   type DocumentReference,
   type DocumentSnapshot,
 } from 'firebase/firestore';
-import isUserAuthorized from '~/base/firebase/authentication/utility/isUserAuthorized';
-import { database, firebaseAuth } from '~/base/firebase/config/firebaseConfig';
-import type { FirestoreUserDocument } from '~/base/firebase/firestore/types/firestoreTypes';
 
 let cachedUserDocument: FirestoreUserDocument | undefined;
 

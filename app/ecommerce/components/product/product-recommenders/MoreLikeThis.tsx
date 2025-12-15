@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router';
 import type { ProductType } from '../../../context/CartContext';
-import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
+import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 
 type MoreLikeThisType = {
   findProduct: ProductType;

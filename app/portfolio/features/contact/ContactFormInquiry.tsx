@@ -1,12 +1,13 @@
-import { Fragment, useRef, useState } from 'react';
-import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
 import {
   MaterialSymbolsCircle,
   MaterialSymbolsErrorCircleRoundedSharp,
   MaterialSymbolsList,
-} from '~/portfolio/features/contact/assets/ContactFormSVG';
-import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
-import { FormButtons } from '~/portfolio/features/contact/components/FormButtons';
+} from 'app/portfolio/features/contact/assets/ContactFormSVG';
+import { FormButtons } from 'app/portfolio/features/contact/components/FormButtons';
+import { useBookingActive } from 'app/portfolio/features/contact/context/FormBookingActiveContext';
+import { useFormErrors } from 'app/portfolio/features/contact/context/FormErrorsContext';
+import { useRef, useState } from 'react';
+import { Fragment } from 'react/jsx-runtime';
 
 const inquiryInputs = {
   inquiryTitle: { htmlFor: 'inquiry', inputType: 'select' },
@@ -130,7 +131,7 @@ const ContactFormInquiry = () => {
                       placeholder=' '
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      aria-invalid={!!errors.message}
+                      aria-invalid={!!errors['message']}
                       aria-describedby='message-error'
                     />
                   </>

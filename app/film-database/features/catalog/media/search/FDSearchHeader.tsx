@@ -1,7 +1,7 @@
+import { IcBaselineSearch } from 'app/film-database/assets/svg/icons';
+import { tmdbCall } from 'app/film-database/composables/tmdbCall';
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
 import { memo, useRef, type ChangeEvent } from 'react';
-import { IcBaselineSearch } from '~/film-database/assets/svg/icons';
-import { tmdbCall } from '~/film-database/composables/tmdbCall';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
 
 const FDSearchHeader = memo(
   ({

@@ -1,8 +1,8 @@
+import { TablerCategoryPlus } from 'app/film-database/assets/svg/icons';
+import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
+import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
+import { addIdToCollection } from 'app/film-database/utility/addIdToCollection';
 import { memo, useCallback, useEffect, useRef } from 'react';
-import { TablerCategoryPlus } from '~/film-database/assets/svg/icons';
-import { useHeroDataContext } from '~/film-database/context/HeroDataContext';
-import { useUserCollectionContext } from '~/film-database/context/UserCollectionContext';
-import { addIdToCollection } from '~/film-database/utility/addIdToCollection';
 
 const FDDetailsCollectionDropdown = memo(() => {
   const { userCollections, setUserCollections } = useUserCollectionContext();
@@ -42,7 +42,7 @@ const FDDetailsCollectionDropdown = memo(() => {
         data-open='false'>
         {Object.entries(userCollections).map(([key, col], index) => {
           return (
-            <li key={`detail-dropdown-${col.header}`}>
+            <li key={`detail-dropdown-${col.header}-${key}`}>
               <button
                 aria-label={`Add ${heroData?.title} to collection ${col.header}`}
                 onClick={() => {

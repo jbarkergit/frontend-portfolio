@@ -1,10 +1,10 @@
-import { useEffect, useState, useMemo, useRef } from 'react';
-import { tmdbCall } from '~/film-database/composables/tmdbCall';
-import type { TmdbResponseFlat } from '~/film-database/composables/types/TmdbResponse';
-import { MaterialSymbolsLogoutSharp, SvgSpinnersRingResize } from '~/film-database/assets/svg/icons';
-import { useModalTrailerContext } from '~/film-database/context/ModalTrailerContext';
-import { usePersonContext } from '~/film-database/context/PersonContext';
-import { useModalContext } from '~/film-database/context/ModalContext';
+import { SvgSpinnersRingResize, MaterialSymbolsLogoutSharp } from 'app/film-database/assets/svg/icons';
+import { tmdbCall } from 'app/film-database/composables/tmdbCall';
+import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
+import { useModalContext } from 'app/film-database/context/ModalContext';
+import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { usePersonContext } from 'app/film-database/context/PersonContext';
+import { useState, useRef, useEffect, useMemo } from 'react';
 
 type Cast = TmdbResponseFlat['personCredits']['cast'][number];
 

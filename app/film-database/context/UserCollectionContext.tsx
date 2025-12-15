@@ -1,3 +1,9 @@
+import isUserAuthorized from 'app/base/firebase/authentication/utility/isUserAuthorized';
+import { firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
+import { getFirestoreUserDocument } from 'app/base/firebase/firestore/utility/getFirestoreUserDocument';
+import { updateFirestoreUserDocument } from 'app/base/firebase/firestore/utility/updateFirestoreUserDocument';
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import {
   createContext,
   useContext,
@@ -8,13 +14,6 @@ import {
   type ReactNode,
   type SetStateAction,
 } from 'react';
-import { useAuth } from '~/base/firebase/authentication/context/authProvider';
-import isUserAuthorized from '~/base/firebase/authentication/utility/isUserAuthorized';
-import { firebaseAuth } from '~/base/firebase/config/firebaseConfig';
-import { getFirestoreUserDocument } from '~/base/firebase/firestore/utility/getFirestoreUserDocument';
-import { updateFirestoreUserDocument } from '~/base/firebase/firestore/utility/updateFirestoreUserDocument';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import { useFLoader } from '~/film-database/routes/FilmDatabase';
 
 /**
  * Represents a user's media collection in the catalog.

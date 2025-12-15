@@ -1,5 +1,5 @@
+import { IcBaselineError } from 'app/film-database/assets/svg/icons';
 import { forwardRef } from 'react';
-import { IcBaselineError } from '~/film-database/assets/svg/icons';
 
 const FDCollectionsErrorHandler = forwardRef<HTMLDivElement, {}>(({}, errorRef) => {
   return (

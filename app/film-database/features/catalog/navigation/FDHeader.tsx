@@ -1,9 +1,9 @@
-import { firebaseAuth } from '~/base/firebase/config/firebaseConfig';
+import { firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
+import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
+import { useModalContext } from 'app/film-database/context/ModalContext';
+import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
 import { signOut } from 'firebase/auth';
 import { useCallback, useEffect, useRef, useState, type SVGProps } from 'react';
-import { useModalContext } from '~/film-database/context/ModalContext';
-import { useModalTrailerContext } from '~/film-database/context/ModalTrailerContext';
-import { useHeroDataContext } from '~/film-database/context/HeroDataContext';
 
 function StreamlinePlumpUserStickerSquareSolid(props: SVGProps<SVGSVGElement>) {
   return (

@@ -1,14 +1,14 @@
+import ContactFormBook from 'app/portfolio/features/contact/ContactFormBook';
+import ContactFormInformation from 'app/portfolio/features/contact/ContactFormInformation';
+import ContactFormInquiry from 'app/portfolio/features/contact/ContactFormInquiry';
+import { useFormActiveStep } from 'app/portfolio/features/contact/context/FormActiveStepContext';
+import { useBookingActive } from 'app/portfolio/features/contact/context/FormBookingActiveContext';
+import { useFormErrors } from 'app/portfolio/features/contact/context/FormErrorsContext';
+import { useValidateForm } from 'app/portfolio/features/contact/hooks/useValidateForm';
 import { useRef } from 'react';
-import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
-import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
-import ContactFormBook from '~/portfolio/features/contact/ContactFormBook';
-import ContactFormInformation from '~/portfolio/features/contact/ContactFormInformation';
-import ContactFormInquiry from '~/portfolio/features/contact/ContactFormInquiry';
-import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
-import { useValidateForm } from '~/portfolio/features/contact/hooks/useValidateForm';
 
 const submitFormToWeb3 = async (formData: FormData): Promise<void> => {
-  formData.append('access_key', import.meta.env.VITE_WEB_FORMS_KEY!);
+  formData.append('access_key', import.meta.env['VITE_WEB_FORMS_KEY']!);
   const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
   const result = (await response.json()) as { success: boolean };
   if (!result.success) throw new Error(JSON.stringify(result));

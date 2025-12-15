@@ -1,9 +1,9 @@
 import type { JSX } from 'react';
 import { Link } from 'react-router';
 
-import infographic1 from '~/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-1.jpg?url';
-import infographic2 from '~/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-2.jpg?url';
-import infographic3 from '~/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-3.jpg?url';
+import infographic1 from '/app/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-1.jpg?url';
+import infographic2 from '/app/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-2.jpg?url';
+import infographic3 from '/app/ecommerce/assets/production-images/compressed-home-page/infographic/infographic-3.jpg?url';
 
 const InfographicSectionOne = () => {
   return (

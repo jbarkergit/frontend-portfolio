@@ -1,8 +1,8 @@
-import { useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState, type RefObject } from 'react';
+import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
+import { useProjectSlideIndex } from 'app/portfolio/context/ProjectSlideContext';
+import { projectData } from 'app/portfolio/data/projectData';
+import { useRef, useState, useEffect, useMemo, useReducer } from 'react';
 import { Link } from 'react-router';
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
-import { useProjectSlideIndex } from '~/portfolio/context/ProjectSlideContext';
-import { projectData } from '~/portfolio/data/projectData';
 
 type ActionType =
   | {
@@ -370,7 +370,7 @@ const ProjectCarousel = () => {
 
   useEffect(() => {
     if (Object.values(featureState).some((value) => value === true)) {
-      const entryWithTrue = Object.entries(featureState).find(([key, value]) => value === true);
+      const entryWithTrue = Object.entries(featureState).find(([_, value]) => value === true);
       const trueKey = entryWithTrue ? entryWithTrue[0] : null;
       mainRef.current?.setAttribute('data-status', trueKey === 'projectDetailsActive' ? 'disabled' : 'contact'); // Grid transition out animator
     } else if (!initialRender) {

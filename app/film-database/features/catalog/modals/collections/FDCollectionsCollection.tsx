@@ -1,11 +1,11 @@
 import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useRef } from 'react';
 import FDCollectionsCollectionHeader from './FDCollectionsCollectionHeader';
 import FDCollectionsCollectionUl from './FDCollectionsCollectionUl';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import GenericCarouselNavigation from '~/film-database/components/carousel/GenericCarouselNavigation';
-import { useUserCollectionContext, type UserCollection } from '~/film-database/context/UserCollectionContext';
-import { useModalTrailerContext } from '~/film-database/context/ModalTrailerContext';
-import { findEuclidean } from '~/film-database/utility/findEuclidean';
+import GenericCarouselNavigation from 'app/film-database/components/carousel/GenericCarouselNavigation';
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useUserCollectionContext, type UserCollection } from 'app/film-database/context/UserCollectionContext';
+import { findEuclidean } from 'app/film-database/utility/findEuclidean';
 
 const NOT_FOUND_INDEX = -1 as const;
 

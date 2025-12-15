@@ -1,6 +1,6 @@
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
-import { useProjectSlideIndex } from '~/portfolio/context/ProjectSlideContext';
-import { projectData } from '~/portfolio/data/projectData';
+import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
+import { useProjectSlideIndex } from 'app/portfolio/context/ProjectSlideContext';
+import { projectData } from 'app/portfolio/data/projectData';
 
 const ProjectInsights = () => {
   const { featureState, setFeatureState } = useFeatureState();
@@ -75,7 +75,7 @@ const ProjectInsights = () => {
         <aside className='projectDetails__insights__technology'>
           <ul className='projectDetails__insights__technology__container'>
             <h2>Technology</h2>
-            {Object.entries(projectData[projectSlideIndex].technologies).map(([category, techArray]) => (
+            {Object.entries(projectData[projectSlideIndex]?.technologies).map(([category, techArray]) => (
               <li
                 className='projectDetails__insights__technology__container__tech'
                 key={category}>
@@ -91,7 +91,7 @@ const ProjectInsights = () => {
             ))}
           </ul>
         </aside>
-        <article className='projectDetails__insights__project'>{projectData[projectSlideIndex].insights}</article>
+        <article className='projectDetails__insights__project'>{projectData[projectSlideIndex]?.insights}</article>
       </div>
     </section>
   );

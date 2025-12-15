@@ -1,3 +1,5 @@
+import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
+import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import {
   createContext,
   useContext,
@@ -8,8 +10,6 @@ import {
   type ReactNode,
   type SetStateAction,
 } from 'react';
-import type { TmdbMovieProvider } from '~/film-database/composables/types/TmdbResponse';
-import { useUserCollectionContext } from '~/film-database/context/UserCollectionContext';
 
 const Context = createContext<
   | {

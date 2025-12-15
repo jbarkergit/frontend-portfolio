@@ -1,5 +1,5 @@
 import { Link } from 'react-router';
-import video1 from '~/ecommerce/assets/production-videos/stock-footage-splice-688x860.webm';
+import video1 from '/app/ecommerce/assets/production-videos/stock-footage-splice-688x860.webm';
 
 const SideBySide = () => {
   return (

@@ -1,11 +1,11 @@
 import { useEffect, useReducer, useRef } from 'react';
 import { Link } from 'react-router';
 
-import carousel1 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/brian-tromp-rWMAni9akN8-unsplash.jpg?url';
-import carousel2 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/katrina-beachy-c_egiHy2x4Y-unsplash.jpg?url';
-import carousel3 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/lena-kudryavtseva-hdODD2TVIlM-unsplash.jpg?url';
-import carousel4 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/rekkr-insitu-black.jpg?url';
-import carousel5 from '~/ecommerce/assets/production-images/compressed-home-page/carousel/soundtrap-uCNrr-3i2oI-unsplash.jpg?url';
+import carousel1 from '/app/ecommerce/assets/production-images/compressed-home-page/carousel/brian-tromp-rWMAni9akN8-unsplash.jpg?url';
+import carousel2 from '/app/ecommerce/assets/production-images/compressed-home-page/carousel/katrina-beachy-c_egiHy2x4Y-unsplash.jpg?url';
+import carousel3 from '/app/ecommerce/assets/production-images/compressed-home-page/carousel/lena-kudryavtseva-hdODD2TVIlM-unsplash.jpg?url';
+import carousel4 from '/app/ecommerce/assets/production-images/compressed-home-page/carousel/rekkr-insitu-black.jpg?url';
+import carousel5 from '/app/ecommerce/assets/production-images/compressed-home-page/carousel/soundtrap-uCNrr-3i2oI-unsplash.jpg?url';
 
 type initSliderStateType = {
   pointerDown: boolean;
@@ -45,12 +45,18 @@ const Carousel = () => {
         if (!state.pointerDown) {
           return state;
         } else {
-          const pointerTravelDistance: number = action.pageX - state.initPageX,
-            latestTrackPosition = state.previousTrackPos + pointerTravelDistance,
-            targetElementLeftPadding: number = parseInt(window.getComputedStyle(targetElement).paddingLeft),
-            maximumDelta =
-              targetElementWidth * -1 + targetElement.children[0].children[0].clientWidth + targetElementLeftPadding,
-            clampedTrackPosition: number = Math.max(Math.min(latestTrackPosition, 0), maximumDelta);
+          const pointerTravelDistance: number = action.pageX - state.initPageX;
+          const latestTrackPosition = state.previousTrackPos + pointerTravelDistance;
+          const targetElementLeftPadding: number = parseInt(window.getComputedStyle(targetElement).paddingLeft);
+
+          const targetElementChildren = targetElement.children[0];
+          if (!targetElementChildren) return state;
+
+          const childrenOfChildren = targetElementChildren.children[0];
+          if (!childrenOfChildren) return state;
+
+          const maximumDelta = targetElementWidth * -1 + childrenOfChildren.clientWidth + targetElementLeftPadding;
+          const clampedTrackPosition: number = Math.max(Math.min(latestTrackPosition, 0), maximumDelta);
 
           return {
             ...state,
@@ -80,11 +86,13 @@ const Carousel = () => {
 
   useEffect(() => {
     const targetElement = targetElementRef?.current!;
+
     const userPointerDown = (e: PointerEvent) => {
       if (!state.pointerDown && e.target instanceof HTMLAnchorElement) return state;
       const pageX = e.pageX as number;
       dispatch({ type: 'POINTER_DOWN', pointerDown: true, initPageX: pageX, pageX: pageX });
     };
+
     const userPointerMove = (e: PointerEvent) => {
       const pageX = e.pageX as number;
       dispatch({
@@ -93,8 +101,10 @@ const Carousel = () => {
         pointerDown: state.pointerDown,
       });
     };
+
     const userPointerLeave = () =>
       dispatch({ type: 'POINTER_LEAVE', pointerDown: false, previousTrackPos: state.trackPos });
+
     const userPointerUp = () => dispatch({ type: 'POINTER_UP', pointerDown: false, previousTrackPos: state.trackPos });
 
     targetElement?.addEventListener('pointerdown', userPointerDown);

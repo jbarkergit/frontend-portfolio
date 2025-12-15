@@ -1,8 +1,8 @@
+import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
+import { useProjectSlideIndex } from 'app/portfolio/context/ProjectSlideContext';
+import { projectData } from 'app/portfolio/data/projectData';
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router';
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
-import { useProjectSlideIndex } from '~/portfolio/context/ProjectSlideContext';
-import { projectData } from '~/portfolio/data/projectData';
 
 /** Component */
 const PortHeader = () => {

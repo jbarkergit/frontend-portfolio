@@ -15,7 +15,7 @@ import ProductPageImgSelect from '../components/product/product-page/ProductPage
 import MoreLikeThis from '../components/product/product-recommenders/MoreLikeThis';
 
 // Data
-import { commerceDatabase } from '~/ecommerce/data/commerceDatabase';
+import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 
 const ProductDetailPage = () => {
   const { paramId } = useParams() as { paramId: string };

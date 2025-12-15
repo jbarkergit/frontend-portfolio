@@ -1,9 +1,9 @@
+import GenericCarousel from 'app/film-database/components/carousel/GenericCarousel';
+import { tmdbCall } from 'app/film-database/composables/tmdbCall';
+import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
+import { useModalContext } from 'app/film-database/context/ModalContext';
+import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
 import { useState, useEffect } from 'react';
-import GenericCarousel from '~/film-database/components/carousel/GenericCarousel';
-import { tmdbCall } from '~/film-database/composables/tmdbCall';
-import type { TmdbResponseFlat } from '~/film-database/composables/types/TmdbResponse';
-import { useModalContext } from '~/film-database/context/ModalContext';
-import { useModalTrailerContext } from '~/film-database/context/ModalTrailerContext';
 
 const FDCineInfoCredits = () => {
   const { modal } = useModalContext();

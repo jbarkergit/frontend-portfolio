@@ -1,6 +1,6 @@
-import FDiFrame from '~/film-database/components/iframe/FDiFrame';
-import FDDetails from '~/film-database/components/details/FDDetails';
-import FDCineInfoCredits from '~/film-database/features/catalog/modals/cineInfo/FDCineInfoCredits';
+import FDDetails from 'app/film-database/components/details/FDDetails';
+import FDiFrame from 'app/film-database/components/iframe/FDiFrame';
+import FDCineInfoCredits from 'app/film-database/features/catalog/modals/cineInfo/FDCineInfoCredits';
 
 const FDCineInfo = () => {
   return (

@@ -1,10 +1,10 @@
+import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
+import Contact from 'app/portfolio/features/contact/Contact';
+import ProjectInsights from 'app/portfolio/features/insights/ProjectInsights';
+import ProjectCarousel from 'app/portfolio/features/preview/carousel/ProjectCarousel';
+import PortFooter from 'app/portfolio/features/preview/navigation/footer/PortFooter';
+import PortHeader from 'app/portfolio/features/preview/navigation/header/PortHeader';
 import { useEffect } from 'react';
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
-import Contact from '~/portfolio/features/contact/Contact';
-import ProjectInsights from '~/portfolio/features/insights/ProjectInsights';
-import ProjectCarousel from '~/portfolio/features/preview/carousel/ProjectCarousel';
-import PortFooter from '~/portfolio/features/preview/navigation/footer/PortFooter';
-import PortHeader from '~/portfolio/features/preview/navigation/header/PortHeader';
 
 const PortGrid = ({ portfolioRef }: { portfolioRef: React.RefObject<HTMLDivElement | null> }) => {
   const { featureState } = useFeatureState();

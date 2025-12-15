@@ -1,7 +1,7 @@
+import { database, firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
+import type { FirestoreUserDocument } from 'app/base/firebase/firestore/types/firestoreTypes';
+import { getFirestoreUserDocument } from 'app/base/firebase/firestore/utility/getFirestoreUserDocument';
 import { doc, updateDoc } from 'firebase/firestore';
-import { firebaseAuth, database } from '~/base/firebase/config/firebaseConfig';
-import { getFirestoreUserDocument } from './getFirestoreUserDocument';
-import type { FirestoreUserDocument } from '~/base/firebase/firestore/types/firestoreTypes';
 
 export const updateFirestoreUserDocument = async (
   partialUpdate: Partial<FirestoreUserDocument>

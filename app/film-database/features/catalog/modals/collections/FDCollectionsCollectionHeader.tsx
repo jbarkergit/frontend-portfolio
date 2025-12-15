@@ -1,6 +1,6 @@
+import { TablerCategoryFilled } from 'app/film-database/assets/svg/icons';
+import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { memo, useDeferredValue, useRef, useState, type ChangeEvent } from 'react';
-import { TablerCategoryFilled } from '~/film-database/assets/svg/icons';
-import { useUserCollectionContext } from '~/film-database/context/UserCollectionContext';
 
 type Props = {
   mapIndex: number;

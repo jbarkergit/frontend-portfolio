@@ -6,7 +6,7 @@ import ConditionallyRenderedProductFilters from '../features/product-filters/Con
 import ProductFilterConstructor from '../features/product-filters/ProductFilterConstructor';
 import EcoHeader from '../components/navigation/header-desktop/EcoHeader';
 import type { JSX } from 'react';
-import { commerceData } from '~/ecommerce/data/commerceData';
+import { commerceData } from 'app/ecommerce/data/commerceData';
 
 const ProductCatalog = (): JSX.Element => {
   const CompanyFilter = (): JSX.Element => ProductFilterConstructor('Filter by Company', commerceData.companies);

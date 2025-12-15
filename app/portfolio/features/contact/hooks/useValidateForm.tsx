@@ -1,5 +1,5 @@
+import { zodSchema } from 'app/base/validation/zodSchema';
 import { z } from 'zod';
-import { zodSchema } from '~/base/validation/zodSchema';
 
 const contactInformationSchema = z.object({
   fullName: zodSchema.shape.fullName,

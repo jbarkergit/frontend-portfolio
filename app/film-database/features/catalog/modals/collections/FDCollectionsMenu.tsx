@@ -1,8 +1,8 @@
-import { memo, useEffect, useRef, type Dispatch, type SetStateAction } from 'react';
-import { TablerCategoryPlus, TablerEdit, MaterialSymbolsLogoutSharp } from '~/film-database/assets/svg/icons';
-import { useModalContext } from '~/film-database/context/ModalContext';
-import { useUserCollectionContext } from '~/film-database/context/UserCollectionContext';
-import { addIdToCollection } from '~/film-database/utility/addIdToCollection';
+import { TablerCategoryPlus, TablerEdit, MaterialSymbolsLogoutSharp } from 'app/film-database/assets/svg/icons';
+import { useModalContext } from 'app/film-database/context/ModalContext';
+import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
+import { addIdToCollection } from 'app/film-database/utility/addIdToCollection';
+import { type Dispatch, type SetStateAction, memo, useRef, useEffect } from 'react';
 
 type Props = {
   isEditMode: boolean;

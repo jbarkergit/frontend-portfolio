@@ -1,4 +1,4 @@
-import { type UserCollection } from '~/film-database/context/UserCollectionContext';
+import type { UserCollection } from 'app/film-database/context/UserCollectionContext';
 
 type Payload = {
   data: UserCollection['data'] | undefined;

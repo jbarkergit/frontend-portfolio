@@ -2,7 +2,7 @@ import { isRouteErrorResponse, Link, Links, Meta, Outlet, Scripts, ScrollRestora
 import { StrictMode } from 'react';
 import type { Route } from './+types/root';
 import AuthProvider from './base/firebase/authentication/context/authProvider';
-import styles from '~/base/sass/stylesheets.scss?url';
+import styles from '/app/base/sass/stylesheets.scss?url';
 
 export function meta() {
   return [

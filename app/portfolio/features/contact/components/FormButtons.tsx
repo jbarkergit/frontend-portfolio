@@ -1,13 +1,13 @@
-import { useFeatureState } from '~/portfolio/context/FeatureStateContext';
+import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
 import {
   MaterialSymbolsArrowRightAlt,
   MaterialSymbolsArrowLeftAlt,
   MaterialSymbolsOutgoingMail,
-} from '~/portfolio/features/contact/assets/ContactFormSVG';
-import { useFormActiveStep } from '~/portfolio/features/contact/context/FormActiveStepContext';
-import { useBookingActive } from '~/portfolio/features/contact/context/FormBookingActiveContext';
-import { useFormErrors } from '~/portfolio/features/contact/context/FormErrorsContext';
-import { useValidateForm } from '~/portfolio/features/contact/hooks/useValidateForm';
+} from 'app/portfolio/features/contact/assets/ContactFormSVG';
+import { useFormActiveStep } from 'app/portfolio/features/contact/context/FormActiveStepContext';
+import { useBookingActive } from 'app/portfolio/features/contact/context/FormBookingActiveContext';
+import { useFormErrors } from 'app/portfolio/features/contact/context/FormErrorsContext';
+import { useValidateForm } from 'app/portfolio/features/contact/hooks/useValidateForm';
 
 const Next = () => {
   const { formRef, activeStepIndex, updateActiveStep } = useFormActiveStep();

@@ -1,7 +1,7 @@
+import { FeatureStateProvider } from 'app/portfolio/context/FeatureStateContext';
+import { ProjectSlideIndexProvider } from 'app/portfolio/context/ProjectSlideContext';
+import PortGrid from 'app/portfolio/features/PortGrid';
 import { useRef } from 'react';
-import { FeatureStateProvider } from '~/portfolio/context/FeatureStateContext';
-import { ProjectSlideIndexProvider } from '~/portfolio/context/ProjectSlideContext';
-import PortGrid from '~/portfolio/features/PortGrid';
 
 export default function () {
   const portfolioRef = useRef<HTMLDivElement>(null);

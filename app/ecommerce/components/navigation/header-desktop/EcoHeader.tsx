@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import EcoNavigationLinks from '../navigation-links/EcoNavigationLinks';
 import ModalFeatures from '../../../features/ModalFeatures';
 import SearchBar from '../../../features/search-bar/SearchBar';
-import { useCart } from '~/ecommerce/context/CartContext';
+import { useCart } from 'app/ecommerce/context/CartContext';
 
 const EcoHeader = () => {
   const { cartProductQuantity } = useCart();

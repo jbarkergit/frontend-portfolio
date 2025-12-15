@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
 import CartProduct from './CartProduct';
 import EmptyCart from './EmptyCart';
-import { useCart } from '~/ecommerce/context/CartContext';
+import { useCart } from 'app/ecommerce/context/CartContext';
 
 type PropType = {
   setUnmount: Dispatch<SetStateAction<boolean>>;

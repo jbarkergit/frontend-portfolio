@@ -1,13 +1,13 @@
+import { BxDotsVerticalRounded, IcOutlinePlayCircle, TablerCategoryPlus } from 'app/film-database/assets/svg/icons';
+import type { GenericCarouselMap } from 'app/film-database/components/carousel/GenericCarousel';
+import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
+import { useModalContext } from 'app/film-database/context/ModalContext';
+import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { usePersonContext } from 'app/film-database/context/PersonContext';
+import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
+import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
+import { addIdToCollection } from 'app/film-database/utility/addIdToCollection';
 import { useRef, type ReactNode, useCallback, useEffect, useState } from 'react';
-import { BxDotsVerticalRounded, IcOutlinePlayCircle, TablerCategoryPlus } from '~/film-database/assets/svg/icons';
-import type { GenericCarouselMap } from '~/film-database/components/carousel/GenericCarousel';
-import { useHeroDataContext } from '~/film-database/context/HeroDataContext';
-import { useModalContext } from '~/film-database/context/ModalContext';
-import { useModalTrailerContext } from '~/film-database/context/ModalTrailerContext';
-import { usePersonContext } from '~/film-database/context/PersonContext';
-import { useUserCollectionContext } from '~/film-database/context/UserCollectionContext';
-import { useVisibleCountContext } from '~/film-database/context/VisibleCountContext';
-import { addIdToCollection } from '~/film-database/utility/addIdToCollection';
 
 function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
   carouselName,
@@ -109,7 +109,8 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
               data-open='false'>
               {Object.entries(userCollections).map(([key, collection], i) => {
                 return (
-                  <li key={`${carouselName}-carousel-${carouselIndex}-poster-${posterIndex}-collection-dropdown-${i}`}>
+                  <li
+                    key={`${carouselName}-carousel-${carouselIndex}-poster-${posterIndex}-collection-dropdown-${i}-${key}`}>
                     <button
                       aria-label={`Add movie to ${collection.header}`}
                       onClick={() => {

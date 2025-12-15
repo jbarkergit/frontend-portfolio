@@ -1,5 +1,5 @@
+import { commerceData } from 'app/ecommerce/data/commerceData';
 import { Link } from 'react-router';
-import { commerceData } from '~/ecommerce/data/commerceData';
 
 const EcoNavigationLinks = () => {
   const categories: string[] = commerceData.categories;
