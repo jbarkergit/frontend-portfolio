@@ -4,12 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "react-router build",
     "dev": "react-router dev",
-    "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc",
-    "test": "vitest",
-    "sass-watch": "sass --no-source-map --style=compressed --watch app/base/sass/stylesheets.scss dist/index.css"
+    "build": "react-router build",
+    "preview": "react-router-serve ./build/server/index.js",
+    "test": "vitest"
   },
   "dependencies": {
     "@react-router/node": "7.10.1",
