@@ -1,20 +1,21 @@
 # Front-end Projects Repository
 
-[![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=white)](https://reactrouter.com/) [![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/) [![Zod](https://img.shields.io/badge/Zod-9333EA?logo=typescript&logoColor=white)](https://github.com/colinhacks/zod) [![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)](https://sass-lang.com/) [![ESLint](https://img.shields.io/badge/ESLint-4B32C3?logo=eslint&logoColor=white)](https://eslint.org/) [![Prettier](https://img.shields.io/badge/Prettier-F7B93E?logo=prettier&logoColor=white)](https://prettier.io/) [![Vitest](https://img.shields.io/badge/Vitest-6366F1?logo=vitest&logoColor=white)](https://vitest.dev/)
+[![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=white)](https://reactrouter.com/) [![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/) [![Zod](https://img.shields.io/badge/Zod-9333EA?logo=typescript&logoColor=white)](https://github.com/colinhacks/zod) [![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)](https://sass-lang.com/) [![Biome](https://img.shields.io/badge/Biome-3F3FFF?logo=biome&logoColor=white)](https://www.npmjs.com/package/@biomejs/biome) [![Vitest](https://img.shields.io/badge/Vitest-6366F1?logo=vitest&logoColor=white)](https://vitest.dev/)
 [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 
 ## Development Tools & Libraries
 
-- **[React](https://www.npmjs.com/package/react)**: Library for building user interfaces.
-- **[TypeScript](https://www.npmjs.com/package/typescript)**: Adds optional types to JavaScript for large-scale apps.
-- **[React Router](https://reactrouter.com/)**: Router with SSR, code splitting, and file-based routing.
 - **[Vite](https://vitejs.dev/)**: Fast, modern frontend build tool.
+- **[React](https://www.npmjs.com/package/react)**: Library for building user interfaces.
+- **[React Router](https://reactrouter.com/)**: Router with SSR, code splitting, and file-based routing.
+- **[TypeScript](https://www.npmjs.com/package/typescript)**: Adds optional types to JavaScript for large-scale apps.
 - **[@total-typescript/ts-reset](https://www.npmjs.com/package/@total-typescript/ts-reset)**: Resets TypeScript configs for cleaner defaults.
 - **[Sass](https://sass-lang.com/)**: JavaScript-based Sass compiler.
 
 ## Backend & Deployment
 
 - **[Firebase](https://www.npmjs.com/package/firebase)**: Backend services including database, auth, and integrations.
+- **[@vercel/react-router](https://www.npmjs.com/package/@vercel/react-router)**: Lightweight routing library for React, optimized for Vercel deployments.
 
 ## Utilities & Services
 
@@ -35,7 +36,11 @@
 - **[Vitest](https://vitest.dev/)**: Unit and integration test runner compatible with Vite.
 - **[@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom)**: Custom Jest matchers for DOM assertions.
 
-## Linting
+## Linting & Formatting
+
+- **[@biomejs/biome](https://www.npmjs.com/package/@biomejs/biome)**: Fast formatter and linter for JavaScript, TypeScript, JSX, JSON, CSS, and GraphQL.
+
+~~## Linting
 
 - **[eslint](https://www.npmjs.com/package/eslint)**: Pluggable linter for JS/TS code.
 - **[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)**: Parser for TypeScript in ESLint.
@@ -57,4 +62,4 @@
 
 ## Code Formatting
 
-- **[Prettier](https://prettier.io/)**: Opinionated code formatter.
+- **[Prettier](https://prettier.io/)**: Opinionated code formatter.~~
