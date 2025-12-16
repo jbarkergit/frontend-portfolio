@@ -1,7 +1,6 @@
 # Front-end Projects Repository
 
-[![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=white)](https://reactrouter.com/) [![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/) [![Zod](https://img.shields.io/badge/Zod-9333EA?logo=typescript&logoColor=white)](https://github.com/colinhacks/zod) [![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)](https://sass-lang.com/) [![Biome](https://img.shields.io/badge/Biome-3F3FFF?logo=biome&logoColor=white)](https://www.npmjs.com/package/@biomejs/biome) [![Vitest](https://img.shields.io/badge/Vitest-6366F1?logo=vitest&logoColor=white)](https://vitest.dev/)
-[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=white)](https://vitejs.dev/) [![React](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=white)](https://reactjs.org/) [![React Router](https://img.shields.io/badge/React%20Router-CA4245?logo=reactrouter&logoColor=white)](https://reactrouter.com/) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/) [![Sass](https://img.shields.io/badge/Sass-CC6699?logo=sass&logoColor=white)](https://sass-lang.com/) [![Vitest](https://img.shields.io/badge/Vitest-6366F1?logo=vitest&logoColor=white)](https://vitest.dev/) [![Biome](https://img.shields.io/badge/Biome-3F3FFF?logo=biome&logoColor=white)](https://www.npmjs.com/package/@biomejs/biome) [![Zod](https://img.shields.io/badge/Zod-9333EA?logo=typescript&logoColor=white)](https://github.com/colinhacks/zod) [![Firebase](https://img.shields.io/badge/Firebase-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com/)
 
 ## Development Tools & Libraries
 
@@ -31,10 +30,10 @@
 
 ## Testing
 
-- **[@testing-library/react](https://www.npmjs.com/package/@testing-library/react)**: React testing utilities.
-- **[@testing-library/dom](https://www.npmjs.com/package/@testing-library/dom)**: DOM testing helpers encouraging best practices.
 - **[Vitest](https://vitest.dev/)**: Unit and integration test runner compatible with Vite.
 - **[@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom)**: Custom Jest matchers for DOM assertions.
+- **[@testing-library/react](https://www.npmjs.com/package/@testing-library/react)**: React testing utilities.
+- **[@testing-library/dom](https://www.npmjs.com/package/@testing-library/dom)**: DOM testing helpers encouraging best practices.
 
 ## Linting & Formatting
 
