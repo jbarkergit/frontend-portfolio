@@ -40,26 +40,26 @@
 
 - **[@biomejs/biome](https://www.npmjs.com/package/@biomejs/biome)**: Fast formatter and linter for JavaScript, TypeScript, JSX, JSON, CSS, and GraphQL.
 
-~~## Linting
+~~## Linting~~
 
-- **[eslint](https://www.npmjs.com/package/eslint)**: Pluggable linter for JS/TS code.
-- **[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)**: Parser for TypeScript in ESLint.
-- **[@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)**: TS-specific ESLint rules.
+~~- **[eslint](https://www.npmjs.com/package/eslint)**: Pluggable linter for JS/TS code.~~  
+~~- **[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)**: Parser for TypeScript in ESLint.~~  
+~~- **[@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)**: TS-specific ESLint rules.~~
 
-### Linting Configurations
+~~### Linting Configurations~~
 
-- **[eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)**: Airbnb JS ESLint config.
-- **[eslint-config-airbnb-typescript](https://www.npmjs.com/package/eslint-config-airbnb-typescript)**: Airbnb TS ESLint config.
-- **[eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier)**: Disables rules conflicting with Prettier.
+~~- **[eslint-config-airbnb](https://www.npmjs.com/package/eslint-config-airbnb)**: Airbnb JS ESLint config.~~  
+~~- **[eslint-config-airbnb-typescript](https://www.npmjs.com/package/eslint-config-airbnb-typescript)**: Airbnb TS ESLint config.~~  
+~~- **[eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier)**: Disables rules conflicting with Prettier.~~
 
-### Linting Plugins
+~~### Linting Plugins~~
 
-- **[eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)**: React-specific linting rules.
-- **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)**: Hooks linting rules.
-- **[eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)**: Validates correct imports.
-- **[eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)**: Enforces accessibility rules on JSX.
-- **[eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier)**: Runs Prettier as ESLint rule.
+~~- **[eslint-plugin-react](https://www.npmjs.com/package/eslint-plugin-react)**: React-specific linting rules.~~  
+~~- **[eslint-plugin-react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks)**: Hooks linting rules.~~  
+~~- **[eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import)**: Validates correct imports.~~  
+~~- **[eslint-plugin-jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)**: Enforces accessibility rules on JSX.~~  
+~~- **[eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier)**: Runs Prettier as ESLint rule.~~
 
-## Code Formatting
+~~## Code Formatting~~
 
-- **[Prettier](https://prettier.io/)**: Opinionated code formatter.~~
+~~- **[Prettier](https://prettier.io/)**: Opinionated code formatter.~~
