@@ -61,38 +61,39 @@ const ProjectCarousel = () => {
   const wheelTimeout = useRef<NodeJS.Timeout | null>(null);
 
   /** Helpers & Precomputations */
-  const [viewportWidth, setViewportWidth] = useState<number>(0);
-  const [carouselPaddingLeft, setCarouselPaddingLeft] = useState(0);
+  const [carouselPaddingLeft, setCarouselPaddingLeft] = useState(0); // Priority #1
+  const [articlePositions, setArticlePositions] = useState<number[]>([]); // Priority #2
+  const activeArticlePosition = useMemo(
+    () => articlePositions[projectSlideIndex],
+    [articlePositions, projectSlideIndex]
+  ); // Priority #3
+
+  function trackDependencies() {
+    if (carouselRef.current) {
+      const padding = parseFloat(getComputedStyle(carouselRef.current).paddingLeft);
+      setCarouselPaddingLeft(isNaN(padding) ? 0 : padding);
+    }
+    if (articleArray.current.length) {
+      const positions = articleArray.current.map((child) => -child.offsetLeft);
+      setArticlePositions(positions);
+    }
+  }
 
   useEffect(() => {
-    const observer = new ResizeObserver(([entry]) => {
-      if (entry) {
-        setViewportWidth(entry.contentRect.width);
-        if (carouselRef.current) setCarouselPaddingLeft(parseFloat(getComputedStyle(carouselRef.current).paddingLeft));
-      }
+    const observer = new ResizeObserver(() => {
+      trackDependencies();
+      dispatch({ type: 'EXTERNAL_NAVIGATION', payload: {} });
     });
 
     if (mainRef.current) observer.observe(mainRef.current);
     return () => observer.disconnect();
   }, []);
 
-  const [articlePositions, setArticlePositions] = useState<number[]>([]);
-
-  useEffect(() => {
-    if (articleArray.current.length) {
-      setArticlePositions(articleArray.current.map((child) => child.offsetLeft * -1));
-
-      dispatch({
-        type: 'EXTERNAL_NAVIGATION',
-        payload: {},
-      });
-    }
-  }, [viewportWidth]);
-
-  const activeArticlePosition = useMemo(
-    () => articlePositions[projectSlideIndex],
-    [articlePositions, projectSlideIndex]
-  );
+  // useEffect(() => {
+  //   console.log('viewportWidth', viewportWidth);
+  //   console.log('carouselPaddingLeft', carouselPaddingLeft);
+  //   console.log('activeArticlePosition', activeArticlePosition);
+  // }, [viewportWidth, carouselPaddingLeft, activeArticlePosition]);
 
   /** Reducer */
   const reducer = (state: typeof initState, action: ActionType): typeof initState => {
@@ -117,8 +118,8 @@ const ProjectCarousel = () => {
         const carouselScrollWidth: number = (carouselRef.current?.scrollWidth as number) * -1; // full scroll width inverted
         const articleSample = articleArray.current[0];
         if (!articleSample) return state;
-        const articleOffsetWidth: number = articleSample.offsetWidth + carouselPaddingLeft * 2; // article width + padding
 
+        const articleOffsetWidth: number = articleSample.offsetWidth;
         const maxTravelDelta: number = carouselScrollWidth + articleOffsetWidth; // maximum allowed negative travel
         const clampedTrackPosition: number = Math.max(Math.min(newTrackPosition, 0), maxTravelDelta); // clamp to bounds
 
@@ -133,15 +134,15 @@ const ProjectCarousel = () => {
 
         const distances = articlePositions.map((pos) => Math.abs(pos - state.trackPos)); // distance to each article snap point
         const closestIndex = distances.indexOf(Math.min(...distances)); // nearest article index
-        const closestArticle = articlePositions[closestIndex]; // nearest article position
-        const closestPos = (closestArticle ?? 0) + carouselPaddingLeft; // snapped translateX including padding
+        const closestArticle = articlePositions[closestIndex] ?? 0; // nearest article position
+        const closestArticlePos = closestArticle + carouselPaddingLeft;
 
         return {
           ...state,
           pointerDown: false,
           activeArticleIndex: closestIndex,
-          previousTrackPos: closestPos,
-          trackPos: Math.round(closestPos),
+          previousTrackPos: closestArticlePos,
+          trackPos: Math.round(closestArticlePos),
         };
 
       case 'WHEEL_SCROLL':
@@ -385,12 +386,13 @@ const ProjectCarousel = () => {
     <main className='mainContent' ref={mainRef}>
       <div
         className='mainContent__track'
+        id='mainContent__track'
         ref={carouselRef}
         style={{ transform: `translate3d(${state.trackPos}px, 0, 0)` }}
         data-visible={'false'}
         data-status={!state.pointerDown ? 'smooth' : ''}
       >
-        {projectData.map((project) => (
+        {projectData.map((project, index) => (
           <Link
             className='mainContent__track__project'
             ref={articleRef}
@@ -404,14 +406,20 @@ const ProjectCarousel = () => {
             onDragStart={(e) => e.preventDefault()}
           >
             <picture>
+              <source media='(max-width: 950px)' srcSet={project.imgSrcMobile} />
               <img
-                src={viewportWidth > 950 ? project.imgSrc : project.imgSrcMobile}
+                src={project.imgSrc}
                 alt={project.imgAlt}
                 rel='preload'
                 loading='eager'
-                draggable='false'
+                draggable={false}
                 decoding='async'
                 fetchPriority='high'
+                onLoad={() => {
+                  if (index === projectData.length - 1) {
+                    trackDependencies();
+                  }
+                }}
               />
             </picture>
           </Link>
