@@ -39,9 +39,9 @@
 
 - **[@biomejs/biome](https://www.npmjs.com/package/@biomejs/biome)**: Fast formatter and linter for JavaScript, TypeScript, JSX, JSON, CSS, and GraphQL.
 
+## Deprecated
 
-
-~~## Linting~~
+~~### Linting~~
 
 ~~ **[eslint](https://www.npmjs.com/package/eslint)**: Pluggable linter for JS/TS code.~~  
 ~~ **[@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)**: Parser for TypeScript in ESLint.~~  
