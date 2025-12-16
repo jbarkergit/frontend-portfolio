@@ -1,8 +1,8 @@
-import { isRouteErrorResponse, Link, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { StrictMode } from 'react';
+import { isRouteErrorResponse, Link, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import styles from '/app/base/sass/stylesheets.scss?url';
 import type { Route } from './+types/root';
 import AuthProvider from './base/firebase/authentication/context/authProvider';
-import styles from '/app/base/sass/stylesheets.scss?url';
 
 export function meta() {
   return [
@@ -47,19 +47,13 @@ export default function App() {
 export function HydrateFallback() {
   return (
     <div className='hydrateFallback'>
-      <svg
-        xmlns='http://www.w3.org/2000/svg'
-        width='6em'
-        height='6em'
-        viewBox='0 0 24 24'>
+      <svg xmlns='http://www.w3.org/2000/svg' width='6em' height='6em' viewBox='0 0 24 24'>
         <path
           fill='currentColor'
           d='M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z'
           opacity='.5'
         />
-        <path
-          fill='currentColor'
-          d='M20 12h2A10 10 0 0 0 12 2V4A8 8 0 0 1 20 12Z'>
+        <path fill='currentColor' d='M20 12h2A10 10 0 0 0 12 2V4A8 8 0 0 1 20 12Z'>
           <animateTransform
             attributeName='transform'
             dur='1s'
@@ -100,9 +94,7 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
           <span>{err.details}.</span>
           <span>
             Please return to the{' '}
-            <Link
-              to='/'
-              aria-label='Return to application hub'>
+            <Link to='/' aria-label='Return to application hub'>
               {'application hub '}
             </Link>
             {'to continue browsing.'}

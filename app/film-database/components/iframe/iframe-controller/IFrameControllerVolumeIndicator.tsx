@@ -1,13 +1,10 @@
 import { usePlayerVolumeContext } from 'app/film-database/components/iframe/iframe-controller/context/PlayerVolumeContext';
-import { useEffect, useState, type SVGProps } from 'react';
+import { type SVGProps, useEffect, useState } from 'react';
 import type { YouTubePlayer } from 'react-youtube';
 
 function MaterialSymbolsVolumeOffRounded(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'
@@ -18,10 +15,7 @@ function MaterialSymbolsVolumeOffRounded(props: SVGProps<SVGSVGElement>) {
 }
 function MaterialSymbolsVolumeMuteRounded(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'
@@ -32,10 +26,7 @@ function MaterialSymbolsVolumeMuteRounded(props: SVGProps<SVGSVGElement>) {
 }
 function MaterialSymbolsVolumeDownRounded(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'
@@ -46,10 +37,7 @@ function MaterialSymbolsVolumeDownRounded(props: SVGProps<SVGSVGElement>) {
 }
 function MaterialSymbolsVolumeUpRounded(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'
@@ -97,7 +85,8 @@ const IFrameControllerVolumeIndicator = ({ player }: { player: YouTubePlayer }) 
     <button
       className='fdiFrame__controller__controls__button'
       aria-label={playerVolume === 0 ? 'Unmute video' : 'Mute video'}
-      onClick={changeMuteState}>
+      onClick={changeMuteState}
+    >
       {svg}
     </button>
   );

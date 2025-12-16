@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { ProductType } from '../../../context/CartContext';
 
 type PropType = {
@@ -19,7 +19,10 @@ const ProductPageImgDisplay = ({ findProduct, activeDisplay, setActiveDisplay }:
 
   const [magnifierEnabled, setMagnifierEnabled] = useState<boolean>(false),
     [cursorCoordinates, setCursorCoordinates] = useState<{ x: number; y: number }>({ x: 0, y: 0 }),
-    [magnifierBackgroundSize, setMagnifierBackgroundSize] = useState<{ width: string; height: string }>({ width: '', height: '' }),
+    [magnifierBackgroundSize, setMagnifierBackgroundSize] = useState<{ width: string; height: string }>({
+      width: '',
+      height: '',
+    }),
     [magnifierBackgroundPos, setMagnifierBackgroundPos] = useState<{ x: number; y: number }>({ x: 0, y: 0 }),
     [magnification, setMagnification] = useState<number>(1);
 
@@ -39,7 +42,10 @@ const ProductPageImgDisplay = ({ findProduct, activeDisplay, setActiveDisplay }:
       if (magnifierEnabled) {
         e.preventDefault(); //Prevent page scroll
         const minMaxMagnify = { min: 1, max: 1.6 }; //Range setter
-        const clampedMagnification = Math.min(minMaxMagnify.max, Math.max(minMaxMagnify.min, magnification + (e.deltaY < 0 ? 0.2 : -0.2)));
+        const clampedMagnification = Math.min(
+          minMaxMagnify.max,
+          Math.max(minMaxMagnify.min, magnification + (e.deltaY < 0 ? 0.2 : -0.2))
+        );
         setMagnification(clampedMagnification);
       }
     };
@@ -77,7 +83,10 @@ const ProductPageImgDisplay = ({ findProduct, activeDisplay, setActiveDisplay }:
   //Set magnifier image size, by passes container wxh inheritance
   useEffect((): void => {
     if (primaryImg.current)
-      setMagnifierBackgroundSize({ width: `${primaryImg.current.width * magnification}px`, height: `${primaryImg.current.height * magnification}px` });
+      setMagnifierBackgroundSize({
+        width: `${primaryImg.current.width * magnification}px`,
+        height: `${primaryImg.current.height * magnification}px`,
+      });
   }, [primaryImg.current, magnification]);
 
   // Reset active display index on location change
@@ -94,7 +103,8 @@ const ProductPageImgDisplay = ({ findProduct, activeDisplay, setActiveDisplay }:
           <div
             className='skuPage__grid__display__primaryImg__magnifier'
             ref={magnifier}
-            style={{ transform: `translateX(${cursorCoordinates.x}px) translateY(${cursorCoordinates.y}px)` }}>
+            style={{ transform: `translateX(${cursorCoordinates.x}px) translateY(${cursorCoordinates.y}px)` }}
+          >
             <img
               src={images?.large[activeDisplay]}
               style={{
@@ -121,25 +131,33 @@ const ProductPageImgDisplay = ({ findProduct, activeDisplay, setActiveDisplay }:
       {images?.large.length === 1 ? null : (
         <div className='skuPage__grid__display__nav'>
           <div className='skuPage__grid__display__nav__container'>
-            <button aria-label='Previous Image' onClick={() => (activeDisplay === 0 ? setActiveDisplay(lastSlide) : setActiveDisplay(activeDisplay - 1))}>
+            <button
+              aria-label='Previous Image'
+              onClick={() => (activeDisplay === 0 ? setActiveDisplay(lastSlide) : setActiveDisplay(activeDisplay - 1))}
+            >
               <span>
                 <svg xmlns='http://www.w3.org/2000/svg' width='1.8em' height='1.8em' viewBox='0 0 24 24'>
                   <path
                     fill='currentColor'
-                    d='m8.165 11.63l6.63-6.43C15.21 4.799 16 5.042 16 5.57v12.86c0 .528-.79.771-1.205.37l-6.63-6.43a.499.499 0 0 1 0-.74Z'></path>
+                    d='m8.165 11.63l6.63-6.43C15.21 4.799 16 5.042 16 5.57v12.86c0 .528-.79.771-1.205.37l-6.63-6.43a.499.499 0 0 1 0-.74Z'
+                  ></path>
                 </svg>
                 <span>Previous Image</span>
               </span>
             </button>
           </div>
           <div className='skuPage__grid__display__nav__container'>
-            <button aria-label='Next Image' onClick={() => (activeDisplay === lastSlide ? setActiveDisplay(1) : setActiveDisplay(activeDisplay + 1))}>
+            <button
+              aria-label='Next Image'
+              onClick={() => (activeDisplay === lastSlide ? setActiveDisplay(1) : setActiveDisplay(activeDisplay + 1))}
+            >
               <span>
                 <span>Next Image</span>
                 <svg xmlns='http://www.w3.org/2000/svg' width='1.8em' height='1.8em' viewBox='0 0 24 24'>
                   <path
                     fill='currentColor'
-                    d='M15.835 11.63L9.205 5.2C8.79 4.799 8 5.042 8 5.57v12.86c0 .528.79.771 1.205.37l6.63-6.43a.498.498 0 0 0 0-.74Z'></path>
+                    d='M15.835 11.63L9.205 5.2C8.79 4.799 8 5.042 8 5.57v12.86c0 .528.79.771 1.205.37l6.63-6.43a.498.498 0 0 0 0-.74Z'
+                  ></path>
                 </svg>
               </span>
             </button>

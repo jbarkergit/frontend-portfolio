@@ -9,16 +9,12 @@ const InfographicSectionOne = () => {
   return (
     <article className='infographic__primary'>
       <section className='infographic__primary__article'>
-        <strong
-          className='infographic__primary__article__strong'
-          tabIndex={0}>
+        <strong className='infographic__primary__article__strong' tabIndex={0}>
           <span className='infographic__primary__article__strong--line'>THE NEW </span>
           <span className='infographic__primary__article__strong--line'>HiFi AUDIO </span>
           <span className='infographic__primary__article__strong--line highlight'>EXPERIENCE</span>
         </strong>
-        <h1
-          className='infographic__primary__article__heading'
-          tabIndex={0}>
+        <h1 className='infographic__primary__article__heading' tabIndex={0}>
           Unparalleled HiFi audio and <span className='highlight'>superior</span> manufacturing for discerning
           audiophiles. Crystal-clear sound, <span className='highlight'>premium </span>
           materials, meticulous <span className='highlight'>craftsmanship</span>, and lasting durability.
@@ -62,9 +58,7 @@ const InfographicSectionThree = () => {
   return (
     <article className='infographic__cta'>
       <section className='infographic__cta__article'>
-        <h2
-          className='infographic__cta__article--heading'
-          tabIndex={0}>
+        <h2 className='infographic__cta__article--heading' tabIndex={0}>
           <span>NEW TECH FROM </span>
           <span className='highlight'>Beyerdynamic</span>
         </h2>
@@ -75,7 +69,8 @@ const InfographicSectionThree = () => {
         <Link
           to='http://localhost:5173/ecommerce/products/Beyerdynamic'
           className='infographic__section__news__textBlock--cta'
-          aria-label='Shop Tesla enhanced Headphones'>
+          aria-label='Shop Tesla enhanced Headphones'
+        >
           Shop Tesla enhanced Headphones
         </Link>
       </section>

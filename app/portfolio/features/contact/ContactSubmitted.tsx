@@ -22,8 +22,9 @@ const ContactSubmitted = () => {
             type='button'
             onClick={() => {
               updateActiveStep(0);
-              setFeatureState((prev: any) => ({ ...prev, contactFormActive: false }));
-            }}>
+              setFeatureState((prev) => ({ ...prev, contactFormActive: false }));
+            }}
+          >
             <span className='contact__submission__nav__button--span'>
               <MaterialSymbolsArrowLeftAlt />
             </span>

@@ -1,11 +1,11 @@
-import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useRef } from 'react';
-import FDCollectionsCollectionHeader from './FDCollectionsCollectionHeader';
-import FDCollectionsCollectionUl from './FDCollectionsCollectionUl';
 import GenericCarouselNavigation from 'app/film-database/components/carousel/GenericCarouselNavigation';
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
 import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
-import { useUserCollectionContext, type UserCollection } from 'app/film-database/context/UserCollectionContext';
+import { type UserCollection, useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { findEuclidean } from 'app/film-database/utility/findEuclidean';
+import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useRef } from 'react';
+import FDCollectionsCollectionHeader from './FDCollectionsCollectionHeader';
+import FDCollectionsCollectionUl from './FDCollectionsCollectionUl';
 
 const NOT_FOUND_INDEX = -1 as const;
 
@@ -357,10 +357,7 @@ const FDCollectionsCollection = memo(
     if (data)
       return (
         <section className='fdCollections__collection'>
-          <FDCollectionsCollectionHeader
-            mapIndex={mapIndex}
-            header={header}
-          />
+          <FDCollectionsCollectionHeader mapIndex={mapIndex} header={header} />
           <div className='fdCollections__collection__wrapper'>
             <FDCollectionsCollectionUl
               mapIndex={mapIndex}
@@ -369,11 +366,7 @@ const FDCollectionsCollection = memo(
               ref={grandChildRef}
               sensorRef={sensorRef}
             />
-            <GenericCarouselNavigation
-              dataLength={data.length}
-              reference={grandChildRef}
-              isModal={true}
-            />
+            <GenericCarouselNavigation dataLength={data.length} reference={grandChildRef} isModal={true} />
           </div>
         </section>
       );

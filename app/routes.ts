@@ -1,4 +1,4 @@
-import { type RouteConfig, route, index } from '@react-router/dev/routes';
+import { index, type RouteConfig, route } from '@react-router/dev/routes';
 import { commerceData } from '../app/ecommerce/data/commerceData';
 
 function buildCommercePaths() {

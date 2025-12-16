@@ -6,13 +6,13 @@ import type { TmdbMovieProvider } from 'app/film-database/composables/types/Tmdb
 import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import {
   createContext,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
   useContext,
   useEffect,
   useMemo,
   useState,
-  type Dispatch,
-  type ReactNode,
-  type SetStateAction,
 } from 'react';
 
 /**
@@ -34,6 +34,13 @@ const Context = createContext<
 
 export const UserCollectionProvider = ({ children }: { children: ReactNode }) => {
   const { primaryData } = useFLoader();
+
+  const presetCollection = useMemo(() => {
+    const firstEntry = primaryData[0];
+    if (firstEntry) return firstEntry.response.results;
+    else return undefined;
+  }, [primaryData]);
+
   const [userCollections, setUserCollections] = useState<Record<string, UserCollection>>({
     'user-collection-0': {
       header: 'Trailer Queue',
@@ -41,7 +48,7 @@ export const UserCollectionProvider = ({ children }: { children: ReactNode }) =>
     },
     'user-collection-1': {
       header: 'Unnamed Collection',
-      data: primaryData[0]?.response.results!,
+      data: presetCollection ?? [],
     },
   });
 

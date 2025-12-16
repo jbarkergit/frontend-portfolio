@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { YouTubePlayer } from 'react-youtube';
 
 const formatTime = (time: number): string => {
@@ -29,18 +29,18 @@ const IFrameControllerTimeStamp = ({ player }: { player: YouTubePlayer }) => {
   }, [player]);
 
   return (
-    <div
-      className='fdiFrame__controller__controls__timestamp'
-      aria-label='Video timestamp information'>
+    <div className='fdiFrame__controller__controls__timestamp' aria-label='Video timestamp information'>
       <div
         className='fdiFrame__controller__controls__timestamp--current'
-        aria-label={`Current playback time ${timeStamp.current}`}>
+        aria-label={`Current playback time ${timeStamp.current}`}
+      >
         {timeStamp.current}
       </div>
       <div className='fdiFrame__controller__controls__timestamp--separator'> / </div>
       <div
         className='fdiFrame__controller__controls__timestamp--duration'
-        aria-label={`Video duration ${timeStamp.duration}`}>
+        aria-label={`Video duration ${timeStamp.duration}`}
+      >
         {timeStamp.duration}
       </div>
     </div>

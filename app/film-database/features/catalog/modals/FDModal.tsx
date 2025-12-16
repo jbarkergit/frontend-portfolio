@@ -2,7 +2,7 @@ import { useModalContext } from 'app/film-database/context/ModalContext';
 import FDCineInfo from 'app/film-database/features/catalog/modals/cineInfo/FDCineInfo';
 import FDCollections from 'app/film-database/features/catalog/modals/collections/FDCollections';
 import FDPerson from 'app/film-database/features/catalog/modals/person/FDPerson';
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const FDModal = () => {
   const { modal, setModal } = useModalContext();
@@ -38,7 +38,8 @@ const FDModal = () => {
                   ? 'Person details'
                   : ''
           }
-          ref={modalRef}>
+          ref={modalRef}
+        >
           {modal === 'movie' && <FDCineInfo />}
           {modal === 'collections' && <FDCollections />}
           {modal === 'person' && <FDPerson />}

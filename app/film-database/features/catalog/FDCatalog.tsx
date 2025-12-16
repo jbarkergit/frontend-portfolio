@@ -9,11 +9,7 @@ const FDCatalog = () => {
   const { root } = useRootRefContext();
 
   return (
-    <div
-      className='fdCatalog'
-      ref={root}
-      data-layout-carousel
-      data-layout-collection>
+    <div className='fdCatalog' ref={root} data-layout-carousel data-layout-collection>
       <FDHero />
       <PersonProvider>
         <VisibleCountProvider>

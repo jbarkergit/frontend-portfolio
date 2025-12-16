@@ -1,8 +1,8 @@
-import { TablerCategoryPlus, TablerEdit, MaterialSymbolsLogoutSharp } from 'app/film-database/assets/svg/icons';
+import { MaterialSymbolsLogoutSharp, TablerCategoryPlus, TablerEdit } from 'app/film-database/assets/svg/icons';
 import { useModalContext } from 'app/film-database/context/ModalContext';
 import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { addIdToCollection } from 'app/film-database/utility/addIdToCollection';
-import { type Dispatch, type SetStateAction, memo, useRef, useEffect } from 'react';
+import { type Dispatch, memo, type SetStateAction, useEffect, useRef } from 'react';
 
 type Props = {
   isEditMode: boolean;
@@ -32,7 +32,8 @@ const FDCollectionsMenu = memo(({ isEditMode, setIsEditMode }: Props) => {
             colIndex: Object.keys(userCollections).length + 1,
           });
           setUserCollections(data);
-        }}>
+        }}
+      >
         <TablerCategoryPlus />
       </button>
       <button
@@ -40,13 +41,15 @@ const FDCollectionsMenu = memo(({ isEditMode, setIsEditMode }: Props) => {
         className='fdCollectionsMenu--edit'
         aria-label='Switch to edit mode'
         data-toggle='false'
-        onClick={() => setIsEditMode((state) => !state)}>
+        onClick={() => setIsEditMode((state) => !state)}
+      >
         <TablerEdit />
       </button>
       <button
         className='fdCollectionsMenu--close'
         aria-label='Close collections modal'
-        onClick={() => setModal(undefined)}>
+        onClick={() => setModal(undefined)}
+      >
         <MaterialSymbolsLogoutSharp />
       </button>
     </div>

@@ -8,36 +8,23 @@ const FDSearchResults = ({ searchResults }: { searchResults: TmdbMovieProvider[]
   const { visibleCount } = useVisibleCountContext();
 
   return (
-    <div
-      className='fdSearchBar__results'
-      data-anim={searchResults && searchResults.length ? 'enabled' : 'disabled'}>
+    <div className='fdSearchBar__results' data-anim={searchResults && searchResults.length ? 'enabled' : 'disabled'}>
       <ul className='fdSearchBar__results__ul'>
         {searchResults && searchResults.length
           ? searchResults.slice(0, visibleCount.viewport).map((props, index) => (
-              <li
-                className='fdSearchBar__results__ul__li'
-                key={`fd-search-result-${index}`}>
+              <li className='fdSearchBar__results__ul__li' key={`fd-search-result-${index}`}>
                 <picture className='fdSearchBar__results__ul__li__article'>
-                  <img
-                    src={`https://image.tmdb.org/t/p/w780${props.poster_path}`}
-                    alt={`${props.title}`}
-                  />
+                  <img src={`https://image.tmdb.org/t/p/w780${props.poster_path}`} alt={`${props.title}`} />
                 </picture>
-                <div
-                  className='fdSearchBar__results__ul__li__overlay'
-                  onClick={() => setHeroData(props)}>
-                  <button
-                    className='fdSearchBar__results__ul__li__overlay--play'
-                    aria-label='Play trailer'>
+                <div className='fdSearchBar__results__ul__li__overlay' onClick={() => setHeroData(props)}>
+                  <button className='fdSearchBar__results__ul__li__overlay--play' aria-label='Play trailer'>
                     <IcOutlinePlayCircle />
                   </button>
                 </div>
               </li>
             ))
           : Array.from({ length: visibleCount.viewport }).map((_, i) => (
-              <li
-                className='fdSearchBar__results__ul__li'
-                key={`fd-search-result-placeholder-${i}`}></li>
+              <li className='fdSearchBar__results__ul__li' key={`fd-search-result-placeholder-${i}`}></li>
             ))}
       </ul>
     </div>

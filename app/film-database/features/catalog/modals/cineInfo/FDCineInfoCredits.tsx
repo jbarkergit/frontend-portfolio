@@ -3,7 +3,7 @@ import { tmdbCall } from 'app/film-database/composables/tmdbCall';
 import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
 import { useModalContext } from 'app/film-database/context/ModalContext';
 import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const FDCineInfoCredits = () => {
   const { modal } = useModalContext();
@@ -28,18 +28,8 @@ const FDCineInfoCredits = () => {
   if (credits)
     return (
       <>
-        <GenericCarousel
-          carouselIndex={1}
-          carouselName={'cinemaInformation'}
-          heading={'Cast'}
-          data={credits.cast}
-        />
-        <GenericCarousel
-          carouselIndex={2}
-          carouselName={'cinemaInformation'}
-          heading={'Crew'}
-          data={credits.crew}
-        />
+        <GenericCarousel carouselIndex={1} carouselName={'cinemaInformation'} heading={'Cast'} data={credits.cast} />
+        <GenericCarousel carouselIndex={2} carouselName={'cinemaInformation'} heading={'Crew'} data={credits.crew} />
       </>
     );
 };

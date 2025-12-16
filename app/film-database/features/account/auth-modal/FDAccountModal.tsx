@@ -1,19 +1,19 @@
 import { firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
 import { normalizeFirebaseAuthError } from 'app/base/firebase/firestore/helpers/normalizeFirebaseAuthError';
 import { zodSchema } from 'app/base/validation/zodSchema';
-import { TablerBrandGithubFilled, DeviconGoogle, GameIconsSpy } from 'app/film-database/assets/svg/icons';
+import { DeviconGoogle, GameIconsSpy, TablerBrandGithubFilled } from 'app/film-database/assets/svg/icons';
 import FDAccountModalPoster from 'app/film-database/features/account/auth-modal/FDAccountModalPoster';
 import {
+  createUserWithEmailAndPassword,
   GithubAuthProvider,
   GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signInWithPopup,
   sendPasswordResetEmail,
   signInAnonymously,
+  signInWithEmailAndPassword,
+  signInWithPopup,
 } from 'firebase/auth';
-import { forwardRef, useState, useRef, type HTMLAttributes } from 'react';
-import { z, type ZodIssue } from 'zod';
+import { forwardRef, type HTMLAttributes, useRef, useState } from 'react';
+import { type ZodIssue, z } from 'zod';
 
 const registrationSchema = z
   .object({
@@ -135,7 +135,7 @@ const providerMap = {
   google: GoogleAuthProvider,
 } as const;
 
-const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
+const FDAccountModal = forwardRef<HTMLDivElement>(({}, accountRef) => {
   const [activeForm, setActiveForm] = useState<'registration' | 'login'>('registration');
   const fieldsetRef = useRef<HTMLFieldSetElement>(null);
   const [errors, setErrors] = useState<ZodIssue[]>([]);
@@ -147,6 +147,7 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
   const getParsedForm = (e: React.FormEvent<HTMLFormElement>) => {
     const form = e.currentTarget;
     const formData = new FormData(form);
+    // biome-ignore lint/suspicious/noExplicitAny: <irrelevant>
     const formObject = Object.fromEntries(formData.entries()) as Record<string, any>;
     formObject['tos'] = formData.has('tos');
     const result = schemas[activeForm].safeParse(formObject);
@@ -159,6 +160,7 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
     console.error(firebaseError);
     setErrors((p) => [
       ...p,
+      // biome-ignore lint/suspicious/noExplicitAny: <irrelevant>
       { code: 'firebase' as any, path: ['__global'], message: firebaseError.message, source: 'firebase' },
     ]);
   };
@@ -259,23 +261,16 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
   };
 
   return (
-    <div
-      className='fdAccount'
-      data-layout-carousel>
-      <div
-        className='fdAccount__container'
-        ref={accountRef}
-        data-visible='false'>
+    <div className='fdAccount' data-layout-carousel>
+      <div className='fdAccount__container' ref={accountRef} data-visible='false'>
         <main className='fdAccount__container__wrapper'>
-          <form
-            className='fdAccount__container__wrapper__form'
-            onSubmit={handleSubmit}
-            noValidate>
+          <form className='fdAccount__container__wrapper__form' onSubmit={handleSubmit} noValidate>
             <fieldset
               className='fdAccount__container__wrapper__form__fieldset'
               ref={fieldsetRef}
               data-animate='mount'
-              aria-labelledby='legend-id'>
+              aria-labelledby='legend-id'
+            >
               <div>
                 <legend id='legend-id'>
                   {activeForm === 'registration' ? `Get Started Now` : `Start a new session`}
@@ -287,36 +282,21 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
                 </p>
               </div>
               <div>
-                <button
-                  type='button'
-                  aria-label='Log in with Github'
-                  onClick={() => handleAuthProviderLogin('github')}>
+                <button type='button' aria-label='Log in with Github' onClick={() => handleAuthProviderLogin('github')}>
                   <TablerBrandGithubFilled /> <span>Log in with GitHub</span>
                 </button>
-                <button
-                  type='button'
-                  aria-label='Log in with Google'
-                  onClick={() => handleAuthProviderLogin('google')}>
+                <button type='button' aria-label='Log in with Google' onClick={() => handleAuthProviderLogin('google')}>
                   <DeviconGoogle /> <span>Log in with Google</span>
                 </button>
-                <button
-                  type='button'
-                  aria-label='Log in Anonymously'
-                  onClick={() => signInAnonymously(firebaseAuth)}>
+                <button type='button' aria-label='Log in Anonymously' onClick={() => signInAnonymously(firebaseAuth)}>
                   <GameIconsSpy /> <span>Log in Anonymously</span>
                 </button>
               </div>
-              <ul
-                className='fdAccount__container__wrapper__form__fieldset__ul'
-                data-form={activeForm}>
+              <ul className='fdAccount__container__wrapper__form__fieldset__ul' data-form={activeForm}>
                 {fieldStore[activeForm].map(
                   ({ labelId, id, name, label, type, inputMode, required, placeholder, minLength, maxLength }) => (
-                    <li
-                      key={id}
-                      className='fdAccount__container__wrapper__form__fieldset__ul__li'>
-                      <label
-                        id={labelId}
-                        htmlFor={id}>
+                    <li key={id} className='fdAccount__container__wrapper__form__fieldset__ul__li'>
+                      <label id={labelId} htmlFor={id}>
                         {label}
                       </label>
                       <input
@@ -342,11 +322,7 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
                 )}
                 {activeForm === 'registration' && (
                   <li className='fdAccount__container__wrapper__form__fieldset__ul__li'>
-                    <input
-                      type='checkbox'
-                      name='tos'
-                      id='tos'
-                    />
+                    <input type='checkbox' name='tos' id='tos' />
                     <label htmlFor='tos'>
                       <span>I have read and agree to the</span>&nbsp;
                       <button aria-label='Read terms and conditions'>terms and conditions</button>
@@ -355,9 +331,8 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
                 )}
 
                 {errors.length > 0 && (
-                  <div
-                    key='error-tos'
-                    className='fdAccount__container__wrapper__form__fieldset__ul__li--error'>
+                  <div key='error-tos' className='fdAccount__container__wrapper__form__fieldset__ul__li--error'>
+                    {/** biome-ignore lint/suspicious/noExplicitAny: <irrelevant> */}
                     {errors.find((error) => error.code === ('firebase' as any))?.message}
                   </div>
                 )}
@@ -368,7 +343,8 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
                     type='submit'
                     aria-label={
                       activeForm === 'registration' ? 'Submit registration form' : 'Sign in with your credentials'
-                    }>
+                    }
+                  >
                     <span>{activeForm === 'registration' ? 'Complete Registration' : 'Log in with credentials'}</span>
                   </button>
                 </div>
@@ -376,7 +352,8 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
                   <button
                     type='button'
                     aria-label={activeForm === 'registration' ? 'Log into an existing account' : 'Create a new account'}
-                    onClick={onActiveFormChange}>
+                    onClick={onActiveFormChange}
+                  >
                     {activeForm === 'registration' ? 'Log into an existing account' : 'Create a new account'}
                   </button>
                   {activeForm === 'login' && (
@@ -390,7 +367,8 @@ const FDAccountModal = forwardRef<HTMLDivElement, {}>(({}, accountRef) => {
                             'fdUserAccountSignInEmailAddress'
                           ) as HTMLInputElement;
                           handlePasswordReset(emailInput);
-                        }}>
+                        }}
+                      >
                         Reset password
                       </button>
                     </>

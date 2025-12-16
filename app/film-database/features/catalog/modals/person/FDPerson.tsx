@@ -1,10 +1,10 @@
-import { SvgSpinnersRingResize, MaterialSymbolsLogoutSharp } from 'app/film-database/assets/svg/icons';
+import { MaterialSymbolsLogoutSharp, SvgSpinnersRingResize } from 'app/film-database/assets/svg/icons';
 import { tmdbCall } from 'app/film-database/composables/tmdbCall';
 import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
 import { useModalContext } from 'app/film-database/context/ModalContext';
 import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
 import { usePersonContext } from 'app/film-database/context/PersonContext';
-import { useState, useRef, useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 type Cast = TmdbResponseFlat['personCredits']['cast'][number];
 
@@ -103,10 +103,7 @@ const FDPerson = () => {
     );
   return (
     <article className='fdPerson'>
-      <button
-        className='fdPerson--exit'
-        aria-label='Close View More Modal'
-        onClick={() => setModal('movie')}>
+      <button className='fdPerson--exit' aria-label='Close View More Modal' onClick={() => setModal('movie')}>
         <MaterialSymbolsLogoutSharp />
       </button>
 
@@ -172,9 +169,7 @@ const FDPerson = () => {
         {details.biography && details.biography.length > 0 && (
           <div className='fdPerson__column__bio'>
             <span>Biography</span>
-            <span
-              ref={clampRef}
-              data-clamp='true'>
+            <span ref={clampRef} data-clamp='true'>
               {details.biography}
             </span>
           </div>
@@ -198,16 +193,15 @@ const FDPerson = () => {
             </thead>
             <tbody className='fdPerson__column__table__tbody'>
               {castCreditsGrouped.map((group, index) => (
-                <tr
-                  className='fdPerson__column__table__tbody__tr'
-                  key={`person-casted-group-${index}`}>
+                <tr className='fdPerson__column__table__tbody__tr' key={`person-casted-group-${index}`}>
                   <td className='fdPerson__column__table__tbody__tr__td'>
                     <table className='fdPerson__column__table__tbody__tr__td__table'>
                       <tbody className='fdPerson__column__table__tbody__tr__td__table__tbody'>
                         {group.films?.map((film) => (
                           <tr
                             className='fdPerson__column__table__tbody__tr__td__table__tbody__tr'
-                            key={`person-casted-group-${index}-movieId-${film.id}`}>
+                            key={`person-casted-group-${index}-movieId-${film.id}`}
+                          >
                             <td className='fdPerson__column__table__tbody__tr__td__table__tbody__tr__td'>
                               {group.year}
                             </td>
@@ -217,7 +211,8 @@ const FDPerson = () => {
                                 onClick={() => {
                                   setModalTrailer(film);
                                   setModal('movie');
-                                }}>
+                                }}
+                              >
                                 {film.title}
                               </button>
                             </td>

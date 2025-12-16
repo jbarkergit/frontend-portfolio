@@ -1,6 +1,6 @@
 import { TablerCategoryFilled } from 'app/film-database/assets/svg/icons';
-import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
-import { memo, useDeferredValue, useRef, useState, type ChangeEvent } from 'react';
+import { type UserCollection, useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
+import { type ChangeEvent, memo, useDeferredValue, useRef, useState } from 'react';
 
 type Props = {
   mapIndex: number;
@@ -26,13 +26,13 @@ const FDCollectionsCollectionHeader = memo(({ mapIndex, header }: Props) => {
       const key = Object.keys(userCollections)[mapIndex];
       if (!key) return;
 
-      setUserCollections((prevCarousels: any) => {
+      setUserCollections((prevCarousels) => {
         const updatedCarousels = { ...prevCarousels };
 
         updatedCarousels[key] = {
           ...updatedCarousels[key],
           header: event.target.value,
-        };
+        } as UserCollection;
 
         return updatedCarousels;
       });

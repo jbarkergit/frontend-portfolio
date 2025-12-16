@@ -75,12 +75,10 @@ const IFrameControllerSeeker = ({ player }: { player: YouTubePlayer }) => {
         isInteract.current = false;
         isDragging.current = false;
       }}
-      onDragStart={(e) => e.preventDefault()}>
+      onDragStart={(e) => e.preventDefault()}
+    >
       <span className='fdiFrame__controller__seeker--range' />
-      <span
-        className='fdiFrame__controller__seeker--slider'
-        style={{ width: `${dragPos}px` }}
-      />
+      <span className='fdiFrame__controller__seeker--slider' style={{ width: `${dragPos}px` }} />
     </button>
   );
 };

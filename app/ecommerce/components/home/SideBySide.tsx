@@ -19,10 +19,7 @@ const SideBySide = () => {
             enjoy instant satisfaction knowing you're backed by the expertise and craftsmanship of the brands we
             represent.
           </p>
-          <Link
-            to='/ecommerce/products'
-            aria-label='Browse Products Now'
-            onClick={() => scrollTo({ top: 0 })}>
+          <Link to='/ecommerce/products' aria-label='Browse Products Now' onClick={() => scrollTo({ top: 0 })}>
             Browse Products Now
           </Link>
         </div>
@@ -34,11 +31,9 @@ const SideBySide = () => {
             loop
             muted
             aria-label='Video of joyful people wearing headphones listening to music'
-            tabIndex={-1}>
-            <source
-              src={video1}
-              type='video/webm'
-            />
+            tabIndex={-1}
+          >
+            <source src={video1} type='video/webm' />
           </video>
         </aside>
       </article>

@@ -147,7 +147,7 @@ const FDiFrame = memo(({ type }: { type: 'hero' | 'modal' }) => {
         rel: 0,
         // start?: number | undefined;
         widget_referrer: undefined,
-        // @ts-ignore
+        // @ts-expect-error
         mute: 1, // Required for autoplay, is not defined by react-youtube lib
       },
     }),
@@ -156,16 +156,11 @@ const FDiFrame = memo(({ type }: { type: 'hero' | 'modal' }) => {
 
   // JSX
   return (
-    <section
-      className='fdiFrame'
-      data-type={type}>
+    <section className='fdiFrame' data-type={type}>
       {trailer && (type === 'hero' ? heroData : modalTrailer) ? (
         <>
           {type === 'hero' && playerRef.current?.internalPlayer && (
-            <IFrameController
-              player={playerRef.current.internalPlayer}
-              playState={playState}
-            />
+            <IFrameController player={playerRef.current.internalPlayer} playState={playState} />
           )}
           <YouTube
             ref={playerRef}

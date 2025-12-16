@@ -1,4 +1,4 @@
-import { spotifyEndpoints, type SpotifyRequest } from '~/spotify-visualizer/composables/const/spotifyEndpoints';
+import { type SpotifyRequest, spotifyEndpoints } from '~/spotify-visualizer/composables/const/spotifyEndpoints';
 import type { SpotifyEndpointKeys, SpotifyResponseFor } from '~/spotify-visualizer/composables/types/SpotifyResponse';
 
 export async function callSpotify<K extends SpotifyEndpointKeys>(

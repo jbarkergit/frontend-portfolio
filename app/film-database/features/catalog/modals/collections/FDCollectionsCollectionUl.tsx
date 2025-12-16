@@ -2,7 +2,7 @@ import { IcBaselinePlus } from 'app/film-database/assets/svg/icons';
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
 import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
 import type { Sensor } from 'app/film-database/features/catalog/modals/collections/FDCollectionsCollection';
-import { type RefObject, type JSX, memo, forwardRef, useMemo } from 'react';
+import { forwardRef, type JSX, memo, type RefObject, useMemo } from 'react';
 
 type Props = {
   mapIndex: number;
@@ -36,7 +36,8 @@ const FDCollectionsCollectionUl = memo(
         <li
           data-list-item-visible={index === 0 ? 'true' : 'false'}
           role='option'
-          aria-grabbed={sensorRef.current.isInteract ? 'true' : 'false'}>
+          aria-grabbed={sensorRef.current.isInteract ? 'true' : 'false'}
+        >
           <picture>
             {movie && (
               <img
@@ -55,11 +56,7 @@ const FDCollectionsCollectionUl = memo(
       if (data && data.length > 0) {
         // Create new array of list items with data
         let initMap = data.map((movie, index) => (
-          <ListItem
-            movie={movie}
-            index={index}
-            key={`collection-${mapIndex}-listItem-${index}`}
-          />
+          <ListItem movie={movie} index={index} key={`collection-${mapIndex}-listItem-${index}`} />
         ));
 
         // If initMap's length is greater than or equal to visibleCount, return initMap
@@ -92,7 +89,8 @@ const FDCollectionsCollectionUl = memo(
         data-list-item-fx='true'
         data-edit-mode={isEditMode}
         aria-label='Reorderable list of movies'
-        role='listbox'>
+        role='listbox'
+      >
         {buildJSX}
       </ul>
     );

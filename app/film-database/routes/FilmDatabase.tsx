@@ -1,9 +1,3 @@
-import { useRef } from 'react';
-import { useLoaderData } from 'react-router';
-import { tmdbCall } from '../composables/tmdbCall';
-import FDAccountAnimation from '../features/account/animator/FDAccountAnimation';
-import FDHeader from '../features/catalog/navigation/FDHeader';
-import FDCatalog from '../features/catalog/FDCatalog';
 import { useAuth } from 'app/base/firebase/authentication/context/authProvider';
 import { HeroDataProvider } from 'app/film-database/context/HeroDataContext';
 import { ModalProvider } from 'app/film-database/context/ModalContext';
@@ -11,6 +5,12 @@ import { ModalTrailerProvider } from 'app/film-database/context/ModalTrailerCont
 import { RootRefProvider } from 'app/film-database/context/RootRefContext';
 import { UserCollectionProvider } from 'app/film-database/context/UserCollectionContext';
 import FDAccountModal from 'app/film-database/features/account/auth-modal/FDAccountModal';
+import { useRef } from 'react';
+import { useLoaderData } from 'react-router';
+import { tmdbCall } from '../composables/tmdbCall';
+import FDAccountAnimation from '../features/account/animator/FDAccountAnimation';
+import FDCatalog from '../features/catalog/FDCatalog';
+import FDHeader from '../features/catalog/navigation/FDHeader';
 
 export async function clientLoader() {
   const primaryData = await tmdbCall(new AbortController(), [

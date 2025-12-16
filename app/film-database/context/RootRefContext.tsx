@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, type ReactNode, type RefObject } from 'react';
+import { createContext, type ReactNode, type RefObject, useContext, useRef } from 'react';
 
 const Context = createContext<
   | {

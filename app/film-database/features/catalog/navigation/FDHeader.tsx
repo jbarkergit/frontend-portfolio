@@ -3,14 +3,11 @@ import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
 import { useModalContext } from 'app/film-database/context/ModalContext';
 import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
 import { signOut } from 'firebase/auth';
-import { useCallback, useEffect, useRef, useState, type SVGProps } from 'react';
+import { type SVGProps, useCallback, useEffect, useRef, useState } from 'react';
 
 function StreamlinePlumpUserStickerSquareSolid(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 48 48'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48' {...props}>
       {/* Icon from Plump free icons by Streamline - https://creativecommons.org/licenses/by/4.0/ */}
       <path
         fill='currentColor'
@@ -24,10 +21,7 @@ function StreamlinePlumpUserStickerSquareSolid(props: SVGProps<SVGSVGElement>) {
 
 function SolarVideoLibraryBoldDuotone(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ */}
       <path
         fill='currentColor'
@@ -86,23 +80,18 @@ const FDHeader = () => {
             onClick={() => {
               setModal('collections');
               setModalTrailer(heroData);
-            }}>
+            }}
+          >
             <SolarVideoLibraryBoldDuotone />
             Open Collections
           </button>
         </li>
       </ul>
       <div className='fdHeader__account'>
-        <div
-          aria-label='My Account'
-          onClick={() => setIsAccountDropdownOpen((prev) => !prev)}>
+        <div aria-label='My Account' onClick={() => setIsAccountDropdownOpen((prev) => !prev)}>
           <StreamlinePlumpUserStickerSquareSolid />
-          <div
-            ref={accountDropdownRef}
-            data-open='false'>
-            <button
-              aria-label='Sign out'
-              onClick={async () => await signOut(firebaseAuth)}>
+          <div ref={accountDropdownRef} data-open='false'>
+            <button aria-label='Sign out' onClick={async () => await signOut(firebaseAuth)}>
               Sign out
             </button>
           </div>

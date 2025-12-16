@@ -1,7 +1,7 @@
 import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
 import { useProjectSlideIndex } from 'app/portfolio/context/ProjectSlideContext';
 import { projectData } from 'app/portfolio/data/projectData';
-import { useRef, useState, useEffect, useMemo, useReducer } from 'react';
+import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router';
 
 type ActionType =
@@ -23,7 +23,7 @@ type ActionType =
   | { type: 'WHEEL_SCROLL'; payload: { deltaY: number } }
   | {
       type: 'EXTERNAL_NAVIGATION';
-      payload: {};
+      payload: Record<string, unknown>;
     }
   | { type: 'RESET_WHEEL_ACTIVE'; payload: { wheelEventActive: boolean } };
 
@@ -382,15 +382,14 @@ const ProjectCarousel = () => {
 
   /** Component */
   return (
-    <main
-      className='mainContent'
-      ref={mainRef}>
+    <main className='mainContent' ref={mainRef}>
       <div
         className='mainContent__track'
         ref={carouselRef}
         style={{ transform: `translate3d(${state.trackPos}px, 0, 0)` }}
         data-visible={'false'}
-        data-status={!state.pointerDown ? 'smooth' : ''}>
+        data-status={!state.pointerDown ? 'smooth' : ''}
+      >
         {projectData.map((project) => (
           <Link
             className='mainContent__track__project'
@@ -402,7 +401,8 @@ const ProjectCarousel = () => {
             onClick={(e) => {
               if (!state.anchorEnabled) e.preventDefault();
             }}
-            onDragStart={(e) => e.preventDefault()}>
+            onDragStart={(e) => e.preventDefault()}
+          >
             <picture>
               <img
                 src={viewportWidth > 950 ? project.imgSrc : project.imgSrcMobile}

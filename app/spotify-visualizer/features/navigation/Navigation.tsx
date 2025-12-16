@@ -28,10 +28,7 @@ const Navigation = () => {
 
             return (
               <li key={key}>
-                <button
-                  className='navigation__wrapper__left__btn'
-                  aria-label={formattedKey}
-                  onClick={func}>
+                <button className='navigation__wrapper__left__btn' aria-label={formattedKey} onClick={func}>
                   <span>{icon}</span>
                   <span>{formattedKey}</span>
                 </button>
@@ -49,10 +46,7 @@ const Navigation = () => {
 
             return (
               <li key={key}>
-                <button
-                  className='navigation__wrapper__right__btn'
-                  aria-label={formattedKey}
-                  onClick={value.func}>
+                <button className='navigation__wrapper__right__btn' aria-label={formattedKey} onClick={value.func}>
                   <div>
                     {icon.map((i, idx) => (
                       <span key={idx}>{i}</span>
@@ -72,10 +66,7 @@ export default Navigation;
 
 export function BiHouse(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -87,10 +78,7 @@ export function BiHouse(props: SVGProps<SVGSVGElement>) {
 
 export function BiStars(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -102,10 +90,7 @@ export function BiStars(props: SVGProps<SVGSVGElement>) {
 
 export function BiSearch(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -117,10 +102,7 @@ export function BiSearch(props: SVGProps<SVGSVGElement>) {
 
 export function BiBell(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -132,10 +114,7 @@ export function BiBell(props: SVGProps<SVGSVGElement>) {
 
 export function BiUnlock2(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -148,10 +127,7 @@ export function BiUnlock2(props: SVGProps<SVGSVGElement>) {
 
 export function BiLockFill(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -164,10 +140,7 @@ export function BiLockFill(props: SVGProps<SVGSVGElement>) {
 
 export function BiPersonLinesFill(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -179,10 +152,7 @@ export function BiPersonLinesFill(props: SVGProps<SVGSVGElement>) {
 
 export function BiGear(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <g fill='currentColor'>
         <path d='M8 4.754a3.246 3.246 0 1 0 0 6.492a3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0a2.246 2.246 0 0 1-4.492 0' />
@@ -194,10 +164,7 @@ export function BiGear(props: SVGProps<SVGSVGElement>) {
 
 export function MaterialSymbolsLightPersonBook(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Material Symbols Light by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'

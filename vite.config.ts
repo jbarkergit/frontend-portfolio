@@ -1,8 +1,8 @@
-import { defineConfig } from 'vitest/config';
-import type { ViteUserConfig } from 'vitest/config';
+import path from 'node:path';
 import { reactRouter } from '@react-router/dev/vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import path from 'node:path';
+import type { ViteUserConfig } from 'vitest/config';
+import { defineConfig } from 'vitest/config';
 
 /** https://vite.dev/config/ */
 export default defineConfig({

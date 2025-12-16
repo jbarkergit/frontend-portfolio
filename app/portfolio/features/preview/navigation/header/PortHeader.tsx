@@ -83,14 +83,10 @@ const PortHeader = () => {
   return (
     <header className='carouselNav'>
       <section className='carouselNav__section'>
-        <div
-          className='carouselNav__section__left'
-          ref={carouselNavSectionLeft}>
+        <div className='carouselNav__section__left' ref={carouselNavSectionLeft}>
           <h2>Navigate projects by number</h2>
           <span className='carouselNav__section__left--location'>{`Project 0${projectSlideIndex + 1}.`}</span>
-          <nav
-            className='carouselNav__section__left__projectNav'
-            aria-labelledby='project-navigation'>
+          <nav className='carouselNav__section__left__projectNav' aria-labelledby='project-navigation'>
             <ul ref={unorderedListRef}>
               {projectData.map((_, index) => (
                 <li key={_.key + index}>
@@ -98,7 +94,8 @@ const PortHeader = () => {
                     className={`${projectSlideIndex === index ? 'projectNavButtonActive' : ''}`}
                     id='project-navigation'
                     aria-label={`View ${_.key} Project`}
-                    onPointerUp={() => setProjectSlideIndex(index)}>
+                    onPointerUp={() => setProjectSlideIndex(index)}
+                  >
                     0{index + 1}
                   </button>
                 </li>
@@ -117,27 +114,29 @@ const PortHeader = () => {
         onPointerLeave={() => {
           carouselNavSectionRightNav.current?.removeAttribute('data-status');
           animatorLineArray.current?.forEach((line: HTMLSpanElement) => line.removeAttribute('data-status'));
-        }}>
-        <div
-          className='carouselNav__section__right'
-          ref={carouselNavSectionRight}>
+        }}
+      >
+        <div className='carouselNav__section__right' ref={carouselNavSectionRight}>
           <h2>External Links</h2>
           <nav
             className='carouselNav__section__right__nav'
             aria-labelledby='external-links'
-            ref={carouselNavSectionRightNav}>
+            ref={carouselNavSectionRightNav}
+          >
             <Link
               to='https://github.com/jbarkergit'
               id='external-links'
               target='_blank'
-              aria-label='Visit GitHub Profile'>
+              aria-label='Visit GitHub Profile'
+            >
               GitHub
             </Link>
             <Link
               to='https://leetcode.com/u/jbarkerlc/'
               id='external-links'
               target='_blank'
-              aria-label='Visit LeetCode Profile'>
+              aria-label='Visit LeetCode Profile'
+            >
               LeetCode
             </Link>
             <button
@@ -146,25 +145,15 @@ const PortHeader = () => {
                 featureState.contactFormActive
                   ? setFeatureState({ ...featureState, contactFormActive: false })
                   : setFeatureState({ ...featureState, contactFormActive: true })
-              }>
+              }
+            >
               Contact
             </button>
           </nav>
-          <div
-            className='carouselNav__section__right__animator'
-            ref={carouselNavSectionRightAnimator}>
-            <span
-              className='carouselNav__section__right__animator--line'
-              ref={animatorLine}
-            />
-            <span
-              className='carouselNav__section__right__animator--line'
-              ref={animatorLine}
-            />
-            <span
-              className='carouselNav__section__right__animator--line'
-              ref={animatorLine}
-            />
+          <div className='carouselNav__section__right__animator' ref={carouselNavSectionRightAnimator}>
+            <span className='carouselNav__section__right__animator--line' ref={animatorLine} />
+            <span className='carouselNav__section__right__animator--line' ref={animatorLine} />
+            <span className='carouselNav__section__right__animator--line' ref={animatorLine} />
           </div>
         </div>
       </section>

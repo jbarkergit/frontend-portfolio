@@ -29,13 +29,12 @@ const ProductHighlight = () => {
           .filter((product: ProductType) => product.productshowcase === true)
           .map((product: ProductType) => (
             <li key={`product-highlight-${product.sku}`}>
-              <Link
-                to={`/ecommerce/products/${product.sku}`}
-                tabIndex={0}>
+              <Link to={`/ecommerce/products/${product.sku}`} tabIndex={0}>
                 <article>
                   <picture
                     onPointerOver={(e: React.PointerEvent<HTMLPictureElement>) => playPauseVideo(e, true)}
-                    onPointerLeave={(e: React.PointerEvent<HTMLPictureElement>) => playPauseVideo(e, false)}>
+                    onPointerLeave={(e: React.PointerEvent<HTMLPictureElement>) => playPauseVideo(e, false)}
+                  >
                     <img
                       src={product.images!.medium[0]}
                       alt={`${product.company} ${product.unit}`}
@@ -51,11 +50,9 @@ const ProductHighlight = () => {
                       loop
                       muted
                       aria-label='Video of joyful people wearing headphones listening to music'
-                      tabIndex={-1}>
-                      <source
-                        src={video1}
-                        type='video/webm'
-                      />
+                      tabIndex={-1}
+                    >
+                      <source src={video1} type='video/webm' />
                     </video>
                   </aside>
                   <hgroup className='productHighlightInfo'>

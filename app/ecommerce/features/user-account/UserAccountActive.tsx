@@ -14,14 +14,19 @@ const UserAccountActive = ({ setUiModal }: PropType) => {
       <legend>
         <h2>My Account</h2>
       </legend>
-      <p>{userName ? `Hello, ${userName}, Thank you for testing my field validation/user authentication form simulation.` : null}</p>
+      <p>
+        {userName
+          ? `Hello, ${userName}, Thank you for testing my field validation/user authentication form simulation.`
+          : null}
+      </p>
       <div className='ecoModal__container__buttons'>
         <button
           aria-label='Log out of your account'
           onClick={() => {
             localStorage.setItem('userSignedIn', JSON.stringify(false));
             setUiModal('userLogin');
-          }}>
+          }}
+        >
           Log out
         </button>
       </div>

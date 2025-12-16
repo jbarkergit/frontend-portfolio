@@ -1,7 +1,7 @@
 import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
 import {
-  MaterialSymbolsArrowRightAlt,
   MaterialSymbolsArrowLeftAlt,
+  MaterialSymbolsArrowRightAlt,
   MaterialSymbolsOutgoingMail,
 } from 'app/portfolio/features/contact/assets/ContactFormSVG';
 import { useFormActiveStep } from 'app/portfolio/features/contact/context/FormActiveStepContext';
@@ -24,7 +24,8 @@ const Next = () => {
           useValidateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
           if (!Object.entries(errors).length) updateActiveStep(1);
         }
-      }}>
+      }}
+    >
       <span>Next</span>
       <span>
         <MaterialSymbolsArrowRightAlt />
@@ -41,7 +42,8 @@ const Previous = () => {
       className='contact__form__step__stepper__section__button'
       aria-label='Return to previous step'
       type='button'
-      onClick={() => updateActiveStep(-1)}>
+      onClick={() => updateActiveStep(-1)}
+    >
       <span>
         <MaterialSymbolsArrowLeftAlt />
       </span>
@@ -51,10 +53,7 @@ const Previous = () => {
 
 const Submit = () => {
   return (
-    <button
-      className='contact__form__step__stepper__section__button'
-      aria-label='Submit form'
-      type='submit'>
+    <button className='contact__form__step__stepper__section__button' aria-label='Submit form' type='submit'>
       <span>
         <MaterialSymbolsOutgoingMail />
       </span>
@@ -73,8 +72,9 @@ const Return = () => {
         type='button'
         onClick={() => {
           updateActiveStep(0);
-          setFeatureState((prev: any) => ({ ...prev, contactFormActive: false }));
-        }}>
+          setFeatureState((prev) => ({ ...prev, contactFormActive: false }));
+        }}
+      >
         <MaterialSymbolsArrowLeftAlt />
       </button>
     </nav>

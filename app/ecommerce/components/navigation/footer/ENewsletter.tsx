@@ -4,7 +4,13 @@ const ENewsletter = () => {
       <h2>Let's stay in touch</h2>
       <div className='newsletter__field'>
         <label htmlFor='email'>
-          <input type='email' name='email' required={true} aria-required={'true'} placeholder='Enter your email address...' />
+          <input
+            type='email'
+            name='email'
+            required={true}
+            aria-required={'true'}
+            placeholder='Enter your email address...'
+          />
         </label>
         <button type='submit' aria-label='Submit Email Address to Sign Up for Newsletter'>
           <svg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'>

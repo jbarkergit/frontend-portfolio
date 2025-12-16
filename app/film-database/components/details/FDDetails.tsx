@@ -1,6 +1,3 @@
-import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router';
-import { MaterialSymbolsLogoutSharp, TheMovieDatabaseLogo } from '../../assets/svg/icons';
 import FDDetailsAvailability from 'app/film-database/components/details/FDDetailsAvailability';
 import FDDetailsCollectionDropdown from 'app/film-database/components/details/FDDetailsCollectionDropdown';
 import VoteAverageVisual from 'app/film-database/components/details/FDDetailsVoteAverageVisual';
@@ -10,6 +7,9 @@ import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbR
 import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
 import { useModalContext } from 'app/film-database/context/ModalContext';
 import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useEffect, useMemo, useState } from 'react';
+import { Link } from 'react-router';
+import { MaterialSymbolsLogoutSharp, TheMovieDatabaseLogo } from '../../assets/svg/icons';
 
 const discoveryIdMap = Object.fromEntries(Object.entries(tmdbDiscoveryIds).map(([k, v]) => [v, k]));
 
@@ -66,14 +66,9 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
 
   /** @returns */
   return (
-    <article
-      className='fdDetails'
-      data-modal={modal}>
+    <article className='fdDetails' data-modal={modal}>
       {modal && (
-        <button
-          className='fdDetails--close'
-          aria-label='Close View More Modal'
-          onClick={() => setModal(undefined)}>
+        <button className='fdDetails--close' aria-label='Close View More Modal' onClick={() => setModal(undefined)}>
           <MaterialSymbolsLogoutSharp />
         </button>
       )}
@@ -83,10 +78,7 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
           <TheMovieDatabaseLogo />
         </Link>
         <Link to='https://www.justwatch.com/us/JustWatch-Streaming-API'>
-          <img
-            aria-label='JustWatch API'
-            src='/app/film-database/assets/api/JustWatch-logo-large.webp'
-          />
+          <img aria-label='JustWatch API' src='/app/film-database/assets/api/JustWatch-logo-large.webp' />
         </Link>
       </footer>
 
@@ -111,12 +103,7 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
         {modal && data && (
           <div className='fdDetails__extra__inf'>
             <VoteAverageVisual data={data} />
-            {watchProviders && (
-              <FDDetailsAvailability
-                data={data}
-                watchProviders={watchProviders}
-              />
-            )}
+            {watchProviders && <FDDetailsAvailability data={data} watchProviders={watchProviders} />}
           </div>
         )}
         {!modal && (
@@ -127,7 +114,8 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
               onClick={() => {
                 setModal('movie');
                 setModalTrailer(data);
-              }}>
+              }}
+            >
               More Details
             </button>
             <FDDetailsCollectionDropdown />
@@ -162,9 +150,7 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
                   </header>
                   <ul aria-label='Purchase or rental available on Platforms'>
                     {providers.combined.map((entry) => (
-                      <li
-                        aria-label={entry.provider_name}
-                        key={`provider-buy-${entry.provider_id}`}>
+                      <li aria-label={entry.provider_name} key={`provider-buy-${entry.provider_id}`}>
                         <img
                           src={`https://image.tmdb.org/t/p/w780/${entry.logo_path}`}
                           alt={`${entry.provider_name}`}
@@ -181,9 +167,7 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
                   </header>
                   <ul aria-label='Purchase available on Platforms'>
                     {providers.purchasable.map((entry) => (
-                      <li
-                        aria-label={entry.provider_name}
-                        key={`provider-buy-${entry.provider_id}`}>
+                      <li aria-label={entry.provider_name} key={`provider-buy-${entry.provider_id}`}>
                         <img
                           src={`https://image.tmdb.org/t/p/w780/${entry.logo_path}`}
                           alt={`${entry.provider_name}`}
@@ -200,9 +184,7 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
                   </header>
                   <ul aria-label='Rental available on Platforms'>
                     {providers.purchasable.map((entry) => (
-                      <li
-                        aria-label={entry.provider_name}
-                        key={`provider-rent-${entry.provider_id}`}>
+                      <li aria-label={entry.provider_name} key={`provider-rent-${entry.provider_id}`}>
                         <img
                           src={`https://image.tmdb.org/t/p/w780/${entry.logo_path}`}
                           alt={`${entry.provider_name}`}

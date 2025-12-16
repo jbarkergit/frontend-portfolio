@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect } from 'react';
 import type { Dispatch, SetStateAction } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import MobileMenu from '../components/navigation/header-mobile/MobileMenu';
 import ShoppingCart from './shopping-cart/ShoppingCart';
 import UserAccountActive from './user-account/UserAccountActive';
@@ -41,7 +41,12 @@ const ModalFeatures = ({ uiModal, setUiModal }: ModalFeatureType) => {
   /** Form Exterior Click Handler */
   useEffect(() => {
     const handleExteriorClick = (e: PointerEvent) => {
-      if (uiModal !== '' && ecoModal.current && ecoModal.current.getAttribute('data-status') === 'active' && !ecoModal.current?.contains(e.target as Node)) {
+      if (
+        uiModal !== '' &&
+        ecoModal.current &&
+        ecoModal.current.getAttribute('data-status') === 'active' &&
+        !ecoModal.current?.contains(e.target as Node)
+      ) {
         setUnmount(true);
       }
     };
@@ -81,7 +86,8 @@ const ModalFeatures = ({ uiModal, setUiModal }: ModalFeatureType) => {
             setUnmount(false);
             setUiModal('');
           }
-        }}>
+        }}
+      >
         <div
           className='ecoModal'
           ref={ecoModal}
@@ -91,7 +97,8 @@ const ModalFeatures = ({ uiModal, setUiModal }: ModalFeatureType) => {
               setUnmount(false);
               setUiModal('');
             }
-          }}>
+          }}
+        >
           {conditionallyRenderedModals()}
         </div>
       </section>

@@ -20,7 +20,7 @@ const base64encode = (input: ArrayBuffer): string => {
 };
 
 // Constants
-const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID as string;
+const clientId = import.meta.env['VITE_SPOTIFY_CLIENT_ID'] as string;
 const redirectUri = 'http://127.0.0.1:5173/spotify-visualizer';
 
 // Auth Flow
@@ -53,6 +53,7 @@ async function fetchToken(body: Record<string, string>) {
 
   if (!res.ok) throw new Error('Failed to fetch token');
 
+  // biome-ignore lint/suspicious/noExplicitAny: <we aren't defining data at this point>
   const data = (await res.json()) as any;
 
   if (data.access_token) localStorage.setItem('access_token', data.access_token);

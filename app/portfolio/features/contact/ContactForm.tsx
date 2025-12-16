@@ -57,7 +57,8 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
         onSubmit={(e) => {
           e.preventDefault();
           onSubmit();
-        }}>
+        }}
+      >
         <ContactFormInformation />
         <ContactFormInquiry />
         {isBookingActive && <ContactFormBook />}

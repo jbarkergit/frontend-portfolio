@@ -50,10 +50,7 @@ const FDMedia = () => {
 
   /** JSX */
   return (
-    <main
-      className='fdMedia'
-      ref={fdMediaRef}
-      style={{ top: '0px' }}>
+    <main className='fdMedia' ref={fdMediaRef} style={{ top: '0px' }}>
       {primaryData.map(({ key, response }, index) => (
         <GenericCarousel
           carouselIndex={index}

@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect, useMemo } from 'react';
-import { useLocation } from 'react-router';
-import ProductProp from './ProductProp';
 import type { ProductType } from 'app/ecommerce/context/CartContext';
 import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useLocation } from 'react-router';
+import ProductProp from './ProductProp';
 
 /** Product Display */
 const ProductProvider = () => {
@@ -91,9 +91,7 @@ const ProductProvider = () => {
   return (
     <ul className='productGrid'>
       {visibleProducts.map((product, index) => (
-        <li
-          key={product.sku}
-          ref={index === visibleProducts.length - 1 ? lastProductRef : null}>
+        <li key={product.sku} ref={index === visibleProducts.length - 1 ? lastProductRef : null}>
           <ProductProp product={product} />
         </li>
       ))}

@@ -51,9 +51,7 @@ const ContactFormInquiry = () => {
   };
 
   return (
-    <section
-      className='contact__form__step'
-      data-toggle='false'>
+    <section className='contact__form__step' data-toggle='false'>
       <header className='contact__form__step__header'>
         {FormButtons.return}
         <div className='contact__form__step__header__wrapper'>
@@ -70,9 +68,7 @@ const ContactFormInquiry = () => {
             <Fragment key={`contact-form-${key}`}>
               {errors[key] && (
                 <li>
-                  <div
-                    className='contact__form__step__ul__error'
-                    role='alert'>
+                  <div className='contact__form__step__ul__error' role='alert'>
                     <span>
                       <MaterialSymbolsErrorCircleRoundedSharp />
                     </span>
@@ -87,7 +83,8 @@ const ContactFormInquiry = () => {
                       className='contact__form__step__ul__li__select'
                       aria-label='Open inquiry menu'
                       tabIndex={0}
-                      onClick={toggleAccordion}>
+                      onClick={toggleAccordion}
+                    >
                       <span>{titleValue !== '' ? titleValue : 'Select a title'}</span>
                       <span>
                         <MaterialSymbolsList />
@@ -107,12 +104,14 @@ const ContactFormInquiry = () => {
                       aria-invalid={!!errors[key]}
                       aria-describedby={`${htmlFor}-error`}
                       tabIndex={0}
-                      data-toggle='false'>
+                      data-toggle='false'
+                    >
                       {inquiryOptions.map((option, index) => (
                         <li
                           className='contact__form__step__ul__li__select__option'
                           key={`inquiry-option-${index}`}
-                          tabIndex={0}>
+                          tabIndex={0}
+                        >
                           <button className='contact__form__step__ul__li__select__option__input'>{option}</button>
                         </li>
                       ))}
@@ -120,9 +119,7 @@ const ContactFormInquiry = () => {
                   </>
                 ) : (
                   <>
-                    <label
-                      htmlFor={htmlFor}
-                      className='contact__form__step__ul__li__label'>
+                    <label htmlFor={htmlFor} className='contact__form__step__ul__li__label'>
                       Message (Optional)
                     </label>
                     <textarea

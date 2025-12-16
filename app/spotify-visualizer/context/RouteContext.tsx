@@ -1,14 +1,14 @@
 import {
   createContext,
-  useContext,
-  useMemo,
-  useState,
   type Dispatch,
   type ReactNode,
   type SetStateAction,
+  useContext,
+  useMemo,
+  useState,
 } from 'react';
-import type { LibraryKeys } from '~/spotify-visualizer/features/sidebar/Sidebar';
 import type { NavigationKeys } from '~/spotify-visualizer/features/navigation/Navigation';
+import type { LibraryKeys } from '~/spotify-visualizer/features/sidebar/Sidebar';
 
 type Route = NavigationKeys | LibraryKeys | undefined;
 

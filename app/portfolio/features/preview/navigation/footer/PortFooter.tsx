@@ -101,10 +101,7 @@ const PortFooter = () => {
   return (
     <footer className='carouselNav carouselNav--footer'>
       <section className='carouselNav__section'>
-        <nav
-          className='carouselNav__section__left'
-          aria-labelledby='project-links'
-          ref={footerNavigationLeft}>
+        <nav className='carouselNav__section__left' aria-labelledby='project-links' ref={footerNavigationLeft}>
           <Link to={projectData[projectSlideIndex]?.url}>
             <h2 data-activity='visible'>{navigationIndicator.key}</h2>
           </Link>
@@ -115,22 +112,18 @@ const PortFooter = () => {
               featureState.projectDetailsActive
                 ? setFeatureState({ ...featureState, projectDetailsActive: false })
                 : setFeatureState({ ...featureState, projectDetailsActive: true })
-            }>
+            }
+          >
             {navigationIndicator.insights}
           </button>
-          <Link
-            to={projectData[projectSlideIndex]?.url}
-            id='project-links'
-            aria-label='Project Live Demo'>
+          <Link to={projectData[projectSlideIndex]?.url} id='project-links' aria-label='Project Live Demo'>
             {navigationIndicator.demoLink}
           </Link>
         </nav>
       </section>
 
       <section className='carouselNav__section'>
-        <div
-          className='carouselNav__section__right'
-          ref={footerNavigationRight}>
+        <div className='carouselNav__section__right' ref={footerNavigationRight}>
           <span className='carouselNav__section__right--timezone'>
             {currentTime} • CDT (GMT-5){' '}
             <h2 style={{ display: 'none' }}>Current time in Central Daylight Time, GMT-5</h2>

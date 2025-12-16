@@ -85,7 +85,7 @@ const Carousel = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   useEffect(() => {
-    const targetElement = targetElementRef?.current!;
+    const targetElement = targetElementRef?.current;
 
     const userPointerDown = (e: PointerEvent) => {
       if (!state.pointerDown && e.target instanceof HTMLAnchorElement) return state;
@@ -165,10 +165,7 @@ const Carousel = () => {
           Audio solutions for <span className='highlight'>dynamic</span> environments
         </h2>
       </div>
-      <ul
-        className='carousel__track'
-        ref={targetElementRef}
-        style={state.style}>
+      <ul className='carousel__track' ref={targetElementRef} style={state.style}>
         {carouselUlArr.map((li) => (
           <li key={`carousel-category-${li.navCat}`}>
             <picture>
@@ -180,9 +177,7 @@ const Carousel = () => {
                 decoding='async'
                 fetchPriority='low'
               />
-              <Link
-                to={li.linkTo}
-                tabIndex={li.tabIndex}>
+              <Link to={li.linkTo} tabIndex={li.tabIndex}>
                 {li.navCat}
               </Link>
             </picture>

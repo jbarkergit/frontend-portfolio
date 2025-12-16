@@ -1,21 +1,20 @@
 // React
+
+// Data
+import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 import { useState } from 'react';
 import { useParams } from 'react-router';
-
-// Context
-import { CartProvider } from '../context/CartContext';
-import type { ProductType } from '../context/CartContext';
+import EFooter from '../components/navigation/footer/eFooter';
 
 // Components
 import Header from '../components/navigation/header-desktop/EcoHeader';
-import EFooter from '../components/navigation/footer/eFooter';
 import ProductPageDetails from '../components/product/product-page/ProductPageDetails';
 import ProductPageImgDisplay from '../components/product/product-page/ProductPageImgDisplay';
 import ProductPageImgSelect from '../components/product/product-page/ProductPageImgSelect';
 import MoreLikeThis from '../components/product/product-recommenders/MoreLikeThis';
-
-// Data
-import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
+import type { ProductType } from '../context/CartContext';
+// Context
+import { CartProvider } from '../context/CartContext';
 
 const ProductDetailPage = () => {
   const { paramId } = useParams() as { paramId: string };
@@ -29,10 +28,7 @@ const ProductDetailPage = () => {
         <div className='skuPage'>
           <main className='skuPage__grid'>
             {findProduct.images!.small.length > 1 ? (
-              <ProductPageImgSelect
-                findProduct={findProduct}
-                setActiveDisplay={setActiveDisplay}
-              />
+              <ProductPageImgSelect findProduct={findProduct} setActiveDisplay={setActiveDisplay} />
             ) : null}
             <ProductPageImgDisplay
               findProduct={findProduct}

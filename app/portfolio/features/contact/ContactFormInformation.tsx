@@ -18,9 +18,7 @@ const ContactFormInformation = () => {
   const { errors } = useFormErrors();
 
   return (
-    <section
-      className='contact__form__step'
-      data-toggle='true'>
+    <section className='contact__form__step' data-toggle='true'>
       <header className='contact__form__step__header'>
         {FormButtons.return}
         <div className='contact__form__step__header__wrapper'>
@@ -36,9 +34,7 @@ const ContactFormInformation = () => {
           <Fragment key={`contact-form-${key}`}>
             {errors[key] && (
               <li>
-                <div
-                  className='contact__form__step__ul__error'
-                  role='alert'>
+                <div className='contact__form__step__ul__error' role='alert'>
                   <span>
                     <MaterialSymbolsErrorCircleRoundedSharp />
                   </span>
@@ -46,12 +42,8 @@ const ContactFormInformation = () => {
                 </div>
               </li>
             )}
-            <li
-              className='contact__form__step__ul__li'
-              key={`contact-form-information-${key}`}>
-              <label
-                htmlFor={htmlFor}
-                className='contact__form__step__ul__li__label'>
+            <li className='contact__form__step__ul__li' key={`contact-form-information-${key}`}>
+              <label htmlFor={htmlFor} className='contact__form__step__ul__li__label'>
                 {htmlFor === 'agency'
                   ? 'Agency (optional)'
                   : htmlFor === 'role'

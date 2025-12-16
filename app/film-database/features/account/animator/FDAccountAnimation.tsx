@@ -1,6 +1,6 @@
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
 import { useFLoader } from 'app/film-database/routes/FilmDatabase';
-import { memo, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
+import { type CSSProperties, memo, useEffect, useMemo, useRef, useState } from 'react';
 
 // Find the visual center of an array's length
 const getCenteredIndex = (length: number) => Math.round((length - 1) / 2);
@@ -62,11 +62,10 @@ const FDAccountAnimation = memo(({ accountRef }: { accountRef: React.RefObject<H
         className='fdAccountAnimation__backdrop'
         ref={animationRef}
         data-visible='false'
-        onAnimationEnd={unmountAnimation}>
+        onAnimationEnd={unmountAnimation}
+      >
         {allPosters?.map((set: TmdbMovieProvider[], setIndex: number) => (
-          <ul
-            className='fdAccountAnimation__backdrop__set'
-            key={`backdrop-set-${setIndex}`}>
+          <ul className='fdAccountAnimation__backdrop__set' key={`backdrop-set-${setIndex}`}>
             {set.map((article: TmdbMovieProvider, index: number) => {
               const isLast = setIndex === allPosters.length - 1 && index === set.length - 1;
 
@@ -74,7 +73,8 @@ const FDAccountAnimation = memo(({ accountRef }: { accountRef: React.RefObject<H
                 <li
                   className='fdAccountAnimation__backdrop__set__li'
                   key={`backdrop-image-${article.id}`}
-                  style={{ '--i': index } as CSSProperties}>
+                  style={{ '--i': index } as CSSProperties}
+                >
                   <picture className='fdAccountAnimation__backdrop__set__li__container'>
                     <img
                       className='fdAccountAnimation__backdrop__set__li__container--img'

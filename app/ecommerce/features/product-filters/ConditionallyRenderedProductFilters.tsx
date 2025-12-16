@@ -1,6 +1,6 @@
+import { commerceData } from 'app/ecommerce/data/commerceData';
 import { useLocation } from 'react-router';
 import ProductFilterConstructor from './ProductFilterConstructor';
-import { commerceData } from 'app/ecommerce/data/commerceData';
 
 const ConditionallyRenderedProductFilters = () => {
   // Memoized data dependencies

@@ -1,12 +1,12 @@
+import { commerceData } from 'app/ecommerce/data/commerceData';
+import type { JSX } from 'react';
 import { useLocation } from 'react-router';
 import EFooter from '../components/navigation/footer/eFooter';
+import EcoHeader from '../components/navigation/header-desktop/EcoHeader';
 import ProductProvider from '../components/product/product-provider/ProductProvider';
 import { CartProvider } from '../context/CartContext';
 import ConditionallyRenderedProductFilters from '../features/product-filters/ConditionallyRenderedProductFilters';
 import ProductFilterConstructor from '../features/product-filters/ProductFilterConstructor';
-import EcoHeader from '../components/navigation/header-desktop/EcoHeader';
-import type { JSX } from 'react';
-import { commerceData } from 'app/ecommerce/data/commerceData';
 
 const ProductCatalog = (): JSX.Element => {
   const CompanyFilter = (): JSX.Element => ProductFilterConstructor('Filter by Company', commerceData.companies);
@@ -25,10 +25,7 @@ const ProductCatalog = (): JSX.Element => {
         <EcoHeader />
         <section className='browseProduct'>
           <section className='productCatalogTopper'>
-            <div
-              className='productCatalogTopper__panel breadCrumbs'
-              aria-label={breadcrumb}
-              tabIndex={0}>
+            <div className='productCatalogTopper__panel breadCrumbs' aria-label={breadcrumb} tabIndex={0}>
               <h1>{breadcrumb}</h1>
             </div>
             <div className='productCatalogTopper__panel'>

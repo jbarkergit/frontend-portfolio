@@ -1,6 +1,6 @@
 import { IcBaselineArrowLeft, IcBaselineArrowRight } from 'app/film-database/assets/svg/icons';
 import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
-import { useRef, useCallback, useEffect, useState, useLayoutEffect, type RefObject, memo } from 'react';
+import { memo, type RefObject, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 type Props = {
   dataLength: number;
@@ -9,6 +9,7 @@ type Props = {
 };
 
 const GenericCarouselNavigation = memo(({ dataLength, reference, isModal }: Props) => {
+  // biome-ignore lint/correctness/noUnusedVariables: <state is never meant to be read>
   const [forceRerender, setForceRerender] = useState(false);
 
   useLayoutEffect(() => {
@@ -71,13 +72,15 @@ const GenericCarouselNavigation = memo(({ dataLength, reference, isModal }: Prop
       <button
         className='genericCarousel__wrapper__navigation--button'
         aria-label='Show Previous'
-        onClick={() => navigate(-1)}>
+        onClick={() => navigate(-1)}
+      >
         <IcBaselineArrowLeft />
       </button>
       <button
         className='genericCarousel__wrapper__navigation--button'
         aria-label='Show More'
-        onClick={() => navigate(1)}>
+        onClick={() => navigate(1)}
+      >
         <IcBaselineArrowRight />
       </button>
     </nav>

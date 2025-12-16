@@ -13,7 +13,14 @@ const ProductPageImgSelect = ({ findProduct, setActiveDisplay }: PropType) => {
     <aside className='skuPage__grid__imgSelection'>
       {images?.small.map((image, index) => (
         <picture key={`product-image-select-${index}`}>
-          <img src={image} alt={company + unit} decoding='async' fetchPriority='high' onClick={() => setActiveDisplay(index)} tabIndex={0} />
+          <img
+            src={image}
+            alt={company + unit}
+            decoding='async'
+            fetchPriority='high'
+            onClick={() => setActiveDisplay(index)}
+            tabIndex={0}
+          />
         </picture>
       ))}
     </aside>

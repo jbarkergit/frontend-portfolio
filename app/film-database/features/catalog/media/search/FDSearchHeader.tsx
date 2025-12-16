@@ -1,7 +1,7 @@
 import { IcBaselineSearch } from 'app/film-database/assets/svg/icons';
 import { tmdbCall } from 'app/film-database/composables/tmdbCall';
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
-import { memo, useRef, type ChangeEvent } from 'react';
+import { type ChangeEvent, memo, useRef } from 'react';
 
 const FDSearchHeader = memo(
   ({
@@ -53,7 +53,8 @@ const FDSearchHeader = memo(
             className='fdSearchBar__header__fieldset__label'
             htmlFor='fdSearchBar__fieldset__input'
             data-opacity='barelyVisible'
-            ref={labelRef}>
+            ref={labelRef}
+          >
             <IcBaselineSearch />
             <h2>Find the movies you're interested in</h2>
           </label>

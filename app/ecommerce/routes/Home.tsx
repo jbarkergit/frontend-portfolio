@@ -1,13 +1,13 @@
 // Context
-import { CartProvider } from '../context/CartContext';
 
+import Carousel from '../components/home/Carousel';
+import Infographic from '../components/home/Infographic';
+import ProductHighlight from '../components/home/ProductHighlight';
+import SideBySide from '../components/home/SideBySide';
+import EFooter from '../components/navigation/footer/eFooter';
 // Components
 import Header from '../components/navigation/header-desktop/EcoHeader';
-import EFooter from '../components/navigation/footer/eFooter';
-import Infographic from '../components/home/Infographic';
-import Carousel from '../components/home/Carousel';
-import SideBySide from '../components/home/SideBySide';
-import ProductHighlight from '../components/home/ProductHighlight';
+import { CartProvider } from '../context/CartContext';
 
 const EcommerceHome = () => {
   return (

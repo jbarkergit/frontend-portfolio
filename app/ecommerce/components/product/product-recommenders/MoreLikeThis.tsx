@@ -1,7 +1,7 @@
+import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router';
 import type { ProductType } from '../../../context/CartContext';
-import { commerceDatabase } from 'app/ecommerce/data/commerceDatabase';
 
 type MoreLikeThisType = {
   findProduct: ProductType;
@@ -32,9 +32,7 @@ const MoreLikeThis = ({ findProduct }: MoreLikeThisType) => {
       </h2>
       <ul className='recommenders__unorderedList'>
         {filteredRecommenders.splice(0, 8).map((product) => (
-          <li
-            key={`more-like-this-${product.sku}`}
-            className='recommenders__unorderedList__item'>
+          <li key={`more-like-this-${product.sku}`} className='recommenders__unorderedList__item'>
             <Link to={`/ecommerce/products/${product.sku}`}>
               <article>
                 <picture>

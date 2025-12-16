@@ -55,11 +55,13 @@ type Argument = { [K in keyof TmdbResponseFlat]: ArgumentShapes<K> }[keyof TmdbR
 // Identify key from argument
 type ArgumentToKey<T> = T extends keyof TmdbResponseFlat
   ? T
-  : T extends { [K in keyof TmdbResponseFlat]?: any }
+  : // biome-ignore lint/suspicious/noExplicitAny: <generic>
+    T extends { [K in keyof TmdbResponseFlat]?: any }
     ? Extract<keyof T, keyof TmdbResponseFlat>
     : never;
 
 // Shape response
+// biome-ignore lint/suspicious/noExplicitAny: <generic>
 type CallResponse<T> = T extends any[] // If T is an array of arguments
   ? {
       [K in keyof T]: T[K] extends Argument
@@ -176,6 +178,8 @@ function isFulfilled<T>(result: PromiseSettledResult<T>): result is PromiseFulfi
  * Some options to combat this are a third party moderation service, some combination of region locking, filtering by rating and keyword filtering.
  * We've leveraging keyword filtering with npm pkg naughty-words as a solution.
  */
+
+// biome-ignore lint/suspicious/noExplicitAny: <types are generic and we're handling objects appropriately>
 function isNotNaughty(item: any): boolean {
   if (item && typeof item === 'object' && 'title' in item && 'overview' in item && 'adult' in item) {
     const title = (item.title as string)?.trim().toLowerCase() ?? '';
@@ -185,15 +189,12 @@ function isNotNaughty(item: any): boolean {
   return true;
 }
 
-function filterContent<T>(result: CallResponse<T>):
-  | {
-      key: any;
-      response: any;
-    }[]
-  | {
-      key: ArgumentToKey<T>;
-      response: TmdbResponseFlat[ArgumentToKey<T>];
-    } {
+type FilterContentParam<T> = {
+  key: ArgumentToKey<T>;
+  response: TmdbResponseFlat[ArgumentToKey<T>];
+};
+
+function filterContent<T>(result: CallResponse<T>): FilterContentParam<T> | FilterContentParam<T>[] {
   if (Array.isArray(result)) {
     return result.map(({ key, response }) => ({
       key,

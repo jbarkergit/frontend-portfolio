@@ -1,9 +1,13 @@
 import { Link } from 'react-router';
-
+import {
+  Discover,
+  Klarna,
+  Mastercard,
+  Paypal,
+  Visa,
+} from '../../../assets/production-images/user-account-svg/PaymentMethodSVGS';
 import ENewsletter from './ENewsletter';
 import SocialMedia from './SocialMedia';
-
-import { Klarna, Mastercard, Visa, Discover, Paypal } from '../../../assets/production-images/user-account-svg/PaymentMethodSVGS';
 
 const FooterSplitter = (sectionHeading: string) => {
   return (
@@ -16,8 +20,24 @@ const FooterSplitter = (sectionHeading: string) => {
 };
 
 const EFooter = () => {
-  const support: string[] = ['My Account', 'Dynamic Rewards', 'Teacher Discount', 'FAQ', 'Shipping', 'International', 'Returns', 'Find a Store'];
-  const services: string[] = ['Data Privacy', 'Ethics', 'EULA', 'General Conditions', 'Payment Processing', 'Terms and Conditions'];
+  const support: string[] = [
+    'My Account',
+    'Dynamic Rewards',
+    'Teacher Discount',
+    'FAQ',
+    'Shipping',
+    'International',
+    'Returns',
+    'Find a Store',
+  ];
+  const services: string[] = [
+    'Data Privacy',
+    'Ethics',
+    'EULA',
+    'General Conditions',
+    'Payment Processing',
+    'Terms and Conditions',
+  ];
 
   return (
     <footer className='eFooter'>

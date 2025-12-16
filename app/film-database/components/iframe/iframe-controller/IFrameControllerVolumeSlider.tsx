@@ -1,6 +1,6 @@
 import { usePlayerVolumeContext } from 'app/film-database/components/iframe/iframe-controller/context/PlayerVolumeContext';
-import { useRef } from 'react';
 import type { MouseEvent } from 'react';
+import { useRef } from 'react';
 
 const IFrameControllerVolumeSlider = () => {
   const { setPlayerVolume } = usePlayerVolumeContext();
@@ -33,7 +33,8 @@ const IFrameControllerVolumeSlider = () => {
         moveHandle(e);
         isDragging.current = false;
       }}
-      onPointerLeave={() => (isDragging.current = false)}>
+      onPointerLeave={() => (isDragging.current = false)}
+    >
       <span className='fdiFrame__controller__controls__slider--range' />
       <span
         className='fdiFrame__controller__controls__slider--handle'

@@ -1,11 +1,11 @@
-import { iso } from '~/base/iso/iso';
+import { iso } from 'app/base/iso/iso';
 
 type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
 export type SpotifyRequest = {
   method: Method;
   endpoint: string;
-  body?: Record<string, any>;
+  body?: Record<string, unknown>;
 };
 
 type PathParams = {
@@ -97,12 +97,12 @@ type SpotifyBodyParams = {
   range_length: number;
   snapshot_id: string;
   position: number;
-  tracks: {}[];
+  tracks: Record<string, unknown>[];
   uri: string;
   timestamped_ids: { id: string; added_at: string }[];
 };
 
-function buildEndpoint(endpoint: string, pathParams?: Record<string, any>): string {
+function buildEndpoint(endpoint: string, pathParams?: Record<string, unknown>): string {
   if (!pathParams) return endpoint;
 
   const queries: string[] = [];

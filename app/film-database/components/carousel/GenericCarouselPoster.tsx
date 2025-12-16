@@ -7,7 +7,7 @@ import { usePersonContext } from 'app/film-database/context/PersonContext';
 import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
 import { addIdToCollection } from 'app/film-database/utility/addIdToCollection';
-import { useRef, type ReactNode, useCallback, useEffect, useState } from 'react';
+import { type ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 
 function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
   carouselName,
@@ -62,9 +62,7 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
 
   /** @Parent */
   const Parent = ({ children }: { children: ReactNode }) => (
-    <li
-      className='genericCarousel__wrapper__ul__li'
-      data-hidden={posterIndex < itemCount + 1 ? 'false' : 'true'}>
+    <li className='genericCarousel__wrapper__ul__li' data-hidden={posterIndex < itemCount + 1 ? 'false' : 'true'}>
       {children}
     </li>
   );
@@ -77,7 +75,8 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
         className='genericCarousel__wrapper__ul__li'
         onPointerOver={() => setIsInterested(true)}
         onPointerLeave={() => dropdownRef.current?.setAttribute('data-open', 'false')}
-        data-hidden={posterIndex < itemCount + 1 ? 'false' : 'true'}>
+        data-hidden={posterIndex < itemCount + 1 ? 'false' : 'true'}
+      >
         <picture className='genericCarousel__wrapper__ul__li__picture'>
           <img
             className='genericCarousel__wrapper__ul__li__picture--img'
@@ -93,24 +92,24 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
               <button
                 className='genericCarousel__wrapper__ul__li__overlay--toggleMenu'
                 aria-label='Add movie to collections'
-                onClick={toggleDropdown}>
+                onClick={toggleDropdown}
+              >
                 <BxDotsVerticalRounded />
               </button>
               <button
                 className='genericCarousel__wrapper__ul__li__overlay--play'
                 aria-label='Play trailer'
-                onClick={() => setHeroData(mediaEntry)}>
+                onClick={() => setHeroData(mediaEntry)}
+              >
                 <IcOutlinePlayCircle />
               </button>
             </div>
-            <ul
-              className='genericCarousel__wrapper__ul__li__collections'
-              ref={dropdownRef}
-              data-open='false'>
+            <ul className='genericCarousel__wrapper__ul__li__collections' ref={dropdownRef} data-open='false'>
               {Object.entries(userCollections).map(([key, collection], i) => {
                 return (
                   <li
-                    key={`${carouselName}-carousel-${carouselIndex}-poster-${posterIndex}-collection-dropdown-${i}-${key}`}>
+                    key={`${carouselName}-carousel-${carouselIndex}-poster-${posterIndex}-collection-dropdown-${i}-${key}`}
+                  >
                     <button
                       aria-label={`Add movie to ${collection.header}`}
                       onClick={() => {
@@ -121,7 +120,8 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
                         setUserCollections(data);
 
                         toggleDropdown();
-                      }}>
+                      }}
+                    >
                       {collection.header}
                     </button>
                   </li>
@@ -139,7 +139,8 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
                       setUserCollections(data);
 
                       toggleDropdown();
-                    }}>
+                    }}
+                  >
                     <TablerCategoryPlus /> New Collection
                   </button>
                 </li>
@@ -158,10 +159,12 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
           onClick={() => {
             setModal('person');
             setPerson(cinemaEntry.id);
-          }}>
+          }}
+        >
           <picture
             className='genericCarousel__wrapper__ul__li__picture'
-            data-missing={cinemaEntry.profile_path ? 'false' : 'true'}>
+            data-missing={cinemaEntry.profile_path ? 'false' : 'true'}
+          >
             {cinemaEntry.profile_path ? (
               <img
                 src={`https://image.tmdb.org/t/p/w500/${cinemaEntry.profile_path}`}
@@ -195,7 +198,8 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
           setModal('movie');
         }}
         onPointerLeave={() => dropdownRef.current?.setAttribute('data-open', 'false')}
-        data-hidden={posterIndex < itemCount + 1 ? 'false' : 'true'}>
+        data-hidden={posterIndex < itemCount + 1 ? 'false' : 'true'}
+      >
         <picture className='genericCarousel__wrapper__ul__li__picture'>
           <img
             className='genericCarousel__wrapper__ul__li__picture--img'

@@ -1,5 +1,5 @@
 import type { TmdbMovieProvider, TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
-import { memo, type JSX } from 'react';
+import { type JSX, memo } from 'react';
 
 /**
  * Determine a movie's availability on streaming platforms or theatres

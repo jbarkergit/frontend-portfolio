@@ -1,4 +1,4 @@
-import { FullStar, HalfStar, EmptyStar } from 'app/film-database/assets/svg/icons';
+import { EmptyStar, FullStar, HalfStar } from 'app/film-database/assets/svg/icons';
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
 import { type JSX } from 'react';
 
@@ -24,9 +24,7 @@ const VoteAverageVisual = ({ data }: { data: TmdbMovieProvider }): JSX.Element |
   ];
 
   return (
-    <div
-      className='fdDetails__extra__inf__voteAvgVisual'
-      aria-label={`Vote Average ${voteAvg / 2} out of 5`}>
+    <div className='fdDetails__extra__inf__voteAvgVisual' aria-label={`Vote Average ${voteAvg / 2} out of 5`}>
       {stars.map((Star, index) => (
         <span key={`star-${index}`}>{Star}</span>
       ))}

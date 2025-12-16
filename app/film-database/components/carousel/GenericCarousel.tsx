@@ -3,7 +3,7 @@ import GenericCarouselNavigation from 'app/film-database/components/carousel/Gen
 import GenericCarouselPoster from 'app/film-database/components/carousel/GenericCarouselPoster';
 import type { TmdbMovieProvider, TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
 import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
-import { useRef, useEffect, memo } from 'react';
+import { memo, useEffect, useRef } from 'react';
 
 export type GenericCarouselMap = {
   media: TmdbMovieProvider[];
@@ -55,40 +55,34 @@ function Carousel<CN extends keyof GenericCarouselMap>({
   }, []);
 
   return (
-    <section
-      className='genericCarousel'
-      data-anim='active'>
+    <section className='genericCarousel' data-anim='active'>
       <header className='genericCarousel__header'>
         <h2 className='genericCarousel__header--h2'>{heading.replaceAll('_', ' ')}</h2>
       </header>
       <div className='genericCarousel__wrapper'>
-        <ul
-          className='genericCarousel__wrapper__ul'
-          ref={carouselRef}
-          data-modal={carouselName}>
+        <ul className='genericCarousel__wrapper__ul' ref={carouselRef} data-modal={carouselName}>
           {data.length
-            ? data.flat().map((entry, posterIndex) => (
-                <GenericCarouselPoster
-                  carouselName={carouselName}
-                  carouselIndex={carouselIndex}
-                  posterIndex={posterIndex}
-                  entry={entry}
-                  key={`${carouselName}-carousel-${carouselIndex}-li-${posterIndex}`}
-                />
-              ))
+            ? data
+                .flat()
+                .map((entry, posterIndex) => (
+                  <GenericCarouselPoster
+                    carouselName={carouselName}
+                    carouselIndex={carouselIndex}
+                    posterIndex={posterIndex}
+                    entry={entry}
+                    key={`${carouselName}-carousel-${carouselIndex}-li-${posterIndex}`}
+                  />
+                ))
             : Array.from({ length: isModal ? visibleCount.modal : visibleCount.viewport }).map((_, i) => (
                 <li
                   className='genericCarousel__wrapper__ul__loading'
-                  key={`generic-carousel-${carouselName}-ul-loader-${i}`}>
+                  key={`generic-carousel-${carouselName}-ul-loader-${i}`}
+                >
                   <SvgSpinnersRingResize />
                 </li>
               ))}
         </ul>
-        <GenericCarouselNavigation
-          dataLength={data.length}
-          reference={carouselRef}
-          isModal={isModal}
-        />
+        <GenericCarouselNavigation dataLength={data.length} reference={carouselRef} isModal={isModal} />
       </div>
     </section>
   );

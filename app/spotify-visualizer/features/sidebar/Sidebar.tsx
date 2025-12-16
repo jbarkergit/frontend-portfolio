@@ -26,10 +26,7 @@ const Sidebar = () => {
 
           return (
             <li key={key}>
-              <button
-                className='library__wrapper__btn'
-                aria-label={formattedKey}
-                onClick={func}>
+              <button className='library__wrapper__btn' aria-label={formattedKey} onClick={func}>
                 <span>{icon}</span>
                 <span>{formattedKey}</span>
               </button>
@@ -45,10 +42,7 @@ export default Sidebar;
 
 export function BiCollection(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -60,10 +54,7 @@ export function BiCollection(props: SVGProps<SVGSVGElement>) {
 
 export function BiPinAngle(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -75,17 +66,11 @@ export function BiPinAngle(props: SVGProps<SVGSVGElement>) {
 
 export function BiMusicNoteList(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <g fill='currentColor'>
         <path d='M12 13c0 1.105-1.12 2-2.5 2S7 14.105 7 13s1.12-2 2.5-2s2.5.895 2.5 2' />
-        <path
-          fillRule='evenodd'
-          d='M12 3v10h-1V3z'
-        />
+        <path fillRule='evenodd' d='M12 3v10h-1V3z' />
         <path d='M11 2.82a1 1 0 0 1 .804-.98l3-.6A1 1 0 0 1 16 2.22V4l-5 1z' />
         <path
           fillRule='evenodd'
@@ -98,10 +83,7 @@ export function BiMusicNoteList(props: SVGProps<SVGSVGElement>) {
 
 export function BiHeart(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -113,10 +95,7 @@ export function BiHeart(props: SVGProps<SVGSVGElement>) {
 
 export function BiBookmark(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -128,10 +107,7 @@ export function BiBookmark(props: SVGProps<SVGSVGElement>) {
 
 export function BiDisc(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <g fill='currentColor'>
         <path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16' />
@@ -143,10 +119,7 @@ export function BiDisc(props: SVGProps<SVGSVGElement>) {
 
 export function BiFolder2(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 16 16'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' {...props}>
       {/* Icon from Bootstrap Icons by The Bootstrap Authors - https://github.com/twbs/icons/blob/main/LICENSE.md */}
       <path
         fill='currentColor'
@@ -158,10 +131,7 @@ export function BiFolder2(props: SVGProps<SVGSVGElement>) {
 
 export function SolarPodcastBoldDuotone(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Solar by 480 Design - https://creativecommons.org/licenses/by/4.0/ */}
       <path
         fill='currentColor'
@@ -178,10 +148,7 @@ export function SolarPodcastBoldDuotone(props: SVGProps<SVGSVGElement>) {
 
 export function SimpleIconsAudiobookshelf(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Simple Icons by Simple Icons Collaborators - https://github.com/simple-icons/simple-icons/blob/develop/LICENSE.md */}
       <path
         fill='currentColor'
@@ -193,27 +160,11 @@ export function SimpleIconsAudiobookshelf(props: SVGProps<SVGSVGElement>) {
 
 export function IconamoonMusicArtistLight(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from IconaMoon by Dariush Habibpour - https://creativecommons.org/licenses/by/4.0/ */}
-      <g
-        fill='none'
-        stroke='currentColor'
-        strokeWidth='1.5'>
-        <circle
-          cx='12'
-          cy='7'
-          r='3'
-        />
-        <circle
-          cx='18'
-          cy='18'
-          r='2'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
+      <g fill='none' stroke='currentColor' strokeWidth='1.5'>
+        <circle cx='12' cy='7' r='3' />
+        <circle cx='18' cy='18' r='2' strokeLinecap='round' strokeLinejoin='round' />
         <path
           strokeLinecap='round'
           strokeLinejoin='round'

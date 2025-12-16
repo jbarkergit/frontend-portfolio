@@ -1,15 +1,12 @@
-import { useEffect, useState, type JSX, type SVGProps } from 'react';
-import type { YouTubePlayer } from 'react-youtube';
-import { SvgSpinnersRingResize } from '../../../assets/svg/icons';
 import type { PlayerPlayState } from 'app/film-database/components/iframe/FDiFrame';
 import { useModalContext } from 'app/film-database/context/ModalContext';
+import { type JSX, type SVGProps, useEffect, useState } from 'react';
+import type { YouTubePlayer } from 'react-youtube';
+import { SvgSpinnersRingResize } from '../../../assets/svg/icons';
 
 function MaterialSymbolsPauseRounded(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'
@@ -20,10 +17,7 @@ function MaterialSymbolsPauseRounded(props: SVGProps<SVGSVGElement>) {
 }
 function MaterialSymbolsPlayArrowRounded(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      viewBox='0 0 24 24'
-      {...props}>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' {...props}>
       {/* Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE */}
       <path
         fill='currentColor'
@@ -76,7 +70,8 @@ const IFrameControllerPlayPause = ({ player, playState }: { player: YouTubePlaye
     <button
       className='fdiFrame__controller__controls__button'
       aria-label={playState === 'playing' ? 'Pause video' : 'Play video'}
-      onClick={changePlaystate}>
+      onClick={changePlaystate}
+    >
       {playStateSymbolComponent}
     </button>
   );

@@ -31,15 +31,10 @@ const FDDetailsCollectionDropdown = memo(() => {
 
   return (
     <div className='fdDetails__extra__nav__collections'>
-      <button
-        aria-label={`Add ${heroData?.title} to a collection`}
-        onClick={toggleDropdown}>
+      <button aria-label={`Add ${heroData?.title} to a collection`} onClick={toggleDropdown}>
         Add to collections
       </button>
-      <ul
-        className='fdDetails__extra__nav__collections__dropdown'
-        ref={dropdownRef}
-        data-open='false'>
+      <ul className='fdDetails__extra__nav__collections__dropdown' ref={dropdownRef} data-open='false'>
         {Object.entries(userCollections).map(([key, col], index) => {
           return (
             <li key={`detail-dropdown-${col.header}-${key}`}>
@@ -54,7 +49,8 @@ const FDDetailsCollectionDropdown = memo(() => {
                     setUserCollections(data);
                   }
                   toggleDropdown();
-                }}>
+                }}
+              >
                 {col.header}
               </button>
             </li>
@@ -73,7 +69,8 @@ const FDDetailsCollectionDropdown = memo(() => {
                   setUserCollections(data);
                 }
                 toggleDropdown();
-              }}>
+              }}
+            >
               <span>
                 <TablerCategoryPlus />
               </span>

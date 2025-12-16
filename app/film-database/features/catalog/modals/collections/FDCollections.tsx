@@ -3,7 +3,7 @@ import { useUserCollectionContext } from 'app/film-database/context/UserCollecti
 import FDCollectionsCollection from 'app/film-database/features/catalog/modals/collections/FDCollectionsCollection';
 import FDCollectionsErrorHandler from 'app/film-database/features/catalog/modals/collections/FDCollectionsErrorHandler';
 import FDCollectionsMenu from 'app/film-database/features/catalog/modals/collections/FDCollectionsMenu';
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 const FDCollections = () => {
   const { userCollections } = useUserCollectionContext(); // Context
@@ -59,10 +59,7 @@ const FDCollections = () => {
           />
         ))}
       </section>
-      <FDCollectionsMenu
-        isEditMode={isEditMode}
-        setIsEditMode={setIsEditMode}
-      />
+      <FDCollectionsMenu isEditMode={isEditMode} setIsEditMode={setIsEditMode} />
       <FDCollectionsErrorHandler ref={errorRef} />
     </>
   );
