@@ -9,6 +9,7 @@ import { useModalContext } from 'app/film-database/context/ModalContext';
 import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router';
+import JustWatch from '/app/film-database/assets/api/JustWatch-logo-large.webp?url';
 import { MaterialSymbolsLogoutSharp, TheMovieDatabaseLogo } from '../../assets/svg/icons';
 
 const discoveryIdMap = Object.fromEntries(Object.entries(tmdbDiscoveryIds).map(([k, v]) => [v, k]));
@@ -78,7 +79,7 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
           <TheMovieDatabaseLogo />
         </Link>
         <Link to='https://www.justwatch.com/us/JustWatch-Streaming-API'>
-          <img aria-label='JustWatch API' src='/app/film-database/assets/api/JustWatch-logo-large.webp' />
+          <img aria-label='JustWatch API' src={JustWatch} />
         </Link>
       </footer>
 
