@@ -1,5 +1,11 @@
 import { zodSchema } from 'app/base/validation/zodSchema';
+import type { Dispatch, SetStateAction } from 'react';
 import { z } from 'zod';
+
+type ValidationResult = {
+  formData: FormData;
+  fieldErrors: Record<string, string>;
+};
 
 const contactInformationSchema = z.object({
   fullName: zodSchema.shape.fullName,
@@ -16,14 +22,14 @@ const inquirySchema = z.object({
 
 const bookingSchema = z.object({ bookingData: zodSchema.shape.bookingDate });
 
-export const useValidateForm = (
+export const validateForm = (
   formRef: React.RefObject<HTMLFormElement | null>,
   activeStepIndex: React.RefObject<number>,
-  setErrors: React.Dispatch<React.SetStateAction<Record<string, string>>>,
+  setErrors: Dispatch<SetStateAction<Record<string, string>>>,
   setIsBookingActive: React.Dispatch<React.SetStateAction<boolean>>
-) => {
+): ValidationResult | undefined => {
   const form = formRef.current;
-  if (!form) return;
+  if (!form) return undefined;
 
   const stepIndex = activeStepIndex.current;
   const validator = stepIndex === 0 ? contactInformationSchema : stepIndex === 1 ? inquirySchema : bookingSchema;
@@ -38,9 +44,9 @@ export const useValidateForm = (
   }
 
   // Validate, set errors
-  if (!result.success) {
-    const fieldErrors: Record<string, string> = {};
+  let fieldErrors: ValidationResult['fieldErrors'] = {};
 
+  if (!result.success) {
     for (const issue of result.error.issues) {
       const path = issue.path[0];
 
@@ -48,9 +54,8 @@ export const useValidateForm = (
         fieldErrors[path] = issue.message;
       }
     }
-
-    setErrors(fieldErrors);
   }
 
-  return formData;
+  setErrors(fieldErrors);
+  return { formData, fieldErrors };
 };

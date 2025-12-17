@@ -4,7 +4,7 @@ import ContactFormInquiry from 'app/portfolio/features/contact/ContactFormInquir
 import { useFormActiveStep } from 'app/portfolio/features/contact/context/FormActiveStepContext';
 import { useBookingActive } from 'app/portfolio/features/contact/context/FormBookingActiveContext';
 import { useFormErrors } from 'app/portfolio/features/contact/context/FormErrorsContext';
-import { useValidateForm } from 'app/portfolio/features/contact/hooks/useValidateForm';
+import { validateForm } from 'app/portfolio/features/contact/util/validateForm';
 import { useRef } from 'react';
 
 const submitFormToWeb3 = async (formData: FormData): Promise<void> => {
@@ -17,7 +17,7 @@ const submitFormToWeb3 = async (formData: FormData): Promise<void> => {
 const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.SetStateAction<boolean>> }) => {
   const { formRef, activeStepIndex } = useFormActiveStep();
   const { isBookingActive } = useBookingActive();
-  const { errors, setErrors } = useFormErrors();
+  const { setErrors } = useFormErrors();
   const { setIsBookingActive } = useBookingActive();
 
   const isSubmittingRef = useRef<boolean>(false);
@@ -26,16 +26,16 @@ const ContactForm = ({ setIsSubmitted }: { setIsSubmitted: React.Dispatch<React.
     if (isSubmittingRef.current) return;
     isSubmittingRef.current = true;
 
-    const formData = useValidateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
-    if (!formData) return;
+    const result = validateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
+    if (!result) return;
 
-    if (Object.entries(errors).length) {
+    if (Object.entries(result.fieldErrors).length) {
       isSubmittingRef.current = false;
       return;
     }
 
     try {
-      await submitFormToWeb3(formData);
+      await submitFormToWeb3(result.formData);
       setErrors({});
       formRef.current?.reset();
       setIsSubmitted(true);

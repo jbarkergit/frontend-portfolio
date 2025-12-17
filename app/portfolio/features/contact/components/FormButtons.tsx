@@ -7,24 +7,28 @@ import {
 import { useFormActiveStep } from 'app/portfolio/features/contact/context/FormActiveStepContext';
 import { useBookingActive } from 'app/portfolio/features/contact/context/FormBookingActiveContext';
 import { useFormErrors } from 'app/portfolio/features/contact/context/FormErrorsContext';
-import { useValidateForm } from 'app/portfolio/features/contact/hooks/useValidateForm';
+import { validateForm } from 'app/portfolio/features/contact/util/validateForm';
 
 const Next = () => {
   const { formRef, activeStepIndex, updateActiveStep } = useFormActiveStep();
-  const { errors, setErrors } = useFormErrors();
+  const { setErrors } = useFormErrors();
   const { setIsBookingActive } = useBookingActive();
+
+  const handleClick = () => {
+    const result = validateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
+    if (!result) return;
+
+    if (Object.keys(result.fieldErrors).length === 0) {
+      updateActiveStep(1);
+    }
+  };
 
   return (
     <button
       className='contact__form__step__stepper__section__button'
       aria-label='Continue to next step'
       type='button'
-      onClick={() => {
-        if (!errors) {
-          useValidateForm(formRef, activeStepIndex, setErrors, setIsBookingActive);
-          if (!Object.entries(errors).length) updateActiveStep(1);
-        }
-      }}
+      onClick={handleClick}
     >
       <span>Next</span>
       <span>
