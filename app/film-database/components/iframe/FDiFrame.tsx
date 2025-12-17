@@ -147,7 +147,6 @@ const FDiFrame = memo(({ type }: { type: 'hero' | 'modal' }) => {
         rel: 0,
         // start?: number | undefined;
         widget_referrer: undefined,
-        // @ts-expect-error
         mute: 1, // Required for autoplay, is not defined by react-youtube lib
       },
     }),
@@ -173,7 +172,7 @@ const FDiFrame = memo(({ type }: { type: 'hero' | 'modal' }) => {
             loading={'eager'}
             onPlay={() => setPlayState('playing')}
             onStateChange={(event: YouTubeEvent<number>) => {
-              if (type === 'modal') setPlayState(playStates[event.data as keyof typeof playStates] ?? 'cued');
+              setPlayState(playStates[event.data as keyof typeof playStates] ?? 'cued');
             }}
             // onPlaybackQualityChange={(event: YouTubeEvent<string>) => onPlaybackQualityChange(event.data)}
             onEnd={(event: YouTubeEvent) => destroyPlayer(event.target)}
