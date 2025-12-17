@@ -139,7 +139,7 @@ const ContactFormInquiry = () => {
         })}
       </ul>
       <nav className='contact__form__step__stepper'>
-        <div className='contact__form__step__stepper__section'>{FormButtons.return}</div>
+        <div className='contact__form__step__stepper__section'>{FormButtons.previous}</div>
         <div className='contact__form__step__stepper__section'>
           {isBookingActive ? FormButtons.next : FormButtons.submit}
         </div>
