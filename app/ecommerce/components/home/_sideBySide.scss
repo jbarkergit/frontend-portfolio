@@ -24,7 +24,6 @@
     width: 50%;
     height: fit-content;
     @media (width <= 980px) {
-      align-items: center;
       width: 100%;
       height: auto;
     }
@@ -42,6 +41,7 @@
     }
     & p {
       width: clamp(20ch, 100%, 55ch);
+      font-weight: 600;
     }
     & a {
       margin-top: calc(var(--ec-gap) / 4);

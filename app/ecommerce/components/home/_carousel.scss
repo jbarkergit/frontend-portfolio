@@ -6,13 +6,16 @@
   display: flex;
   flex-direction: column;
   gap: calc(var(--ec-gap) / 2);
-  padding: calc(var(--ec-section-y-padding) - f.rem(32)) var(--ec-section-x-padding) calc(var(--ec-section-y-padding) + 2rem) var(--ec-section-y-padding);
+  padding: calc(var(--ec-section-y-padding) - f.rem(32)) var(--ec-section-x-padding)
+    calc(var(--ec-section-y-padding) + 2rem) var(--ec-section-y-padding);
   background-color: var(--ec-background-primaryOffset);
   overflow: clip;
   &__heading {
     width: 100%;
+
     & p {
       padding: 0 0 0 f.rem(4);
+      font-weight: 600;
     }
     & h2 {
       @include m.ecoSectionHeader;
