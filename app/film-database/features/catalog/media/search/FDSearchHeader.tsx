@@ -1,7 +1,7 @@
 import { IcBaselineSearch } from 'app/film-database/assets/svg/icons';
 import { tmdbCall } from 'app/film-database/composables/tmdbCall';
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
-import { type ChangeEvent, memo, useRef } from 'react';
+import { type ChangeEvent, memo, useEffect, useRef } from 'react';
 
 const FDSearchHeader = memo(
   ({
@@ -9,7 +9,9 @@ const FDSearchHeader = memo(
   }: {
     setSearchResults: React.Dispatch<React.SetStateAction<TmdbMovieProvider[] | undefined>>;
   }) => {
+    const containerRef = useRef<HTMLDivElement>(null);
     const labelRef = useRef<HTMLLabelElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
     const timeoutId = useRef<NodeJS.Timeout | null>(null);
     const searchTermRef = useRef<string>('');
 
@@ -46,8 +48,38 @@ const FDSearchHeader = memo(
       }, 850);
     };
 
+    /** Auto focus */
+    useEffect(() => {
+      if (!containerRef.current || !inputRef.current) return;
+
+      let hasFocused = false;
+
+      const observer = new IntersectionObserver(([entry]) => {
+        if (!entry || !inputRef.current) return;
+
+        if (entry.isIntersecting && window.innerWidth > 950 && !hasFocused) {
+          inputRef.current.focus();
+          hasFocused = true;
+        }
+      });
+
+      const handlePointerDown = (e: PointerEvent) => {
+        if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+          hasFocused = false;
+        }
+      };
+
+      observer.observe(containerRef.current);
+      document.addEventListener('pointerdown', handlePointerDown);
+
+      return () => {
+        observer.disconnect();
+        document.removeEventListener('pointerdown', handlePointerDown);
+      };
+    }, []);
+
     return (
-      <div className='fdSearchBar__header'>
+      <div className='fdSearchBar__header' ref={containerRef}>
         <fieldset className='fdSearchBar__header__fieldset'>
           <label
             className='fdSearchBar__header__fieldset__label'
@@ -60,6 +92,7 @@ const FDSearchHeader = memo(
           </label>
           <input
             className='fdSearchBar__header__fieldset__input'
+            ref={inputRef}
             type='search'
             pattern='search'
             onPointerOver={() => handleLabelVisibility('visible')}
