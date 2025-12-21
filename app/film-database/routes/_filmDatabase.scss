@@ -1,17 +1,16 @@
-@use '/app/base/sass/util/functions' as f;
 @use '/app/film-database/scss/fdMixins' as m;
 
 .filmDatabase {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  height: 100svh;
-  background-color: var(--fd-bc-primary);
-  overflow: clip;
-  overscroll-behavior: none;
-  touch-action: none;
-  @include m.grainPsuedo;
-  @media (max-width: 1050px) {
-    height: auto;
-  }
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    background-color: var(--fd-bc-primary);
+    overflow: clip;
+    overscroll-behavior: none;
+    touch-action: none;
+    @include m.grainPsuedo;
+    @media (max-width: 950px) {
+        height: auto;
+    }
 }
