@@ -110,16 +110,7 @@
     @media (max-height: 850px) {
       padding-right: 15px;
       overflow-y: scroll;
-      &::-webkit-scrollbar {
-        width: 14px;
-        height: 14px;
-      }
-      &::-webkit-scrollbar-track {
-        background: #141414;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: #f3f3f1;
-      }
+      @include m.scrollbar;
     }
     & fieldset {
       display: flex;

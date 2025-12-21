@@ -10,10 +10,6 @@
     overscroll-behavior: none;
     touch-action: pan-y;
     @include m.fdFontM;
-    // Prevent scrolling when modal is open
-    &:has(.fdModal) {
-        overflow: clip;
-    }
     // Allow scrolling on mobile
     @media (max-width: 1050px) {
         height: auto;

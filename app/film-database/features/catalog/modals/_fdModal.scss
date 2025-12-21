@@ -12,6 +12,7 @@
   height: 100svh;
   padding: var(--fd-padding-generic) var(--fd-padding-generic) 0 var(--fd-padding-generic);
   background-color: rgba(0, 0, 0, 0.7);
+
   @media (max-width: 1580px) {
     padding: 0;
   }
@@ -22,24 +23,10 @@
     height: 100%;
     border-top-right-radius: var(--fd-border-radius);
     border-top-left-radius: var(--fd-border-radius);
-    overflow: clip;
     background-color: var(--fd-bc-offset);
     box-shadow: rgba(0, 0, 0, 1) 0px 3px 10px;
     border-top-right-radius: 0;
-    overflow-x: clip;
-    overflow-y: scroll;
-    @media (min-width: 1580px) {
-      &::-webkit-scrollbar {
-        width: 14px;
-        height: 14px;
-      }
-      &::-webkit-scrollbar-track {
-        background: #141414;
-      }
-      &::-webkit-scrollbar-thumb {
-        background: #f3f3f1;
-      }
-    }
+    @include m.scrollbar;
     @media (max-width: 1580px) {
       width: 100svw;
       border-radius: 0;
