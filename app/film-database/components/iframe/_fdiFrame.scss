@@ -16,7 +16,7 @@ $final-scale: $scale-factor * $scale-buffer;
   z-index: 1;
   display: block;
   height: inherit;
-  @media (max-width: 1050px) {
+  @media (max-width: 950px) {
     display: flex;
     flex-direction: column;
   }
