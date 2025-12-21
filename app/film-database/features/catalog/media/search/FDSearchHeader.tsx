@@ -62,7 +62,6 @@ const FDSearchHeader = memo(
             className='fdSearchBar__header__fieldset__input'
             type='search'
             pattern='search'
-            autoFocus={true}
             onPointerOver={() => handleLabelVisibility('visible')}
             onPointerLeave={() => handleLabelVisibility('barelyVisible')}
             onFocus={() => handleLabelVisibility('visible')}
