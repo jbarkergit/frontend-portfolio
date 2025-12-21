@@ -1,13 +1,12 @@
 @use '/app/base/sass/util/functions' as f;
 @use '/app/film-database/scss/fdMixins' as m;
 
+// Scrolling is independent of containers
 .fdMedia {
   position: relative;
   z-index: 1;
-  height: 100%;
-  @include m.scrollSnappingYAxis;
-  overflow-x: clip;
-  overflow-y: visible;
+  // Prevent this container from ever scrolling
+  overflow: clip;
   transition: all 165ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
   & > * {
     position: relative;

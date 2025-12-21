@@ -4,13 +4,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100svh;
     background-color: var(--fd-bc-primary);
+    @include m.grainPsuedo;
+    // Prevent main container from scrolling
     overflow: clip;
+    // Prevent container dragging on mobile
     overscroll-behavior: none;
     touch-action: none;
-    @include m.grainPsuedo;
-    @media (max-width: 950px) {
-        height: auto;
-    }
 }
