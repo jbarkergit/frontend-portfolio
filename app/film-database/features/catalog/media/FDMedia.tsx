@@ -48,6 +48,25 @@ const FDMedia = () => {
     return () => window.removeEventListener('wheel', handleWheel);
   }, [fdMediaRef.current, modal]);
 
+  /** Handle resize */
+  useEffect(() => {
+    const attr = 'data-anim';
+
+    const observer = new ResizeObserver(([entry]) => {
+      if (!entry) return;
+      const { width } = entry.contentRect;
+
+      if (fdMediaRef.current && width < 1050) {
+        fdMediaRef.current.style.top = `0px`;
+        const children = fdMediaRef.current.children;
+        if (children) for (const child of children) child.setAttribute(attr, 'active');
+      }
+    });
+
+    if (fdMediaRef.current) observer.observe(fdMediaRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   /** JSX */
   return (
     <main className='fdMedia' ref={fdMediaRef} style={{ top: '0px' }}>

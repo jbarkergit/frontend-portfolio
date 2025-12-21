@@ -1,0 +1,18 @@
+@use '/app/base/sass/util/functions' as f;
+@use '/app/film-database/scss/fdMixins' as m;
+
+.fdCatalog {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100svh;
+    background-color: var(--fd-bc-primary);
+    overflow-x: clip;
+    touch-action: pan-y;
+    @include m.fdFontM;
+    overflow-y: clip;
+    @media (max-width: 1050px) {
+        height: auto;
+        scrollbar-width: none;
+    }
+}
