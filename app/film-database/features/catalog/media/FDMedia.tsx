@@ -16,7 +16,7 @@ const FDMedia = () => {
    * Update previously active and newly active carousel node's data-attr, navigate
    */
   const deltaScrollCarousels = (delta: 1 | -1): void => {
-    if (window.innerWidth < 1050 || !fdMediaRef.current) return;
+    if (window.innerWidth < 950 || !fdMediaRef.current) return;
     const carouselNodesArr: Element[] = [...fdMediaRef.current.children];
 
     // Gather indexes
@@ -56,7 +56,7 @@ const FDMedia = () => {
       if (!entry) return;
       const { width } = entry.contentRect;
 
-      if (fdMediaRef.current && width < 1050) {
+      if (fdMediaRef.current && width < 950) {
         fdMediaRef.current.style.top = `0px`;
         const children = fdMediaRef.current.children;
         if (children) for (const child of children) child.setAttribute(attr, 'active');
