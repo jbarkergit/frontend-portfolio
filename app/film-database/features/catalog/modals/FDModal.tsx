@@ -22,8 +22,8 @@ const FDModal = () => {
   }, [modal]);
 
   /** JSX */
-  if (modal)
-    return (
+  return (
+    modal && (
       <div className='fdModal'>
         <div
           className='fdModal__container'
@@ -45,7 +45,8 @@ const FDModal = () => {
           {modal === 'person' && <FDPerson />}
         </div>
       </div>
-    );
+    )
+  );
 };
 
 export default FDModal;
