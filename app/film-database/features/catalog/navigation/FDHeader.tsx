@@ -71,11 +71,10 @@ const FDHeader = () => {
 
   return (
     <div className='fdHeader'>
-      <div className='fdHeader__app'>FILM DATABASE</div>
-      <ul className='fdHeader__ul'>
-        <li className='fdHeader__ul__li'>
+      <div className='fdHeader__title'>FILM DATABASE</div>
+      <ul className='fdHeader__interactions'>
+        <li>
           <button
-            className='fdHeader__ul__li__button'
             aria-label='Open Collections'
             onClick={() => {
               setModal('collections');
@@ -83,7 +82,7 @@ const FDHeader = () => {
             }}
           >
             <SolarVideoLibraryBoldDuotone />
-            Open Collections
+            <span>Open Collections</span>
           </button>
         </li>
       </ul>
