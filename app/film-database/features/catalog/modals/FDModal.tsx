@@ -6,46 +6,46 @@ import { useEffect, useRef } from 'react';
 
 const FDModal = () => {
   const { modal, setModal } = useModalContext();
+  if (!modal) return;
+
   const modalRef = useRef<HTMLDivElement>(null);
 
-  /** Sets modal state (in context) to false when the user isn't directly interacting with modal */
-  const handleExteriorClicks = (event: PointerEvent): void => {
-    if (!modalRef.current?.contains(event.target as Node)) {
-      setModal(undefined);
-    }
-  };
-
-  /** Mount event listeners for @handleExteriorClicks */
   useEffect(() => {
-    if (modal) document.addEventListener('pointerdown', handleExteriorClicks);
+    const handleExteriorClicks = (event: PointerEvent): void => {
+      if (!modalRef.current?.contains(event.target as Node)) {
+        setModal(undefined);
+      }
+    };
+
+    if (!modal) return;
+    document.addEventListener('pointerdown', handleExteriorClicks);
     return () => document.removeEventListener('pointerdown', handleExteriorClicks);
   }, [modal]);
 
-  /** JSX */
+  const ariaLabel =
+    modal === 'collections'
+      ? 'User movie collections'
+      : modal === 'movie'
+        ? 'Movie details'
+        : modal === 'person'
+          ? 'Person details'
+          : '';
+
   return (
-    modal && (
-      <div className='fdModal'>
-        <div
-          className='fdModal__container'
-          role='dialog'
-          aria-modal='true'
-          aria-label={
-            modal === 'collections'
-              ? 'User movie collections'
-              : modal === 'movie'
-                ? 'Movie details'
-                : modal === 'person'
-                  ? 'Person details'
-                  : ''
-          }
-          ref={modalRef}
-        >
-          {modal === 'movie' && <FDCineInfo />}
-          {modal === 'collections' && <FDCollections />}
-          {modal === 'person' && <FDPerson />}
-        </div>
+    <div className='fdModal'>
+      <div
+        className='fdModal__container'
+        ref={modalRef}
+        role='dialog'
+        aria-modal='true'
+        aria-label={ariaLabel}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {modal === 'movie' && <FDCineInfo />}
+        {modal === 'collections' && <FDCollections />}
+        {modal === 'person' && <FDPerson />}
       </div>
-    )
+    </div>
   );
 };
 
