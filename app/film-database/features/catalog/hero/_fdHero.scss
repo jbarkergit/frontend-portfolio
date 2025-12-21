@@ -6,7 +6,7 @@
   display: block;
   width: 100svw;
   height: 50svh;
-  @media (max-width: 950px) {
+  @media (max-width: 1050px) {
     height: auto;
   }
   &__container {
@@ -14,7 +14,7 @@
     flex-direction: row;
     width: inherit;
     height: inherit;
-    @media (max-width: 950px) {
+    @media (max-width: 1050px) {
       display: flex;
       flex-direction: column;
       width: 100%;

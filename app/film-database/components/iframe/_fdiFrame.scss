@@ -16,7 +16,7 @@ $final-scale: $scale-factor * $scale-buffer;
   z-index: 1;
   display: block;
   height: inherit;
-  @media (max-width: 950px) {
+  @media (max-width: 1050px) {
     display: flex;
     flex-direction: column;
   }
@@ -72,7 +72,7 @@ $final-scale: $scale-factor * $scale-buffer;
           transform: scale(calc(#{$final-scale} + 0.15));
           transform-origin: center center;
         }
-        @media (max-width: 950px) {
+        @media (max-width: 1050px) {
           position: relative;
           transform: unset;
         }

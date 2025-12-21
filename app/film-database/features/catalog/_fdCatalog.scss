@@ -10,7 +10,7 @@
     overscroll-behavior: none;
     touch-action: pan-y;
     @include m.fdFontM;
-    @media (max-width: 950px) {
+    @media (max-width: 1050px) {
         height: auto;
         overflow: clip scroll;
         scrollbar-width: none;

@@ -57,7 +57,7 @@ const FDSearchHeader = memo(
       const observer = new IntersectionObserver(([entry]) => {
         if (!entry || !inputRef.current) return;
 
-        if (entry.isIntersecting && window.innerWidth > 950 && !hasFocused) {
+        if (entry.isIntersecting && window.innerWidth > 1050 && !hasFocused) {
           inputRef.current.focus();
           hasFocused = true;
         }

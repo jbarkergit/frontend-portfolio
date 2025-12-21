@@ -11,7 +11,7 @@
   width: 100svw;
   padding: 30px calc(var(--fd-padding-generic) / 1.5);
   pointer-events: none;
-  @media (max-width: 950px) {
+  @media (max-width: 1050px) {
     position: relative;
   }
   & button {

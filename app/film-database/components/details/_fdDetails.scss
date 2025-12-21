@@ -9,18 +9,18 @@
   height: inherit;
   padding: calc(var(--fd-padding-generic) / 2) calc(var(--fd-padding-generic) / 1.5) 0
     calc(var(--fd-padding-generic) / 1.5);
-  @media (min-width: 950px) and (max-width: 1850px) {
+  @media (min-width: 1050px) and (max-width: 1850px) {
     position: absolute;
     top: calc(50svh - var(--fd-gap) * 4 - (2.25rem * 2.5));
     transform: translateY(-50%);
     left: calc(var(--fd-padding-generic) / 1.5);
     padding: 0;
   }
-  @media (max-width: 950px) {
+  @media (max-width: 1050px) {
     top: calc(80svh - var(--fd-gap) - (2.25rem * 2.5));
     padding: 0;
   }
-  @media (max-width: 950px) {
+  @media (max-width: 1050px) {
     order: 2;
     position: relative;
     top: unset;
@@ -76,7 +76,7 @@
       max-width: 47ch;
       display: none;
     }
-    @media (max-width: 950px) {
+    @media (max-width: 1050px) {
       display: block;
     }
     @media (max-width: 650px) {
