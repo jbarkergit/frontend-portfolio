@@ -176,7 +176,7 @@ const ProjectCarousel = () => {
         }
 
       case 'EXTERNAL_NAVIGATION':
-        if (!activeArticlePosition) return state;
+        if (activeArticlePosition === undefined) return state;
         return {
           ...state,
           activeArticleIndex: projectSlideIndex,
