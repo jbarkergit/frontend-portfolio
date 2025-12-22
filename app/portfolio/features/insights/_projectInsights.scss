@@ -2,7 +2,7 @@
 @use '/app/portfolio/scss/portfolioStyles' as s;
 
 .projectDetails {
-  @media (width <= 1480px) {
+  @media (max-width: 1480px) {
     height: max-content;
   }
 }
@@ -16,7 +16,7 @@
   & h2 {
     display: none;
   }
-  @media (width <= 1480px) {
+  @media (max-width: 1480px) {
     position: relative;
     height: auto;
   }
@@ -43,14 +43,14 @@
       }
     }
     &__left {
-      @media (width <= 1480px) {
+      @media (max-width: 1480px) {
         display: none;
       }
     }
     &__right {
       display: flex;
       justify-content: flex-end;
-      @media (width <= 1480px) {
+      @media (max-width: 1480px) {
         display: none;
       }
     }
@@ -63,7 +63,7 @@
   gap: calc(s.$portfolio-gap * 4);
   height: 100%;
   padding: 16rem calc(s.$box-model-viewport-x + 12rem) 8rem calc(s.$box-model-viewport-x + 12rem);
-  overflow-y: scroll;
+  overflow: clip scroll;
   & > * {
     flex: 1 1 50%;
     display: flex;
@@ -71,7 +71,7 @@
     align-items: center;
     height: max-content;
   }
-  @media (width > 1480px) {
+  @media (max-width: 1480px) {
     &::-webkit-scrollbar {
       width: 14px;
       height: 14px;
@@ -83,20 +83,20 @@
       background: #f3f3f1;
     }
   }
-  @media (width <= 1480px) {
+  @media (max-width: 1480px) {
     flex-direction: column;
     align-items: center;
     gap: s.$portfolio-gap;
     padding: calc(s.$box-model-viewport-x / 2) s.$box-model-viewport-x calc(s.$box-model-viewport-x / 2)
       s.$box-model-viewport-x;
   }
-  @media (width <= 460px) {
+  @media (max-width: 750px) {
     padding: calc(s.$box-model-viewport-x / 2) s.$box-model-viewport-x calc(s.$box-model-viewport-x * 2)
       s.$box-model-viewport-x;
   }
   &__technology {
     width: 100%;
-    @media (width <= 1480px) {
+    @media (max-width: 1480px) {
       order: 2;
       align-items: flex-start;
     }
@@ -107,7 +107,7 @@
       & h2 {
         font-size: clamp(f.rem(24), f.rem(30) + 1vw, f.rem(36));
         padding-bottom: calc(0.75em * 2);
-        @media (width <= 460px) {
+        @media (max-width: 750px) {
           text-align: center;
           line-height: 200%;
         }
@@ -122,18 +122,19 @@
         padding: calc(0.75em * 2) 0;
         gap: calc(0.75em * 6);
         border-bottom: 1px solid hsl(240, 4%, 22%);
+        @media (max-width: 750px) {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 0;
+        }
         &:last-child {
           border-bottom: 0px;
-        }
-        @media (width <= 460px) {
-          flex-direction: column;
-          gap: 0;
         }
         &--key {
           flex: 1 0 auto;
           text-transform: capitalize;
           white-space: nowrap;
-          @media (width <= 460px) {
+          @media (max-width: 750px) {
             padding: s.$portfolio-gap 0 0 0;
           }
         }
@@ -145,8 +146,8 @@
           row-gap: 1em;
           column-gap: 0.75em;
           text-transform: lowercase;
-          @media (width <= 460px) {
-            justify-content: center;
+          @media (max-width: 750px) {
+            justify-content: flex-start;
           }
           & li {
             font-size: clamp(f.rem(16), f.rem(12) + 1vw, f.rem(18));
@@ -167,10 +168,10 @@
       width: clamp(27ch, 100%, 40ch);
       padding-bottom: calc(0.75em * 2);
       font-size: clamp(f.rem(24), f.rem(30) + 1vw, f.rem(36));
-      @media (width <= 1480px) {
+      @media (max-width: 1480px) {
         width: auto;
       }
-      @media (width <= 620px) {
+      @media (max-width: 750px) {
         font-size: clamp(f.rem(20), f.rem(22) + 1vw, f.rem(28));
       }
     }
