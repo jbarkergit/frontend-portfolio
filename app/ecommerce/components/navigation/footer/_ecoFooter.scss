@@ -6,13 +6,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
-  padding: calc(var(--ec-section-y-padding) + f.rem(32)) var(--ec-section-x-padding) var(--ec-section-y-padding) var(--ec-section-x-padding);
+  padding: calc(var(--ec-section-y-padding) + f.rem(32)) var(--ec-section-x-padding) var(--ec-section-y-padding)
+    var(--ec-section-x-padding);
   border-top-right-radius: f.rem(30);
   border-top-left-radius: f.rem(30);
   margin-top: f.rem(-32);
   background-color: var(--ec-background-secondary);
   background: radial-gradient(circle, rgb(26, 26, 26) 0%, rgb(28, 32, 40) 100%);
-  @media (width <= 1250px) {
+  @media (max-width: 1250px) {
     display: flex;
     flex-direction: column;
     gap: f.rem(35);
@@ -22,13 +23,13 @@
   &__customerSupport,
   &__additions {
     padding: f.rem(50);
-    @media (width <= 1250px) {
+    @media (max-width: 1250px) {
       padding: f.rem(50) f.rem(50) 0 f.rem(50);
     }
   }
   &__newsletter {
     grid-column: span 1;
-    @media (width <= 1250px) {
+    @media (max-width: 1250px) {
       padding: f.rem(50) f.rem(50) 0 f.rem(50);
     }
   }
@@ -129,7 +130,9 @@
       display: flex;
       justify-content: center;
       width: inherit;
+      max-width: inherit;
       & input {
+        width: inherit;
         height: f.rem(42);
         padding: 0 0 0 f.rem(12);
         border: 1px solid hsl(0, 0%, 100%);
@@ -159,10 +162,10 @@
   }
   &__notice {
     display: flex;
-    flex-direction: column;
     pointer-events: none;
     color: var(--ec-font-secondary);
     text-align: center;
+    white-space: wrap;
     & p {
       max-width: 45ch;
       font-size: f.rem(16);
