@@ -3,7 +3,7 @@ import type { TmdbMovieProvider } from 'app/film-database/composables/types/Tmdb
 import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
 import { type UserCollection, useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { findEuclidean } from 'app/film-database/utility/findEuclidean';
-import { forwardRef, memo, useCallback, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, memo, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import FDCollectionsCollectionHeader from './FDCollectionsCollectionHeader';
 import FDCollectionsCollectionUl from './FDCollectionsCollectionUl';
 
@@ -54,6 +54,7 @@ type Props = {
 
 const FDCollectionsCollection = memo(
   forwardRef<HTMLUListElement, Props>(({ mapIndex, header, data, isEditMode, ulRefs, triggerError }, ref) => {
+    // References
     const grandChildRef = useRef<HTMLUListElement>(null);
     useImperativeHandle(ref, () => grandChildRef.current!, [grandChildRef]);
 
@@ -61,17 +62,22 @@ const FDCollectionsCollection = memo(
     const { userCollections, setUserCollections } = useUserCollectionContext();
     const { setModalTrailer } = useModalTrailerContext();
 
+    // Precomputations
+    const sensorDefault = useMemo(() => createSensorDefault(), []); // Sensor
+    const sourceDefault = useMemo(() => createSourceDefault(), []); // Source
+    const targetDefault = useMemo(() => createTargetDefault(), []); // Target
+
     // Stores
-    const sensorRef = useRef<Sensor>(createSensorDefault()); // Sensor
-    const sourceRef = useRef<Source>(createSourceDefault()); // Source
-    const targetRef = useRef<Target>(createTargetDefault()); // Target
+    const sensorRef = useRef<Sensor>(sensorDefault); // Sensor
+    const sourceRef = useRef<Source>(sourceDefault); // Source
+    const targetRef = useRef<Target>(targetDefault); // Target
 
     /** Rolls stores back to default state */
-    const resetStores = useCallback((): void => {
-      sensorRef.current = createSensorDefault();
-      sourceRef.current = createSourceDefault();
-      targetRef.current = createTargetDefault();
-    }, []);
+    const resetStores = (): void => {
+      sensorRef.current = sensorDefault;
+      sourceRef.current = sourceDefault;
+      targetRef.current = targetDefault;
+    };
 
     /** Prepare dom for new potential interactions */
     function resetInteraction(error?: { event: 'down' | 'move' | 'up' | 'attach' | 'detach'; reason: string }): void {
@@ -150,7 +156,7 @@ const FDCollectionsCollection = memo(
       const detach: Record<'x' | 'y', number> = { x: event.clientX, y: event.clientY }; // Detachment position
 
       // Misclick threshold (Euclidean distance)
-      if (Math.hypot(detach.x - (startX ?? 0), detach.y - (startY ?? 0)) < 2) {
+      if (Math.hypot(detach.x - (startX ?? 0), detach.y - (startY ?? 0)) < 10) {
         resetInteraction();
         return;
       }
@@ -271,51 +277,50 @@ const FDCollectionsCollection = memo(
       const currentTarget: EventTarget | null = event.currentTarget;
       const target: EventTarget | null = event.target;
 
-      if (currentTarget instanceof HTMLUListElement && target instanceof HTMLLIElement) {
-        // Prevent collection container from dragging
-        event.preventDefault();
-        event.stopPropagation();
+      if (!(currentTarget instanceof HTMLUListElement) || !(target instanceof HTMLLIElement)) return;
 
-        // Find collection (UL) index
-        const colIndex = ulRefs.current.findIndex((collection) => collection === currentTarget);
+      // Prevent dragging of the collection container
+      event.preventDefault();
+      event.stopPropagation();
 
-        if (colIndex === NOT_FOUND_INDEX) {
-          resetInteraction({ event: 'down', reason: 'Source collection index not found.' });
-          return;
-        }
+      // Find collection (UL) index
+      const colIndex = ulRefs.current.findIndex((collection) => collection === currentTarget);
 
-        // Identify UL
-        const srcColUl = ulRefs.current[colIndex];
-
-        if (!srcColUl) {
-          resetInteraction({ event: 'down', reason: 'Source UL not found.' });
-          return;
-        }
-
-        // Find index of LI within the collection (UL)
-        const liElements = Array.from(srcColUl.children) as Array<HTMLLIElement | HTMLDivElement>;
-        const targetIndex = liElements.findIndex((li) => li === target);
-
-        if (targetIndex === NOT_FOUND_INDEX) {
-          resetInteraction({ event: 'down', reason: 'Source list item index not found.' });
-          return;
-        }
-
-        // Assignment
-        sourceRef.current = {
-          colIndex,
-          listItem: target,
-          listItemIndex: targetIndex,
-        };
-
-        // isEditMode assignment
-        sensorRef.current = {
-          ...sensorRef.current,
-          isInteract: true,
-          initialPointerCoords: { x: event.clientX, y: event.clientY },
-          pointerCoords: { x: event.clientX, y: event.clientY },
-        };
+      if (colIndex === NOT_FOUND_INDEX) {
+        resetInteraction({ event: 'down', reason: 'Source collection index not found.' });
+        return;
       }
+
+      // Identify UL
+      const srcColUl = ulRefs.current[colIndex];
+
+      if (!srcColUl) {
+        resetInteraction({ event: 'down', reason: 'Source UL not found.' });
+        return;
+      }
+
+      // Find index of LI within the collection (UL)
+      const liElements = Array.from(srcColUl.children) as Array<HTMLLIElement | HTMLDivElement>;
+      const targetIndex = liElements.findIndex((li) => li === target);
+
+      if (targetIndex === NOT_FOUND_INDEX) {
+        resetInteraction({ event: 'down', reason: 'Source list item index not found.' });
+        return;
+      }
+
+      // Assignments
+      sourceRef.current = {
+        colIndex,
+        listItem: target,
+        listItemIndex: targetIndex,
+      };
+
+      sensorRef.current = {
+        ...sensorRef.current,
+        isInteract: true,
+        initialPointerCoords: { x: event.clientX, y: event.clientY },
+        pointerCoords: { x: event.clientX, y: event.clientY },
+      };
     }
 
     /** Tracks collections and their items */
@@ -340,16 +345,12 @@ const FDCollectionsCollection = memo(
       if (!ul) return;
 
       ul.addEventListener('pointerdown', pointerDown);
-      if (isEditMode) {
-        ul.addEventListener('pointermove', pointerMove);
-      }
+      if (isEditMode) ul.addEventListener('pointermove', pointerMove);
       ul.addEventListener('pointerup', pointerUp);
 
       return () => {
         ul.removeEventListener('pointerdown', pointerDown);
-        if (isEditMode) {
-          ul.removeEventListener('pointermove', pointerMove);
-        }
+        ul.removeEventListener('pointermove', pointerMove);
         ul.removeEventListener('pointerup', pointerUp);
       };
     }, [isEditMode, userCollections]);

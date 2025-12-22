@@ -136,6 +136,7 @@
           height: var(--fd-collection-node-height);
           border-radius: var(--fd-border-radius);
           overflow: clip;
+          touch-action: none;
         }
         & li {
           background-color: var(--fd-bc-primary);
