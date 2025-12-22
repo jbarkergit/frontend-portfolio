@@ -21,6 +21,10 @@
 }
 
 #ecommerce {
+  display: block;
+  width: 100%;
+  background-color: hsl(0, 0%, 100%);
+  touch-action: pan-y;
   //font: {optional: style variant weight} size line-height "family", "fallback-font", fallback-font-type
   font:
     normal normal 500 100% / 1.5em 'Plus Jakarta Sans',
@@ -28,8 +32,6 @@
     sans-serif;
   font-size: f.rem(16);
   color: hsl(0, 0%, 20%);
-  background-color: hsl(0, 0%, 100%);
-  touch-action: pan-y;
 }
 
 .highlight {
