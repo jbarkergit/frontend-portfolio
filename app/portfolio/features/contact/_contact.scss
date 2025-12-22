@@ -10,6 +10,7 @@
   height: 100svh;
   overflow: clip;
   @media (max-width: 1480px) {
+    flex-direction: column;
     height: auto;
   }
   &__submission {
@@ -64,7 +65,17 @@
     }
   }
   &__heading {
-    display: none;
+    width: 100%;
+    align-items: flex-start;
+    padding: 0 s.$box-model-viewport-x 0.75em s.$box-model-viewport-x;
+
+    & h2 {
+      padding-bottom: 0.75em;
+      font-size: clamp(f.rem(24), f.rem(30) + 1vw, f.rem(36));
+    }
+    @media (min-width: 1480px) {
+      display: none;
+    }
   }
   &__form {
     display: flex;
@@ -72,8 +83,7 @@
     width: inherit;
     height: inherit;
     @media (min-width: 1480px) {
-      overflow-x: clip;
-      overflow-y: scroll;
+      overflow: clip scroll;
       &::-webkit-scrollbar {
         width: 14px;
         height: 14px;
