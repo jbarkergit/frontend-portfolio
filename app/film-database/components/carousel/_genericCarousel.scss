@@ -116,12 +116,19 @@
           background-color: var(--fd-bc-hover-poster);
           opacity: 0;
           transition: opacity 200ms ease-in-out;
+          @media (max-width: 1152px) {
+            opacity: 1;
+            background-color: transparent;
+          }
           & button {
             position: absolute;
             & svg {
               width: 1.8em;
               height: 1.8em;
               color: var(--fd-font-color-primary);
+              @media (max-width: 1152px) {
+                opacity: 0;
+              }
             }
           }
           &--toggleMenu {
@@ -133,6 +140,9 @@
             transition:
               background-color 200ms ease,
               border-radius 200ms ease;
+            @media (max-width: 1152px) {
+              display: none;
+            }
           }
           &--play {
             display: grid;
@@ -212,7 +222,7 @@
       pointer-events: none;
       opacity: 0;
       // Greyzone/crosspath for desktop 1280x720 && tablet
-      @media (width <= 1152px) {
+      @media (max-width: 1152px) {
         display: none;
       }
       &--button {
