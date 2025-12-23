@@ -181,9 +181,8 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
           </picture>
           <div className='genericCarousel__wrapper__ul__li__member'>
             <span>{cinemaEntry.name}</span>
-            {/* @ts-ignore */}
-            <span>{cinemaEntry.character}</span>
-            <span>{cinemaEntry.known_for_department !== 'Acting' ? cinemaEntry.known_for_department : null}</span>
+            {'character' in cinemaEntry && <span>{cinemaEntry.character}</span>}
+            {'known_for_department' in cinemaEntry && <span>{cinemaEntry.known_for_department}</span>}
           </div>
         </button>
       </Parent>
