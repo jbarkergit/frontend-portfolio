@@ -10,13 +10,16 @@ const FDMedia = () => {
   const fdMediaRef = useRef<HTMLElement>(null);
 
   /**
-   * @function deltaScrollCarousels
-   * @returns void
    * Carousel deltaY scroll logic
    * Update previously active and newly active carousel node's data-attr, navigate
    */
+  let canScroll: boolean = true;
+
   const deltaScrollCarousels = (delta: 1 | -1): void => {
-    if (window.innerWidth <= 1050 || !fdMediaRef.current) return;
+    if (!canScroll || window.innerWidth <= 1050 || !fdMediaRef.current) return;
+
+    canScroll = false;
+
     const carouselNodesArr: Element[] = [...fdMediaRef.current.children];
 
     // Gather indexes
@@ -37,6 +40,9 @@ const FDMedia = () => {
     // Scroll
     const nextActiveNodeOffsetTop: number = (carouselNodesArr[nextActiveNodeIndex] as HTMLElement).offsetTop;
     fdMediaRef.current.style.top = `${nextActiveNodeOffsetTop * -1}px`;
+
+    // Throttle
+    setTimeout(() => (canScroll = true), 200);
   };
 
   const handleWheel = (event: WheelEvent) => deltaScrollCarousels(event.deltaY > 0 ? 1 : -1);
