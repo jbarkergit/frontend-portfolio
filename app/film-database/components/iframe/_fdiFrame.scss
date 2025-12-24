@@ -1,9 +1,9 @@
 @use '/app/base/sass/util/functions' as f;
 @use '/app/film-database/scss/fdMixins' as m;
 
-$iframe-aspect: 16/9;
-$trailer-aspect: 21/9;
-$scale-factor: $trailer-aspect / $iframe-aspect;
+$iframe-aspect: calc(16 / 9);
+$trailer-aspect: calc(21 / 9);
+$scale-factor: calc($trailer-aspect / $iframe-aspect);
 $scale-buffer: 1.25; // 25% extra scaling to help hide the bottom black bar and subtitles
 $final-scale: $scale-factor * $scale-buffer;
 

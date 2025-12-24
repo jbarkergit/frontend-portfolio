@@ -5,6 +5,10 @@
   position: relative;
   display: grid;
   grid-template-rows: auto 1fr;
+  align-items: stretch;
+  gap: var(--ec-gap);
+  height: calc(100svh - 11rem);
+  padding: 0 var(--ec-section-x-padding) calc(f.rem(32) + var(--ec-section-y-padding)) var(--ec-section-x-padding);
   @media (min-width: 1550px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
@@ -18,10 +22,6 @@
     justify-content: center;
     align-items: center;
   }
-  align-items: stretch;
-  gap: var(--ec-gap);
-  height: calc(100svh - 11rem);
-  padding: 0 var(--ec-section-x-padding) calc(f.rem(32) + var(--ec-section-y-padding)) var(--ec-section-x-padding);
   &:after {
     @include m.homeSectionAfter;
   }
