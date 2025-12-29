@@ -39,7 +39,7 @@ const FDMedia = () => {
 
     // Scroll
     const nextActiveNodeOffsetTop: number = (carouselNodesArr[nextActiveNodeIndex] as HTMLElement).offsetTop;
-    fdMediaRef.current.style.top = `${nextActiveNodeOffsetTop * -1}px`;
+    fdMediaRef.current.style.top = `${nextActiveNodeOffsetTop * -1 - 25}px`;
 
     // Throttle
     setTimeout(() => (canScroll = true), 200);
