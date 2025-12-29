@@ -16,7 +16,7 @@ const FDMedia = () => {
   let canScroll: boolean = true;
 
   const deltaScrollCarousels = (delta: 1 | -1): void => {
-    if (!canScroll || window.innerWidth <= 1050 || !fdMediaRef.current) return;
+    if (!canScroll || window.innerWidth <= 1501 || !fdMediaRef.current) return;
 
     canScroll = false;
 
@@ -62,7 +62,7 @@ const FDMedia = () => {
       if (!entry) return;
       const { width } = entry.contentRect;
 
-      if (fdMediaRef.current && width <= 1050) {
+      if (fdMediaRef.current && width <= 1501) {
         fdMediaRef.current.style.top = `0px`;
         const children = fdMediaRef.current.children;
         if (children) for (const child of children) child.setAttribute(attr, 'active');

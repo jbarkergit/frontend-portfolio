@@ -10,8 +10,7 @@
     overscroll-behavior: none;
     touch-action: pan-y;
     @include m.fdFontM;
-    // Allow scrolling on mobile
-    @media (max-width: 1050px) {
+    @media (max-width: 1501px) {
         height: auto;
         overflow: clip scroll;
         scrollbar-width: none;

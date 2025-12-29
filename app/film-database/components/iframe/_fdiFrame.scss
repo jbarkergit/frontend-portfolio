@@ -1,106 +1,64 @@
 @use '/app/base/sass/util/functions' as f;
 @use '/app/film-database/scss/fdMixins' as m;
 
-$iframe-aspect: calc(16 / 9);
-$trailer-aspect: calc(21 / 9);
-$scale-factor: calc($trailer-aspect / $iframe-aspect);
-$scale-buffer: 1.25; // 25% extra scaling to help hide the bottom black bar and subtitles
-$final-scale: $scale-factor * $scale-buffer;
-
-.fdiFrame:hover .fdiFrame__controller {
-  opacity: 1;
-}
 .fdiFrame {
-  flex: 1 1 auto;
   position: relative;
-  z-index: 1;
-  display: block;
-  height: inherit;
-  @media (max-width: 1050px) {
-    display: flex;
-    flex-direction: column;
-  }
-  &[data-type='hero'] {
-    .fdiFrame__player {
-      position: relative;
-      display: flex;
-      justify-content: flex-end;
-      width: inherit;
-      height: inherit;
-      margin-top: 50px; // Slight center correction
-      @media (max-width: 1850px) {
-        margin-top: 0;
-      }
-      @media (max-width: 650px) {
-        justify-content: center;
-      }
-      &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        height: inherit;
-        aspect-ratio: 16/9;
-        background:
-          linear-gradient(to top, rgba(0, 0, 0, 1) 15%, transparent 34%),
-          linear-gradient(to right, rgba(0, 0, 0, 1) 1%, transparent 20%);
-        transform: scale(calc(#{$final-scale} + 0.01));
-        transform-origin: center right;
-        pointer-events: none;
-        @media (max-width: 1850px) {
-          width: 100svw;
-          background: linear-gradient(to top, rgba(0, 0, 0, 1) 15%, transparent 34%);
-          transform: scale(calc(#{$final-scale} + 0.15));
-          transform-origin: center center;
-        }
-      }
-      &__iframe,
-      & img {
-        display: block;
-        height: inherit;
-        aspect-ratio: 16/9;
-        // YouTube IFrame Player API Requirements (16/9)
-        min-width: 480px;
-        min-height: 270px;
-        // Stretch iframe to exceed the container
-        transform: scale($final-scale);
-        // Align scaling from the top; top stays put, extra height grows downward
-        transform-origin: center right;
-        @media (max-width: 1850px) {
-          position: absolute;
-          width: 100svw;
-          transform: scale(calc(#{$final-scale} + 0.15));
-          transform-origin: center center;
-        }
-        @media (max-width: 1050px) {
-          position: relative;
-          transform: unset;
-        }
-      }
-    }
-  }
-  &[data-type='modal'] {
-    display: flex;
-    flex-direction: column;
+  flex: 1 1 auto;
+  @media (max-width: 1501px) {
     width: 100%;
-    height: auto;
-    .fdiFrame__player {
-      width: 100%;
-      aspect-ratio: 16/9;
-    }
-    .fdiFrame__player__iframe {
-      width: inherit;
-      aspect-ratio: inherit;
-    }
-    .fdiFrame__controller {
+  }
+  &:hover .fdiFrame__controller {
+    opacity: 1;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    aspect-ratio: 16/9;
+    background:
+      linear-gradient(to top, rgba(0, 0, 0, 1) 15%, transparent 34%),
+      linear-gradient(to right, rgba(0, 0, 0, 1) 1%, transparent 20%);
+    transform: scale(calc(21 / 9) / (16/9) * 1.01);
+    transform-origin: 100% 55%;
+    pointer-events: none;
+    @media (max-width: 1501px) {
       display: none;
     }
   }
+  &__player {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    aspect-ratio: 16/9;
+    @media (max-width: 1501px) {
+      display: contents;
+    }
+    & iframe,
+    & img {
+      width: 100%;
+      height: 100%;
+      // YouTube IFrame Player API Requirements (16/9)
+      min-width: 480px;
+      min-height: 270px;
+      transform: scale(calc((21 / 9) / (16 / 9)));
+      transform-origin: 100% 55%;
+      @media (max-width: 1501px) {
+        width: 100%;
+        aspect-ratio: 16/9;
+        transform: unset;
+        transform-origin: unset;
+      }
+    }
+  }
+
   &__controller {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: calc(100% * 0.3125);
+    transform: translateX(calc(100% * 0.3125) * -1);
     z-index: 3;
     display: flex;
     flex-direction: column;
@@ -109,16 +67,19 @@ $final-scale: $scale-factor * $scale-buffer;
     width: fit-content;
     min-height: 48px;
     padding: f.rem(6) f.rem(26) f.rem(12) f.rem(26);
-    // iFrame height * 16/9 to decimal point * transform: scale(1.3) / 4
-    // margin-right: calc(((62svh * 1.7778) * 1.3) / 4);
     border-radius: 8px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
     opacity: 0;
     transition: opacity 0.25s cubic-bezier(0, 0, 0.2, 1);
-    @media (max-width: 1050px) {
-      order: 2;
-      position: relative;
+    @media (max-width: 1501px) {
       opacity: 1;
+      bottom: 25px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    // Tablet threshold
+    @media (max-width: 1280px) {
+      display: none;
     }
     &__seeker {
       position: relative;

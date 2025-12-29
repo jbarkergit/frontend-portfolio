@@ -2,6 +2,7 @@
 @use '/app/film-database/scss/fdMixins' as m;
 
 .fdDetails {
+  flex: 0 0 auto;
   position: relative;
   z-index: 3;
   display: flex;
@@ -9,27 +10,34 @@
   height: inherit;
   padding: calc(var(--fd-padding-generic) / 2) calc(var(--fd-padding-generic) / 1.5) 0
     calc(var(--fd-padding-generic) / 1.5);
-  @media (min-width: 1050px) and (max-width: 1850px) {
-    position: absolute;
-    top: calc(50svh - var(--fd-gap) * 4 - (2.25rem * 2.5));
-    transform: translateY(-50%);
-    left: calc(var(--fd-padding-generic) / 1.5);
-    padding: 0;
-  }
-  @media (max-width: 1050px) {
-    top: calc(80svh - var(--fd-gap) - (2.25rem * 2.5));
-    padding: 0;
-  }
-  @media (max-width: 1050px) {
+  @media (max-width: 1501px) {
+    height: auto;
     order: 2;
-    position: relative;
-    top: unset;
-    left: unset;
-    padding-top: calc(var(--fd-padding-generic));
+    flex: 1 1 100%;
+    padding: 0;
+    padding: calc(var(--fd-padding-generic) / 1.5);
   }
-  @media (max-width: 650px) {
-    padding: var(--fd-padding-generic) calc(var(--fd-padding-generic) / 1.5) 0 calc(var(--fd-padding-generic) / 1.5);
-  }
+  // @media (min-width: 1050px) and (max-width: 1850px) {
+  //   position: absolute;
+  //   top: calc(50svh - var(--fd-gap) * 4 - (2.25rem * 2.5));
+  //   transform: translateY(-50%);
+  //   left: calc(var(--fd-padding-generic) / 1.5);
+  //   padding: 0;
+  // }
+  // @media (max-width: 1050px) {
+  //   top: calc(80svh - var(--fd-gap) - (2.25rem * 2.5));
+  //   padding: 0;
+  // }
+  // @media (max-width: 1050px) {
+  //   order: 2;
+  //   position: relative;
+  //   top: unset;
+  //   left: unset;
+  //   padding-top: calc(var(--fd-padding-generic));
+  // }
+  // @media (max-width: 650px) {
+  //   padding: var(--fd-padding-generic) calc(var(--fd-padding-generic) / 1.5) 0 calc(var(--fd-padding-generic) / 1.5);
+  // }
   &[data-modal='false'] {
     justify-content: center;
   }
@@ -72,16 +80,19 @@
     overflow: clip;
     @include m.fdFontM;
     text-shadow: var(--fd-font-shadow);
-    @media (max-width: 1850px) {
-      max-width: 47ch;
-      display: none;
+    @media (max-width: 1501px) {
+      width: inherit;
     }
-    @media (max-width: 1050px) {
-      display: block;
-    }
-    @media (max-width: 650px) {
-      max-width: 100%;
-    }
+    // @media (max-width: 1850px) {
+    //   max-width: 47ch;
+    //   display: none;
+    // }
+    // @media (max-width: 1050px) {
+    //   display: block;
+    // }
+    // @media (max-width: 650px) {
+    //   max-width: 100%;
+    // }
   }
   &__genres {
     display: flex;

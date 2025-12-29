@@ -6,25 +6,19 @@
   display: block;
   width: 100svw;
   height: 50svh;
-  @media (max-width: 1050px) {
+  @media (max-width: 1501px) {
     height: auto;
   }
   &__container {
+    position: relative;
     display: flex;
-    flex-direction: row;
     width: inherit;
     height: inherit;
-    @media (max-width: 1050px) {
-      display: flex;
+    @media (max-width: 1501px) {
       flex-direction: column;
-      width: 100%;
+      width: 100svw;
       height: 100%;
-      padding: 0 calc(var(--fd-padding-generic) / 1.5) calc(var(--fd-padding-generic) / 1.5)
-        calc(var(--fd-padding-generic) / 1.5);
       border-radius: var(--fd-border-radius);
-    }
-    @media (max-width: 650px) {
-      padding: 0 0 calc(var(--fd-padding-generic) / 1.5) 0;
     }
   }
 }
