@@ -132,17 +132,26 @@ const ProjectCarousel = () => {
       case 'POINTER_DETACH':
         if (!state.pointerDown) return state;
 
-        const distances = articlePositions.map((pos) => Math.abs(pos - state.trackPos)); // distance to each article snap point
-        const closestIndex = distances.indexOf(Math.min(...distances)); // nearest article index
-        const closestArticle = articlePositions[closestIndex] ?? 0; // nearest article position
-        const closestArticlePos = closestArticle + carouselPaddingLeft;
+        const deltaX = state.trackPos - state.previousTrackPos;
+        const SWIPE_THRESHOLD = 40; // pixels
+
+        let direction = 0;
+
+        if (deltaX < -SWIPE_THRESHOLD) direction = 1;
+        if (deltaX > SWIPE_THRESHOLD)
+          // swipe left → next
+          direction = -1; // swipe right → prev
+
+        const nextIndex = Math.min(articlePositions.length - 1, Math.max(0, state.activeArticleIndex + direction));
+
+        const targetPos = articlePositions[nextIndex]! + carouselPaddingLeft;
 
         return {
           ...state,
           pointerDown: false,
-          activeArticleIndex: closestIndex,
-          previousTrackPos: closestArticlePos,
-          trackPos: Math.round(closestArticlePos),
+          activeArticleIndex: nextIndex,
+          previousTrackPos: targetPos,
+          trackPos: Math.round(targetPos),
         };
 
       case 'WHEEL_SCROLL':
