@@ -7,26 +7,39 @@
   @media (max-width: 1501px) {
     width: 100%;
   }
+  &[data-type='hero'] {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 1) 15%, transparent 34%),
+        linear-gradient(to right, rgba(0, 0, 0, 1) 1%, transparent 20%);
+      transform: scale(calc(21 / 9) / (16/9) * 1.01);
+      transform-origin: 100% 55%;
+      pointer-events: none;
+      @media (max-width: 1501px) {
+        display: none;
+      }
+    }
+  }
+  &[data-type='modal'] {
+    width: 100%;
+    aspect-ratio: 16/9;
+
+    .fdiFrame__player__iframe {
+      height: unset;
+      aspect-ratio: inherit;
+      transform: unset;
+    }
+  }
   &:hover .fdiFrame__controller {
     opacity: 1;
   }
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    aspect-ratio: 16/9;
-    background:
-      linear-gradient(to top, rgba(0, 0, 0, 1) 15%, transparent 34%),
-      linear-gradient(to right, rgba(0, 0, 0, 1) 1%, transparent 20%);
-    transform: scale(calc(21 / 9) / (16/9) * 1.01);
-    transform-origin: 100% 55%;
-    pointer-events: none;
-    @media (max-width: 1501px) {
-      display: none;
-    }
-  }
+
   &__player {
     position: absolute;
     top: 0;
