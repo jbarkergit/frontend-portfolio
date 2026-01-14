@@ -30,6 +30,10 @@
     width: 100%;
     aspect-ratio: 16/9;
 
+    .fdiFrame__player {
+      overflow: clip;
+    }
+
     .fdiFrame__player__iframe {
       height: unset;
       aspect-ratio: inherit;
