@@ -2,29 +2,33 @@
 @use '/app/film-database/scss/fdMixins' as m;
 
 // Inspired by camillemormal, wrote from scratch in scss
-.fdAccountAnimation {
+.filmDatabaseLoader {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 3;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  &::before,
-  &::after {
-    content: '';
-    position: fixed;
-    z-index: 6;
-    left: 0;
-    width: 100%;
-    height: calc(100svh / 16);
-    background-color: hsl(0, 0%, 8%);
-  }
-  &::before {
-    top: 0;
-  }
-  &::after {
-    bottom: 0;
+  z-index: 98;
+  width: 100svw;
+  height: 100svh;
+  background-color: var(--fd-bc-offset);
+  pointer-events: all;
+  cursor: default;
+  @include m.grainPsuedo;
+  &__letterboxing {
+    display: contents;
+    &__box {
+      position: fixed;
+      z-index: 99;
+      left: 0;
+      width: 100svw;
+      height: calc(100svh / 16);
+      background-color: hsl(0, 0%, 8%);
+    }
+    &__box:nth-of-type(1) {
+      top: 0;
+    }
+    &__box:nth-of-type(2) {
+      bottom: 0;
+    }
   }
   &__backdrop {
     position: fixed;
@@ -37,30 +41,30 @@
     transform-origin: center center;
     will-change: transform;
     &[data-visible='true'] {
-      // Transition duration mimics &__set&[data-visible='true']:nth-of-type(odd) .fdAccountAnimation__backdrop__set__li:nth-of-type(4)
-      // Transition delay mimics &__set&[data-visible='true']:nth-of-type(odd) .fdAccountAnimation__backdrop__set__li:nth-of-type(1)
+      // Transition duration mimics &__set&[data-visible='true']:nth-of-type(odd) .filmDatabaseLoader__backdrop__set__li:nth-of-type(4)
+      // Transition delay mimics &__set&[data-visible='true']:nth-of-type(odd) .filmDatabaseLoader__backdrop__set__li:nth-of-type(1)
       transform: scale(5.3);
       transition: transform 1.8s cubic-bezier(1, 0, 0.62, 1) 1.4s;
-      .fdAccountAnimation__backdrop__set:nth-of-type(odd) .fdAccountAnimation__backdrop__set__li {
+      .filmDatabaseLoader__backdrop__set:nth-of-type(odd) .filmDatabaseLoader__backdrop__set__li {
         transform: translateY(calc((75svh - (var(--i) - 1) * 25svh) - ((25svh - var(--fd-gap) * 2) / 2)));
       }
-      .fdAccountAnimation__backdrop__set:nth-of-type(even) .fdAccountAnimation__backdrop__set__li {
+      .filmDatabaseLoader__backdrop__set:nth-of-type(even) .filmDatabaseLoader__backdrop__set__li {
         transform: translateY(calc(var(--i) * 25svh));
       }
-      .fdAccountAnimation__backdrop__set:nth-of-type(3)
-        .fdAccountAnimation__backdrop__set__li:nth-of-type(3)
+      .filmDatabaseLoader__backdrop__set:nth-of-type(3)
+        .filmDatabaseLoader__backdrop__set__li:nth-of-type(3)
         picture
         img {
         // NOTE: transform doesn't play nice with nested tags post psuedo; therefore, we've opted for a single animation (which hurts performance)
         // NOTE: Overflow: clip/hidden causes artifacts; therefore, we should delay filter: scale IF initial starting scale is ABOVE 1
-        // Animation mimics transition properties from &__set&[data-visible='true'] .fdAccountAnimation__backdrop__set__li
+        // Animation mimics transition properties from &__set&[data-visible='true'] .filmDatabaseLoader__backdrop__set__li
         // Duration mimics :nth-of-type(4), Delay mimics :nth-of-type(1), Bezier mimics &__set[data-visible='true']
         filter: opacity(1);
         transform: scale(1);
         animation: imgScale 1.8s cubic-bezier(1, 0, 0.62, 1) 1.4s forwards;
         will-change: transform;
       }
-      .fdAccountAnimation__backdrop__set__li {
+      .filmDatabaseLoader__backdrop__set__li {
         // :1: lags behind :2, arrives fast, fast to destination
         // :2: lags behind :3, arrives fast, slow to destination
         // :3: launches at the slow bezier ascention of :4 to create visual lag, arrives fast, slow to arrive to transform destination
@@ -83,10 +87,10 @@
     }
     &[data-visible='false'] {
       opacity: 0;
-      .fdAccountAnimation__backdrop__set:nth-of-type(odd) .fdAccountAnimation__backdrop__set__li {
+      .filmDatabaseLoader__backdrop__set:nth-of-type(odd) .filmDatabaseLoader__backdrop__set__li {
         transform: translateY(100svh);
       }
-      .fdAccountAnimation__backdrop__set:nth-of-type(even) .fdAccountAnimation__backdrop__set__li {
+      .filmDatabaseLoader__backdrop__set:nth-of-type(even) .filmDatabaseLoader__backdrop__set__li {
         // Mimics height of list items
         transform: translateY(calc(0svh - (25svh - var(--fd-gap) * 2)));
       }

@@ -1,9 +1,7 @@
+import { useAuth } from 'app/base/firebase/authentication/context/authProvider';
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
 import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import { type CSSProperties, memo, useEffect, useMemo, useRef, useState } from 'react';
-
-const accountRef = useRef<HTMLDivElement>(null);
-<FDAccountAnimation accountRef={accountRef} />;
 
 // Find the visual center of an array's length
 const getCenteredIndex = (length: number) => Math.round((length - 1) / 2);
@@ -12,7 +10,8 @@ const getCenteredIndex = (length: number) => Math.round((length - 1) / 2);
 const totalSets: number = 5;
 const totalSetPosters: number = 4;
 
-const FDAccountAnimation = memo(({ accountRef }: { accountRef: React.RefObject<HTMLDivElement | null> }) => {
+const FilmDatabaseLoader = memo(() => {
+  const { setIsUserAuthorizing } = useAuth();
   const { primaryData } = useFLoader();
   const [allPosters, setAllPosters] = useState<TmdbMovieProvider[][]>();
   const animationRef = useRef<HTMLDivElement>(null);
@@ -53,34 +52,38 @@ const FDAccountAnimation = memo(({ accountRef }: { accountRef: React.RefObject<H
 
   /** Unmount animator */
   const unmountAnimation = (): void => {
-    if (!animationRef.current || !accountRef.current) return;
+    if (!animationRef.current) return;
     const attribute: string = 'data-visible';
     animationRef.current.setAttribute(attribute, 'false');
-    accountRef.current.setAttribute(attribute, 'true');
+    setIsUserAuthorizing(false);
   };
 
   return (
-    <div className='fdAccountAnimation'>
+    <div className='filmDatabaseLoader'>
+      <div className='filmDatabaseLoader__letterboxing'>
+        <div className='filmDatabaseLoader__letterboxing__box' />
+        <div className='filmDatabaseLoader__letterboxing__box' />
+      </div>
       <div
-        className='fdAccountAnimation__backdrop'
+        className='filmDatabaseLoader__backdrop'
         ref={animationRef}
         data-visible='false'
         onAnimationEnd={unmountAnimation}
       >
         {allPosters?.map((set: TmdbMovieProvider[], setIndex: number) => (
-          <ul className='fdAccountAnimation__backdrop__set' key={`backdrop-set-${setIndex}`}>
+          <ul className='filmDatabaseLoader__backdrop__set' key={`backdrop-set-${setIndex}`}>
             {set.map((article: TmdbMovieProvider, index: number) => {
               const isLast = setIndex === allPosters.length - 1 && index === set.length - 1;
 
               return (
                 <li
-                  className='fdAccountAnimation__backdrop__set__li'
+                  className='filmDatabaseLoader__backdrop__set__li'
                   key={`backdrop-image-${article.id}`}
                   style={{ '--i': index } as CSSProperties}
                 >
-                  <picture className='fdAccountAnimation__backdrop__set__li__container'>
+                  <picture className='filmDatabaseLoader__backdrop__set__li__container'>
                     <img
-                      className='fdAccountAnimation__backdrop__set__li__container--img'
+                      className='filmDatabaseLoader__backdrop__set__li__container--img'
                       src={`https://image.tmdb.org/t/p/${
                         article.id === mostCenteredImageID ? `original` : `w780`
                       }/${article?.backdrop_path}`}
@@ -100,4 +103,4 @@ const FDAccountAnimation = memo(({ accountRef }: { accountRef: React.RefObject<H
   );
 });
 
-export default FDAccountAnimation;
+export default FilmDatabaseLoader;

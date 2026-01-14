@@ -5,6 +5,7 @@ import { ModalDataProvider } from 'app/film-database/context/ModalDataContext';
 import { RootRefProvider } from 'app/film-database/context/RootRefContext';
 import { UserCollectionProvider } from 'app/film-database/context/UserCollectionContext';
 import FDAccountModal from 'app/film-database/features/account/FDAccountModal';
+import FilmDatabaseLoader from 'app/film-database/features/loaders/FilmDatabaseLoader';
 import { useLoaderData } from 'react-router';
 import { tmdbCall } from '../composables/tmdbCall';
 import FDCatalog from '../features/catalog/FDCatalog';
@@ -45,24 +46,30 @@ export async function clientLoader() {
 export const useFLoader = () => useLoaderData() as Awaited<ReturnType<typeof clientLoader>>;
 
 export default function FilmDatabase() {
-  const { user } = useAuth();
+  const { user, isUserAuthorizing } = useAuth();
 
-  return user ? (
+  return (
     <div className='filmDatabase'>
       <RootRefProvider>
         <ModalProvider>
           <HeroDataProvider>
             <UserCollectionProvider>
               <ModalDataProvider>
-                <FDHeader />
-                <FDCatalog />
+                {isUserAuthorizing ? (
+                  <FilmDatabaseLoader />
+                ) : user ? (
+                  <>
+                    <FDHeader />
+                    <FDCatalog />
+                  </>
+                ) : (
+                  <FDAccountModal />
+                )}
               </ModalDataProvider>
             </UserCollectionProvider>
           </HeroDataProvider>
         </ModalProvider>
       </RootRefProvider>
     </div>
-  ) : (
-    <FDAccountModal />
   );
 }

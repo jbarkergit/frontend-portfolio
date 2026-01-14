@@ -4,6 +4,9 @@
 // Routes
 @forward '/app/film-database/routes/filmDatabase';
 
+// Loaders
+@forward '/app/film-database/features/loaders/filmDatabaseLoader';
+
 // Account Page Features
 @forward '/app/film-database/features/account/fdAccountModal';
 
