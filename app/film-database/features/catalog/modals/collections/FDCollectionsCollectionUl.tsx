@@ -76,7 +76,7 @@ const FDCollectionsCollectionUl = memo(
         return initMap;
       } else {
         // If data is empty
-        const EmptyList = Array.from({ length: modal + 1 }).map((eli, index) => (
+        const EmptyList = Array.from({ length: modal + 1 }).map((_, index) => (
           <EmptyListItem key={`collection-${mapIndex}-emptyListItem-${index}`} />
         ));
         return EmptyList;
@@ -90,6 +90,7 @@ const FDCollectionsCollectionUl = memo(
         data-edit-mode={isEditMode}
         aria-label='Reorderable list of movies'
         role='listbox'
+        data-index={mapIndex}
       >
         {buildJSX}
       </ul>

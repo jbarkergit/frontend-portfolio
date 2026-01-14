@@ -47,7 +47,7 @@ export const UserCollectionProvider = ({ children }: { children: ReactNode }) =>
       data: [],
     },
     'user-collection-1': {
-      header: 'Unnamed Collection',
+      header: 'Now Playing',
       data: presetCollection ?? [],
     },
   });
@@ -84,10 +84,11 @@ export const UserCollectionProvider = ({ children }: { children: ReactNode }) =>
     populateUserCollection();
   }, []);
 
+  /**
+   * Update user document collection
+   */
   useEffect(() => {
     if (!isUserAuthorized()) return;
-
-    /** Update user document collection */
     updateFirestoreUserDocument({ movies: userCollections });
   }, [userCollections]);
 

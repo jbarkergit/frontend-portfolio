@@ -1,7 +1,7 @@
 import { useAuth } from 'app/base/firebase/authentication/context/authProvider';
 import { HeroDataProvider } from 'app/film-database/context/HeroDataContext';
 import { ModalProvider } from 'app/film-database/context/ModalContext';
-import { ModalTrailerProvider } from 'app/film-database/context/ModalTrailerContext';
+import { ModalDataProvider } from 'app/film-database/context/ModalDataContext';
 import { RootRefProvider } from 'app/film-database/context/RootRefContext';
 import { UserCollectionProvider } from 'app/film-database/context/UserCollectionContext';
 import FDAccountModal from 'app/film-database/features/account/auth-modal/FDAccountModal';
@@ -56,10 +56,10 @@ export default function FilmDatabase() {
         <ModalProvider>
           <HeroDataProvider>
             <UserCollectionProvider>
-              <ModalTrailerProvider>
+              <ModalDataProvider>
                 <FDHeader />
                 <FDCatalog />
-              </ModalTrailerProvider>
+              </ModalDataProvider>
             </UserCollectionProvider>
           </HeroDataProvider>
         </ModalProvider>

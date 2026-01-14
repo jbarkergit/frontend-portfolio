@@ -2,7 +2,7 @@ import { MaterialSymbolsLogoutSharp, SvgSpinnersRingResize } from 'app/film-data
 import { tmdbCall } from 'app/film-database/composables/tmdbCall';
 import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
 import { useModalContext } from 'app/film-database/context/ModalContext';
-import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useModalDataContext } from 'app/film-database/context/ModalDataContext';
 import { usePersonContext } from 'app/film-database/context/PersonContext';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
@@ -10,7 +10,7 @@ type Cast = TmdbResponseFlat['personCredits']['cast'][number];
 
 const FDPerson = () => {
   const { person } = usePersonContext();
-  const { setModalTrailer } = useModalTrailerContext();
+  const { setModalData } = useModalDataContext();
   const { setModal } = useModalContext();
 
   const [response, setResponse] = useState<{
@@ -209,7 +209,7 @@ const FDPerson = () => {
                               <button
                                 aria-label={`View ${film.title}`}
                                 onClick={() => {
-                                  setModalTrailer(film);
+                                  setModalData(film);
                                   setModal('movie');
                                 }}
                               >

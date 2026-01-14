@@ -6,7 +6,7 @@ import { tmdbCall } from 'app/film-database/composables/tmdbCall';
 import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
 import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
 import { useModalContext } from 'app/film-database/context/ModalContext';
-import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useModalDataContext } from 'app/film-database/context/ModalDataContext';
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import JustWatch from '/app/film-database/assets/api/JustWatch-logo-large.webp?url';
@@ -18,9 +18,9 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
   const { setModal } = useModalContext();
 
   const { heroData } = useHeroDataContext();
-  const { modalTrailer, setModalTrailer } = useModalTrailerContext();
+  const { modalData, setModalData } = useModalDataContext();
 
-  const data = !modal ? heroData : modalTrailer;
+  const data = !modal ? heroData : modalData;
   if (!data) return;
 
   const [watchProviders, setWatchProviders] = useState<TmdbResponseFlat['watchProviders']['results']['US'] | undefined>(
@@ -114,7 +114,7 @@ const FDDetails = ({ modal }: { modal: boolean }) => {
               aria-label={`View more details about ${data.title}`}
               onClick={() => {
                 setModal('movie');
-                setModalTrailer(data);
+                setModalData(data);
               }}
             >
               More Details

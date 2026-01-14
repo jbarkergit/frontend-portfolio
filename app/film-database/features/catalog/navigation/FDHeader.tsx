@@ -1,7 +1,7 @@
 import { firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
 import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
 import { useModalContext } from 'app/film-database/context/ModalContext';
-import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useModalDataContext } from 'app/film-database/context/ModalDataContext';
 import { signOut } from 'firebase/auth';
 import { type SVGProps, useCallback, useEffect, useRef, useState } from 'react';
 
@@ -45,7 +45,7 @@ function SolarVideoLibraryBoldDuotone(props: SVGProps<SVGSVGElement>) {
 
 const FDHeader = () => {
   const { setModal } = useModalContext();
-  const { setModalTrailer } = useModalTrailerContext();
+  const { setModalData } = useModalDataContext();
   const { heroData } = useHeroDataContext();
   const [isAccountDropdownOpen, setIsAccountDropdownOpen] = useState<boolean>(false);
   const accountDropdownRef = useRef<HTMLDivElement>(null);
@@ -78,7 +78,7 @@ const FDHeader = () => {
             aria-label='Open Collections'
             onClick={() => {
               setModal('collections');
-              setModalTrailer(heroData);
+              setModalData(heroData);
             }}
           >
             <SolarVideoLibraryBoldDuotone />

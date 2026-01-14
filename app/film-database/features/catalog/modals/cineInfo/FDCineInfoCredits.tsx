@@ -2,7 +2,7 @@ import GenericCarousel from 'app/film-database/components/carousel/GenericCarous
 import { tmdbCall } from 'app/film-database/composables/tmdbCall';
 import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
 import { useModalContext } from 'app/film-database/context/ModalContext';
-import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useModalDataContext } from 'app/film-database/context/ModalDataContext';
 import { useEffect, useState } from 'react';
 
 type Cast = TmdbResponseFlat['credits']['cast'];
@@ -12,18 +12,18 @@ type UnwrapArray<T> = T extends Array<infer U> ? U : T;
 
 const FDCineInfoCredits = () => {
   const { modal } = useModalContext();
-  const { modalTrailer } = useModalTrailerContext();
+  const { modalData } = useModalDataContext();
   const [credits, setCredits] = useState<CastAndCrew | undefined>(undefined);
 
   useEffect(() => {
-    if (modal !== 'movie' || !modalTrailer) return;
+    if (modal !== 'movie' || !modalData) return;
 
     const controller = new AbortController();
 
     const fetchCredits = async () => {
-      if (!modalTrailer) return;
+      if (!modalData) return;
 
-      const creditsResponse = await tmdbCall(controller, { credits: modalTrailer.id });
+      const creditsResponse = await tmdbCall(controller, { credits: modalData.id });
       const { cast, crew } = creditsResponse.response;
 
       const dedupedCast = new Map<string, UnwrapArray<Cast>>();
@@ -66,7 +66,7 @@ const FDCineInfoCredits = () => {
     fetchCredits();
 
     return () => controller.abort();
-  }, [modal, modalTrailer]);
+  }, [modal, modalData]);
 
   if (!credits) return null;
 

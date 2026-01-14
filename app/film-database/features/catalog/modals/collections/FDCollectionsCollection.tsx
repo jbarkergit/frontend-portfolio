@@ -1,6 +1,6 @@
 import GenericCarouselNavigation from 'app/film-database/components/carousel/GenericCarouselNavigation';
 import type { TmdbMovieProvider } from 'app/film-database/composables/types/TmdbResponse';
-import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useModalDataContext } from 'app/film-database/context/ModalDataContext';
 import { type UserCollection, useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { findEuclidean } from 'app/film-database/utility/findEuclidean';
 import { forwardRef, memo, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
@@ -60,7 +60,7 @@ const FDCollectionsCollection = memo(
 
     // Context
     const { userCollections, setUserCollections } = useUserCollectionContext();
-    const { setModalTrailer } = useModalTrailerContext();
+    const { setModalData } = useModalDataContext();
 
     // Precomputations
     const sensorDefault = useMemo(() => createSensorDefault(), []); // Sensor
@@ -130,7 +130,7 @@ const FDCollectionsCollection = memo(
 
       const collectionData = Object.values(userCollections)[mapIndex]?.data;
       const targetData = collectionData?.[elementIndex];
-      if (targetData) setModalTrailer(targetData);
+      if (targetData) setModalData(targetData);
 
       resetInteraction();
     }
@@ -246,9 +246,15 @@ const FDCollectionsCollection = memo(
           newTargetData = newSourceData; // Same array for source and target
         } else {
           // Moving to target collection
-          newSourceData = prevSourceData.filter((_, index) => index !== sourceRef.current.listItemIndex);
+          const targetIsTrailerQueue = Number(targetCol.getAttribute('data-index')) === 0;
+
+          newSourceData = targetIsTrailerQueue
+            ? prevSourceData // Keep original in source
+            : prevSourceData.filter((_, index) => index !== sourceRef.current.listItemIndex);
+
           const movedItem = structuredClone(prevSourceData[sourceRef.current.listItemIndex]);
           if (!movedItem) return prevCarousels;
+
           newTargetData = [
             ...prevTargetData.slice(0, targetListIndex),
             movedItem,

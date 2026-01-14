@@ -20,13 +20,10 @@ const Context = createContext<
 
 export const HeroDataProvider = ({ children }: { children: ReactNode }) => {
   const { primaryData } = useFLoader();
-
   const [heroData, setHeroData] = useState<TmdbMovieProvider | undefined>(
     primaryData[0] ? primaryData[0].response.results[0] : undefined
   );
-
   const value = useMemo(() => ({ heroData, setHeroData }), [heroData]);
-
   return <Context.Provider value={value}>{children}</Context.Provider>;
 };
 

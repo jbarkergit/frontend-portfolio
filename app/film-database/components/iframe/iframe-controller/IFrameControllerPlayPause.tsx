@@ -1,4 +1,4 @@
-import type { PlayerPlayState } from 'app/film-database/components/iframe/FDiFrame';
+import type { iFramePlayState } from 'app/film-database/components/iframe/FDiFrame';
 import { useModalContext } from 'app/film-database/context/ModalContext';
 import { type JSX, type SVGProps, useEffect, useState } from 'react';
 import type { YouTubePlayer } from 'react-youtube';
@@ -27,7 +27,7 @@ function MaterialSymbolsPlayArrowRounded(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-const IFrameControllerPlayPause = ({ player, playState }: { player: YouTubePlayer; playState: PlayerPlayState }) => {
+const IFrameControllerPlayPause = ({ player, playState }: { player: YouTubePlayer; playState: iFramePlayState }) => {
   const { modal } = useModalContext();
   const [playStateSymbolComponent, setPlayStateSymbolComponent] = useState<JSX.Element>(<SvgSpinnersRingResize />);
 

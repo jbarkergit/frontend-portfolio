@@ -2,7 +2,7 @@ import { BxDotsVerticalRounded, IcOutlinePlayCircle, TablerCategoryPlus } from '
 import type { GenericCarouselMap } from 'app/film-database/components/carousel/GenericCarousel';
 import { useHeroDataContext } from 'app/film-database/context/HeroDataContext';
 import { useModalContext } from 'app/film-database/context/ModalContext';
-import { useModalTrailerContext } from 'app/film-database/context/ModalTrailerContext';
+import { useModalDataContext } from 'app/film-database/context/ModalDataContext';
 import { usePersonContext } from 'app/film-database/context/PersonContext';
 import { useUserCollectionContext } from 'app/film-database/context/UserCollectionContext';
 import { useVisibleCountContext } from 'app/film-database/context/VisibleCountContext';
@@ -25,7 +25,7 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
   const { visibleCount } = useVisibleCountContext();
   const { setModal } = useModalContext();
   const { setPerson } = usePersonContext();
-  const { setModalTrailer } = useModalTrailerContext();
+  const { setModalData } = useModalDataContext();
 
   const isModal: boolean =
     carouselName === 'media'
@@ -193,7 +193,7 @@ function GenericCarouselPoster<K extends keyof GenericCarouselMap>({
       <li
         className='genericCarousel__wrapper__ul__li'
         onPointerDown={() => {
-          setModalTrailer(mediaEntry);
+          setModalData(mediaEntry);
           setModal('movie');
         }}
         onPointerLeave={() => dropdownRef.current?.setAttribute('data-open', 'false')}
