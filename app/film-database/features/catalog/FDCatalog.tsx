@@ -7,7 +7,6 @@ import FDModal from 'app/film-database/features/catalog/modals/FDModal';
 
 const FDCatalog = () => {
   const { root } = useRootRefContext();
-
   return (
     <div className='fdCatalog' ref={root} data-layout-carousel data-layout-collection>
       <FDHero />

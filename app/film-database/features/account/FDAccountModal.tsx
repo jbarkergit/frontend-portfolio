@@ -2,7 +2,7 @@ import { firebaseAuth } from 'app/base/firebase/config/firebaseConfig';
 import { normalizeFirebaseAuthError } from 'app/base/firebase/firestore/helpers/normalizeFirebaseAuthError';
 import { zodSchema } from 'app/base/validation/zodSchema';
 import { DeviconGoogle, GameIconsSpy, TablerBrandGithubFilled } from 'app/film-database/assets/svg/icons';
-import FDAccountModalPoster from 'app/film-database/features/account/auth-modal/FDAccountModalPoster';
+import FDAccountModalPoster from 'app/film-database/features/account/FDAccountModalPoster';
 import {
   createUserWithEmailAndPassword,
   GithubAuthProvider,
@@ -12,7 +12,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
 } from 'firebase/auth';
-import { forwardRef, type HTMLAttributes, useRef, useState } from 'react';
+import { type HTMLAttributes, useRef, useState } from 'react';
 import { type ZodIssue, z } from 'zod';
 
 const registrationSchema = z
@@ -135,7 +135,7 @@ const providerMap = {
   google: GoogleAuthProvider,
 } as const;
 
-const FDAccountModal = forwardRef<HTMLDivElement>(({}, accountRef) => {
+const FDAccountModal = () => {
   const [activeForm, setActiveForm] = useState<'registration' | 'login'>('registration');
   const fieldsetRef = useRef<HTMLFieldSetElement>(null);
   const [errors, setErrors] = useState<ZodIssue[]>([]);
@@ -262,7 +262,7 @@ const FDAccountModal = forwardRef<HTMLDivElement>(({}, accountRef) => {
 
   return (
     <div className='fdAccount' data-layout-carousel>
-      <div className='fdAccount__container' ref={accountRef} data-visible='false'>
+      <div className='fdAccount__container'>
         <main className='fdAccount__container__wrapper'>
           <form className='fdAccount__container__wrapper__form' onSubmit={handleSubmit} noValidate>
             <fieldset
@@ -382,6 +382,6 @@ const FDAccountModal = forwardRef<HTMLDivElement>(({}, accountRef) => {
       </div>
     </div>
   );
-});
+};
 
 export default FDAccountModal;

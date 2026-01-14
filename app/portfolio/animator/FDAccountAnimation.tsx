@@ -2,6 +2,9 @@ import type { TmdbMovieProvider } from 'app/film-database/composables/types/Tmdb
 import { useFLoader } from 'app/film-database/routes/FilmDatabase';
 import { type CSSProperties, memo, useEffect, useMemo, useRef, useState } from 'react';
 
+const accountRef = useRef<HTMLDivElement>(null);
+<FDAccountAnimation accountRef={accountRef} />;
+
 // Find the visual center of an array's length
 const getCenteredIndex = (length: number) => Math.round((length - 1) / 2);
 

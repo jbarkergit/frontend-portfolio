@@ -4,11 +4,9 @@ import { ModalProvider } from 'app/film-database/context/ModalContext';
 import { ModalDataProvider } from 'app/film-database/context/ModalDataContext';
 import { RootRefProvider } from 'app/film-database/context/RootRefContext';
 import { UserCollectionProvider } from 'app/film-database/context/UserCollectionContext';
-import FDAccountModal from 'app/film-database/features/account/auth-modal/FDAccountModal';
-import { useRef } from 'react';
+import FDAccountModal from 'app/film-database/features/account/FDAccountModal';
 import { useLoaderData } from 'react-router';
 import { tmdbCall } from '../composables/tmdbCall';
-import FDAccountAnimation from '../features/account/animator/FDAccountAnimation';
 import FDCatalog from '../features/catalog/FDCatalog';
 import FDHeader from '../features/catalog/navigation/FDHeader';
 
@@ -48,7 +46,6 @@ export const useFLoader = () => useLoaderData() as Awaited<ReturnType<typeof cli
 
 export default function FilmDatabase() {
   const { user } = useAuth();
-  const accountRef = useRef<HTMLDivElement>(null);
 
   return user ? (
     <div className='filmDatabase'>
@@ -66,9 +63,6 @@ export default function FilmDatabase() {
       </RootRefProvider>
     </div>
   ) : (
-    <>
-      <FDAccountAnimation accountRef={accountRef} />
-      <FDAccountModal ref={accountRef} />
-    </>
+    <FDAccountModal />
   );
 }
