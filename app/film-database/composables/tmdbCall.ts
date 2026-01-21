@@ -91,7 +91,7 @@ const excludedFilterKeys = [
   'personCredits',
 ] as const;
 
-async function callApi(
+export async function callApi(
   controller: AbortController,
   keyEndpoint: {
     key: keyof TmdbResponseFlat | keyof typeof tmdbDiscoveryIds;
@@ -130,7 +130,7 @@ async function callApi(
   }
 }
 
-async function processArgument(controller: AbortController, arg: Argument): Promise<unknown> {
+export async function processArgumentEndpoint(controller: AbortController, arg: Argument): Promise<unknown> {
   // Assignment
   let key: keyof TmdbResponseFlat | keyof typeof tmdbDiscoveryIds | undefined;
   let endpoint: string | undefined;
@@ -194,7 +194,7 @@ type FilterContentParam<T> = {
   response: TmdbResponseFlat[ArgumentToKey<T>];
 };
 
-function filterContent<T>(result: CallResponse<T>): FilterContentParam<T> | FilterContentParam<T>[] {
+export function filterContent<T>(result: CallResponse<T>): FilterContentParam<T> | FilterContentParam<T>[] {
   if (Array.isArray(result)) {
     return result.map(({ key, response }) => ({
       key,
@@ -224,7 +224,7 @@ export async function tmdbCall<T extends Argument | Argument[]>(
   const parameters = Array.isArray(args) ? args : [args];
 
   // Map arguments into a callback returning an object array for hand-off to Promise.allSettled
-  const promises = (parameters as Argument[]).map(async (param) => await processArgument(controller, param));
+  const promises = (parameters as Argument[]).map(async (param) => await processArgumentEndpoint(controller, param));
 
   // Await allSettled
   const responses = await Promise.allSettled(promises);
@@ -234,7 +234,7 @@ export async function tmdbCall<T extends Argument | Argument[]>(
 
   // Prevent empty arrays from proceeding
   if (fulfilled.length === 0) {
-    throw new Error('The requested TMDB API call failed to return a response.');
+    console.error('The requested TMDB API call failed to return a response.');
   }
 
   // If argument is an array, return, else if argument is a single string or object, return the data at index 0

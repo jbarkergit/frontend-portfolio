@@ -1,5 +1,5 @@
+import { findEuclidean } from 'app/film-database/utility/findEuclidean';
 import { expect, it } from 'vitest';
-import { findEuclidean } from '~/film-database/utility/findEuclidean';
 
 it('findEuclidean returns the index of the closest element', () => {
   const rects: DOMRect[] = [

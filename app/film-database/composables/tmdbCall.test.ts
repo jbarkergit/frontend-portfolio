@@ -1,87 +1,156 @@
-// /** biome-ignore-all lint/suspicious/noExplicitAny: <explanation> */
-// import { beforeEach, describe, expect, expectTypeOf, it, vi } from 'vitest';
-// import * as tmdb from '~/film-database/composables/tmdbCall';
+import type { TmdbResponseFlat } from 'app/film-database/composables/types/TmdbResponse';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import * as tmdb from '../composables/tmdbCall.ts';
 
-// const { tmdbCall, handleArg, callApi, createEndpoint, excludedCacheKeys } = tmdb;
+const { tmdbCall, processArgumentEndpoint, filterContent, callApi } = tmdb;
+const abortController = new AbortController();
 
-// describe('tmdbCall', () => {
-//   beforeEach(() => (global.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({}) })));
+describe('TMDB API WRAPPER', () => {
+  beforeEach(() => {
+    vi.resetAllMocks();
+    sessionStorage.clear();
+  });
 
-//   it('Prevents run time crashes caused by bad arguments', async () => {
-//     await expect(tmdbCall(new AbortController(), 'not_playing' as any)).resolves.toMatchObject({
-//       key: 'not_playing',
-//       response: undefined,
-//     });
-//   });
+  describe('tmdbCall', () => {
+    beforeEach(() => {
+      vi.resetAllMocks();
+      sessionStorage.clear();
+    });
 
-//   it('tmdbCall arg validation', async () => {
-//     const controller = new AbortController();
+    it('Accepts any argument shape', async () => {
+      const fakeResponse = { key: 'now_playing', response: { results: [] } };
 
-//     const string = await tmdbCall(controller, 'now_playing');
-//     const object = await tmdbCall(controller, { credits: 123 });
-//     const array = await tmdbCall(controller, ['now_playing', 'popular']);
-//     const mixedArray = await tmdbCall(controller, ['now_playing', { credits: 321 }]);
+      // Mock callApi so tmdbCall does not call real API
+      vi.spyOn(tmdb, 'callApi').mockImplementation(async () => fakeResponse);
 
-//     expect(string).toBeDefined();
-//     expect(object).toBeDefined();
-//     expect(array).toBeDefined();
-//     expectTypeOf(mixedArray).toBeArray();
-//   });
+      const string = await tmdbCall(abortController, 'now_playing');
+      const array = await tmdbCall(abortController, ['now_playing']);
+      const mixedArray = await tmdbCall(abortController, ['now_playing', { credits: 123 }]);
+      const object = await tmdbCall(abortController, { credits: 123 });
 
-//   it('handleArg either retrieves and parses cached items or calls callApi', async () => {
-//     const controller = new AbortController();
+      expect(string).toBeDefined();
+      expect(array).toBeDefined();
+      expect(mixedArray).toBeDefined();
+      expect(object).toBeDefined();
+    });
 
-//     // Should call callApi
-//     const spy = vi.spyOn(global, 'fetch');
-//     await handleArg(controller, excludedCacheKeys[0] as any, '');
-//     expect(spy).toBeCalledTimes(1);
+    it('Safely rejects bad requests', async () => {
+      const fakeResponse = { key: 'never', response: null };
 
-//     // Should retrieve item from cache and parse the data
-//     const key = 'handleArgTest';
-//     const cachedValue = { message: 'Hello, World.' };
-//     sessionStorage.setItem(key, JSON.stringify(cachedValue));
+      // Mock callApi to return fake data even for bad keys
+      vi.spyOn(tmdb, 'callApi').mockImplementation(async () => fakeResponse);
 
-//     const isNotCacheExcluded = await handleArg(controller, key as any, '');
-//     expect(isNotCacheExcluded).toEqual(cachedValue);
+      //@ts-expect-error intentional bad key
+      const badRequest = await tmdbCall(abortController, 'never');
+      //@ts-expect-error intentional bad key
+      const badMixedRequest = await tmdbCall(abortController, ['now_playing', 'never']);
 
-//     sessionStorage.clear();
-//   });
+      expect(badRequest).toBeDefined();
+      expect(badMixedRequest).toBeDefined();
+    });
+  });
 
-//   it('callApi has correct fetch options, including a controller signal', async () => {
-//     const mockFetch = vi.spyOn(global, 'fetch');
-//     const controller = new AbortController();
+  describe('processArgumentEndpoint', () => {
+    it('Returns endpoints for given key parameter', async () => {
+      await processArgumentEndpoint(abortController, 'now_playing').then((r) => {
+        const result = r as Record<string, unknown>;
+        expect(result).toHaveProperty('key');
+        expect(result['key']).toBeDefined();
+      });
+    });
+  });
 
-//     await callApi(controller, 'now_playing', undefined);
+  describe('filterContent', () => {
+    it('Filters adult content from an array result', () => {
+      const argument = [
+        {
+          key: 'now_playing',
+          response: {
+            results: ['good', 'xxx'],
+          },
+        },
+      ];
 
-//     const call = mockFetch.mock.calls[0] as Parameters<typeof fetch>;
-//     const [url, options] = call;
+      // @ts-expect-error intentional unknown type
+      const result = filterContent(argument);
 
-//     expect(url).toMatch(/now_playing/);
-//     expect(options).toMatchObject({
-//       method: 'GET',
-//       headers: { accept: 'application/json', Authorization: expect.stringContaining('Bearer ') },
-//       signal: expect.any(AbortSignal),
-//     });
-//   });
+      expect(Array.isArray(result)).toBe(true);
+      // @ts-expect-error intentional unknown type
+      expect(result[0].response.results.length).toBe(1);
+    });
 
-//   it('callApi caches items and handles cache key exceptions', async () => {
-//     const controller = new AbortController();
+    it('Filters adult content from an object result', () => {
+      const argument = {
+        key: 'now_playing',
+        response: {
+          results: ['good', 'xxx'],
+        },
+      };
 
-//     // Shouldn't cache
-//     await callApi(controller, excludedCacheKeys[0], '' as any);
-//     const nullValue = sessionStorage.getItem(excludedCacheKeys[0]);
-//     expect(nullValue).toBeNull();
+      // @ts-expect-error intentional unknown type
+      const result = filterContent(argument);
 
-//     // Should cache
-//     const testKey = 'callApiTest';
-//     await callApi(controller, testKey as any, '' as any);
-//     const cachedValue = JSON.parse(sessionStorage.getItem(testKey)!);
-//     expect(cachedValue).toBeDefined();
-//   });
+      expect(result).toHaveProperty('key', 'now_playing');
+      // @ts-expect-error intentional unknown type
+      expect(result.response.results.length).toBe(1);
+    });
+  });
 
-//   it('createEndpoint properly replaces placeholder text within desired endpoint for all potential arguments', () => {
-//     expect(createEndpoint('not_a_arg' as any, undefined)).toBeUndefined();
-//     expect(createEndpoint('now_playing', undefined)).toContain('now_playing');
-//     expect(createEndpoint('credits', 123456)).toContain('123456');
-//   });
-// });
+  describe('callApi', () => {
+    const controller = new AbortController();
+
+    it('returns JSON data and caches it', async () => {
+      const mockResponse = { foo: 'bar' };
+
+      vi.stubGlobal(
+        'fetch',
+        vi.fn().mockResolvedValue({
+          ok: true,
+          json: vi.fn().mockResolvedValue(mockResponse),
+        } as unknown as Response)
+      );
+
+      const keyEndpoint = {
+        key: 'now_playing' as keyof TmdbResponseFlat,
+        endpoint: '/fake-endpoint',
+      };
+
+      const result = await callApi(controller, keyEndpoint);
+
+      expect(result).toEqual(mockResponse);
+      expect(sessionStorage.getItem('now_playing')).toEqual(JSON.stringify(mockResponse));
+      expect(fetch).toHaveBeenCalledWith('/fake-endpoint', expect.any(Object));
+    });
+
+    it('returns undefined if fetch fails', async () => {
+      vi.stubGlobal(
+        'fetch',
+        vi.fn().mockResolvedValue({
+          ok: false,
+        } as unknown as Response)
+      );
+
+      const keyEndpoint = {
+        key: 'now_playing' as keyof TmdbResponseFlat,
+        endpoint: '/fake-endpoint',
+      };
+
+      const result = await callApi(controller, keyEndpoint);
+
+      expect(result).toBeUndefined();
+    });
+
+    it('returns undefined on network error', async () => {
+      vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('Network error')));
+
+      const keyEndpoint = {
+        key: 'now_playing' as keyof TmdbResponseFlat,
+        endpoint: '/fake-endpoint',
+      };
+
+      const result = await callApi(controller, keyEndpoint);
+
+      expect(result).toBeUndefined();
+    });
+  });
+});
