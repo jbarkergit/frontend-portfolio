@@ -4,12 +4,12 @@ import path from 'node:path';
 import { reactRouter } from '@react-router/dev/vite';
 import browserslist from 'browserslist';
 import { browserslistToTargets } from 'lightningcss';
-import { defineConfig } from 'vite';
 import type { UserConfig } from 'vite';
+import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
-  root: './app',
+  root: '.',
   // https://www.npmjs.com/package/vite-tsconfig-paths
   // https://www.npmjs.com/package/@react-router/dev
   plugins: [tsconfigPaths(), reactRouter()],
@@ -45,7 +45,7 @@ export default defineConfig({
   // https://vitest.dev/config/
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: 'node',
     setupFiles: ['./setupTests.ts'],
     include: ['**/*.test.{ts,tsx}'],
   },
