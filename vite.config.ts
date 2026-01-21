@@ -44,7 +44,7 @@ export default defineConfig({
   },
   // https://vitest.dev/config/
   test: {
-    environment: 'node',
+    environment: 'jsdom',
     globals: true,
     include: ['**/*.test.{ts,tsx}'],
     setupFiles: ['./setupTests.ts'],
