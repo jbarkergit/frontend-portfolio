@@ -44,9 +44,9 @@ export default defineConfig({
   },
   // https://vitest.dev/config/
   test: {
-    globals: true,
     environment: 'node',
-    setupFiles: ['./setupTests.ts'],
+    globals: true,
     include: ['**/*.test.{ts,tsx}'],
+    setupFiles: ['./setupTests.ts'],
   },
 }) satisfies UserConfig;
