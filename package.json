@@ -5,46 +5,44 @@
   "type": "module",
   "scripts": {
     "dev": "react-router dev",
-    "build": "react-router build",
-    "preview": "react-router-serve ./build/server/index.js",
     "test": "vitest",
-    "lint:format": "npx @biomejs/biome check --write"
+    "lint:format": "npx @biomejs/biome check --write",
+    "preview": "react-router-serve ./build/server/index.js",
+    "build": "react-router build"
   },
   "dependencies": {
     "@react-router/node": "7.12.0",
     "@react-router/serve": "7.12.0",
-    "firebase": "12.6.0",
-    "isbot": "5.1.32",
+    "firebase": "12.8.0",
+    "isbot": "5.1.33",
     "naughty-words": "1.2.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-router": "7.12.0",
     "react-youtube": "10.1.0",
-    "zod": "3.24.1"
+    "zod": "4.3.5"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.9",
+    "@biomejs/biome": "2.3.11",
     "@react-router/dev": "7.12.0",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",
-    "@testing-library/react": "16.3.1",
+    "@testing-library/react": "16.3.2",
     "@total-typescript/ts-reset": "0.6.1",
-    "@types/node": "25.0.2",
-    "@types/react": "19.2.7",
+    "@types/node": "25.0.10",
+    "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
     "@types/youtube-player": "5.5.11",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0",
-    "@vercel/react-router": "1.2.4",
+    "@vercel/react-router": "1.2.5",
     "dotenv": "17.2.3",
-    "jsdom": "27.0.0",
-    "lightningcss": "^1.30.2",
-    "react-router-devtools": "6.0.0",
+    "jsdom": "27.4.0",
+    "lightningcss": "1.31.1",
+    "react-router-devtools": "^5.1.6",
     "sass": "1.90.0",
     "typescript": "5.9.3",
-    "vite": "7.3.0",
-    "vite-tsconfig-paths": "6.0.1",
-    "vitest": "4.0.15"
+    "vite": "7.3.1",
+    "vite-tsconfig-paths": "6.0.4",
+    "vitest": "4.0.17"
   },
   "config": {}
 }
