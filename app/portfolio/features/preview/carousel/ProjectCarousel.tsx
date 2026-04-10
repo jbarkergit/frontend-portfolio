@@ -1,7 +1,7 @@
 import { useFeatureState } from 'app/portfolio/context/FeatureStateContext';
 import { useProjectSlideIndex } from 'app/portfolio/context/ProjectSlideContext';
 import { projectData } from 'app/portfolio/data/projectData';
-import { useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { Link } from 'react-router';
 
 type ActionType =
@@ -366,14 +366,16 @@ const ProjectCarousel = () => {
     animationRef.current = requestAnimationFrame(animateLoop); // Schedule next frame
   };
 
-  useEffect(() => {
-    // Mount animation
-    if (initialRender.current) {
+  // Mount animator
+  useLayoutEffect(() => {
+    if (initialRender.current && carouselRef.current) {
       initialRender.current = false;
-      carouselRef.current?.setAttribute('data-visible', 'true');
+      carouselRef.current.setAttribute('data-visible', 'true');
     }
+  }, []);
 
-    // Render loop
+  // Render loop
+  useEffect(() => {
     animationRef.current = requestAnimationFrame(animateLoop);
     return () => cancelAnimationFrame(animationRef.current!);
   }, []);
